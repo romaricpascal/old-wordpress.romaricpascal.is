@@ -1,0 +1,25 @@
+{
+  "name": "theme-name",
+  "version": "1.0.0",
+  "description": "Wordpress theme",
+  "main": "scss/style.scss",
+  "scripts": {
+    "build:css": "node-sass src/scss/style.scss | postcss -c .postcssrc",
+    "dev:css": "chokidar '**/*.scss' -c 'npm run build:css' --initial"
+  },
+  "keywords": [
+    "Wordpress",
+    "theme"
+  ],
+  "author": "Romaric Pascal <hello@romaricpascal.is>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^6.7.0",
+    "chokidar-cli": "^1.2.0",
+    "cssnano": "^3.10.0",
+    "node-sass": "^4.3.0",
+    "postcss-banner": "^3.0.0",
+    "postcss-cli": "^2.6.0"
+  }
+}

@@ -1,0 +1,23 @@
+module.exports = {
+  use: [
+    'autoprefixer',
+    'cssnano',
+    'postcss-banner',
+  ],
+  output: './style.css',
+  autoprefixer: {
+    browsers: 'last 2 versions, safari >=6, ios_saf >=6'
+  },
+  cssnano: {
+    safe: true
+  },
+  'postcss-banner': {
+    banner: (function() {
+      var path = require('path');
+      var fs = require('fs');
+
+      var METADATA_FILE = 'metadata.md';
+      return fs.readFileSync(path.join(__dirname, METADATA_FILE), 'utf8');
+    })()
+  }
+}
