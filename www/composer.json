@@ -1,0 +1,36 @@
+{
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "wordpress",
+        "type": "webroot",
+        "version": "4.7.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/WordPress/WordPress/archive/4.7.1.zip"
+        },
+        "require" : {
+          "fancyguy/webroot-installer": "1.0.0"
+        }
+      }
+    },
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "wordpress": "4.7.1",
+    "fancyguy/webroot-installer": "1.0.0"
+  },
+  "extra": {
+    "webroot-dir": "wordpress",
+    "webroot-package": "wordpress"
+  },
+  "scripts": {
+    "post-install-cmd": "php generate-salts.php",
+    "post-update-cmd": "php generate-salts.php"
+  }
+}
