@@ -7,9 +7,9 @@ Author: Romaric Pascal
 Author URI: http://romaricpascal.is
 */
 
-define(CRAFT_TAX_NAME, 'craft');
-define(CRAFT_TERM_WEB, 'web');
-define(CRAFT_TERM_LETTERING, 'lettering');
+define('CRAFT_TAX_NAME', 'craft');
+define('CRAFT_TERM_WEB', 'web');
+define('CRAFT_TERM_LETTERING', 'lettering');
 
 function create_craft_taxonomy() {
   //set the name of the taxonomy
@@ -69,3 +69,12 @@ function add_craft_taxonomy(){
     create_craft_taxonomy_terms();
 }
 add_action('init','add_craft_taxonomy');
+
+function get_craft($post) {
+  $crafts = wp_get_post_terms($post->ID, 'craft');
+  if (empty($crafts)) {
+    return null;
+  }
+
+  return $crafts[0];
+}

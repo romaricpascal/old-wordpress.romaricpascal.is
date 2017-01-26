@@ -7,6 +7,8 @@ Author: Romaric Pascal
 Author URI: http://romaricpascal.is
 */
 
+define('USP_TYPE', 'usp');
+
 // 1. Register new post type
 add_action('init', 'usps_register_post_type');
 function usps_register_post_type() {
@@ -25,7 +27,7 @@ function usps_register_post_type() {
     'parent_item_colon' => ''
   ];
 
-  register_post_type('usp', [
+  register_post_type(USP_TYPE, [
     'labels' => $labels,
     'public' => true,
     'exclude_from_search' => true,
@@ -34,5 +36,27 @@ function usps_register_post_type() {
     'supports' => ['title','editor','thumbnail', 'page-attributes']
   ]);
 
-  register_taxonomy_for_object_type('craft', 'usp');
+  register_taxonomy_for_object_type(CRAFT_TAX_NAME, USP_TYPE);
+}
+
+function get_usps_for_craft($craft) {
+  return query_posts([
+    'post_type' => USP_TYPE,
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
+    'tax_query' => [[
+      'taxonomy' => CRAFT_TAX_NAME,
+      'field' => 'slug',
+      'terms' => $craft->slug
+    ]]
+  ]);
+  return $usps;
+}
+
+function the_usps($craft) {
+  $usps = get_usps_for_craft($craft);
+  while(have_posts()) {
+    the_post();
+    get_template_part('usp','block');
+  }
 }
