@@ -4,8 +4,8 @@
   "description": "Wordpress theme",
   "main": "scss/style.scss",
   "scripts": {
-    "build:css": "node-sass src/scss/style.scss | postcss -c .postcssrc",
-    "dev:css": "chokidar '**/*.scss' -c 'npm run build:css' --initial"
+    "build:css": "node-sass scss/style.scss | postcss -c .postcssrc",
+    "dev:css": "chokidar 'scss/*.scss' -c 'npm run build:css' --initial"
   },
   "keywords": [
     "Wordpress",
@@ -21,5 +21,10 @@
     "node-sass": "^4.3.0",
     "postcss-banner": "^3.0.0",
     "postcss-cli": "^2.6.0"
+  },
+  "dependencies": {
+    "inuitcss": "^6.0.0-beta.4",
+    "normalize.css": "^5.0.0",
+    "sass-mq": "^3.3.2"
   }
 }

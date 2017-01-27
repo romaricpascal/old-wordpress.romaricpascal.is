@@ -1,12 +1,14 @@
 <?php global $menu_items; ?>
 
-<nav class="main-navigation">
-<a class="visuallyhidden focusable" tabindex="1" href="#content">Skip to content</a>
+<nav>
+<a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
 <?php if(!empty($menu_items) && $menu_items): ?>
-<ul>
-<?php foreach($menu_items as $menu_item): ?>
-<li><a href="<?= $menu_item->url ?>"><?= $menu_item->title; ?></a></li>
-<?php endforeach; ?>
-<?php endif; ?>
-</ul>
+<a class="rp-LinkToMenu" href="#main-nav">Menu</a>
+<div class="rp-Menu" id="main-nav">
+<?php wp_nav_menu(array('theme_location' => 'bu_mainMenu',
+                        'menu_class' => 'bu-SiteMenu')); ?>
+
+<div>Looking to work with me? <a href="hello@romaricpascal.is">Contact me</a></div>
+<a href="#header">Close menu</a>
+</div>
 </nav>
