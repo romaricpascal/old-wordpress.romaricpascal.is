@@ -65,7 +65,7 @@ Setting up Wordpress to have `wp-content` sit outside the `wordpress` folder req
 Deploy into an Apache vhost, use Nginx + php-fpm. Docker containers are an option too. But you can also just run:
 
 ```
-$ WORDPRESS_URL=your_url:port php -S 0.0.0.0:port
+$ WORDPRESS_URL=your_url:port php -S 0.0.0.0:port routing.php
 ```
 
 ## Project structure
