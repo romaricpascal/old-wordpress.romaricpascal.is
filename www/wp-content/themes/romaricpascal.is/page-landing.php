@@ -19,7 +19,7 @@ get_header(); ?>
 
 <section>
   <h2>Past work</h2>
-  <div>Projects</div>
+  <div><?php the_featured_projects($craft) ?></div>
   <div><?php a_testimonial($craft) ?></div>
 </section>
 
