@@ -15,9 +15,7 @@
 <body>
   <header>
     <div>Logo</div>
-    <nav>
-      Nav
-    </nav>
+    <?php rp_the_menu(MENU_PRIMARY) ?>
     <div>Looking to work with me? <a href="hello@romaricpascal.is">Contact me</a></div>
   </header>
   <main>
