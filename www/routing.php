@@ -1,18 +1,19 @@
 <?php
-// Thanks Ripeworks :) http://ripeworks.com/run-wordpress-locally-using-phps-buily-in-web-server
+// Thank wp-cli https://github.com/wp-cli/wp-cli/blob/master/php/router.php
 $root = $_SERVER['DOCUMENT_ROOT'];
-chdir($root);
-$path = '/'.ltrim(parse_url($_SERVER['REQUEST_URI'])['path'],'/');
-set_include_path(get_include_path().':'.__DIR__);
-if(file_exists($root.$path))
-{
-	if(is_dir($root.$path) && substr($path,strlen($path) - 1, 1) !== '/')
-		$path = rtrim($path,'/').'/index.php';
-	if(strpos($path,'.php') === false) return false;
-	else {
-		chdir(dirname($root.$path));
-		require_once $root.$path;
+$path = '/'. ltrim( parse_url( urldecode( $_SERVER['REQUEST_URI'] ) )['path'], '/' );
+if ( file_exists( $root.$path ) ) {
+	if ( is_dir( $root.$path ) && substr( $path, -1 ) !== '/' ) {
+		header( "Location: $path/" );
+		exit;
 	}
-}else {
-  include_once 'index.php';
+	if ( strpos( $path, '.php' ) !== false ) {
+		chdir( dirname( $root.$path ) );
+		require_once $root.$path;
+	} else {
+		return false;
+	}
+} else {
+	chdir( $root );
+	require_once 'index.php';
 }
