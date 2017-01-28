@@ -18,14 +18,15 @@ if(file_exists($envPath)) {
   include $envPath;
 }
 
+// define('ENV_WORDPRESS_URL', null === getenv('WORDPRESS_URL') ? getenv('WORDPRESS_URL') : $_SERVER['HTTP_HOST']);
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
-define( 'WP_CONTENT_URL', 'http://' . getenv('WORDPRESS_URL') . '/wp-content');
+// define( 'WP_HOME', 'http://' . ENV_WORDPRESS_URL);
+define( 'WP_CONTENT_URL', WP_HOME . '/wp-content');
 
-define('WP_SITEURL', 'http://' . getenv('WORDPRESS_URL') . '/wordpress');
-define('WP_HOME', 'http://' . getenv('WORDPRESS_URL'));
+define('WP_SITEURL', WP_HOME . '/wordpress');
 
 /**#@+
  * Authentication Unique Keys and Salts.
