@@ -28,7 +28,7 @@
   <body>
     <header id="#header" class="rp-Header">
       <div class="rp-Logo rp-Header__logo">
-        <img src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg') ?>" alt="R P monogram" />
+        <img class="rp-LogoImage" src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg') ?>" alt="R P monogram" />
       </div>
       <nav>
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
@@ -36,7 +36,7 @@
         <div class="rp-MainNav" id="main-nav">
         <?php wp_nav_menu(['theme_location' => MENU_PRIMARY,'menu_class' => 'rp-Menu rp-Header__menu']); ?>
 
-        <div class="rp-ContactPrompt rp-Header__contact">Looking to work with me? <a href="hello@romaricpascal.is">Contact me</a></div>
+        <div class="rp-ContactPrompt rp-Header__contact">A project in mind? <a href="hello@romaricpascal.is">Contact me</a></div>
         <a class="rp-MenuControl" href="#header">Close menu</a>
         </div>
       </nav>

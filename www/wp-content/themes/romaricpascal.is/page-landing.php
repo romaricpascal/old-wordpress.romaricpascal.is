@@ -9,22 +9,32 @@ the_post();
 $craft = get_craft($post);
 
 get_header(); ?>
-<section>
-  <?php the_content(); ?>
-</section>
-<section>
-  <h2>About</h2>
-  <?php the_usps($craft) ?>
-</section>
-
-<section>
-  <h2>Past work</h2>
-  <div><?php the_featured_projects($craft) ?></div>
-  <div><?php a_testimonial($craft) ?></div>
+<section class="rp-LandingSection">
+  <div class="rp-Hero l-Container">
+    <h1 class="rp-SectionTitle rp-Underlined rp-Underlined-hero">Hi! I'm Romaric.</h1>
+    <div class="rp-SectionTitle">I draw letters.</div>
+  </div>
 </section>
 
-<section>
-  <h2>Contact</h2>
+<section class="rp-LandingSection t-light-on-dark">
+  <div class="l-Container">
+    <h2 class="rp-SectionTitle rp-Underlined">About</h2>
+    <?php the_usps($craft) ?>
+  </div>
+</section>
 
-  <a href="mailto:hello@romaricpascal.is">hello@romaricpascal.is</a>
+<section class="rp-LandingSection">
+  <div class="l-Container">
+    <h2 class="rp-SectionTitle rp-Underlined">Past work</h2>
+    <div><?php the_featured_projects($craft) ?></div>
+    <div><?php a_testimonial($craft) ?></div>
+  </div>
+</section>
+
+<section class="rp-LandingSection t-light-on-dark">
+  <div class="l-Container">
+    <h2 class="rp-SectionTitle rp-Underlined">Contact</h2>
+
+    <a href="mailto:hello@romaricpascal.is">hello@romaricpascal.is</a>
+  </div>
 </section>

@@ -3,25 +3,18 @@ $rp-purple: #260b23;
 $rp-red: #c54d58;
 $rp-cream: #f8efe0;
 
-$rp-logo-size: 100px;
+$rp-logo-size: 4.25rem;
 $rp-header-spacing: 0.5em;
 
 // SASS-MQ breakpoints
 $mq-breakpoints: (
-  horizontalMenu: 600px
+  horizontalMenu: 670px
 );
 
-@font-face {
-    font-family: 'questasans_regular';
-    src: url('assets/fonts/questasans_regular/2-Questa_Sans_Regular-webfont.eot');
-    src: url('assets/fonts/questasans_regular/2-Questa_Sans_Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('assets/fonts/questasans_regular/2-Questa_Sans_Regular-webfont.woff2') format('woff2'),
-         url('assets/fonts/questasans_regular/2-Questa_Sans_Regular-webfont.woff') format('woff'),
-         url('assets/fonts/questasans_regular/2-Questa_Sans_Regular-webfont.ttf') format('truetype'),
-         url('assets/fonts/questasans_regular/2-Questa_Sans_Regular-webfont.svg#questa_sansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+$rp-copy-font-family: questasans_regular;
+$rp-display-font-family: filson-soft;
+
+$rp-font-size-huge: 6.25vw;
 
 // 2. Tools
 @import "../node_modules/sass-mq/_mq.scss";
@@ -32,9 +25,17 @@ $mq-breakpoints: (
   color: $rp-cream;
 }
 
+.t-light-on-dark {
+  @include light-on-dark;
+}
+
 @mixin dark-on-light {
   background-color: $rp-cream;
   color: $rp-purple;
+}
+
+.t-dark-on-light {
+  @include dark-on-light;
 }
 
 @mixin light-on-red {
@@ -42,12 +43,41 @@ $mq-breakpoints: (
   color: $rp-cream;
 }
 
+.t-light-on-red {
+  @include light-on-red;
+}
+
+@mixin font-face($font-family) {
+
+  @font-face {
+    font-family: $font-family;
+    src: url('assets/fonts/#{$font-family}.eot');
+    src: url('assets/fonts/#{$font-family}.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/#{$font-family}.woff2') format('woff2'),
+         url('assets/fonts/#{$font-family}.woff') format('woff'),
+         url('assets/fonts/#{$font-family}.ttf') format('truetype'),
+         url('assets/fonts/#{$font-family}.svg##{$font-family}') format('svg');
+  }
+
+}
+
+@include font-face($rp-copy-font-family);
+@include font-face($rp-display-font-family);
+
 @mixin typo-copy {
-  font-family: questasans_regular, sans-serif;
+  font-family: $rp-copy-font-family, sans-serif;
+}
+
+.t-typo-copy {
+  @include typo-copy;
 }
 
 @mixin typo-display {
-  font-family: sans-serif;
+  font-family: $rp-display-font-family, sans-serif;
+}
+
+.t-typo-display {
+  @include typo-display;
 }
 
 .t-hidden-visually {
@@ -65,6 +95,8 @@ $mq-breakpoints: (
 body {
   @include dark-on-light;
   @include typo-copy;
+
+  // @include mq($from: )
 }
 
 a {
@@ -74,6 +106,12 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include typo-display;
+  font-weight: normal;
+  display: inline-block;
 }
 
 // 5. Components
@@ -90,10 +128,17 @@ a {
   @include light-on-dark;
 }
 
+.rp-LogoImage {
+  height: 100%;
+  width: 100%;
+}
+
 .rp-Header {
   @include light-on-dark;
   @include typo-display;
   min-height: $rp-logo-size/2;
+
+  font-size: 16px;
   line-height: $rp-logo-size/2;
 
   position: relative;
@@ -172,5 +217,48 @@ a {
 
   @include mq($from: horizontalMenu) {
     border-bottom: solid 5px $rp-red;
+  }
+}
+
+.rp-LandingSection {
+  padding: 2rem 1rem;
+}
+
+.rp-SectionTitle {
+  @include typo-display;
+  font-size: $rp-font-size-huge;
+}
+
+.l-Container {
+  max-width: 43rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rp-Hero {
+  font-size: $rp-font-size-huge;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+
+  h1 {
+    margin: 0;
+    margin-bottom: -0.25em;
+  }
+}
+
+.rp-Underlined {
+
+  overflow-x: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    background: $rp-red;
+    height: 0.1em;
+    transform: skewX(-39deg) translateX(-5px);
+  }
+
+  &-hero::after {
+    width: 7.61em;
   }
 }
