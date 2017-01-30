@@ -1,0 +1,55 @@
+.rp-USPList {
+  @include mq($from: cardUsp, $until: horizontalUsp) {
+    display: flex;
+    flex-wrap:wrap;
+    align-content: space-between;
+  }
+}
+
+.rp-USP {
+  position: relative;
+  margin-bottom: 2.5em;
+
+  flex: 0 0 50%;
+  @include mq($from: cardUsp, $until: horizontalUsp) {
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+  }
+
+  @include mq($from: horizontalUsp) {
+    display: flex;
+    align-items: center;
+    max-width: 27.5em;
+    margin-bottom: 0;
+
+    &:nth-child(odd) {
+      margin-right: 7%;
+      margin-left: auto;
+
+      .rp-USPThumbnail {
+        order: 2;
+      }
+    }
+
+    &:nth-child(even) {
+      margin-right: auto;
+      margin-left: 7%;
+    }
+  }
+}
+
+.rp-USPThumbnail {
+
+  @include mq($until: horizontalUsp) {
+    width: 60%;
+  }
+  max-width: 12.5em;
+  margin: auto;
+}
+
+.rp-USPTitle {
+  @include typo-copy;
+  color: $rp-red;
+  margin: 0;
+  padding: 0;
+}

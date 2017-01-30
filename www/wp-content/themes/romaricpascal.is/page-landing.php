@@ -19,7 +19,9 @@ get_header(); ?>
 <section class="rp-LandingSection t-light-on-dark">
   <div class="l-Container">
     <h2 class="rp-SectionTitle rp-Underlined">About</h2>
-    <?php the_usps($craft) ?>
+    <div class="rp-USPList">
+      <?php the_usps($craft) ?>
+    </div>
   </div>
 </section>
 

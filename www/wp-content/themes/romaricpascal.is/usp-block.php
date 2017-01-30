@@ -1,5 +1,10 @@
 <?php global $post; ?>
-<div class="rp-usp">
-  <h3><?php the_title();?></h3>
-  <div><?php the_content();?></div>
+<div class="rp-USP">
+  <div class="rp-USPThumbnail">
+    <?php the_post_thumbnail() ?>
+  </div>
+  <div class="rp-USPContent">
+    <h3 class="rp-USPTitle"><?php the_title();?></h3>
+    <?php the_content();?>
+  </div>
 </div>
