@@ -8,7 +8,9 @@ $rp-header-spacing: 0.5em;
 
 // SASS-MQ breakpoints
 $mq-breakpoints: (
-  horizontalMenu: 670px
+  horizontalMenu: 670px,
+  heroFontJump: 600px,
+  heroSecondFontJump: 600px,
 );
 
 $rp-copy-font-family: questasans_regular;
@@ -80,6 +82,19 @@ $rp-font-size-huge: 6.25vw;
   @include typo-display;
 }
 
+@mixin typo-font-size-huge {
+  font-size: 9.5vw;
+
+  @include mq($from: heroFontJump) {
+    font-size: 7.5vw;
+  }
+
+  @include mq($from: heroSecondFontJump) {
+    font-size: 6.5vw;
+  }
+
+}
+
 .t-hidden-visually {
   @include inuit-hidden-visually;
 }
@@ -108,117 +123,20 @@ a {
   }
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @include typo-display;
   font-weight: normal;
-  display: inline-block;
 }
 
 // 5. Components
-.rp-MenuLink {
-  color: $rp-cream;
-}
-
-.rp-Logo {
-
-  height: $rp-logo-size;
-  width: $rp-logo-size;
-  border-radius: 9999px;
-
-  @include light-on-dark;
-}
-
-.rp-LogoImage {
-  height: 100%;
-  width: 100%;
-}
-
-.rp-Header {
-  @include light-on-dark;
-  @include typo-display;
-  min-height: $rp-logo-size/2;
-
-  font-size: 16px;
-  line-height: $rp-logo-size/2;
-
-  position: relative;
-
-  &__logo {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-
-  &__menu {
-    @include mq($from: horizontalMenu) {
-      position: absolute;
-      right: 50%;
-      transform: translateX(-$rp-logo-size/2);
-
-      margin-right: 2*$rp-header-spacing;
-    }
-  }
-
-  &__contact {
-    @include mq($from: horizontalMenu) {
-      position: absolute;
-      left: 50%;
-      transform: translateX($rp-logo-size/2);
-      margin-left: 2*$rp-header-spacing;
-    }
-  }
-}
-
-.rp-MainNav:not(:target) {
-  @include mq($until: horizontalMenu) {
-    display: none;
-  }
-}
-
-.rp-MenuControl {
-  @include mq($from: horizontalMenu) {
-    display:none;
-  }
-}
-
-.rp-Menu {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.menu-item {
-  @include mq($from: horizontalMenu) {
-    display: inline-block;
-    margin-left: $rp-header-spacing;
-  }
-
-  @include mq($until: horizontalMenu) {
-    padding-left: 20px;
-  }
-}
-
-.menu-item a {
-  color: $rp-cream;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.current_page_item {
-
-  @include mq($until: horizontalMenu) {
-    border-left: solid 5px $rp-red;
-  }
-
-  @include mq($from: horizontalMenu) {
-    border-bottom: solid 5px $rp-red;
-  }
-}
+@import "_header";
+@import "_hero";
+@import "_projects";
 
 .rp-LandingSection {
   padding: 2rem 1rem;
@@ -226,24 +144,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .rp-SectionTitle {
   @include typo-display;
-  font-size: $rp-font-size-huge;
+  @include typo-font-size-huge;
+  display: inline-block;
+  margin: 0;
 }
 
 .l-Container {
-  max-width: 43rem;
+  max-width: 768px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.rp-Hero {
-  font-size: $rp-font-size-huge;
-  padding-top: 2.5em;
-  padding-bottom: 2.5em;
-
-  h1 {
-    margin: 0;
-    margin-bottom: -0.25em;
-  }
 }
 
 .rp-Underlined {

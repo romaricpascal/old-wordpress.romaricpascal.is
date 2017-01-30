@@ -1,0 +1,72 @@
+
+.rp-FeaturedProjects {
+  display: flex;
+}
+
+.rp-FeaturedProjects__card {
+
+  &:not(:hover) {
+    .rp-ProjectCardHeading {
+      @include inuit-hidden-visually;
+    }
+  }
+
+  &:hover {
+    z-index: 25;
+    transform: scale(1.2) translateY(-3em);
+
+    .rp-ProjectCardThumbnail {
+      filter: none;
+      opacity: 1;
+    }
+
+    margin-bottom: -3em;
+  }
+}
+
+.rp-ProjectCard {
+  display: block;
+
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.rp-ProjectCardHeading {
+
+  @include light-on-red;
+  text-align: center;
+  font-size: inherit;
+  line-height: 3em;
+  margin: 0;
+  padding: 0;
+
+  position: relative;
+
+  z-index: 1;
+
+  &::after {
+    content: '';
+    display: block;
+
+    height: 2em;
+    width: 2em;
+
+    border-radius: 9999px;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    background-color: $rp-red;
+
+    z-index: -1;
+  }
+}
+
+.rp-ProjectCardThumbnail {
+
+  filter: #{"grayscale(100%)"};
+  opacity: 0.65;
+}

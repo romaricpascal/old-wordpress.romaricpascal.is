@@ -11,8 +11,8 @@ $craft = get_craft($post);
 get_header(); ?>
 <section class="rp-LandingSection">
   <div class="rp-Hero l-Container">
-    <h1 class="rp-SectionTitle rp-Underlined rp-Underlined-hero">Hi! I'm Romaric.</h1>
-    <div class="rp-SectionTitle">I draw letters.</div>
+    <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">Hi! I'm Romaric.</h1>
+    <div class="rp-HeroSubHead">I draw letters.</div>
   </div>
 </section>
 
@@ -26,7 +26,7 @@ get_header(); ?>
 <section class="rp-LandingSection">
   <div class="l-Container">
     <h2 class="rp-SectionTitle rp-Underlined">Past work</h2>
-    <div><?php the_featured_projects($craft) ?></div>
+    <div class="rp-FeaturedProjects"><?php the_featured_projects($craft) ?></div>
     <div><?php a_testimonial($craft) ?></div>
   </div>
 </section>
