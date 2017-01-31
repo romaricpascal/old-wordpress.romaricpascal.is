@@ -5,7 +5,8 @@
   "main": "scss/style.scss",
   "scripts": {
     "build:css": "node-sass scss/style.scss | postcss -c .postcssrc",
-    "dev:css": "chokidar 'scss/*.scss' -c 'npm run build:css' --initial"
+    "dev:css": "chokidar 'scss/*.scss' -c 'npm run build:css' --initial",
+    "start": "browser-sync start -p localhost:8080"
   },
   "keywords": [
     "Wordpress",
@@ -23,6 +24,7 @@
     "postcss-cli": "^2.6.0"
   },
   "dependencies": {
+    "browser-sync": "^2.18.7",
     "inuitcss": "^6.0.0-beta.4",
     "normalize.css": "^5.0.0",
     "sass-mq": "^3.3.2"

@@ -9,8 +9,7 @@ $rp-header-spacing: 0.5em;
 // SASS-MQ breakpoints
 $mq-breakpoints: (
   horizontalMenu: 670px,
-  heroFontJump: 600px,
-  heroSecondFontJump: 600px,
+  heroFontJump: 450px,
   cardUsp: 400px,
   horizontalUsp: 680px
 );
@@ -85,14 +84,10 @@ $rp-font-size-huge: 6.25vw;
 }
 
 @mixin typo-font-size-huge {
-  font-size: 9.5vw;
+  font-size: 10vw;
 
   @include mq($from: heroFontJump) {
-    font-size: 7.5vw;
-  }
-
-  @include mq($from: heroSecondFontJump) {
-    font-size: 6.5vw;
+    font-size: (45/16) * 1em;
   }
 
 }
