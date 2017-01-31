@@ -1,0 +1,10 @@
+.rp-ContactPrompt {
+  text-align:center;
+}
+
+.rp-ContactLink {
+  display: block;
+  text-align: center;
+  @include typo-display;
+  font-size: 1.5em;
+}
