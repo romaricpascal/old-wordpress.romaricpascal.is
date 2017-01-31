@@ -8,7 +8,7 @@
 <?php wp_nav_menu(array('theme_location' => 'bu_mainMenu',
                         'menu_class' => 'bu-SiteMenu')); ?>
 
-<div>Looking to work with me? <a href="hello@romaricpascal.is">Contact me</a></div>
+<div>Looking to work with me? <a href="mailto:<?php bloginfo('admin_email')?>">Contact me</a></div>
 <a href="#header">Close menu</a>
 </div>
 </nav>

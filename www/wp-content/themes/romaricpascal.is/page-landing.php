@@ -36,7 +36,11 @@ get_header(); ?>
 <section class="rp-LandingSection t-light-on-dark">
   <div class="l-Container">
     <h2 class="rp-SectionTitle rp-Underlined">Contact</h2>
-
-    <a href="mailto:hello@romaricpascal.is">hello@romaricpascal.is</a>
+    <p class="rp-ContactPrompt">
+      You have a project you want to collaborate on?<br/>
+      Or perhaps a question about my workflow?<br/>
+      Maybe you just want to say hi?
+    </p>
+    <a class="rp-ContactLink" href="mailto:<?php bloginfo('admin_email')?>"><?php bloginfo('admin_email')?></a>
   </div>
 </section>
