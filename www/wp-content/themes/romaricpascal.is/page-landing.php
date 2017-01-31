@@ -44,3 +44,5 @@ get_header(); ?>
     <a class="rp-ContactLink" href="mailto:<?php bloginfo('admin_email')?>"><?php bloginfo('admin_email')?></a>
   </div>
 </section>
+
+<?php get_footer(); ?>
