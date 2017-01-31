@@ -1,0 +1,13 @@
+composer.lock
+composer.json
+vendor
+generate-salts.php
+wp-content/mu-plugins/got_url_rewrite.php
+wp-content/uploads
+.gitignore
+**/node_modules
+xmlrpc.php
+wordpress/wp-content
+.env.php
+.htaccess
+.htpasswd
