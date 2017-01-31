@@ -1,0 +1,43 @@
+.rp-Testimonial {
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rp-TestimonialContent {
+
+  position: relative;
+  text-align: justify;
+  hyphens: auto;
+
+  &::before {
+    content: '“';
+    top: 0;
+    left:0;
+    transform: translateX(-130%);
+  }
+
+  &::after {
+    content: '”';
+    bottom: 0;
+    right:0;
+    // Slightly less on the X axis as there's often space at the bottom
+    transform: translateX(128%) translateY(70%);
+  }
+
+  &::before, &::after {
+    position: absolute;
+    display: block;
+    @include typo-display;
+    font-size: 6em;
+    line-height: 0.5em;
+    color: $rp-red;
+    opacity: .65;
+  }
+}
+
+.rp-TestimonialSource {
+    text-align: center;
+    @include typo-display;
+    font-size: 1.5em;
+}
