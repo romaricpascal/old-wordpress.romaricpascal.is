@@ -24,6 +24,47 @@
   }
 }
 
+.rp-ProjectFull {
+  @include inuit-clearfix();
+  padding-top: 4em;
+}
+
+.rp-ProjectFullThumbnail {
+  float:left;
+  max-width: 40%;
+  border: solid 0.6em currentColor;
+  margin-right: 1.5em;
+  margin-bottom: 1em;
+  z-index: 1;
+
+  img {
+    display: block;
+  }
+}
+
+.rp-ProjectFullHeading {
+  padding-top: 0.5em;
+  padding-left: 0.85em;
+
+  transform: translateX(-0.925em);
+}
+
+.rp-ProjectFullFooter {
+  clear: both;
+  @include inuit-clearfix();
+  @include typo-display;
+  font-size: 1.5em;
+  line-height: 1.5;
+
+  &__previous {
+    float: left;
+  }
+
+  &__next {
+    float: right;
+  }
+}
+
 .rp-ProjectCard {
   display: block;
 
