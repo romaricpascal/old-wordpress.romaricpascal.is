@@ -23,7 +23,8 @@ function projects_register_post_type() {
     'labels' => $labels,
     'public' => true,
     'exclude_from_search' => true,
-    'has_archive' => false,
+    'has_archive' => true,
+    'rewrite' => ['slug' => 'proud-of'],
     'hierarchical' => true,
     'supports' => ['title', 'editor', 'custom-fields', 'thumbnail', 'page-attributes']
   ]);
