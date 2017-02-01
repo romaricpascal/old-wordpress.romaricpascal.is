@@ -3,6 +3,7 @@ composer.json
 vendor
 generate-salts.php
 wp-content/mu-plugins/got_url_rewrite.php
+**/scss
 wp-content/uploads
 .gitignore
 **/node_modules
