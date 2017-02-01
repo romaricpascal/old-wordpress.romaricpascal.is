@@ -13,8 +13,8 @@
       <?php the_content(); ?>
     </div>
     <footer class="rp-ProjectFullFooter">
-      <span class="rp-ProjectFullFooter__previous"><?php previous_post_link(); ?></span>
-      <span class="rp-ProjectFullFooter__next"><?php next_post_link(); ?></span>
+      <span class="rp-ProjectFullFooter__previous"><?php previous_post_link('&laquo; %link', '%title', TRUE, '', CRAFT_TAX_NAME); ?></span>
+      <span class="rp-ProjectFullFooter__next"><?php next_post_link('%link &raquo;', '%title', TRUE, '', CRAFT_TAX_NAME); ?></span>
     </footer>
   </div>
 </main>
