@@ -36,7 +36,7 @@
         <div class="rp-MainNav" id="main-nav">
         <?php wp_nav_menu(['theme_location' => MENU_PRIMARY,'menu_class' => 'rp-Menu rp-Header__menu']); ?>
 
-        <div class="rp-ContactPrompt rp-Header__contact">A project in mind? <a href="hello@romaricpascal.is">Contact me</a></div>
+        <div class="rp-ContactPrompt rp-Header__contact">A project in mind? <a href="mailto:<?php bloginfo('admin_email')?>">Contact me</a></div>
         <a class="rp-MenuControl" href="#header">Close menu</a>
         </div>
       </nav>
