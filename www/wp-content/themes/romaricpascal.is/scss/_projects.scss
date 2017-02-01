@@ -5,6 +5,8 @@
 
 .rp-FeaturedProjects__card {
 
+  flex: 1 1 0;
+
   &:not(:hover) {
     .rp-ProjectCardHeading {
       @include inuit-hidden-visually;
@@ -26,30 +28,61 @@
 
 .rp-ProjectFull {
   @include inuit-clearfix();
-  padding-top: 4em;
-}
 
+  padding-bottom: 2em;
+
+  @include mq($from:horizontalProjectHeader) {
+    padding-top: 4em;
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+}
+$rp-ProjectFullThumbnail-width: 40%;
+$rp-ProjectFullThumbnail-mr: 1.5em;
 .rp-ProjectFullThumbnail {
-  float:left;
-  max-width: 40%;
-  border: solid 0.6em currentColor;
-  margin-right: 1.5em;
+
   margin-bottom: 1em;
-  z-index: 1;
+
+  @include mq($from: horizontalProjectHeader) {
+    float:left;
+    width: $rp-ProjectFullThumbnail-width;
+    border: solid 0.6em currentColor;
+    margin-right: $rp-ProjectFullThumbnail-mr;
+  }
 
   img {
     display: block;
   }
 }
 
-.rp-ProjectFullHeading {
-  padding-top: 0.5em;
-  padding-left: 0.85em;
+.rp-ProjectFullHeader {
 
-  transform: translateX(-0.925em);
+  padding-left: 1em;
+
+  @include mq($from: horizontalProjectHeader) {
+    float:right;
+    width: #{"calc(#{(100 - $rp-ProjectFullThumbnail-width)} - #{$rp-ProjectFullThumbnail-mr})"};
+  }
+}
+
+.rp-ProjectFullHeading {
+
+  @include mq($from: horizontalProjectHeader) {
+    padding-left: 2.5rem;
+    transform: translateX(-3.5rem);
+  }
+}
+
+.rp-ProjectFullBody, .rp-ProjectFullFooter {
+
+  @include mq($until: horizontalProjectHeader) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .rp-ProjectFullFooter {
+
   clear: both;
   @include inuit-clearfix();
   @include typo-display;

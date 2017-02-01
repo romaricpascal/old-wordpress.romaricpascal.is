@@ -11,7 +11,8 @@ $mq-breakpoints: (
   horizontalMenu: 670px,
   heroFontJump: 450px,
   cardUsp: 400px,
-  horizontalUsp: 680px
+  horizontalUsp: 680px,
+  horizontalProjectHeader: 33.25em
 );
 
 $rp-copy-font-family: questasans_regular;
@@ -147,13 +148,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // 5. Components
-@import "_header";
-@import "_hero";
-@import "_projects";
-@import "_usps";
-@import "_testimonials";
-@import "_contact.scss";
-
 .rp-LandingSection {
   padding: 2rem 1rem;
 }
@@ -200,3 +194,10 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0.5em;
   text-align: center;
 }
+
+@import "_header";
+@import "_hero";
+@import "_projects";
+@import "_usps";
+@import "_testimonials";
+@import "_contact.scss";
