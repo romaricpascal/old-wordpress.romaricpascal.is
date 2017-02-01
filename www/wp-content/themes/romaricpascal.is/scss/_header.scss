@@ -13,7 +13,7 @@
 
 .rp-Header {
   @include light-on-dark;
-  @include typo-display;
+  font-family: $rp-header-font-family;
   min-height: $rp-logo-size/2;
 
   font-size: 16px;

@@ -15,7 +15,8 @@ $mq-breakpoints: (
 );
 
 $rp-copy-font-family: questasans_regular;
-$rp-display-font-family: filson-soft;
+$rp-display-font-family: filsonsoft-black;
+$rp-header-font-family: filsonsoft-bold;
 
 $rp-font-size-huge: 6.25vw;
 
@@ -67,6 +68,7 @@ $rp-font-size-huge: 6.25vw;
 
 @include font-face($rp-copy-font-family);
 @include font-face($rp-display-font-family);
+@include font-face($rp-header-font-family);
 
 @mixin typo-copy {
   font-family: $rp-copy-font-family, sans-serif;
@@ -82,6 +84,14 @@ $rp-font-size-huge: 6.25vw;
 
 .t-typo-display {
   @include typo-display;
+}
+
+@mixin typo-header {
+  font-family: $rp-header-font-family, sans-serif;
+}
+
+.t-typo-header {
+  @include typo-header;
 }
 
 @mixin typo-font-size-huge {
