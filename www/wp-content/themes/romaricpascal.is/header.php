@@ -1,5 +1,5 @@
 <?php $title = wp_title(' ', false);
- if ($title) { echo '|'; }
+ if ($title) { $title.= '|'; }
  $title.= get_bloginfo('name'); ?>
 
 <!doctype html>
