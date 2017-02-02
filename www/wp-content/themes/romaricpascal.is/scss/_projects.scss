@@ -6,6 +6,9 @@
 .rp-FeaturedProjects__card {
 
   flex: 1 1 0;
+  transform: none;
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
 
   &:not(:hover) {
     .rp-ProjectCardHeading {
