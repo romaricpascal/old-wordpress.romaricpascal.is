@@ -1,7 +1,6 @@
 (function() {
 
-    document.body.classList.add('with-js');
-
+  if (document.body.style.hasOwnProperty('animationName')) {
     var WAYPOINTS_HANDLERS = {
         animateUSPEnter: function(direction) {
             if (!this.element.classList.contains('rp-USP-animated')) {
@@ -12,7 +11,7 @@
 
     var waypoints = document.querySelectorAll('[data-waypoint]');
     [].forEach.call(waypoints, function(el) {
-        var handler = WAYPOINTS_HANDLERS[el.dataset.waypointHandler];
+        var handler = WAYPOINTS_HANDLERS[el.getAttribute('data-waypoint-handler')];
         if (handler) {
             new Waypoint.Inview({
                 element: el,
@@ -20,4 +19,7 @@
             });
         }
     });
+
+    document.body.classList.add('with-js');
+  }
 })();
