@@ -1,6 +1,7 @@
 (function() {
 
-  if (document.body.style.hasOwnProperty('animationName')) {
+  if (!!document.body.classList) {
+
     var WAYPOINTS_HANDLERS = {
         animateUSPEnter: function(direction) {
             if (!this.element.classList.contains('rp-USP-animated')) {
