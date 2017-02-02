@@ -84,12 +84,14 @@
   color: $rp-cream;
   text-decoration: none;
 
-  @include mq($until: horizontalMenu) {
-    border-left: solid 5px transparent;
-  }
-
   &:hover {
     text-decoration: none;
+  }
+}
+
+.menu-item {
+  @include mq($until: horizontalMenu) {
+    border-left: solid 5px transparent;
   }
 }
 
