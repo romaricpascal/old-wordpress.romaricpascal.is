@@ -25,6 +25,8 @@ $rp-font-size-huge: 6.25vw;
 @import "../node_modules/sass-mq/_mq.scss";
 @import "../node_modules/inuitcss/tools/_tools.hidden.scss";
 @import "../node_modules/inuitcss/tools/_tools.clearfix.scss";
+@import "../node_modules/animate.css/source/fading_entrances/fadeInLeft";
+@import "../node_modules/animate.css/source/fading_entrances/fadeInRight";
 
 @mixin light-on-dark {
   background: $rp-purple;
@@ -119,8 +121,6 @@ $rp-font-size-huge: 6.25vw;
 body {
   @include dark-on-light;
   @include typo-copy;
-
-  // @include mq($from: )
 }
 
 a {

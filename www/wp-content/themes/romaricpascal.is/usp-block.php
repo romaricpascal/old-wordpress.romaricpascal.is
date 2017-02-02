@@ -1,5 +1,5 @@
 <?php global $post; ?>
-<div class="rp-USP">
+<div class="rp-USP" data-waypoint data-waypoint-handler="animateUSPEnter">
   <div class="rp-USPThumbnail">
     <?php the_post_thumbnail() ?>
   </div>

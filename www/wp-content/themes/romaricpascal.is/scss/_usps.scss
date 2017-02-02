@@ -38,6 +38,24 @@
       margin-right: auto;
       margin-left: 7%;
     }
+
+    .with-js & {
+      opacity: 0;
+    }
+
+    &-animated {
+
+      animation-fill-mode: both;
+      animation-duration: 0.75s;
+
+      &:nth-child(even) {
+        animation-name: fadeInRight;
+      }
+
+      &:nth-child(odd) {
+        animation-name: fadeInLeft;
+      }
+    }
   }
 }
 
