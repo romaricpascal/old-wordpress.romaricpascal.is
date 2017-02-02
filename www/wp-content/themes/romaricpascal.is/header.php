@@ -39,7 +39,7 @@
   <body>
     <header id="#header" class="rp-Header">
       <div class="rp-Logo rp-Header__logo">
-        <img class="rp-LogoImage" src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg') ?>" alt="R P monogram" />
+        <img class="rp-LogoImage" height="100" width="100" src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg') ?>" alt="R P monogram" />
       </div>
       <nav>
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
