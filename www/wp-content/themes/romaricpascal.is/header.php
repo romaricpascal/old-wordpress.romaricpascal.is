@@ -1,3 +1,7 @@
+<?php $title = wp_title(' ', false);
+ if ($title) { echo '|'; }
+ $title.= get_bloginfo('name'); ?>
+
 <!doctype html>
 <html>
   <head <?php language_attributes(); ?>>
@@ -7,11 +11,7 @@
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= bloginfo('ress_url') ?>">
 
-    <title>
-      <?php wp_title(' '); ?>
-      <?php if(wp_title(' ', false)) { echo '|'; } ?>
-      <?php bloginfo('name'); ?>
-    </title>
+    <title><?php echo $title; ?></title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_theme_file_uri('assets/images/favicons/apple-touch-icon.png') ?>">
     <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri('assets/images/favicons/favicon-32x32.png') ?>" sizes="32x32">
@@ -22,6 +22,17 @@
     <meta name="msapplication-TileColor" content="#260b23">
     <meta name="msapplication-TileImage" content="<?php echo get_theme_file_uri('assets/images/favicons/mstile-144x144.png') ?>">
     <meta name="theme-color" content="#260b23">
+
+    <!-- FB OpenGraph info -->
+    <meta prefix="og:http://ogp.me/ns#" name="og:description" content="<?php  bloginfo('description')?>">
+    <meta prefix="og:http://ogp.me/ns#" name="og:image" content="<?php echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png'); ?>">
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@romaricpascal" />
+    <meta name="twitter:title" content="<?php echo $title; ?>" />
+    <meta name="twitter:description" content="<?php  bloginfo('description')?>" />
+    <meta name="twitter:image" content="<?php echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png'); ?>" />
 
     <?php wp_head();?>
   </head>
