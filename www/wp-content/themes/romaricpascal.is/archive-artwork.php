@@ -17,6 +17,10 @@
     </a>
   <?php endwhile; ?>
   </div>
+  <div class="rp-PreviousNextLinks">
+    <div class="rp-PreviousNextLinks__previous"><?php previous_posts_link('More recent artworks'); ?></div>
+    <div class="rp-PreviousNextLinks__next"><?php next_posts_link('Older artworks'); ?></div>
+  </div>
 </div>
 </section>
 <?php get_footer(); ?>

@@ -14,9 +14,9 @@
         <time class="rp-ArtworkTime" datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time>
       </div>
     </div>
-    <footer class="rp-ArtworkFullFooter">
-      <span class="rp-ArtworkFullFooter__previous"><?php previous_post_link('&laquo; %link', 'Previous artwork'); ?></span>
-      <span class="rp-ArtworkFullFooter__next"><?php next_post_link('%link &raquo;', 'Next artwork'); ?></span>
+    <footer class="rp-ArtworkFullFooter rp-PreviousNextLinks">
+      <span class="rp-PreviousNextLinks__previous"><?php previous_post_link('%link', 'Previous artwork'); ?></span>
+      <span class="rp-PreviousNextLinks__next"><?php next_post_link('%link', 'Next artwork'); ?></span>
     </footer>
   </div>
 </section>

@@ -4,7 +4,17 @@
 }
 
 .rp-ArtworkList__item {
-  flex: 1 1 25%;
+
+  flex: 1 1 50%;
+
+  @include mq($from: artworkGrid4Cols) {
+    flex-basis: 25%;
+  }
+
+  @include mq($from: artworkGrid5Cols) {
+    flex-basis: 20%;
+  }
+
 }
 
 $grid-columns: 6;
@@ -22,44 +32,47 @@ $grid-rows: 6;
 
 @supports (display: grid) and (not (-moz-appearance: none)) {
 
-  .rp-ArtworkList {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-columns: repeat($grid-columns, 1fr);
 
-    // Todo: Find a way to fix this ---v
-    grid-template-rows: auto;
-    grid-auto-rows: auto;
-  }
+  @include mq($from: artworkGrid5Cols) {
+    .rp-ArtworkList {
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-template-columns: repeat($grid-columns, 1fr);
 
-  .rp-ArtworkList__item {
-
-    &:nth-child(20n+1) {
-      grid-column-start: 1;
-      grid-column: span 3;
-      grid-row-start: 1;
-      grid-row-end: span 3;
+      // Todo: Find a way to fix this ---v
+      grid-template-rows: auto;
+      grid-auto-rows: auto;
     }
 
-    &:nth-child(20n+2) {
-      grid-column-start: span 2;
-      grid-column-end: -1;
-      grid-row-start: 2;
-      grid-row-end: span 2;
-    }
+    .rp-ArtworkList__item {
 
-    &:nth-child(20n+15) {
-      grid-column-start: span 3;
-      grid-column-end: -1;
-      grid-row-start: 4;
-      grid-row-end: span 3;
-    }
+      &:nth-child(20n+1) {
+        grid-column-start: 1;
+        grid-column: span 3;
+        grid-row-start: 1;
+        grid-row-end: span 3;
+      }
 
-    &:nth-child(20n+16) {
-      grid-column-start: 1;
-      grid-column-end: span 2;
-      grid-row-start: 5;
-      grid-row-end: span 2;
+      &:nth-child(20n+2) {
+        grid-column-start: span 2;
+        grid-column-end: -1;
+        grid-row-start: 2;
+        grid-row-end: span 2;
+      }
+
+      &:nth-child(20n+15) {
+        grid-column-start: span 3;
+        grid-column-end: -1;
+        grid-row-start: 4;
+        grid-row-end: span 3;
+      }
+
+      &:nth-child(20n+16) {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        grid-row-start: 5;
+        grid-row-end: span 2;
+      }
     }
   }
 }
@@ -80,23 +93,6 @@ $grid-rows: 6;
     &__aside {
       flex: 1 1 20em;
     }
-  }
-}
-
-.rp-ArtworkFullFooter {
-  @include inuit-clearfix();
-
-  @include typo-display;
-  font-size: 1.5em;
-  line-height: 1.5;
-  margin-top: 1em;
-
-  &__previous {
-    float: left;
-  }
-
-  &__next {
-    float: right;
   }
 }
 

@@ -6,6 +6,8 @@ $rp-cream: #f8efe0;
 $rp-logo-size: 4.25rem;
 $rp-header-spacing: 0.5em;
 
+$rp-artwork-grid-min-item-size: 140px;
+
 // SASS-MQ breakpoints
 $mq-breakpoints: (
   horizontalMenu: 670px,
@@ -13,7 +15,9 @@ $mq-breakpoints: (
   cardUsp: 400px,
   horizontalUsp: 680px,
   horizontalProjectHeader: 33.25em,
-  horizontalArtwork: 600px
+  horizontalArtwork: 600px,
+  artworkGrid4Cols: 4 * $rp-artwork-grid-min-item-size,
+  artworkGrid5Cols: 5 * $rp-artwork-grid-min-item-size
 );
 
 $rp-copy-font-family: questasans_regular;
@@ -167,6 +171,23 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 768px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.rp-PreviousNextLinks {
+  @include inuit-clearfix();
+
+  @include typo-display;
+  font-size: 1.5em;
+  line-height: 1.5;
+  margin-top: 1em;
+
+  &__previous {
+    float: left;
+  }
+
+  &__next {
+    float: right;
+  }
 }
 
 .rp-Underlined {
