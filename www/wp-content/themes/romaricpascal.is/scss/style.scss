@@ -12,7 +12,8 @@ $mq-breakpoints: (
   heroFontJump: 450px,
   cardUsp: 400px,
   horizontalUsp: 680px,
-  horizontalProjectHeader: 33.25em
+  horizontalProjectHeader: 33.25em,
+  horizontalArtwork: 600px
 );
 
 $rp-copy-font-family: questasans_regular;
@@ -148,6 +149,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // 5. Components
+@import "../node_modules/inuitcss/objects/_objects.ratio";
+
 .rp-LandingSection {
   padding: 2rem 1rem;
 }
@@ -200,4 +203,5 @@ h1, h2, h3, h4, h5, h6 {
 @import "_projects";
 @import "_usps";
 @import "_testimonials";
-@import "_contact.scss";
+@import "_artworks";
+@import "_contact";

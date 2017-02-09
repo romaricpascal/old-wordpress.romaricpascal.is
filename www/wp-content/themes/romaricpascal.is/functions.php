@@ -5,15 +5,26 @@ require_once('taxonomies/craft-taxonomy.php');
 require_once('content-types/usps.php');
 require_once('content-types/testimonials.php');
 require_once('content-types/projects.php');
+require_once('content-types/artworks.php');
 
 define('MENU_PRIMARY', 'primary');
 
 // 2. Setup theme
-function rhumaric_setup() {
+function rp_setup() {
   register_nav_menu(MENU_PRIMARY, __('Primary Menu'));
   add_theme_support('post-thumbnails');
+  add_theme_support('post-formats', ['image', 'gallery', 'video']);
 }
-add_action('after_setup_theme', 'rhumaric_setup');
+add_action('after_setup_theme', 'rp_setup');
+
+// 3. Support for /sharing/XYZ archive pages
+function rp_pre_get_posts($query) {
+
+  if (is_post_type_archive('artwork')) {
+    $query->set('posts_per_page', 20);
+  }
+}
+add_action('pre_get_posts', 'rp_pre_get_posts');
 
 // Helper functions
 function template_file_uri($path){
