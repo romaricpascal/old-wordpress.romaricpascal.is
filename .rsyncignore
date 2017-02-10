@@ -12,3 +12,4 @@ wordpress/wp-content
 .env.php
 .htaccess
 .htpasswd
+import-artworks.php
