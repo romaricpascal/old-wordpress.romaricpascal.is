@@ -1,5 +1,5 @@
 deploy_id=romaricpascal.is-`date '+%y%m%d%H%M%S'`
-workdir=`pwd`/deploy/$deploy_id
+workdir=`pwd`/../deploy/$deploy_id
 archive_path=$workdir.tar.gz
 
 : ${1?"The script needs to know which host to deploy to. './deploy.sh <host> <target>'"}
@@ -10,16 +10,16 @@ target=$2
 
 echo "Making clean install"
 echo "- Cloning repo"
-git clone git $workdir
+git clone . $workdir
 
 echo "- Installing PHP deps"
 (cd $workdir/www && composer install )
 
 echo "- Building WP theme"
-(cd $workdir/www/wp-content/themes/romaricpascal.is && yarn install && yarn run build:css)
+(cd $workdir/www/wp-content/themes/romaricpascal.is && yarn install && yarn run build)
 
 echo "- Installing fonts"
-(cp -r fonts $workdir/www/wp-content/themes/romaricpascal.is/assets)
+(cp -r ../fonts $workdir/www/wp-content/themes/romaricpascal.is/assets)
 
 echo "Packaging project before upload"
 (cd $workdir/www && pwd && tar -X ../.rsyncignore -cvzf $archive_path *)
