@@ -105,7 +105,7 @@ $grid-rows: 6;
   content: '';
   display:block;
   height: 5px;
-  background-image: linear-gradient(135deg, #c54d58 calc(100% - 1em) , transparent calc(100% - 1em + 1px));
+  background-image: linear-gradient(135deg, $rp-red calc(100% - 1em) , transparent calc(100% - 1em + 1px));
   position: absolute;
   left: 0;
   right: 0;
@@ -114,6 +114,15 @@ $grid-rows: 6;
   @include mq($from: horizontalArtwork) {
     left: -3em;
   }
+}
+
+.rp-ArtworkImage {
+  background: linear-gradient(90deg, $rp-cream-on-purple-35 5px, transparent 0%),
+              linear-gradient(0deg, $rp-cream-on-purple-35 5px, transparent 0%),
+              linear-gradient(-90deg, $rp-cream-on-purple-35 5px, transparent 0%),
+              linear-gradient(180deg, $rp-cream-on-purple-35 5px, transparent 0%),
+              url(assets/images/r-p-monogram.svg) no-repeat center;
+  background-color: $rp-purple;
 }
 
 .rp-ArtworkMedia {

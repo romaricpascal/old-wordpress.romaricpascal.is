@@ -2,6 +2,8 @@
 $rp-purple: #260b23;
 $rp-red: #c54d58;
 $rp-cream: #f8efe0;
+$rp-cream-on-purple-35: mix($rp-cream, $rp-purple, 35%);
+$rp-cream-on-purple-65: mix($rp-cream, $rp-purple, 65%);
 
 $rp-logo-size: 4.25rem;
 $rp-header-spacing: 0.5em;
@@ -218,6 +220,88 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0.5em;
   text-align: center;
 }
+
+@import "../node_modules/spinkit/css/spinners/6-chasing-dots";
+
+.has-loadMore-loading {
+
+  .rp-loadMoreLink {
+    display: none;
+  }
+}
+
+.sk-chasing-dots .sk-child {
+  background-color: $rp-red;
+}
+
+.rp-LoadMoreLink {
+
+  text-align: center;
+
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+  &[data-loadMore-type="next"] {
+    margin-bottom:0;
+  }
+
+  &[data-loadMore-type="previous"] {
+    margin-top: 0;
+  }
+
+  a {
+    text-align: center;
+    @include typo-display;
+    font-size: 1.5em;
+    line-height: 1.5em;
+
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 3px;
+  }
+
+  .sk-chasing-dots {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &.is-loading a {
+    display:none;
+  }
+
+  &:not(.is-loading) {
+    .sk-chasing-dots {
+      display: none;
+    }
+  }
+}
+
+.rp-LoadMoreLink a::before,
+.rp-LoadMoreLink a::after {
+    content: '»';
+    display: inline-block;
+    margin-top: 5p;
+    color: $rp-cream-on-purple-35;
+}
+
+.rp-LoadMoreLink[data-loadMore-type=next] a::before {
+   transform: translateX(-0.2em) rotate(90deg);
+}
+
+.rp-LoadMoreLink[data-loadMore-type=next] a::after {
+   transform: translateX(0.2em) rotate(90deg);
+}
+
+.rp-LoadMoreLink[data-loadMore-type=previous] a::before {
+   transform: translateX(-0.2em) rotate(-90deg);
+}
+
+.rp-LoadMoreLink[data-loadMore-type=previous] a::after {
+   transform: translateX(0.2em) rotate(-90deg);
+}
+
 
 @import "_header";
 @import "_hero";

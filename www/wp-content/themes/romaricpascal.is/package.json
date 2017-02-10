@@ -34,6 +34,7 @@
     "inuitcss": "^6.0.0-beta.4",
     "normalize.css": "^5.0.0",
     "sass-mq": "^3.3.2",
+    "spinkit": "^1.2.5",
     "uglify-js": "^2.7.5",
     "waypoints": "^4.0.1"
   }

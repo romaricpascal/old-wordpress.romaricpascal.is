@@ -1,5 +1,4 @@
-(function() {
-
+(function () {
   if (!!document.body.classList) {
 
     var WAYPOINTS_HANDLERS = {
@@ -22,5 +21,7 @@
     });
 
     document.body.classList.add('with-js');
+
+    rpSetupLoadMore();
   }
 })();
