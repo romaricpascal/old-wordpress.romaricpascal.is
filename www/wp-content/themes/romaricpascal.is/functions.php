@@ -13,7 +13,7 @@ define('MENU_PRIMARY', 'primary');
 function rp_setup() {
   register_nav_menu(MENU_PRIMARY, __('Primary Menu'));
   add_theme_support('post-thumbnails');
-  add_theme_support('post-formats', ['image', 'gallery', 'video']);
+  // add_theme_support('post-formats', ['image', 'gallery', 'video']);
 }
 add_action('after_setup_theme', 'rp_setup');
 
@@ -22,6 +22,10 @@ function rp_pre_get_posts($query) {
 
   if (is_post_type_archive('artwork')) {
     $query->set('posts_per_page', 20);
+  }
+
+  if (is_home()) {
+
   }
 }
 add_action('pre_get_posts', 'rp_pre_get_posts');
