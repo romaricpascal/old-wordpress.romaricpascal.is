@@ -1,0 +1,26 @@
+.rp-Note {
+
+  display: block;
+  color: $rp-cream;
+  position: relative;
+
+  &:not(:last-child) {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom :0 ;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: radial-gradient($rp-cream-on-purple-35 5%,transparent 100%);
+    }
+  }
+}
+
+.rp-NoteTitle {
+  margin: 0;
+}

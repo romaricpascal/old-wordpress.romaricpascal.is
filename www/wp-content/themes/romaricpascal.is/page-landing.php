@@ -14,13 +14,12 @@ get_header(); ?>
     <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">
       <?php echo get_post_meta($post->ID, 'page-greeting', true); ?>
     </h1>
-    <div class="rp-HeroSubHead"><?php echo get_post_meta($post->ID, 'page-message', true); ?></div>
   </div>
 </section>
 
 <section class="rp-LandingSection t-light-on-dark">
   <div class="l-Container">
-    <h2 class="rp-SectionTitle rp-Underlined">About</h2>
+    <h2 class="rp-SectionTitle"><?php echo get_post_meta($post->ID, 'page-message', true); ?></h2>
     <div class="rp-USPList">
       <?php the_usps($craft) ?>
     </div>

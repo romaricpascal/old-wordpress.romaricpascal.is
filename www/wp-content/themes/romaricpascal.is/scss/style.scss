@@ -108,9 +108,35 @@ $rp-font-size-huge: 6.25vw;
   font-size: 10vw;
 
   @include mq($from: heroFontJump) {
-    font-size: (45/16) * 1em;
+    font-size: 2.8em;
   }
+}
 
+@mixin typo-font-size-xlarge {
+
+  font-size: 8.25vw;
+
+  @include mq($from: heroFontJump) {
+    font-size: 2.3em;
+  }
+}
+
+@mixin typo-font-size-large {
+
+  font-size: 5.35vw;
+
+  @include mq($from: heroFontJump) {
+    font-size: 1.5em;
+  }
+}
+
+@mixin typo-font-size-regular {
+
+  font-size: 1em;
+}
+
+@mixin typo-font-size-small {
+  font-size: 0.8em;
 }
 
 .t-hidden-visually {
@@ -154,6 +180,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+// 4.5 Wordpress style adjustments
+.gallery-item img {
+  width: 100%;
+  display: block;
+}
+
 // 5. Components
 @import "../node_modules/inuitcss/objects/_objects.ratio";
 
@@ -163,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .rp-SectionTitle {
   @include typo-display;
-  @include typo-font-size-huge;
+  @include typo-font-size-xlarge;
   display: inline-block;
   margin: 0;
   margin-bottom: 0.5em;
@@ -179,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
   @include inuit-clearfix();
 
   @include typo-display;
-  font-size: 1.5em;
+  @include typo-font-size-large;
   line-height: 1.5;
   margin-top: 1em;
 
@@ -234,6 +266,22 @@ h1, h2, h3, h4, h5, h6 {
   background-color: $rp-red;
 }
 
+.rp-ArchiveLink {
+  text-align: right;
+  margin-top: 1.5em;
+  a {
+    @include typo-display;
+    font-size: 1.5em;
+    line-height: 1.5em;
+
+    &::after {
+      content: '»';
+      margin-left: 0.2em;
+      color: $rp-cream-on-purple-35;
+    }
+  }
+}
+
 .rp-LoadMoreLink {
 
   text-align: center;
@@ -282,7 +330,6 @@ h1, h2, h3, h4, h5, h6 {
 .rp-LoadMoreLink a::after {
     content: '»';
     display: inline-block;
-    margin-top: 5p;
     color: $rp-cream-on-purple-35;
 }
 
@@ -310,3 +357,4 @@ h1, h2, h3, h4, h5, h6 {
 @import "_testimonials";
 @import "_artworks";
 @import "_contact";
+@import "_notes";

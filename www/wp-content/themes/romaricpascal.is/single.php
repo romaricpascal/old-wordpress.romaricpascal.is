@@ -8,7 +8,7 @@
     </h1>
     <div>
       <time datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time> —
-      <span>About: </span>
+      <span>About: <?php the_terms(get_the_ID(), CRAFT_TAX_NAME);?>, <?php the_category(', '); ?></span>
     </div>
   </div>
 </section>

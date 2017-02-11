@@ -32,25 +32,10 @@ function artworks_register_post_type() {
 }
 add_action('init', 'artworks_register_post_type');
 
-function query_featured_artworks($craft) {
+function query_latest_artworks($number) {
+
   return query_posts([
     'post_type' => ARTWORK_TYPE,
-    'orderby' => 'menu_order',
-    'order' => 'DESC',
-    'posts_per_page' => 3,
-    'tax_query' => [[
-      'taxonomy' => CRAFT_TAX_NAME,
-      'field' => 'slug',
-      'terms' => $craft->slug
-    ]]
-  ]);
-  return $usps;
-}
-
-function the_featured_artworks($craft) {
-  $usps = query_featured_artworks($craft);
-  while(have_posts()) {
-    the_post();
-    get_template_part('artwork','block');
-  }
+    'posts_per_page' => $number,
+    'paged' =>  1]);
 }

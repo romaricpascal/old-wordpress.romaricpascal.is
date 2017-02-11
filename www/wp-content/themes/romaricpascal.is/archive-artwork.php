@@ -23,9 +23,7 @@
   </div>
   <div data-loadMore-content class="rp-ArtworkList">
   <?php while(have_posts()): the_post(); ?>
-    <a href="<?php the_permalink(); ?>" class=" rp-ArtworkListItem rp-ArtworkList__item o-ratio">
-      <div class="o-ratio__content rp-ArtworkImage"><?php the_post_thumbnail();?></div>
-    </a>
+    <?php get_template_part('partials/artwork-inGallery'); ?>
   <?php endwhile; ?>
   </div>
   <div class="rp-LoadMoreLink" data-loadMore-type="next">

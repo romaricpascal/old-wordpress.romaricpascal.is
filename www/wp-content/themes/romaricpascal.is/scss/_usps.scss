@@ -73,7 +73,14 @@
 
 .rp-USPTitle {
   @include typo-copy;
+  @include typo-font-size-large;
+  line-height: 1.5;
   color: $rp-red;
   margin: 0;
   padding: 0;
+
+  @include mq($until: horizontalUsp) {
+    text-align: center;
+  }
+
 }
