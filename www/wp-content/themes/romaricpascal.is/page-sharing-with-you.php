@@ -25,12 +25,16 @@ Template Name: Sharing page
   <div class="l-Container">
     <h2 class="rp-SectionTitle rp-Underlined">Latest notes</h2>
     <?php query_latest_posts(4); ?>
+    <?php if (have_posts()): ?>
     <?php while(have_posts()): the_post(); ?>
       <?php get_template_part('partials/post-link'); ?>
     <?php endwhile; ?>
     <div class="rp-ArchiveLink">
       <a href="<?php echo get_post_type_archive_link('post'); ?>">Read all notes</a>
     </div>
+  <?php else: ?>
+    <p>Keep an eye for the first note, coming here soon.</p>
+  <?php endif; ?>
   </div>
 </section>
 
