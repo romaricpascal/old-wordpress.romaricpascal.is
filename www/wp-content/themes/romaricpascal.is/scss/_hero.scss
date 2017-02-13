@@ -11,10 +11,8 @@
 .rp-HeroHeading {
   @include typo-display;
   @include typo-font-size-huge;
-  display: inline-block;
 }
 
-.rp-HeroSubhead {
-  @include typo-display;
-  @include typo-font-size-huge;
+.rp-Underlined-hero {
+  display: inline-block;
 }
