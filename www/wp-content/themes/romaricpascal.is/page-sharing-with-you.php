@@ -29,9 +29,11 @@ Template Name: Sharing page
     <?php while(have_posts()): the_post(); ?>
       <?php get_template_part('partials/post-link'); ?>
     <?php endwhile; ?>
+    <?php if(get_next_posts_link()): ?>
     <div class="rp-ArchiveLink">
       <a href="<?php echo get_post_type_archive_link('post'); ?>">Read all notes</a>
     </div>
+    <?php endif; ?>
   <?php else: ?>
     <p>Keep an eye for the first note, coming here soon.</p>
   <?php endif; ?>
