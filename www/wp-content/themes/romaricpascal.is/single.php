@@ -3,7 +3,7 @@
 
 <section class="rp-LandingSection">
   <div class="rp-Hero l-Container">
-    <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">
+    <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero rp-Underlined-landing">
       <?php the_title(); ?>
     </h1>
     <div>

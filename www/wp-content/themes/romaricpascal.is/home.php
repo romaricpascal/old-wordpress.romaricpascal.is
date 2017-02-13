@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <section class="rp-LandingSection">
   <div class="rp-Hero l-Container">
-    <h1 class="rp-HeroHeading rp-Underlined">
+    <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">
       Notes
     </h1>
   </div>

@@ -11,7 +11,7 @@ $craft = get_craft($post);
 get_header(); ?>
 <section class="rp-LandingSection">
   <div class="rp-Hero l-Container">
-    <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">
+    <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero rp-Underlined-landing">
       <?php echo get_post_meta($post->ID, 'page-greeting', true); ?>
     </h1>
     <div class="rp-HeroHeading">
