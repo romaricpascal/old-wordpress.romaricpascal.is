@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= bloginfo('ress_url') ?>">
+    <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?>|<?php bloginfo('description');?>" href="<?php bloginfo('url');?>/feed">
 
     <title><?php echo $title; ?></title>
 
