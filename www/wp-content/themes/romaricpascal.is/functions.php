@@ -1,5 +1,12 @@
 <?php
 
+// 0. Clean up unnecessary Wordpress code in headers;
+remove_action ('wp_head', 'rsd_link');
+remove_action( 'wp_head', 'wlwmanifest_link');
+remove_action( 'wp_head', 'wpjson_link');
+remove_action( 'wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'wp_generator');
+
 // 1. Load necessary taxonomies & content types
 require_once('taxonomies/craft-taxonomy.php');
 require_once('content-types/posts.php');
