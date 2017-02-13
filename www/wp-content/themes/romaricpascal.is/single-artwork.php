@@ -14,11 +14,14 @@
         <time class="rp-ArtworkTime" datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time>
       </div>
     </div>
-    <footer class="rp-ArtworkFullFooter rp-PreviousNextLinks">
-      <span class="rp-PreviousNextLinks__previous"><?php previous_post_link('%link', 'Previous artwork'); ?></span>
-      <span class="rp-PreviousNextLinks__next"><?php next_post_link('%link', 'Next artwork'); ?></span>
-    </footer>
+    <div class="rp-PreviousNextLinks">
+      <span class="rp-PreviousNextLinks__previous"><?php previous_post_link('%link', 'Older artwork'); ?></span>
+      <span class="rp-PreviousNextLinks__next"><?php next_post_link('%link', 'More recent artwork'); ?></span>
+    </div>
   </div>
 </section>
 
-<?php get_footer(); ?>
+<?php
+  get_template_part('partials/c-stayupdated');
+  get_footer();
+?>

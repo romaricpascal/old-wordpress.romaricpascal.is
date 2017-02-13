@@ -23,4 +23,9 @@
   </div>
 </section>
 
-<?php get_footer(); ?>
+
+
+<?php
+  get_template_part('partials/c-stayupdated');
+  get_footer();
+?>

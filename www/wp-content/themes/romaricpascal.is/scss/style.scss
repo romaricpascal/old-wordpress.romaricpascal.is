@@ -4,6 +4,8 @@ $rp-red: #c54d58;
 $rp-cream: #f8efe0;
 $rp-cream-on-purple-35: mix($rp-cream, $rp-purple, 35%);
 $rp-cream-on-purple-65: mix($rp-cream, $rp-purple, 65%);
+$rp-cream-on-red-35: mix($rp-cream, $rp-purple, 35%);
+$rp-cream-on-red-65: mix($rp-cream, $rp-red, 65%);
 
 $rp-logo-size: 4.25rem;
 $rp-header-spacing: 0.5em;
@@ -186,6 +188,42 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+.rp-Input {
+  font-size: inherit;
+  line-height: 2;
+  border: none;
+  border-radius: 0;
+  padding: 0 0.5em;
+
+  &-softLeft {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+
+.rp-Button {
+  vertical-align: top;
+  @include light-on-red;
+  @include typo-display;
+  border: none;
+  font-size: 1.3em;
+  line-height: 2;
+  white-space: nowrap;
+  padding: 0 1em;
+
+  &-softRight {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &::after {
+    content: '»';
+    margin-left: 0.2em;
+    color: $rp-cream-on-red-65;
+  }
+}
+
+
 // 5. Components
 @import "../node_modules/inuitcss/objects/_objects.ratio";
 
@@ -347,6 +385,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .rp-LoadMoreLink[data-loadMore-type=previous] a::after {
    transform: translateX(0.2em) rotate(-90deg);
+}
+
+.rp-NewsletterSignup {
+  display: flex;
+  flex-wrap: nowrap;
+
+  margin-bottom: 1em;
+
+  &_field {
+    flex: 1 1 0;
+  }
+
+  &button {
+    flex: 0 0 auto;
+  }
 }
 
 
