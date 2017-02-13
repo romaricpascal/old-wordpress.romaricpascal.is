@@ -25,21 +25,21 @@
 
     <!-- FB OpenGraph info -->
     <meta prefix="og:http://ogp.me/ns#" name="og:description" content="<?php  bloginfo('description')?>">
-    <meta prefix="og:http://ogp.me/ns#" name="og:image" content="<?php echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png'); ?>">
+    <meta prefix="og:http://ogp.me/ns#" name="og:image" content="<?php the_social_card_image(); ?>">
 
     <!-- Twitter cards -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@romaricpascal" />
     <meta name="twitter:title" content="<?php echo $title; ?>" />
     <meta name="twitter:description" content="<?php  bloginfo('description')?>" />
-    <meta name="twitter:image" content="<?php echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png'); ?>" />
+    <meta name="twitter:image" content="<?php the_social_card_image(); ?>" />
 
     <?php wp_head();?>
   </head>
   <body>
     <header id="#header" class="rp-Header">
       <div class="rp-Logo rp-Header__logo">
-        <img class="rp-LogoImage" height="100" width="100" src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg') ?>" alt="R P monogram" />
+        <img class="rp-LogoImage" height="100" width="100" src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg'); ?>" alt="R P monogram" />
       </div>
       <nav>
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>

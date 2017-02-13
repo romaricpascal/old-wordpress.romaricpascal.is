@@ -73,6 +73,14 @@ function template_file_uri($path){
   echo get_template_directory_uri().'/'.$path;
 }
 
+function the_social_card_image() {
+  if (has_post_thumbnail()) {
+    echo the_post_thumbnail_url();
+  } else {
+    echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png');
+  }
+}
+
 function rp_the_menu($menuId) {
   global $menu_items;
 
