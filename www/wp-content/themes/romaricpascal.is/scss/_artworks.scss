@@ -33,7 +33,7 @@ $grid-rows: 6;
 
 
   @include mq($from: artworkGrid5Cols) {
-    .rp-ArtworkList {
+    .rp-ArtworkList-grid {
       display: grid;
       grid-auto-columns: 128px;
       grid-template-columns: repeat($grid-columns, 128px);

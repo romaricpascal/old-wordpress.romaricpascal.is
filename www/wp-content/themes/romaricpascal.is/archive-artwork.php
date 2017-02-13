@@ -21,7 +21,7 @@
         <div class="sk-child sk-dot2"></div>
       </div>
   </div>
-  <div data-loadMore-content class="rp-ArtworkList">
+  <div data-loadMore-content class="rp-ArtworkList rp-ArtworkList-grid">
   <?php while(have_posts()): the_post(); ?>
     <?php get_template_part('partials/artwork-inGallery'); ?>
   <?php endwhile; ?>
