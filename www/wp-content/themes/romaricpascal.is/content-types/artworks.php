@@ -32,6 +32,11 @@ function artworks_register_post_type() {
 }
 add_action('init', 'artworks_register_post_type');
 
+function is_artwork() {
+  global $post;
+  return $post->post_type === ARTWORK_TYPE;
+}
+
 function query_latest_artworks($number) {
 
   return query_posts([

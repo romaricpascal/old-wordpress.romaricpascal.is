@@ -32,10 +32,6 @@ function rp_pre_get_posts($query) {
 
     $query->set('posts_per_page', 20);
   }
-
-  if (is_home()) {
-
-  }
 }
 add_action('pre_get_posts', 'rp_pre_get_posts');
 
@@ -44,6 +40,28 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 
     return preg_replace('/^\w+: /', '', $title);
 });
+
+// 5. Set up RSS feed templates
+add_filter('request', function ($qv) {
+  if (isset($qv['feed']) && !isset($qv['post_type'])) {
+    $qv['post_type'] = ['post', ARTWORK_TYPE];
+  }
+  return $qv;
+});
+
+add_filter('the_content', function ($content) {
+  if (is_feed() && is_artwork()) {
+    $content =  get_the_post_thumbnail() . $content;
+  }
+
+  return $content;
+});
+
+// Use custom theme for the RSS feed
+remove_all_actions( 'do_feed_rss2' );
+add_action( 'do_feed_rss2', function($for_comments) {
+  get_template_part('feed','rss2');
+}, 10, 1 );
 
 // Helper functions
 function template_file_uri($path){
