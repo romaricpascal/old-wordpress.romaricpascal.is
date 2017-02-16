@@ -3,7 +3,7 @@
 
   <section class="rp-LandingSection">
     <div class="rp-Hero l-Container">
-      <h1 class="rp-HeroHeading rp-Underlined">
+      <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">
         Notes about <?php the_archive_title(); ?>
       </h1>
     </div>
@@ -11,13 +11,15 @@
 
   <section class="rp-LandingSection t-light-on-dark">
     <div class="l-Container">
-
-      <?php while(have_posts()): the_post(); ?>
-      <a class="rp-Note" href="<?php the_permalink(); ?>">
-        <h2 class="rp-NoteTitle"><?php the_title();?></h2>
-        <time class="rp-NoteTime"><?php the_date('d M Y'); ?></time>
-      </a>
-      <?php endwhile; ?>
+      <div>
+        <?php while(have_posts()): the_post(); ?>
+          <?php get_template_part('partials/post-link'); ?>
+        <?php endwhile; ?>
+      </div>
+      <footer class="rp-ProjectFullFooter rp-PreviousNextLinks">
+        <span class="rp-PreviousNextLinks__previous"><?php previous_posts_link('More recent notes'); ?></span>
+        <span class="rp-PreviousNextLinks__next"><?php next_posts_link('Older notes'); ?></span>
+      </footer>
     </div>
   </section>
 
