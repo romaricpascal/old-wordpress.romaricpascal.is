@@ -19,6 +19,7 @@ require_once('content-types/usps.php');
 require_once('content-types/testimonials.php');
 require_once('content-types/projects.php');
 require_once('content-types/artworks.php');
+require_once('content-types/old_posts.php');
 
 define('MENU_PRIMARY', 'primary');
 

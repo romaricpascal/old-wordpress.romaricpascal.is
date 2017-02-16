@@ -4,7 +4,7 @@ $rp-red: #c54d58;
 $rp-cream: #f8efe0;
 $rp-cream-on-purple-35: mix($rp-cream, $rp-purple, 35%);
 $rp-cream-on-purple-65: mix($rp-cream, $rp-purple, 65%);
-$rp-cream-on-red-35: mix($rp-cream, $rp-purple, 35%);
+$rp-cream-on-red-35: mix($rp-cream, $rp-red, 35%);
 $rp-cream-on-red-65: mix($rp-cream, $rp-red, 65%);
 
 $rp-logo-size: 4.25rem;
@@ -285,6 +285,20 @@ h1, h2, h3, h4, h5, h6 {
 
   &-landing::after {
     width: 7.61em;
+  }
+}
+
+.rp-LegacyWarning {
+
+  border: solid 2px $rp-red;
+  padding: 1em;
+  color: $rp-cream-on-red-35;
+  margin-bottom: 2em;
+
+  &::before {
+    content: 'Please note: ';
+    display: inline;
+    font-weight: bold;
   }
 }
 
