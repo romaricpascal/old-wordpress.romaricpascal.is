@@ -10,6 +10,9 @@
   </section>
   <section class="rp-LandingSection t-light-on-dark">
     <div class="l-Container">
+      <div class="rp-LegacyWarning">
+        <?php dynamic_sidebar(OLD_POST_WARNING_ID); ?>
+      </div>
       <div>
         <?php while(have_posts()): the_post(); ?>
           <?php get_template_part('partials/post-link'); ?>
