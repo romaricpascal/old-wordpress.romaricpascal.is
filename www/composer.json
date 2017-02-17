@@ -25,7 +25,8 @@
     "wordpress": "4.7.2",
     "fancyguy/webroot-installer": "1.0.0",
     "wpackagist-plugin/svg-support": "2.3.6",
-    "wpackagist-plugin/codepress-admin-columns": "2.5.6.4"
+    "wpackagist-plugin/codepress-admin-columns": "2.5.6.4",
+    "wpackagist-plugin/pinterest-verify": "1.0.4"
   },
   "extra": {
     "webroot-dir": "wordpress",
