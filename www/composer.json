@@ -5,10 +5,10 @@
       "package": {
         "name": "wordpress",
         "type": "webroot",
-        "version": "4.7.2",
+        "version": "4.7.4",
         "dist": {
           "type": "zip",
-          "url": "https://github.com/WordPress/WordPress/archive/4.7.2.zip"
+          "url": "https://github.com/WordPress/WordPress/archive/4.7.4.zip"
         },
         "require" : {
           "fancyguy/webroot-installer": "1.0.0"
@@ -22,11 +22,11 @@
   ],
   "require": {
     "php": ">=5.3.0",
-    "wordpress": "4.7.2",
+    "wordpress": "4.7.4",
     "fancyguy/webroot-installer": "1.0.0",
-    "wpackagist-plugin/svg-support": "2.3.6",
-    "wpackagist-plugin/codepress-admin-columns": "2.5.6.4",
-    "wpackagist-plugin/pinterest-verify": "1.0.4"
+    "wpackagist-plugin/pinterest-verify": "1.0.4",
+    "wpackagist-plugin/svg-support": "2.3.8",
+    "wpackagist-plugin/codepress-admin-columns": "2.5.6.4"
   },
   "extra": {
     "webroot-dir": "wordpress",
