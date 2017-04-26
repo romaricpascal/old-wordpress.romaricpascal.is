@@ -129,5 +129,88 @@ $grid-rows: 6;
 }
 
 .rp-ArtworkTime {
-  opacity: 0.5;
+  color: $rp-cream-on-purple-50;
+}
+
+$rp-artworkLinkPadding: 1.5em;
+$rp-artworkLinkArrowSize: 2em;
+
+.rp-PreviousArtworkLink {
+  display: block;
+  position:relative;
+  padding-left: $rp-artworkLinkPadding;
+
+  @include mq($from: artworkLinkAlignShift) {
+    transform:translateX(-$rp-artworkLinkPadding);
+  }
+
+  &::before {
+    content: '<';
+    font-size: $rp-artworkLinkArrowSize;
+    color: $rp-cream-on-purple-50;
+    display:inline-block;
+    line-height: 1;
+    position: absolute;
+    top: #{"calc(1rem + 7px)"};
+    left: $rp-artworkLinkPadding/$rp-artworkLinkArrowSize*1em;
+    padding-right: 5px;
+    transform: translateX(-100%);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: #{"calc(2.3em + 15px)"};
+    background-image: linear-gradient(135deg, transparent 1em, $rp-red 0);
+    position: absolute;
+    left: 0;
+    top: 1em;
+    transform:translateX(-1em);
+  }
+}
+
+.rp-NextArtworkLink {
+  display: block;
+  position: relative;
+  padding-right: $rp-artworkLinkPadding;
+
+  @include mq($from: artworkLinkAlignShift) {
+    transform: translateX($rp-artworkLinkPadding);
+  }
+
+  &::before {
+    content: '>';
+    font-size: $rp-artworkLinkArrowSize;
+    color: $rp-cream-on-purple-50;
+    display:inline-block;
+    line-height: 1;
+    position: absolute;
+    top: #{"calc(1rem + 7px)"};
+    right: $rp-artworkLinkPadding/$rp-artworkLinkArrowSize*1em;
+    padding-left: 5px;
+    transform: translateX(100%);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: #{"calc(2.3em + 15px)"};
+    background-image: linear-gradient(45deg,#c54d58 calc(100% - 1em),transparent 0);
+    position: absolute;
+    right: 0;
+    top: 1em;
+    transform:translateX(1em);
+  }
+}
+
+.rp-ArtworkLinkImage {
+  border: solid 5px $rp-purple;
+  box-sizing: content-box;
+
+  @include mq($until: artworkLinkEnlarge) {
+    width: 100px;
+    height: auto;
+  }
 }

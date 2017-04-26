@@ -3,6 +3,7 @@ $rp-purple: #260b23;
 $rp-red: #c54d58;
 $rp-cream: #f8efe0;
 $rp-cream-on-purple-35: mix($rp-cream, $rp-purple, 35%);
+$rp-cream-on-purple-50: mix($rp-cream, $rp-purple, 50%);
 $rp-cream-on-purple-65: mix($rp-cream, $rp-purple, 65%);
 $rp-cream-on-red-35: mix($rp-cream, $rp-red, 35%);
 $rp-cream-on-red-65: mix($rp-cream, $rp-red, 65%);
@@ -21,7 +22,9 @@ $mq-breakpoints: (
   horizontalProjectHeader: 33.25em,
   horizontalArtwork: 600px,
   artworkGrid4Cols: 4 * $rp-artwork-grid-min-item-size,
-  artworkGrid5Cols: 5 * $rp-artwork-grid-min-item-size
+  artworkGrid5Cols: 5 * $rp-artwork-grid-min-item-size,
+  artworkLinkAlignShift: 870px,
+  artworkLinkEnlarge: 400px
 );
 
 $rp-copy-font-family: questasans_regular;

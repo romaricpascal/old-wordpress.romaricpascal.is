@@ -15,8 +15,7 @@
       </div>
     </div>
     <div class="rp-PreviousNextLinks">
-      <span class="rp-PreviousNextLinks__previous"><?php previous_post_link('%link', 'Older artwork'); ?></span>
-      <span class="rp-PreviousNextLinks__next"><?php next_post_link('%link', 'More recent artwork'); ?></span>
+      <?php get_template_part('partials/prev-next-with-thumbnails'); ?>
     </div>
   </div>
 </section>
