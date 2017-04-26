@@ -22,6 +22,7 @@ require_once('content-types/artworks.php');
 require_once('content-types/old_posts.php');
 
 define('MENU_PRIMARY', 'primary');
+define('WIDGETS_ANNOUNCEMENT', 'rp_announcements');
 
 // 2. Setup theme
 function rp_setup() {
@@ -81,6 +82,24 @@ function the_social_card_image() {
     echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png');
   }
 }
+
+
+// 6. Register widget areas
+
+add_action( 'widgets_init', function () {
+
+  register_sidebar([
+		'name'          => 'Announcements',
+		'id'            => WIDGETS_ANNOUNCEMENT,
+		'before_widget' => '<div class="rp-Announcement l-Container">',
+		'after_widget'  => '</div>',
+    'before_title'  => '<h2 class="rp-AnnouncementTitle">',
+    'after_title'   => '</h2>',
+    'before_content' => '<div class="rp-AnnouncementContent">',
+    'after_content' => '</div>'
+	]);
+});
+
 
 function rp_the_menu($menuId) {
   global $menu_items;

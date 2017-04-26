@@ -37,6 +37,11 @@
     <?php wp_head();?>
   </head>
   <body>
+    <?php if (is_active_sidebar( WIDGETS_ANNOUNCEMENT )): ?>
+    <div class="rp-Announcements rp-LandingSection t-light-on-red" role="complementary">
+      <?php dynamic_sidebar( WIDGETS_ANNOUNCEMENT ); ?>
+    </div>
+    <?php endif; ?>
     <header id="#header" class="rp-Header">
       <div class="rp-Logo rp-Header__logo">
         <img class="rp-LogoImage" height="100" width="100" src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg'); ?>" alt="R P monogram" />

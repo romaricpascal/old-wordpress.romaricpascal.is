@@ -58,10 +58,27 @@ $rp-font-size-huge: 6.25vw;
 @mixin light-on-red {
   background-color: $rp-red;
   color: $rp-cream;
+
+  a {
+    color: $rp-purple;
+  }
 }
 
 .t-light-on-red {
   @include light-on-red;
+}
+
+@mixin dark-on-red {
+  background-color: $rp-red;
+  color: $rp-purple;
+
+  a {
+    color: $rp-cream;
+  }
+}
+
+.t-dark-on-red {
+  @include dark-on-red;
 }
 
 @mixin font-face($font-family) {
@@ -429,3 +446,4 @@ h1, h2, h3, h4, h5, h6 {
 @import "_artworks";
 @import "_contact";
 @import "_notes";
+@import "_announcements";

@@ -1,0 +1,27 @@
+.rp-Announcements {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.rp-AnnouncementTitle {
+  display:inline;
+  font-size: inherit;
+
+  &::after {
+    content: ': '
+  }
+}
+
+.rp-Announcement {
+  text-align: center;
+
+  .textwidget {
+    display: inline;
+  }
+}
+
+.rp-AnnouncementCTA {
+  @include typo-display;
+  display: block;
+  line-height: 2;
+}
