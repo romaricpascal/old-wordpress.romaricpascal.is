@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "16afe5076faf8093fb557b13f6babfe8",
+    "content-hash": "22ddf4f2c47b106df80582d211dcd203",
     "packages": [
         {
             "name": "composer/installers",
@@ -164,10 +164,10 @@
         },
         {
             "name": "wordpress",
-            "version": "4.7.4",
+            "version": "4.8",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/4.7.4.zip",
+                "url": "https://github.com/WordPress/WordPress/archive/4.8.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -178,15 +178,15 @@
         },
         {
             "name": "wpackagist-plugin/codepress-admin-columns",
-            "version": "2.5.6.4",
+            "version": "3.0.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/codepress-admin-columns/",
-                "reference": "tags/2.5.6.4"
+                "reference": "tags/3.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/codepress-admin-columns.2.5.6.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/codepress-admin-columns.3.0.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -218,15 +218,15 @@
         },
         {
             "name": "wpackagist-plugin/svg-support",
-            "version": "2.3.8",
+            "version": "2.3.10",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/svg-support/",
-                "reference": "tags/2.3.8"
+                "reference": "tags/2.3.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/svg-support.2.3.8.zip",
+                "url": "https://downloads.wordpress.org/plugin/svg-support.2.3.10.zip",
                 "reference": null,
                 "shasum": null
             },
