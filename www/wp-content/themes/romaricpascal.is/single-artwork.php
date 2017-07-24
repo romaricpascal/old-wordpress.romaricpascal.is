@@ -7,7 +7,7 @@
   <div class="l-Container">
     <div class="rp-ArtworkFull">
       <div class="rp-ArtworkFull__main rp-ArtworkMedia">
-        <img src="<?php the_post_thumbnail_url(); ?>" title="<?php  the_title();?>"
+        <img src="<?php the_post_thumbnail_url(); ?>" title="<?php  the_title();?>" alt="<?php the_title();?>"
              srcset="<?php rp_the_thumbnail_srcset(['artwork-full','artwork-full-2x','artwork-full-3x']); ?>" >
       </div>
       <div class="rp-ArtworkFull__aside rp-ArtworkCaption">
