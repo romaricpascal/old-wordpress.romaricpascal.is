@@ -155,17 +155,19 @@ function rp_the_menu($menuId) {
   get_template_part('menu', $menuId);
 }
 
-function rp_get_thumbnail_width($size) {
-  return IMAGE_SIZES[$size]['width'];
+function rp_append_srcset_entry($srcset, $attachment_id, $size) {
+    $src = wp_get_attachment_image_src($attachment_id, $size);
+    if ($src) {
+      return $srcset."$src[0] $src[1]"."px\n";
+    }
 }
+
 function rp_get_attachment_srcset($sizes, $attachment_id) {
   $srcset = "";
   foreach($sizes as $size) {
-    $width = rp_get_thumbnail_width($size);
-    $url = wp_get_attachment_image_url($attachment_id, $size);
-    $srcset = $srcset."$url $width"."px\n";
+    $srcset = rp_append_srcset_entry($srcset, $attachment_id, $size);
   }
-  return $srcset;
+  return rp_append_srcset_entry($srcset, $attachment_id, 'full');
 }
 
 function rp_get_the_thumbnail_srcset($sizes) {
