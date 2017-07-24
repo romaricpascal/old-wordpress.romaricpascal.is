@@ -48,6 +48,21 @@ define('IMAGE_SIZES', [
     'width' => 1152,
     'height' => 1152,
     'crop' =>  true
+  ],
+  'artwork-full' => [
+    'width' => 560,
+    'height' => 0,
+    'crop' =>  false
+  ],
+  'artwork-full-2x' => [
+    'width' => 1120,
+    'height' => 0,
+    'crop' =>  false
+  ],
+  'artwork-full-3x' => [
+    'width' => 1680,
+    'height' => 0,
+    'crop' =>  false
   ]
 ]);
 // 2. Setup theme
