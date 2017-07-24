@@ -23,12 +23,41 @@ require_once('content-types/old_posts.php');
 
 define('MENU_PRIMARY', 'primary');
 define('WIDGETS_ANNOUNCEMENT', 'rp_announcements');
-
+define('IMAGE_SIZES', [
+  'artwork-grid-s' => [
+    'width' => 167,
+    'height' => 167,
+    'crop' =>  true
+  ],
+  'artwork-grid-m' => [
+    'width' => 280,
+    'height' => 280,
+    'crop' =>  true
+  ],
+  'artwork-grid-l' => [
+    'width' => 384,
+    'height' => 384,
+    'crop' =>  true
+  ],
+  'artwork-grid-xl' => [
+    'width' => 840,
+    'height' => 840,
+    'crop' =>  true
+  ],
+  'artwork-grid-l-3x' => [
+    'width' => 1152,
+    'height' => 1152,
+    'crop' =>  true
+  ]
+]);
 // 2. Setup theme
 function rp_setup() {
   register_nav_menu(MENU_PRIMARY, __('Primary Menu'));
   add_theme_support('post-thumbnails');
-  // add_theme_support('post-formats', ['image', 'gallery', 'video']);
+  
+  foreach(IMAGE_SIZES as $image_size_name => $image_size) {
+    add_image_size($image_size_name, $image_size['width'], $image_size['height'], $image_size['crop']);
+  }
 }
 add_action('after_setup_theme', 'rp_setup');
 
@@ -109,4 +138,34 @@ function rp_the_menu($menuId) {
    $menu_items = wp_get_nav_menu_items($menu->term_id);
 
   get_template_part('menu', $menuId);
+}
+
+function rp_get_thumbnail_width($size) {
+  return IMAGE_SIZES[$size]['width'];
+}
+function rp_get_attachment_srcset($sizes, $attachment_id) {
+  $srcset = "";
+  foreach($sizes as $size) {
+    $width = rp_get_thumbnail_width($size);
+    $url = wp_get_attachment_image_url($attachment_id, $size);
+    $srcset = $srcset."$url $width"."px\n";
+  }
+  return $srcset;
+}
+
+function rp_get_the_thumbnail_srcset($sizes) {
+  global $post;
+  $post_thumbnail_id = get_post_thumbnail_id($post);
+  if ( ! $post_thumbnail_id ) {
+    return false;
+  }
+
+  return rp_get_attachment_srcset($sizes, $post_thumbnail_id);
+}
+
+function rp_the_thumbnail_srcset($sizes) {
+  $srcset = rp_get_the_thumbnail_srcset($sizes);
+  if ($srcset) {
+    echo $srcset;
+  }
 }
