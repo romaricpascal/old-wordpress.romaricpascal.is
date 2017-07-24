@@ -4,6 +4,7 @@
 
 wp-content/uploads
 wp-content/plugins
+wp-content/ewww
 wp-salts.php
 .env.php
 
