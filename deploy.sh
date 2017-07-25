@@ -1,3 +1,6 @@
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+
 deploy_id=romaricpascal.is-`date '+%y%m%d%H%M%S'`
 workdir=`pwd`/../deploy/$deploy_id
 archive_path=$workdir.tar.gz
@@ -22,7 +25,11 @@ echo "- Installing fonts"
 (cp -r ../fonts $workdir/www/wp-content/themes/romaricpascal.is/assets)
 
 echo "Packaging project before upload"
-(cd $workdir/www && pwd && tar -X ../.rsyncignore -cvzf $archive_path *)
+
+echo " - Removing unnecessary composer files"
+(cd $workdir/www && rm -rf vendor)
+echo " - Creating tarball"
+(cd $workdir/www && pwd && tar -X "$SCRIPTPATH/.rsyncignore" --exclude=$workdir/www/vendor -cvzf $archive_path *)
 
 echo "Copying to remote server"
 scp $archive_path $host:.
@@ -52,5 +59,5 @@ ssh $host <<-ENDSH
 
 ENDSH
 
-echo "Cleaning up local files"
-rm -rf "$workdir*"
+# echo "Cleaning up local files"
+# rm -rf "$workdir*"
