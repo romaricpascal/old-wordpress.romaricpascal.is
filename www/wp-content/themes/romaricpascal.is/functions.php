@@ -155,10 +155,11 @@ function rp_the_menu($menuId) {
   get_template_part('menu', $menuId);
 }
 
-function rp_append_srcset_entry($srcset, $attachment_id, $size) {
+function rp_append_srcset_entry($srcset, $attachment_id, $size, $with_comma = true) {
     $src = wp_get_attachment_image_src($attachment_id, $size);
     if ($src) {
-      return $srcset."$src[0] $src[1]"."px\n";
+      $entry = "$src[0] $src[1]w".($with_comma ? ',' : '');
+      return $srcset.$entry."\n";
     }
 }
 
@@ -167,7 +168,7 @@ function rp_get_attachment_srcset($sizes, $attachment_id) {
   foreach($sizes as $size) {
     $srcset = rp_append_srcset_entry($srcset, $attachment_id, $size);
   }
-  return rp_append_srcset_entry($srcset, $attachment_id, 'full');
+  return rp_append_srcset_entry($srcset, $attachment_id, 'full', false);
 }
 
 function rp_get_the_thumbnail_srcset($sizes) {
