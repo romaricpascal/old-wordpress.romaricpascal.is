@@ -49,6 +49,9 @@ ssh $host <<-ENDSH
   echo "Linking uploads folder"
   ln -s ~/data/$target/uploads $deploy_id/wp-content/uploads
 
+  echo "Linking ewww folder"
+  ln -s ~/data/$target/ewww $deploy_id/wp-content/ewww
+
   echo "Swapping old deployment for new one"
   [ -e "$target-old" ] && rm -r "$target-old"
   mv $target $target-old
