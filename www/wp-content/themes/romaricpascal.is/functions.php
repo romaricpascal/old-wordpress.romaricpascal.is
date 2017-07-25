@@ -114,6 +114,15 @@ add_action( 'do_feed_rss2', function($for_comments) {
   get_template_part('feed','rss2');
 }, 10, 1 );
 
+// Fix pagination in titles and limits risks of duplicate content
+add_filter('wp_title', function($title) {
+  if (is_paged()) {
+    $page = get_query_var('paged');
+    return $title." (Page $page)"; 
+  }
+  return $title;
+}, 10, 2);
+
 // Helper functions
 function template_file_uri($path){
   echo get_template_directory_uri().'/'.$path;
