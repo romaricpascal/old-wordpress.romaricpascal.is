@@ -92,6 +92,7 @@
   }
 }
 
+.current-menu-item,
 .current_page_item {
 
   @include mq($until: horizontalMenu) {
