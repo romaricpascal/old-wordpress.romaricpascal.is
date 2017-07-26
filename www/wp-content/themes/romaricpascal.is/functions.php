@@ -132,6 +132,16 @@ add_filter('wp_title', function($title) {
   return $title;
 }, 10, 2);
 
+// Fix highlighting of current menu items for custom post archives
+add_filter('nav_menu_css_class', function($classes, $item) {
+  $post_type = get_query_var('post_type');
+
+  if ($item->type === 'post_type_archive' && $item->object == $post_type) {
+    array_push($classes, 'current-menu-item-parent');
+  }
+  return $classes;
+}, 10, 2);
+
 // Helper functions
 function template_file_uri($path){
   echo get_template_directory_uri().'/'.$path;

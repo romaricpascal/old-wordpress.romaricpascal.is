@@ -93,7 +93,8 @@
 }
 
 .current-menu-item,
-.current_page_item {
+.current_page_item,
+.current-menu-item-parent {
 
   @include mq($until: horizontalMenu) {
     border-left-color: $rp-red;
