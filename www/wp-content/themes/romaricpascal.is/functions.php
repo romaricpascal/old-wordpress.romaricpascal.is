@@ -21,7 +21,8 @@ require_once('content-types/projects.php');
 require_once('content-types/artworks.php');
 require_once('content-types/old_posts.php');
 
-define('MENU_PRIMARY', 'primary');
+define('MENU_MAIN_1', 'menu_main_1');
+define('MENU_MAIN_2', 'menu_main_2');
 define('WIDGETS_ANNOUNCEMENT', 'rp_announcements');
 define('IMAGE_SIZES', [
   'artwork-grid-s' => [
@@ -67,7 +68,8 @@ define('IMAGE_SIZES', [
 ]);
 // 2. Setup theme
 function rp_setup() {
-  register_nav_menu(MENU_PRIMARY, __('Primary Menu'));
+  register_nav_menu(MENU_MAIN_1, __('Main menu (Part 1)'));
+  register_nav_menu(MENU_MAIN_2, __('Main menu (Part 2)'));
   add_theme_support('post-thumbnails');
   
   foreach(IMAGE_SIZES as $image_size_name => $image_size) {
