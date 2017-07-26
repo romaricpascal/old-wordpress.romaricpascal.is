@@ -65,7 +65,8 @@
     return function(html) {
       var newLink = html.querySelector('[data-loadMore-type="' + type + '"] a');
       if (newLink) {
-        link.setAttribute('href', newLink.href);
+        var href = newLink.href.split('?')[0];
+        link.setAttribute('href', href);
       } else {
         link.remove();
       }
@@ -83,17 +84,26 @@
       .then(updateLink(link, type))
       .then(function () {
         linkContainer.classList.remove('is-loading');
+      })
+      .catch(function () {
+        window.location = link.href;
       });
   }
 
   function handleClick(event) {
-    if (event.target.matches('[data-loadMore-type] a')) {
-      event.preventDefault();
 
-      var linkContainer = event.target.closest('[data-loadMore-type]');
-      loadContent(linkContainer, event.target);
+    if (!event.target.matches('[data-loadMore-type] a')) {
+      return;
     }
 
+    if (event.ctrlKey || event.which === 2 || event.which === 3) {
+      return;
+    }
+       
+    event.preventDefault();
+
+    var linkContainer = event.target.closest('[data-loadMore-type]');
+    loadContent(linkContainer, event.target);
   }
   function setupLoadMore(container) {
 
