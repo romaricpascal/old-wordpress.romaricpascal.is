@@ -75,7 +75,10 @@
 
   @include mq($from: horizontalMenu) {
     display: inline-block;
-    margin-left: $rp-header-spacing;
+
+    &:not(:first-child) {
+      margin-left: $rp-header-spacing;
+    }
   }
 
   @include mq($until: horizontalMenu) {
