@@ -44,3 +44,12 @@ function query_latest_artworks($number) {
     'posts_per_page' => $number,
     'paged' =>  1]);
 }
+
+function query_featured_artworks($number) {
+  return query_posts([
+    'post_type' => ARTWORK_TYPE,
+    'meta_key' => 'featured_artwork',
+    'meta_value' => 'true',
+    'posts_per_page' => $number,
+    'paged' =>  1]);
+}

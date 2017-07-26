@@ -249,6 +249,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .rp-LandingSection {
   padding: 2rem 1rem;
+  
+  &-withSpaceAfter {
+    margin-bottom: 2rem;
+  }
 }
 
 .rp-SectionTitle {
@@ -345,15 +349,35 @@ h1, h2, h3, h4, h5, h6 {
 .rp-ArchiveLink {
   text-align: right;
   margin-top: 1.5em;
+
+  &__detail {
+    display: block;
+    position: relative;
+    font-size: .75em;
+    line-height: 1;
+  }
   a {
+    position: relative;
+    padding-right: 1.1em;
+    display: inline-block;
+
     @include typo-display;
     font-size: 1.5em;
     line-height: 1.5em;
 
     &::after {
       content: '»';
-      margin-left: 0.2em;
       color: $rp-cream-on-purple-35;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-withDetail {
+    a::after {
+      top: 55%;
     }
   }
 }
