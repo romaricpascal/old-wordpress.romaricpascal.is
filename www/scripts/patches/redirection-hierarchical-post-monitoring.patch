@@ -1,0 +1,27 @@
+From d9b6cc20c0f4bdb5673b03c05806780eb8998f7d Mon Sep 17 00:00:00 2001
+From: Romaric Pascal <rhumaric@users.noreply.github.com>
+Date: Wed, 26 Jul 2017 12:27:29 +0100
+Subject: [PATCH] Allowed monitoring of hierarchical post types
+
+---
+ models/monitor.php | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/models/monitor.php b/models/monitor.php
+index 529cc9f..72eac19 100644
+--- a/models/monitor.php
++++ b/models/monitor.php
+@@ -41,10 +41,6 @@ class Red_Monitor {
+ 			return false;
+ 		}
+ 
+-		// Hierarchical post? Do nothing
+-		if ( is_post_type_hierarchical( $post->post_type ) ) {
+-			return false;
+-		}
+ 
+ 		// Old Redirection slug not defined? Do nothing
+ 		if ( ! isset( $form_data['redirection_slug'] ) ) {
+-- 
+2.13.0
+

@@ -26,16 +26,17 @@
     "fancyguy/webroot-installer": "1.0.0",
     "wpackagist-plugin/pinterest-verify": "1.0.4",
     "wpackagist-plugin/svg-support": "2.3.10",
-    "wpackagist-plugin/codepress-admin-columns": "3.0.2",
+    "wpackagist-plugin/codepress-admin-columns": "3.0.3",
     "wpackagist-plugin/force-regenerate-thumbnails": "2.0.6",
-    "wpackagist-plugin/ewww-image-optimizer": "3.5.1"
+    "wpackagist-plugin/ewww-image-optimizer": "3.5.1",
+    "wpackagist-plugin/redirection": "2.6.5"
   },
   "extra": {
     "webroot-dir": "wordpress",
     "webroot-package": "wordpress"
   },
   "scripts": {
-    "post-install-cmd": "php generate-salts.php",
-    "post-update-cmd": "php generate-salts.php"
+    "post-install-cmd": "scripts/post-install.sh",
+    "post-update-cmd": "scripts/post-install.sh"
   }
 }

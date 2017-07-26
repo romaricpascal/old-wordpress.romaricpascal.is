@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "922f8e02bcc91813ef005cb7ae677d19",
+    "content-hash": "706d45e33c49199c74643de4ef97b8d0",
     "packages": [
         {
             "name": "composer/installers",
@@ -178,15 +178,15 @@
         },
         {
             "name": "wpackagist-plugin/codepress-admin-columns",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/codepress-admin-columns/",
-                "reference": "tags/3.0.2"
+                "reference": "tags/3.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/codepress-admin-columns.3.0.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/codepress-admin-columns.3.0.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -255,6 +255,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/pinterest-verify/"
+        },
+        {
+            "name": "wpackagist-plugin/redirection",
+            "version": "2.6.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/redirection/",
+                "reference": "tags/2.6.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/redirection.2.6.5.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/redirection/"
         },
         {
             "name": "wpackagist-plugin/svg-support",

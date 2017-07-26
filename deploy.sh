@@ -26,8 +26,9 @@ echo "- Installing fonts"
 
 echo "Packaging project before upload"
 
-echo " - Removing unnecessary composer files"
-(cd $workdir/www && rm -rf vendor)
+echo " - Removing unnecessary build files"
+(cd $workdir/www && rm -rf vendor scripts)
+
 echo " - Creating tarball"
 (cd $workdir/www && pwd && tar -X "$SCRIPTPATH/.rsyncignore" --exclude=$workdir/www/vendor -cvzf $archive_path *)
 
