@@ -120,6 +120,13 @@ add_filter('wp_title', function($title) {
     $page = get_query_var('paged');
     return $title." (Page $page)"; 
   }
+
+  if (is_single() && empty($title)) {
+    // <<--- RESTART HERE: Generate something like "POST TYPE from DATE"
+    global $post;
+    $type = get_post_type_object($post->post_type);
+    return $type->labels->singular_name.' - '.date('d M Y, H:i', strtotime($post->post_date));
+  }
   return $title;
 }, 10, 2);
 
