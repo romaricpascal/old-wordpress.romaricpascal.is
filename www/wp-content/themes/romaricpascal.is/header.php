@@ -37,15 +37,7 @@
     <?php wp_head();?>
   </head>
   <body>
-    <?php if (is_active_sidebar( WIDGETS_ANNOUNCEMENT )): ?>
-    <div class="rp-Announcements rp-LandingSection t-light-on-red" role="complementary">
-      <?php dynamic_sidebar( WIDGETS_ANNOUNCEMENT ); ?>
-    </div>
-    <?php endif; ?>
     <header id="#header" class="rp-Header">
-      <div class="rp-Logo rp-Header__logo">
-        <a href="<?php bloginfo('url');?>"><img class="rp-LogoImage" height="100" width="100" src="<?php echo get_theme_file_uri('assets/images/r-p-monogram.svg'); ?>" alt="R P monogram" /></a>
-      </div>
       <nav>
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
         <a class="rp-MenuControl" href="#main-nav">Menu</a>

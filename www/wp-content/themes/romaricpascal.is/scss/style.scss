@@ -1,18 +1,51 @@
 // 1. Settings
 // 1.1 Colors
-// 1.2 Breakpoints
+$rp-yellow: #ffc543;
+$rp-light: #fff7e7;
+$rp-blue: #4ab0aa;
+$rp-orange: #ff742e;
+$rp-navy: #022950;
+// 1.2 Typo
+$rp-ff-copy: 'Open Sans', sans-serif;
+$rp-ff-display: 'Montserrat', sans-serif;
+
+
+$rp-font-size-huge: 6.25vw;
+// 1.3 Breakpoints
 $mq-breakpoints: (
   
 );
-
-// 1.3 Typo
-$rp-copy-font-family: questasans_regular;
-$rp-display-font-family: filsonsoft-black;
-$rp-header-font-family: filsonsoft-bold;
-
-$rp-font-size-huge: 6.25vw;
-
 // 2. Tools
+@import "../node_modules/sass-mq/_mq.scss";
+@import "../node_modules/inuitcss/tools/_tools.hidden.scss";
+.t-hidden-visually {
+  @include inuit-hidden-visually;
+}
+
+@import "../node_modules/inuitcss/tools/_tools.clearfix.scss";
+// 2.1 Color combinations
+@mixin navy-on-yellow {
+	background-color: $rp-yellow;
+	background: url(assets/images/background@2x.jpg);
+	background-size: 577px 819px;
+	color: $rp-navy;
+}
+
+// 2.2 Typo
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(assets/fonts/opensans_600_latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(assets/fonts/montserrat_700_latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
 
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
@@ -23,11 +56,19 @@ $rp-font-size-huge: 6.25vw;
 }
 
 body {
-
+	@include navy-on-yellow;
+	font-family: $rp-ff-copy;
+	font-weight: 600;
 }
 
 a {
-  
+	color: $rp-orange;
+	font-weight: bold;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 img {
@@ -41,8 +82,8 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  // @include typo-display;
-  font-weight: normal;
+  font-family: $rp-ff-display;
+  font-weight: 700;
 }
 
 // 4.5 Wordpress style adjustments
