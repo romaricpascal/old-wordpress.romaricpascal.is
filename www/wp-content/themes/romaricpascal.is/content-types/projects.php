@@ -33,6 +33,25 @@ function projects_register_post_type() {
 }
 add_action('init', 'projects_register_post_type');
 
+// Try to resolve /proud-of/(.*) as a craft if resolving it as a project didn't work
+add_filter('request', function ($request) {
+  $query = new WP_Query();
+  $query->parse_query($request);
+  if (!($query->is_single() && $query->get('post_type') === PROJECT_TYPE)) {
+    return $request;
+  }
+  // Doubles the query :( For lack of a better solution for now :/
+  $posts = $query->get_posts($request);
+  if (!empty($posts)) {
+    return $request;
+  }
+  
+  return [
+    'post_type' => $request['post_type'],
+    'craft' => $request['name']
+  ];
+});
+
 function query_featured_projects($craft) {
   return query_posts([
     'post_type' => PROJECT_TYPE,
