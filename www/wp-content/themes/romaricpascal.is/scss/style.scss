@@ -39,6 +39,12 @@ $mq-breakpoints: (
   src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(assets/fonts/opensans_600_latin-ext.woff2) format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
+
+@mixin typo-copy {
+	font-family: $rp-ff-copy;
+	font-weight: 600;
+}
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -47,9 +53,25 @@ $mq-breakpoints: (
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
 
+@mixin typo-display {
+	font-family: $rp-ff-display;
+	font-weight: 700;
+}
+
+@mixin overlay {
+  position: fixed;
+}
+
+@mixin overlay-rightPanel($max-width: 40%) {
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+
+  max-width: $max-width;
+}
+
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
-
 // 4. Base
 * {
   box-sizing: border-box;
@@ -57,8 +79,7 @@ $mq-breakpoints: (
 
 body {
 	@include navy-on-yellow;
-	font-family: $rp-ff-copy;
-	font-weight: 600;
+	@include typo-copy;
 }
 
 a {
@@ -82,8 +103,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $rp-ff-display;
-  font-weight: 700;
+  @include typo-display;
 }
 
 // 4.5 Wordpress style adjustments
@@ -93,3 +113,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // 5. Components
+.rp-Header__menu {
+  float:right;
+}
+
+.rp-MenuToggle {
+	@include typo-display;
+	text-transform: uppercase;
+  line-height: 1;
+  padding: 0.5em;
+  display: block;
+}
+
+.rp-MenuContainer {
+  background-color: fade-out($rp-light, 0.1);
+  @include typo-display;
+  text-transform: uppercase;
+
+  @include overlay;
+  width: 80%;
+  @include overlay-rightPanel(15em);
+
+  &:not(:target) {
+    display: none;
+  }
+}
+
+.rp-Menu,
+.rp-Menu ul {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.menu-item,
+.page_item {
+  list-style-type: none;
+  line-height: 1;
+  padding: 0.5em;
+}
+

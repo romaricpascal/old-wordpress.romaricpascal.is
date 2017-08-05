@@ -38,13 +38,12 @@
   </head>
   <body>
     <header id="#header" class="rp-Header">
-      <nav>
+      <nav class="rp-MainNav">
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
-        <a class="rp-MenuControl" href="#main-nav">Menu</a>
-        <div class="rp-MainNav" id="main-nav">
+        <a class="rp-Header__menu rp-MenuToggle" href="#main-nav">Menu</a>
+        <div class="rp-MenuContainer" id="main-nav">
         <?php wp_nav_menu(['theme_location' => MENU_MAIN_1,'menu_class' => 'rp-Menu rp-Header__menuI']); ?>
-        <?php wp_nav_menu(['theme_location' => MENU_MAIN_2,'menu_class' => 'rp-Menu rp-Header__menuII', 'fallback_cb' => false]); ?>
-        <a class="rp-MenuControl" href="#header">Close menu</a>
+        <a class="rp-MenuToggle" href="#header">Close menu</a>
         </div>
       </nav>
     </header>
