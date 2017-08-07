@@ -129,8 +129,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // 5. Components
+.rp-Main {
+  padding: 0 1em;
+}
+
 @import '_home';
 @import '_header';
+@import '_artworks';
 
 
 

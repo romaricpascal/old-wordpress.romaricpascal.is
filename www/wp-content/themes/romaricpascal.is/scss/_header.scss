@@ -1,14 +1,15 @@
+.rp-Header {
+  @include inuit-clearfix;
+}
 .rp-Header__menu {
-  position: absolute;
-  top: 0;
-  right: 0;
+  float: right;
 }
 
 .rp-MenuToggle {
 	@include typo-display;
 	text-transform: uppercase;
   line-height: 1;
-  padding: 0.5em;
+  padding: 1em;
   display: block;
 }
 
