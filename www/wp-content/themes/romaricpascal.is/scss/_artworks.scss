@@ -12,3 +12,25 @@
 	display: block;
 }
 
+.rp-RelatedArtworkList {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	@include inuit-clearfix;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+$relatedArtwork-gutterSize: 0.25em;
+.rp-RelatedArtwork {
+	float: left;
+	width: calc(50% - #{$relatedArtwork-gutterSize});
+	flex: auto;
+	margin-bottom: $relatedArtwork-gutterSize;
+
+	&:nth-child(2n+1) {
+		margin-right: $relatedArtwork-gutterSize * 2;
+	}
+}
+

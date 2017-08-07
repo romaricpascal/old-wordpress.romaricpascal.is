@@ -102,19 +102,11 @@ function is_artwork() {
   return $post->post_type === ARTWORK_TYPE;
 }
 
-function query_latest_artworks($number) {
-
-  return query_posts([
+function query_related_artworks($artwork, $number) {
+  return new WP_Query([
+    'post_not_in' => [$artwork->ID],
     'post_type' => ARTWORK_TYPE,
     'posts_per_page' => $number,
-    'paged' =>  1]);
-}
-
-function query_featured_artworks($number) {
-  return query_posts([
-    'post_type' => ARTWORK_TYPE,
-    'meta_key' => 'featured_artwork',
-    'meta_value' => 'true',
-    'posts_per_page' => $number,
+    'orderby' => 'rand',
     'paged' =>  1]);
 }

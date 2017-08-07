@@ -10,9 +10,11 @@
           <?php the_content(); ?>
           <time class="rp-ArtworkTime" datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time>
         </section>
-        <?php get_template_part('partials/artwork-links'); ?>
+        <section class="rp-ArtworkSingleSection">
+          <?php get_template_part('partials/artwork-links'); ?>
+        </section>
         <section class="rp-ArtworkSingleSection rp-ArtworkSingleRelated">
-          Related arworks links
+          <?php get_template_part('partials/artwork-related'); ?>
         </section>
         <?php the_share_buttons(); ?>
       </aside>

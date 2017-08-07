@@ -119,6 +119,8 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   @include typo-display;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 // 4.5 Wordpress style adjustments
@@ -131,6 +133,12 @@ h1, h2, h3, h4, h5, h6 {
 .rp-Main {
   padding: 0 1em;
 }
+
+.rp-AsideHeading {
+  margin: 0 0 0.25em;
+  font-size: 1.25em;
+}
+
 @import '_shareLinks';
 @import '_home';
 @import '_header';
