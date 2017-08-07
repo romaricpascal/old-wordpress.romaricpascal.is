@@ -1,7 +1,4 @@
-<?php
-  global $post;
-  the_post(); ?>
-
+<?php the_post(); ?>
 <?php get_header(); ?>
     <article class="rp-ArtworkSingle">
       <main class="rp-ArtworkSingle__main">
@@ -9,17 +6,15 @@
              srcset="<?php rp_the_thumbnail_srcset(['artwork-full','artwork-full-2x','artwork-full-3x']); ?>" >
       </main>
       <aside class="rp-ArtworkSingle__aside">
-        <section class="rp-ArtworkSingleContent">
+        <section class="rp-ArtworkSingleSection rp-ArtworkSingleContent">
           <?php the_content(); ?>
           <time class="rp-ArtworkTime" datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time>
         </section>
-        <section class="rp-ArtworkSingleLinks">
-          Project & shop links, if they exist
-        </section>
-        <section class="rp-ArtworkSingleRelated">
+        <?php get_template_part('partials/artwork-links'); ?>
+        <section class="rp-ArtworkSingleSection rp-ArtworkSingleRelated">
           Related arworks links
         </section>
-        <section class="rp-ArtworkSingleSharing">
+        <section class="rp-ArtworkSingleSection rp-ArtworkSingleSharing">
           Sharing links
         </section>
       </aside>
