@@ -6,7 +6,19 @@ $rp-blue: #4ab0aa;
 $rp-orange: #ff742e;
 $rp-navy: #022950;
 // 1.2 Typo
+@font-face {
+  font-family: Open Sans;
+  src:
+    url("assets/fonts/OpenSans-Semibold.woff2") format("woff2"),
+    url("assets/fonts/OpenSans-Semibold.woff") format("woff");
+}
 $rp-ff-copy: 'Open Sans', sans-serif;
+@font-face {
+  font-family: Montserrat;
+  src:
+    url("assets/fonts/Montserrat-Bold.woff2") format("woff2"),
+    url("assets/fonts/Montserrat-Bold.woff") format("woff");
+}
 $rp-ff-display: 'Montserrat', sans-serif;
 
 
@@ -32,30 +44,16 @@ $mq-breakpoints: (
 }
 
 // 2.2 Typo
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(assets/fonts/opensans_600_latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
+
 
 @mixin typo-copy {
 	font-family: $rp-ff-copy;
-	font-weight: 600;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(assets/fonts/montserrat_700_latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-weight: normal;
 }
 
 @mixin typo-display {
 	font-family: $rp-ff-display;
-	font-weight: 700;
+  font-weight: normal;
 }
 
 @mixin overlay {
@@ -133,4 +131,6 @@ h1, h2, h3, h4, h5, h6 {
 // 5. Components
 @import '_home';
 @import '_header';
+
+
 
