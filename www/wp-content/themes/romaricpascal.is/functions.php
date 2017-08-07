@@ -215,3 +215,6 @@ function rp_the_thumbnail_srcset($sizes) {
     echo $srcset;
   }
 }
+
+
+require_once('functions/share-buttons.php');

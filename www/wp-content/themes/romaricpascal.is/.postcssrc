@@ -3,6 +3,7 @@ module.exports = {
     'autoprefixer',
     'cssnano',
     'postcss-banner',
+    'postcss-inline-svg'
   ],
   output: './style.css',
   autoprefixer: {

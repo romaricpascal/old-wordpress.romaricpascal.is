@@ -14,9 +14,7 @@
         <section class="rp-ArtworkSingleSection rp-ArtworkSingleRelated">
           Related arworks links
         </section>
-        <section class="rp-ArtworkSingleSection rp-ArtworkSingleSharing">
-          Sharing links
-        </section>
+        <?php the_share_buttons(); ?>
       </aside>
     </article>
     <nav class="rp-PreviousNextLinks">

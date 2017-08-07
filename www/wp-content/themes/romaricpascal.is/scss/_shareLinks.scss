@@ -1,0 +1,53 @@
+.rp-ShareLinkList {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	padding: 0.7em 0;
+	list-style-type: none;
+}
+$shareLink-size: 2.6em;
+.rp-ShareLink {
+	background-color: grey;
+	color: white;
+	display: inline-block;
+
+	border-radius: 9999px;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	height: $shareLink-size;
+	width: $shareLink-size;
+	overflow:hidden;
+
+	&::before {
+		content: '';
+		display: block;
+		height: $shareLink-size;
+		width: $shareLink-size;
+	}
+
+	background-size: 50%;
+
+	a, a:hover {
+		color: inherit;
+	}
+}
+
+.rp-ShareLink-facebook {
+	background-color: #3B5998;
+	background-image: svg-load('node_modules/simple-icons/icons/facebook.svg', fill=#fff);
+	background-size: 40%;
+}
+
+.rp-ShareLink-twitter {
+	background-color: #1DA1F2;
+	background-image: svg-load('node_modules/simple-icons/icons/twitter.svg', fill=#fff);
+	background-size: 47%;
+}
+
+.rp-ShareLink-pinterest {
+	background-color: #BD081C;
+	background-image: svg-load('node_modules/simple-icons/icons/pinterest.svg', fill=#fff);	
+}

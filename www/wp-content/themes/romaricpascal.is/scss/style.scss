@@ -100,7 +100,6 @@ body {
 
 a {
 	color: $rp-orange;
-	font-weight: bold;
 	text-decoration: none;
 
 	&:hover {
@@ -132,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
 .rp-Main {
   padding: 0 1em;
 }
-
+@import '_shareLinks';
 @import '_home';
 @import '_header';
 @import '_artworks';
