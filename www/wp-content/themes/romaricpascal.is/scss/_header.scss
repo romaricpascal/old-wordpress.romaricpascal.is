@@ -1,0 +1,56 @@
+.rp-Header__menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.rp-MenuToggle {
+	@include typo-display;
+	text-transform: uppercase;
+  line-height: 1;
+  padding: 0.5em;
+  display: block;
+}
+
+.rp-MenuContainer {
+  background-color: fade-out($rp-light, 0.1);
+  @include typo-display;
+  text-transform: uppercase;
+
+  @include overlay;
+  width: 80%;
+  @include overlay-rightPanel(15em);
+
+  &:not(:target) {
+    display: none;
+  }
+}
+
+.rp-Menu,
+.rp-Menu ul {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.menu-item,
+.page_item {
+  list-style-type: none;
+  line-height: 1;
+  padding: 0.5em;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}

@@ -72,12 +72,30 @@ $mq-breakpoints: (
 
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
+$speakingPortrait-portraitSize: 200px;
+.rp-SpeakingPortrait {
+  position: relative;
+  padding-right: $speakingPortrait-portraitSize;
+  min-height: $speakingPortrait-portraitSize;
+}
+
+.rp-SpeakingPortrait__portrait {
+  position: absolute;
+  right: 0;
+  width: $speakingPortrait-portraitSize;
+}
+
+.rp-LetteredTitle {
+  margin: 0;
+}
+
 // 4. Base
 * {
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
 	@include navy-on-yellow;
 	@include typo-copy;
 }
@@ -113,43 +131,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // 5. Components
-.rp-Header__menu {
-  float:right;
-}
-
-.rp-MenuToggle {
-	@include typo-display;
-	text-transform: uppercase;
-  line-height: 1;
-  padding: 0.5em;
-  display: block;
-}
-
-.rp-MenuContainer {
-  background-color: fade-out($rp-light, 0.1);
-  @include typo-display;
-  text-transform: uppercase;
-
-  @include overlay;
-  width: 80%;
-  @include overlay-rightPanel(15em);
-
-  &:not(:target) {
-    display: none;
-  }
-}
-
-.rp-Menu,
-.rp-Menu ul {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.menu-item,
-.page_item {
-  list-style-type: none;
-  line-height: 1;
-  padding: 0.5em;
-}
+@import '_home';
+@import '_header';
 
