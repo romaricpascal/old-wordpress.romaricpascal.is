@@ -1,6 +1,9 @@
 .rp-ArtworkSingle {
 	max-width: 30em;
 	max-width: calc(100vh - #{$headerHeight} - 2em);
+
+	margin-left: auto;
+	margin-right: auto;
 	
 	@include mq($and: '(min-height: 35em)') {
 		max-width: 30em;
@@ -18,10 +21,6 @@
 			margin-left: 2em;
 		}	
 	}
-
-	margin-left: auto;
-	margin-right: auto;
-
 	.rp-PrevNextNav {
 		@include mq($and: '(min-aspect-ratio: 1.25/1)') {
 			position: fixed;
@@ -63,7 +62,8 @@
 	}
 }
 
-.rp-ArtworkSingleImage {
+.rp-ArtworkSingleImage,
+.rp-ArtworkImage {
 	display:block;
 	cursor: zoom-in;
 }
@@ -102,4 +102,54 @@ $relatedArtwork-gutterSize: 0.25em;
 		margin-right: $relatedArtwork-gutterSize * 2;
 	}
 }
+
+.rp-ArtworkArchive {
+	max-width: 30em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin artwork-grid-size($size) {
+	grid-template-columns: repeat(3, $size);
+	grid-auto-rows: $size;
+}
+
+.rp-ArtworkList {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	display: flex;
+	flex-wrap: wrap;
+
+	display: grid;
+	// Shame I can't find a way to specify the height in function of the width to make a square grid :(
+	@include artwork-grid-size(calc(( 100vw - 2em ) / 3));
+
+	@include mq($and: '(min-width: 31em)') {
+		@include artwork-grid-size(10em);
+	}
+}
+
+.rp-ArtworkListItem {
+	width: 50%;
+
+	&:nth-child(12n+1) {
+		grid-column-end: span 2;
+		grid-row-end: span 2;
+	}
+
+	&:nth-child(12n+8) {
+		grid-column-end: span 2;
+		grid-row-end: span 2;
+	} 
+}
+
+@supports(display: grid) {
+	.rp-ArtworkListItem {
+		width: 100%;
+	}
+}
+
+
 

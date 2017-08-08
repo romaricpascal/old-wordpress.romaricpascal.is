@@ -78,16 +78,6 @@ function rp_setup() {
 }
 add_action('after_setup_theme', 'rp_setup');
 
-// 3. Support for /sharing/XYZ archive pages
-function rp_pre_get_posts($query) {
-
-  if (!is_admin() && is_main_query() && is_post_type_archive('artwork')) {
-
-    $query->set('posts_per_page', 20);
-  }
-}
-add_action('pre_get_posts', 'rp_pre_get_posts');
-
 // 4. Drop the 'Category:' prefix in archive title
 add_filter( 'get_the_archive_title', function ( $title ) {
 
