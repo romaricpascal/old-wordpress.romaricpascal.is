@@ -44,8 +44,6 @@ $mq-breakpoints: (
 }
 
 // 2.2 Typo
-
-
 @mixin typo-copy {
 	font-family: $rp-ff-copy;
 	font-weight: normal;
@@ -66,6 +64,10 @@ $mq-breakpoints: (
   bottom: 0; 
 
   max-width: $max-width;
+}
+
+@mixin replace-content($height) {
+
 }
 
 // 3. Generic
@@ -137,6 +139,45 @@ h1, h2, h3, h4, h5, h6 {
 .rp-AsideHeading {
   margin: 0 0 0.25em;
   font-size: 1.25em;
+}
+
+.rp-PrevNextNav {
+  @include inuit-clearfix;
+
+  &__prev {
+    float: left;
+  }
+
+  &__next {
+    float: right;
+  }
+}
+
+$prevNextLinkSize: 2.6em;
+.rp-PrevNextLink {
+  height: $prevNextLinkSize;
+  width: $prevNextLinkSize;
+  overflow: hidden;
+  background: $rp-orange;
+  color: white;
+  display: inline-block;
+  border-radius: 9999px;
+  position: relative;
+  &::before {
+    content: '';
+    height: 100%;
+    display: block;
+    text-align: center;
+    line-height: $prevNextLinkSize;
+  }
+
+  &-previous::before {
+    content: '<';
+  }
+
+  &-next::before {
+    content: '>';
+  }
 }
 
 @import '_shareLinks';

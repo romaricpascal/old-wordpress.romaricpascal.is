@@ -10,19 +10,15 @@
           <?php the_content(); ?>
           <time class="rp-ArtworkTime" datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time>
         </section>
-        <section class="rp-ArtworkSingleSection">
-          <?php get_template_part('partials/artwork-links'); ?>
-        </section>
+        <?php get_template_part('partials/artwork-links'); ?>
         <section class="rp-ArtworkSingleSection rp-ArtworkSingleRelated">
           <?php get_template_part('partials/artwork-related'); ?>
         </section>
         <?php the_share_buttons(); ?>
       </aside>
+      <?php get_template_part('partials/prev-next'); ?>
     </article>
-    <nav class="rp-PreviousNextLinks">
-      <?php get_template_part('partials/prev-next-with-thumbnails'); ?>
-    </nav>
-
+    
 <?php
   get_footer();
 ?>
