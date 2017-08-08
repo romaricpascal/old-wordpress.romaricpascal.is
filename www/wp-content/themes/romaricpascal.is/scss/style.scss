@@ -70,10 +70,6 @@ $circleButtonSize: 2.6em;
   max-width: $max-width;
 }
 
-@mixin replace-content($height) {
-
-}
-
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
 $speakingPortrait-portraitSize: 200px;
@@ -147,6 +143,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .rp-PrevNextNav {
   @include inuit-clearfix;
+  margin-bottom: 1em;
 
   &__prev {
     float: left;

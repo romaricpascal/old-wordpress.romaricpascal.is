@@ -54,6 +54,7 @@
 
 .rp-ArtworkSingleImage {
 	display:block;
+	cursor: zoom-in;
 }
 
 .rp-ArtworkSingleSection {
@@ -80,8 +81,12 @@ $relatedArtwork-gutterSize: 0.25em;
 	float: left;
 	width: calc(50% - #{$relatedArtwork-gutterSize});
 	flex: auto;
-	margin-bottom: $relatedArtwork-gutterSize;
 
+	&:nth-child(1),
+	&:nth-child(2) {
+		margin-bottom: $relatedArtwork-gutterSize;
+	}
+	
 	&:nth-child(2n+1) {
 		margin-right: $relatedArtwork-gutterSize * 2;
 	}
