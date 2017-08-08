@@ -5,6 +5,8 @@ $rp-light: #fff7e7;
 $rp-blue: #4ab0aa;
 $rp-orange: #ff742e;
 $rp-navy: #022950;
+$rp-navy-on-yellow-20: mix($rp-navy, $rp-yellow, 20%);
+$rp-navy-on-yellow-80: mix($rp-navy, $rp-yellow, 80%);
 // 1.2 Typo
 @font-face {
   font-family: Open Sans;

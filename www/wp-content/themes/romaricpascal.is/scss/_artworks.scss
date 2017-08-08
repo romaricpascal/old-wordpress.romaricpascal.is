@@ -52,6 +52,17 @@
 	}
 }
 
+.rp-ArtworkTime {
+	&::before {
+		content: '';
+		display: block;
+		width: 1em;
+		height: 0.25em;
+		color: $rp-orange;
+		border-top: solid 2px;
+	}
+}
+
 .rp-ArtworkSingleImage {
 	display:block;
 	cursor: zoom-in;
@@ -59,7 +70,7 @@
 
 .rp-ArtworkSingleSection {
 	padding: 1em 0;
-	border-bottom: fade-out($rp-navy, 0.8) solid 1px;
+	border-bottom: $rp-navy-on-yellow-20 solid 2px;
 }
 
 .rp-ArtworkSingleLink {
