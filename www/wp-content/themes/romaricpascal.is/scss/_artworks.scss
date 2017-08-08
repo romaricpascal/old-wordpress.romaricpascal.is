@@ -152,5 +152,30 @@ $relatedArtwork-gutterSize: 0.25em;
 	}
 }
 
+@media (min-width: 54em) and (min-aspect-ratio: 1/1) {
+	.rp-ArtworkArchive {
+  		padding-right: calc(50% - 1em);
+	}
 
+	.rp-ArtworkArchive__header {
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  width: 20em;
+	  margin-left: 4em;
+	  transform: translateY(-50%);
+	}
+
+	.rp-ArtworkArchive__main {
+	  position: absolute;
+	  top: 0;
+	  right: 50%;
+	  margin-right: -1em;
+	}
+
+	.rp-ArtworkList {
+	  grid-template-columns: repeat(3, calc((100vh - 4.6em) / 6));
+	  grid-auto-rows:  calc((100vh - 4.6em) / 6);
+	}
+}
 
