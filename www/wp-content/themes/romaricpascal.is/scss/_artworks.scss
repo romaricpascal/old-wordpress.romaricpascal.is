@@ -1,5 +1,58 @@
+.rp-ArtworkSingle {
+	max-width: 30em;
+	max-width: calc(100vh - #{$headerHeight} - 2em);
+	
+	@include mq($and: '(min-height: 35em)') {
+		max-width: 30em;
+	}
+	
+	@include mq($and: '(min-height: 35em) and (min-width: 64em)') {
+		height: calc(100vh - 3em);
+		max-width: 50em;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+
+		&__aside {
+			width: 25em;
+			margin-left: 2em;
+		}	
+	}
+
+	margin-left: auto;
+	margin-right: auto;
+
+	.rp-PrevNextNav {
+		@include mq($and: '(min-aspect-ratio: 1.25/1)') {
+			position: fixed;
+			width: calc(100vh - 5em + 2 * #{$circleButtonSize} + 2em);
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			right: 0;
+			margin: auto;
+			margin-top: 1em;
+		}
+
+		@include mq($and: '(min-height: 35em) and (min-width: 43.5em)') {
+			position: fixed;
+			width: calc(100vh - 5em + 2 * #{$circleButtonSize} + 2em);
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			right: 0;
+			margin: auto;
+			margin-top: 1em;
+			width: 30em + 2 * $circleButtonSize + 2em;
+		}
+
+		@include mq($and: '(min-height: 35em) and (min-width: 64em)') {
+			width: 50em + 2 * $circleButtonSize + 4em;
+		}
+	}
+}
+
 .rp-ArtworkSingleImage {
-	margin-bottom: 1em;
 	display:block;
 }
 

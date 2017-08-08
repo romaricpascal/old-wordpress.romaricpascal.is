@@ -7,7 +7,7 @@
 	padding: 0.7em 0;
 	list-style-type: none;
 }
-$shareLink-size: 2.6em;
+$shareLink-size: $circleButtonSize;
 .rp-ShareLink {
 	background-color: grey;
 	color: white;
