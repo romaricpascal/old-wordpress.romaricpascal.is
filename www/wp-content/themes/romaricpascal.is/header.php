@@ -38,9 +38,12 @@
   </head>
   <body>
     <header id="#header" class="rp-Header">
+      <nav class="rp-Header__breadcrumbs rp-BreadcrumbNav">
+        <?php rp_the_breadcrumb_nav(); ?>
+      </nav>
       <nav class="rp-MainNav">
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
-        <a class="rp-Header__menu rp-MenuToggle" href="#main-nav">Menu</a>
+        <a href="#main-nav">Menu</a>
         <div class="rp-MenuContainer" id="main-nav">
         <?php wp_nav_menu(['theme_location' => MENU_MAIN_1,'menu_class' => 'rp-Menu rp-Header__menuI']); ?>
         <a class="rp-MenuToggle" href="#header">Close menu</a>

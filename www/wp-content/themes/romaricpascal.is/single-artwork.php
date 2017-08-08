@@ -20,7 +20,6 @@
       </aside>
       <?php get_template_part('partials/prev-next'); ?>
     </article>
-    
 <?php
   get_footer();
 ?>
