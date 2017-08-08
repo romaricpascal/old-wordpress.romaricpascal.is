@@ -5,6 +5,8 @@ $rp-light: #fff7e7;
 $rp-blue: #4ab0aa;
 $rp-orange: #ff742e;
 $rp-navy: #022950;
+$rp-orange-on-yellow-50: mix($rp-orange,$rp-yellow, 50%);
+$rp-light-on-yellow-50: mix($rp-light, $rp-yellow, 50%);
 $rp-navy-on-yellow-20: mix($rp-navy, $rp-yellow, 20%);
 $rp-navy-on-yellow-80: mix($rp-navy, $rp-yellow, 80%);
 // 1.2 Typo
@@ -147,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
   @include inuit-clearfix;
   margin-bottom: 1em;
 
-  &__prev {
+  &__previous {
     float: left;
   }
 
@@ -162,7 +164,7 @@ $prevNextLinkSize: $circleButtonSize;
   width: $prevNextLinkSize;
   overflow: hidden;
   background: $rp-orange;
-  color: white;
+  color: $rp-light;
   display: inline-block;
   border-radius: 9999px;
   position: relative;
@@ -172,6 +174,11 @@ $prevNextLinkSize: $circleButtonSize;
     display: block;
     text-align: center;
     line-height: $prevNextLinkSize;
+  }
+
+  &-disabled {
+    background-color: $rp-orange-on-yellow-50;
+    color: $rp-light-on-yellow-50;
   }
 
   &-previous::before {
