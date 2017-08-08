@@ -101,7 +101,7 @@ add_action('init', function () {
 if (!is_admin()) {
   add_filter('pre_get_posts', function ($query) {
     if (!is_admin() && is_main_query() && is_post_type_archive('artwork')) {
-      $query->query_vars['posts_per_page'] = 24;
+      $query->query_vars['posts_per_page'] = 12;
     }
     return $query;
   });

@@ -24,6 +24,7 @@ require_once('content-types/old_posts.php');
 define('MENU_MAIN_1', 'menu_main_1');
 define('MENU_MAIN_2', 'menu_main_2');
 define('WIDGETS_ANNOUNCEMENT', 'rp_announcements');
+define('WIDGETS_ARTWORKS_ARCHIVE_CONTENT', 'rp_artworks_archive_content');
 define('IMAGE_SIZES', [
   'artwork-grid-s' => [
     'width' => 167,
