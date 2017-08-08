@@ -117,7 +117,7 @@ $relatedArtwork-gutterSize: 0.25em;
 .rp-ArtworkList {
 	list-style-type: none;
 	padding: 0;
-	margin: 0;
+	margin: 0 0 1em;
 
 	display: flex;
 	flex-wrap: wrap;
@@ -133,6 +133,7 @@ $relatedArtwork-gutterSize: 0.25em;
 
 .rp-ArtworkListItem {
 	width: 50%;
+	overflow: hidden;
 
 	&:nth-child(12n+1) {
 		grid-column-end: span 2;

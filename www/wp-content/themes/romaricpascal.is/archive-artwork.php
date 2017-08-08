@@ -10,26 +10,13 @@
   </header>
 <?php endif; ?>
 
-<main data-loadMore>
-  <nav class="rp-LoadMoreLink" data-loadMore-type="previous">
-    <?php previous_posts_link('More recent works'); ?>
-    <div class="sk-chasing-dots">
-        <div class="sk-child sk-dot1"></div>
-        <div class="sk-child sk-dot2"></div>
-      </div>
-  </nav>
-  <ul data-loadMore-content class="rp-ArtworkList rp-ArtworkList-grid">
+<main>
+  <ul class="rp-ArtworkList rp-ArtworkList-grid">
   <?php while(have_posts()): the_post(); ?>
     <?php get_template_part('partials/artwork-inGallery'); ?>
   <?php endwhile; ?>
   </ul>
-  <nav class="rp-LoadMoreLink" data-loadMore-type="next">
-    <?php next_posts_link('Older artworks'); ?>
-    <div class="sk-chasing-dots">
-      <div class="sk-child sk-dot1"></div>
-      <div class="sk-child sk-dot2"></div>
-    </div>
-  </nav>
+  <?php get_template_part('partials/prev-next-archive'); ?>
 </main>
 
 <?php if($with_layout): ?>
