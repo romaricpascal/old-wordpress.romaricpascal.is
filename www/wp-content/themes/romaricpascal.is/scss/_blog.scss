@@ -42,6 +42,10 @@
 	margin-bottom: 2em;
 }
 
-.rp-Archive-post {
-	
+.rp-HeaderWithSubhead {
+	margin-bottom: 2em;
+
+   &__heading {
+		margin-bottom: 0;
+	}
 }
