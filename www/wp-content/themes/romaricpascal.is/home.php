@@ -1,23 +1,26 @@
+<?php
+  $post_type = get_post_type();
+?>
+
 <?php get_header(); ?>
-<section class="rp-LandingSection">
-  <div class="rp-Hero l-Container">
-    <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">
-      Notes
-    </h1>
-  </div>
-</section>
-<section class="rp-LandingSection t-light-on-dark">
-  <div class="l-Container">
-    <div>
-    <?php while(have_posts()): the_post(); ?>
-      <?php get_template_part('partials/post-link'); ?>
-    <?php endwhile; ?>
-    </div>
-    <footer class="rp-ProjectFullFooter rp-PreviousNextLinks">
-      <span class="rp-PreviousNextLinks__previous"><?php previous_posts_link('More recent notes'); ?></span>
-      <span class="rp-PreviousNextLinks__next"><?php next_posts_link('Older notes'); ?></span>
-    </footer>
-  </div>
-</section>
+<article class="rp-Archive rp-Archive-<?php echo $post_type; ?>">
+   <header class="rp-ArchiveHeader rp-Archive__header">
+    <h1 class="rp-ArchiveHeading rp-ArchiveHeading-<?php echo $post_type ?>">Blog</h1>
+    <?php get_template_part('partials/archive-description', $post_type); ?>
+  </header>
+
+<div class="rp-Archive__main">
+  <ul class="rp-ArchiveList">
+  <?php while(have_posts()): the_post(); ?>
+    <li class="rp-ArchiveListItem rp-ArchiveListItem-<?php echo $post_type ?>">
+      <?php get_template_part('partials/post-link', $post_type); ?>
+    </li>
+  <?php endwhile; ?>
+  </ul>
+  <?php get_template_part('partials/prev-next-archive'); ?>
+</div>
+</div>
+
+</article>
 
 <?php get_footer();?>

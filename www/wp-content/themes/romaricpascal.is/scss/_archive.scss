@@ -1,0 +1,35 @@
+.rp-Archive {
+	max-width: 30em;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+.rp-ArchiveHeader {
+	margin-bottom: 2em;
+}
+
+.rp-ArchiveList {
+	padding: 0;
+	list-style-type: none;
+}
+
+@media (min-width: 58em) {
+
+	.rp-Archive__header {
+		position: fixed;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 50%;
+		width: 20em;
+		margin-left: 6.5em;
+	}
+
+	.rp-Archive__main {
+	  position: absolute;
+	  top: 0;
+	  right: 50%;
+	  width: 100%;
+	  margin-right: -3.5em;
+	}
+}

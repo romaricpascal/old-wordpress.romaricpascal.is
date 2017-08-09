@@ -1,0 +1,47 @@
+.rp-NoteTitle {
+	margin: 0;
+	min-height: $rp-lineHeight * 2em;
+	padding-left: 1em;
+	border-left: solid 1px;
+}
+
+.rp-Note {
+	display: block;
+	background: $rp-light;
+	padding: 0.5em;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.rp-Note__time {
+	order: -1;
+	flex: none;
+}
+
+.rp-NoteTime {
+	text-transform: uppercase;
+	width: 5em;
+	@include typo-display;
+	text-align: center;
+	line-height: 1;
+	&__part {
+		display: block;
+	}
+}
+
+.rp-NoteDay {
+	font-size: 2em;
+}
+
+.rp-NoteYear {
+	font-size: 0.95em;
+}
+
+.rp-ArchiveListItem-post:not(:last-child) {
+	margin-bottom: 2em;
+}
+
+.rp-Archive-post {
+	
+}
