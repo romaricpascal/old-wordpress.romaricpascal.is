@@ -31,5 +31,11 @@
 	  right: 50%;
 	  width: 100%;
 	  margin-right: -3.5em;
+	  
+	  // Makes sure content is centered vertically if there's not enough content :D 
+	  min-height: calc(100vh - 3em);
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
 	}
 }

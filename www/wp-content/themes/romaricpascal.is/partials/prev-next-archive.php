@@ -1,10 +1,11 @@
 <?php
 $post_type = get_post_type();
 $label = get_post_type_object( $post_type )->name;
-
-$previous_post = get_next_posts_page_link();
-if (is_archive() && is_paged()) {
-	$next_post = get_previous_posts_page_link();
+if (rp_has_pages()) {
+	$previous_post = get_next_posts_page_link();
+	if (is_archive() && is_paged()) {
+		$next_post = get_previous_posts_page_link();
+	}
 }
 if(!empty($previous_post) || !empty($next_post)):
 ?>
