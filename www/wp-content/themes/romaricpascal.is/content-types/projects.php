@@ -1,6 +1,7 @@
 <?php
 
 define('PROJECT_TYPE', 'project');
+define('PROJECT_SLUG', 'proud-of');
 
 // 1. Register new post type
 function projects_register_post_type() {
@@ -24,7 +25,7 @@ function projects_register_post_type() {
     'public' => true,
     'exclude_from_search' => true,
     'has_archive' => true,
-    'rewrite' => ['slug' => 'proud-of'],
+    'rewrite' => ['slug' => PROJECT_SLUG],
     'hierarchical' => true,
     'supports' => ['title', 'editor', 'custom-fields', 'thumbnail', 'page-attributes']
   ]);
@@ -51,6 +52,10 @@ add_filter('request', function ($request) {
     'craft' => $request['name']
   ];
 });
+
+function project_craft_archive_url($craft) {
+  return '/'.PROJECT_SLUG.'/'.$craft->slug;
+}
 
 function query_featured_projects($craft) {
   return query_posts([
