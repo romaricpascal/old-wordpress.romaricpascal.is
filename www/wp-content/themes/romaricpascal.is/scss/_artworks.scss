@@ -152,7 +152,7 @@ $relatedArtwork-gutterSize: 0.25em;
 	}
 }
 
-@media (min-width: 54em) and (min-aspect-ratio: 1/1) {
+@media (min-width: 54em) and (min-height: 43em) {
 	.rp-ArtworkArchive {
   		padding-right: calc(50% - 1em);
 	}
