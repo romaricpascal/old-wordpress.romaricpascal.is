@@ -36,7 +36,7 @@
 
     <?php wp_head();?>
   </head>
-  <body>
+  <body <?php body_class(); ?>>
     <header id="#header" class="rp-Header">
       <nav class="rp-Header__breadcrumbs rp-BreadcrumbNav">
         <?php rp_the_breadcrumb_nav(); ?>

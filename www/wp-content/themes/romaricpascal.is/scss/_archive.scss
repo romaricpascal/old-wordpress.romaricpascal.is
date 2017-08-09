@@ -12,30 +12,37 @@
 .rp-ArchiveList {
 	padding: 0;
 	list-style-type: none;
+	margin:0 0 1em;
 }
 
-@media (min-width: 58em) {
+.rp-Archive:not(.rp-Archive-project) {
 
-	.rp-Archive__header {
-		position: fixed;
-		top: 50%;
-		transform: translateY(-50%);
-		left: 50%;
-		width: 20em;
-		margin-left: 6.5em;
-	}
+	@include mq($from: archiveOnTwoColumns) {	
+		.rp-Archive__header {
+			position: fixed;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 50%;
+			width: 20em;
+			margin-left: 6.5em;
+		}
 
-	.rp-Archive__main {
-	  position: absolute;
-	  top: 0;
-	  right: 50%;
-	  width: 100%;
-	  margin-right: -3.5em;
-	  
-	  // Makes sure content is centered vertically if there's not enough content :D 
-	  min-height: calc(100vh - 3em);
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
+		.rp-Archive__main {
+		  position: absolute;
+		  top: 0;
+		  right: 50%;
+		  width: 100%;
+		  margin-right: -3.5em;
+		  
+		  // Makes sure content is centered vertically if there's not enough content :D 
+		  min-height: calc(100vh - 3em);
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		}
 	}
+}
+
+.rp-PostThumbnailLinkImage {
+	display: block;
 }

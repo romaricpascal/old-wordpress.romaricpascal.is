@@ -10,10 +10,15 @@
   </header>
 
 <div class="rp-Archive__main">
-  <ul class="rp-ArchiveList">
+  <ul class="rp-ArchiveList rp-ArchiveList-<?php echo $post_type ?>">
   <?php while(have_posts()): the_post(); ?>
     <li class="rp-ArchiveListItem rp-ArchiveListItem-<?php echo $post_type ?>">
-      <?php get_template_part('partials/post-link', $post_type); ?>
+
+      <?php if ($post_type === PROJECT_TYPE) {
+          get_template_part('partials/post-thumbnailLink', $post_type);
+        } else {
+          get_template_part('partials/post-link', $post_type);
+        } ?>
     </li>
   <?php endwhile; ?>
   </ul>
