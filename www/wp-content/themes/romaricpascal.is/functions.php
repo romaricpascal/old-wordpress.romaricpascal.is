@@ -168,6 +168,11 @@ function rp_has_pages() {
   return $wp_query->max_num_pages > 1;
 }
 
+function rp_has_more_pages() {
+  global $wp_query;
+  return $wp_query->max_num_pages > get_query_var('paged');
+}
+
 function rp_the_menu($menuId) {
   global $menu_items;
 

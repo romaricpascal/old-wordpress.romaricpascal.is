@@ -34,6 +34,15 @@ function projects_register_post_type() {
 }
 add_action('init', 'projects_register_post_type');
 
+if (!is_admin()) {
+  add_filter('pre_get_posts', function ($query) {
+    if (!is_admin() && is_main_query() && is_post_type_archive(PROJECT_TYPE)) {
+      $query->query_vars['posts_per_page'] = 3;
+    }
+    return $query;
+  });
+}
+
 // Try to resolve /proud-of/(.*) as a craft if resolving it as a project didn't work
 add_filter('request', function ($request) {
   $query = new WP_Query();
@@ -52,6 +61,8 @@ add_filter('request', function ($request) {
     'craft' => $request['name']
   ];
 });
+
+
 
 function project_craft_archive_url($craft) {
   return '/'.PROJECT_SLUG.'/'.$craft->slug;
