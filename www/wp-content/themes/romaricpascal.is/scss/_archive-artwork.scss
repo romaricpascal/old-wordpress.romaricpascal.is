@@ -1,0 +1,65 @@
+@mixin artwork-grid-size($size) {
+	grid-template-columns: repeat(3, $size);
+	grid-auto-rows: $size;
+}
+
+.rp-ArchiveList-artwork {
+	display: grid;
+	// Shame I can't find a way to specify the height in function of the width to make a square grid :(
+	@include artwork-grid-size(calc((100vw - 2em) / 3));
+
+	@include mq($and: '(min-width: 31em)') {
+		@include artwork-grid-size(10em);
+	}
+}
+$archiveGridItemSize-l: '(100vh - 4.6em) / 6';
+$archiveMainWidth-artwork: #{'3 * (#{$archiveGridItemSize-l})'};
+@include mq($from: archiveOnTwoColumns, $and: '(min-height: 43em)') {
+	
+	.rp-ArchiveList-artwork {
+		@include artwork-grid-size(calc(#{$archiveGridItemSize-l}));
+	}
+
+	.rp-Archive-artwork {
+		max-width: none;
+
+		.rp-Archive__header {
+			@include l-scrollFixed-fixed($archiveMainWidth-artwork, $archiveHeaderWidth, $archiveColumnGutter);
+			top: 50%;
+			transform: translateY(-50%);
+			
+		}
+
+		.rp-Archive__main {
+		  @include l-scrollFixed-scroll($archiveMainWidth-artwork, $archiveHeaderWidth, $archiveColumnGutter);
+		  
+		  // Makes sure content is centered vertically if there's not enough content :D 
+		  min-height: calc(100vh);
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		}
+	}
+}
+
+
+.rp-ArchiveListItem-artwork {
+	width: 50%;
+	overflow: hidden;
+
+	&:nth-child(12n+1) {
+		grid-column-end: span 2;
+		grid-row-end: span 2;
+	}
+
+	&:nth-child(12n+8) {
+		grid-column-end: span 2;
+		grid-row-end: span 2;
+	} 
+}
+
+@supports(display: grid) {
+	.rp-ArchiveListItem-artwork {
+		width: 100%;
+	}
+}

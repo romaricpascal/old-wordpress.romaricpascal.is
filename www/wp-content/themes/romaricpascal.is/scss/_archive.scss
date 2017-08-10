@@ -14,28 +14,37 @@
 	list-style-type: none;
 	margin:0 0 1em;
 }
+$archiveHeaderWidth: 20em;
+$archiveMainWidth: 30em;
+$archiveColumnGutter: 2em;
+@include mq($from: archiveOnTwoColumns) {
+	.blog .rp-Header,
+	.archive:not(.post-type-archive-project) .rp-Header {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	}
 
-.rp-Archive:not(.rp-Archive-project) {
+	.rp-Archive:not(.rp-Archive-project):not(.rp-Archive-artwork) {
 
-	@include mq($from: archiveOnTwoColumns) {	
+		max-width: none;
+
 		.rp-Archive__header {
-			position: fixed;
+			@include l-scrollFixed-fixed($archiveMainWidth, $archiveHeaderWidth, $archiveColumnGutter);
 			top: 50%;
 			transform: translateY(-50%);
-			left: 50%;
-			width: 20em;
-			margin-left: 6.5em;
+			
 		}
 
 		.rp-Archive__main {
-		  position: absolute;
-		  top: 0;
-		  right: 50%;
-		  width: 100%;
-		  margin-right: -3.5em;
+		  @include l-scrollFixed-scroll($archiveMainWidth, $archiveHeaderWidth, $archiveColumnGutter);
 		  
+		  // Ensures the content starts a bit spaced from the top
+		  padding-top: 3em + 2em;
+
 		  // Makes sure content is centered vertically if there's not enough content :D 
-		  min-height: calc(100vh - 3em);
+		  min-height: calc(100vh);
 		  display: flex;
 		  flex-direction: column;
 		  justify-content: center;

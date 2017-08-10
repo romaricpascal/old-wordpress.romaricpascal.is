@@ -3,6 +3,7 @@
 }
 
 .rp-ArchiveListItem-project {
+
 	&:nth-child(3n+2),
 	&:nth-child(3n+3) {
 		width: 50%;
@@ -10,6 +11,8 @@
 	}
 }
 
+$archiveMainWidth-project: '(100vh - 4.6em) * 2 / 3';
+$centeringOffset: '0.5 * (#{$archiveMainWidth-project} - #{$archiveHeaderWidth})';
 @include mq($from: archiveOnTwoColumns) {
 	.post-type-archive-project .rp-Header {
 	  position: fixed;
@@ -21,28 +24,21 @@
 	.rp-Archive-project {
 		max-width: none;
 
-	.rp-Archive__header {
-		position: fixed;
-		top: 50%;
-		transform: translateY(-50%);
-		left: 50%;
-		width: 20em;
-		margin-left: 6.5em;
-	}
+		.rp-Archive__header {
+			@include l-scrollFixed-fixed($archiveMainWidth-project, $archiveHeaderWidth, $archiveColumnGutter);
+			// Centers the header vertically
+			top: 50%;
+			transform: translateY(-50%);
+		}
 
-	.rp-Archive__main {
-		position: absolute;
-		top: 0;
-		right: 50%;
-		margin-right: -3.5em;
-		  
-	  /* Makes sure content is centered vertically if there's not enough content :D */
-	  height: 100vh;
-	  max-width: calc( (100vh - 4.6em) * 2 / 3);
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  flex-wrap: nowrap;
-	}	
-}
+		.rp-Archive__main {
+			@include l-scrollFixed-scroll($archiveMainWidth-project, $archiveHeaderWidth, $archiveColumnGutter);
+			/* Makes sure content is centered vertically if there's not enough content :D */
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			flex-wrap: nowrap;
+		}
+	}
 }

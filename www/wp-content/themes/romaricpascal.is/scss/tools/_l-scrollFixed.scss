@@ -1,0 +1,25 @@
+@mixin l-scrollFixed-fixed($scrollColumnWidth, $fixedColumnWidth, $gutter) {
+	position: fixed;
+	// Aligns left edge to center of viewport
+	// And add appropriate offset for proper centering
+	// As well as space for the gutters
+	$centeringOffset: '0.5 * (#{$scrollColumnWidth} - #{$fixedColumnWidth})';
+	left: calc(50% + #{'#{$centeringOffset} + #{$gutter} / 2'});
+	// Fixes width
+	width: calc(#{$fixedColumnWidth});
+}
+
+@mixin l-scrollFixed-scroll($scrollColumnWidth, $fixedColumnWidth, $gutter) {
+	// Fixes width
+	width: calc(#{$scrollColumnWidth});
+	// Centers the content in its parent
+	margin-left: auto;
+	margin-right: auto;
+	// Aligns the right edge to the center of its parent
+	transform: translateX(-50%);
+	// And add appropriate offset for proper centering
+	// As well as space for the gutters
+	position: relative;
+	$centeringOffset: '0.5 * (#{$scrollColumnWidth} - #{$fixedColumnWidth})';
+	left: calc(#{'#{$centeringOffset} - #{$archiveColumnGutter} / 2'});
+}

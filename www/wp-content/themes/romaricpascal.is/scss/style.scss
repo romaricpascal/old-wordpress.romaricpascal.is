@@ -76,6 +76,9 @@ $circleButtonSize: 2.6em;
   max-width: $max-width;
 }
 
+// 2.3 - Layouts
+@import 'tools/_l-scrollFixed';
+
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
 // 4. Base
@@ -190,6 +193,7 @@ $prevNextLinkSize: $circleButtonSize;
 @import '_header';
 @import '_archive';
 @import '_archive-project';
+@import '_archive-artwork';
 @import '_blog';
 @import '_artworks';
 

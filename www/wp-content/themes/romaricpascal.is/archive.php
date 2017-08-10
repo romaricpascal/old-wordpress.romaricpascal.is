@@ -1,5 +1,6 @@
 <?php
   $post_type = get_post_type();
+  $showThumbnailLink = $post_type === PROJECT_TYPE || $post_type === ARTWORK_TYPE;
 ?>
 
 <?php get_header(); ?>
@@ -12,9 +13,9 @@
 <div class="rp-Archive__main">
   <ul class="rp-ArchiveList rp-ArchiveList-<?php echo $post_type ?>">
   <?php while(have_posts()): the_post(); ?>
-    <li class="rp-ArchiveListItem rp-ArchiveListItem-<?php echo $post_type ?>">
+    <li class="rp-ArchiveListItem rp-ArchiveListItem-<?php echo $post_type ?> <?php if ($showThumbnailLink) {echo 'rp-ArchiveListItem-thumbnail';} ?>">
 
-      <?php if ($post_type === PROJECT_TYPE) {
+      <?php if ($showThumbnailLink) {
           get_template_part('partials/post-thumbnailLink', $post_type);
         } else {
           get_template_part('partials/post-link', $post_type);
