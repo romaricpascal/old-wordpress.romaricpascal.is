@@ -34,6 +34,11 @@ function projects_register_post_type() {
 }
 add_action('init', 'projects_register_post_type');
 
+// 2. Add custom fields
+add_action('init', function () {
+  require_once('projects-acf.php');
+});
+
 if (!is_admin()) {
   add_filter('pre_get_posts', function ($query) {
     if (!is_admin() && is_main_query() && is_post_type_archive(PROJECT_TYPE)) {

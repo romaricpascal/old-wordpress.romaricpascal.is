@@ -39,6 +39,10 @@ function testimonials_register_post_type() {
 }
 add_action('init', 'testimonials_register_post_type');
 
+add_action('init', function () {
+  require_once('testimonials-acf.php');
+});
+
 function get_testimonial_for_craft($craft) {
   return query_posts([
     'post_type' => TESTIMONIAL_TYPE,
