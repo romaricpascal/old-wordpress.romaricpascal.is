@@ -39,6 +39,7 @@ add_action('init', function () {
   require_once('projects-acf.php');
 });
 
+// 3. Custom pagination
 if (!is_admin()) {
   add_filter('pre_get_posts', function ($query) {
     if (!is_admin() && is_main_query() && is_post_type_archive(PROJECT_TYPE)) {
@@ -48,6 +49,7 @@ if (!is_admin()) {
   });
 }
 
+// 4. Routing
 // Try to resolve /proud-of/(.*) as a craft if resolving it as a project didn't work
 add_filter('request', function ($request) {
   $query = new WP_Query();
@@ -67,31 +69,17 @@ add_filter('request', function ($request) {
   ];
 });
 
-
-
 function project_craft_archive_url($craft) {
   return '/'.PROJECT_SLUG.'/'.$craft->slug;
 }
 
-function query_featured_projects($craft) {
-  return query_posts([
+// 5. Queries
+function rp_query_related_projects($project, $number) {
+  return new WP_Query([
+    'post_not_in' => [$project->ID],
     'post_type' => PROJECT_TYPE,
-    'orderby' => 'menu_order',
-    'order' => 'DESC',
-    'posts_per_page' => 3,
-    'tax_query' => [[
-      'taxonomy' => CRAFT_TAX_NAME,
-      'field' => 'slug',
-      'terms' => $craft->slug
-    ]]
-  ]);
-  return $usps;
-}
-
-function the_featured_projects($craft) {
-  $usps = query_featured_projects($craft);
-  while(have_posts()) {
-    the_post();
-    get_template_part('project','block');
-  }
+    'posts_per_page' => $number,
+    'craft' => $project->craft,
+    'order' => 'rand',
+    'paged' =>  1]);
 }

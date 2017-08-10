@@ -8,12 +8,14 @@
     </h1>
     <?php the_post_thumbnail('full'); ?>
   </header>
-  <main>
+  <div>
     <?php the_content(); ?>
-  </main>
+  </div>
   <aside>
     <?php 
       get_template_part('single-project','live-url');
+      get_template_part('single-project', 'links');
+      get_template_part('single-project', 'related-projects');
     ?>
   </aside>
   <?php get_template_part('partials/prev-next'); ?>
