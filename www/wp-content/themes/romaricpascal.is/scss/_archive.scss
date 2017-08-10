@@ -19,11 +19,16 @@ $archiveMainWidth: 30em;
 $archiveColumnGutter: 2em;
 @include mq($from: archiveOnTwoColumns) {
 	.blog .rp-Header,
-	.archive:not(.post-type-archive-project) .rp-Header {
+	.archive .rp-Header {
 	  position: fixed;
 	  top: 0;
 	  left: 0;
 	  width: 100%;
+	}
+	// Make space for Wordpress admin bar if it's there
+	.admin-bar.blog .rp-Header,
+	.admin-bar.archive .rp-Header {
+		top: 32px;
 	}
 
 	.rp-Archive:not(.rp-Archive-project):not(.rp-Archive-artwork) {

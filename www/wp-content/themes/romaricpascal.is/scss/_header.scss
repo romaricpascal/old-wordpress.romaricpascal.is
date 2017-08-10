@@ -6,6 +6,8 @@
   text-transform: uppercase;
   line-height: 3em;
   padding: 0 1em;
+
+  z-index: $above-1;
 }
 
 .rp-BreadcrumbLink {
@@ -30,6 +32,10 @@
   @include overlay;
   width: 80%;
   @include overlay-rightPanel(15em);
+
+  .admin-bar & {
+    height: calc(100vh - 32px);
+  }
 
   &:not(:target) {
     display: none;

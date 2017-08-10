@@ -28,12 +28,6 @@
 $archiveMainWidth-project: '(100vh - 4.6em) * 2 / 3';
 $centeringOffset: '0.5 * (#{$archiveMainWidth-project} - #{$archiveHeaderWidth})';
 @include mq($from: archiveOnTwoColumns) {
-	.post-type-archive-project .rp-Header {
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	}
 	
 	.rp-Archive-project {
 		max-width: none;

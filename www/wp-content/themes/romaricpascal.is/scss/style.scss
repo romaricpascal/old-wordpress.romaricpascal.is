@@ -36,6 +36,8 @@ $mq-breakpoints: (
 $headerHeight: 3em;
 $circleButtonSize: 2.6em;
 
+// 1.5 Z-indices
+$above-1: 25;
 
 // 2. Tools
 @import "../node_modules/sass-mq/_mq.scss";
