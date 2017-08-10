@@ -12,7 +12,9 @@
     <?php the_content(); ?>
   </main>
   <aside>
-
+    <?php 
+      get_template_part('single-project','live-url');
+    ?>
   </aside>
   <?php get_template_part('partials/prev-next'); ?>
 </article>
