@@ -2,7 +2,7 @@
   $shopURL = get_field('shop_url');
   $sourcesURL = get_field('sources_url'); ?>
 <?php if (!empty($shopURL) || !empty($sourcesURL)): ?>
-<div class="rp-ArtworkSingleSection">
+<div class="rp-AsideSection">
 	<?php if(!empty($shopURL)): ?>
 		<a href="<?php echo $shopURL; ?>" target="_blank">Buy in the shop.</a>
 	<?php endif; ?>

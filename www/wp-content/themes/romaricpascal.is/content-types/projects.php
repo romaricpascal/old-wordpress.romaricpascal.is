@@ -74,12 +74,35 @@ function project_craft_archive_url($craft) {
 }
 
 // 5. Queries
-function rp_query_related_projects($project, $number) {
-  return new WP_Query([
-    'post_not_in' => [$project->ID],
+function rp_get_projects_with_craft($craft, $number, $excludedProject) {
+  return get_posts([
     'post_type' => PROJECT_TYPE,
-    'posts_per_page' => $number,
-    'craft' => $project->craft,
-    'order' => 'rand',
-    'paged' =>  1]);
+    'post__not_in' => [$excludedProject->ID],
+    'tax_query' => [
+      [
+        'taxonomy' => CRAFT_TAX_NAME,
+        'field' => 'term_id',
+        'terms' => $craft->term_id
+      ]
+    ],
+    'posts_per_page' => $number
+  ]);
+}
+
+function rp_get_related_projects($project, $number) {
+  // Get project crafts, ordered by depth (deepest first)
+  $crafts = rp_get_crafts($project);
+
+  // Query deepest
+  $projects = rp_get_projects_with_craft($crafts[0], $number, $project);
+  // If not enough, query first level  
+  $foundProjects = count($projects);
+  $numberOfCrafts = count($crafts);
+  if ($numberOfCrafts > 1 && $foundProjects < $number) {
+    $additionalProjects = rp_get_projects_with_craft($crafts[1], $number - $foundProjects, $project);
+    $projects = array_merge($projects, $additionalProjects);
+  }
+
+  // Return result
+  return $projects;
 }

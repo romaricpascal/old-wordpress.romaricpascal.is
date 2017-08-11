@@ -80,6 +80,7 @@ $above-1: 25;
 
 // 2.3 - Layouts
 @import 'tools/_l-scrollFixed';
+@import 'tools/_l-grid';
 
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
@@ -124,6 +125,16 @@ h1 {
   font-size: 2em;
 }
 
+.u-db {
+  display: block;
+}
+
+.rp-List-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 // 4.5 Wordpress style adjustments
 .gallery-item img {
   width: 100%;
@@ -138,6 +149,11 @@ h1 {
 .rp-AsideHeading {
   margin: 0 0 0.25em;
   font-size: 1.25em;
+}
+
+.rp-AsideSection {
+  padding: 1em 0;
+  border-bottom: $rp-navy-on-yellow-20 solid 2px;
 }
 
 .rp-Content {

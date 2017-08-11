@@ -8,12 +8,12 @@
         </a>
       </main>
       <aside class="rp-ArtworkSingle__aside">
-        <section class="rp-ArtworkSingleSection">
+        <section class="rp-AsideSection">
           <?php the_content(); ?>
           <time class="rp-ArtworkTime" datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time>
         </section>
         <?php get_template_part('partials/artwork-links'); ?>
-        <section class="rp-ArtworkSingleSection">
+        <section class="rp-AsideSection">
           <?php get_template_part('partials/artwork-related'); ?>
         </section>
         <?php the_share_buttons(); ?>
