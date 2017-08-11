@@ -142,6 +142,10 @@ h1 {
   text-align: center;
 }
 
+.u-c-orange {
+  color: $rp-orange;
+}
+
 .rp-List-reset {
   margin: 0;
   padding: 0;
@@ -172,6 +176,19 @@ h1 {
 .rp-Content {
   max-width: 41em;
   margin: auto;
+}
+
+.rp-Announcement {
+  display: block;
+  border: solid 3px $rp-orange;
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .rp-PrevNextNav {

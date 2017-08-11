@@ -12,6 +12,7 @@
     <?php 
       the_content(); 
       get_template_part('single-project', 'testimonial');
+      get_template_part('single-project', 'behind-the-scene');
     ?>
   </div>
   <aside>
