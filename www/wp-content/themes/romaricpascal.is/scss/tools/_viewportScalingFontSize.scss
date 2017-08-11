@@ -1,0 +1,11 @@
+@mixin viewportScalingFontSize($startWidth, $endWidth, $startSize, $endSize) {
+	$widthSpan: strip-units($endWidth - $startWidth);
+	$sizeSpan: strip-units($endSize - $startSize);
+	$distanceFromStart:'100vw - #{$startWidth}';
+	$sizeOffset: '(#{$distanceFromStart}) * #{$sizeSpan} / #{$widthSpan}';
+	$fontSize: '#{$startSize} + (#{$sizeOffset})';
+
+	@include mq($and: '(min-width: #{$startWidth}) and (max-width: #{$endWidth})') {
+		font-size: calc(#{$fontSize});
+	}
+}

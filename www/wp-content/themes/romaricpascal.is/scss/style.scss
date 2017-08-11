@@ -88,8 +88,10 @@ $above-1: 25;
 }
 
 // 2.3 - Layouts
+@import 'tools/_f-strip-units.scss';
 @import 'tools/_l-scrollFixed';
 @import 'tools/_l-grid';
+@import 'tools/_viewportScalingFontSize';
 
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
@@ -112,6 +114,10 @@ a {
 	&:hover {
 		text-decoration: underline;
 	}
+}
+
+iframe {
+  max-width: 100%;
 }
 
 img {
@@ -244,6 +250,7 @@ $prevNextLinkSize: $circleButtonSize;
 @import '_archive-artwork';
 @import '_blog';
 @import '_artworks';
+@import '_single-project';
 
 
 
