@@ -61,10 +61,19 @@ $above-1: 25;
 	font-weight: normal;
 }
 
+.t-typo-copy {
+  @include typo-copy;
+}
+
 @mixin typo-display {
 	font-family: $rp-ff-display;
   font-weight: normal;
 }
+
+.t-typo-display {
+  @include typo-display;
+}
+
 
 @mixin overlay {
   position: fixed;
@@ -127,6 +136,10 @@ h1 {
 
 .u-db {
   display: block;
+}
+
+.u-tac {
+  text-align: center;
 }
 
 .rp-List-reset {

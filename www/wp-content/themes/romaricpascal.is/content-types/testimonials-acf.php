@@ -8,7 +8,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_598c86f637f5c',
 				'label' => 'Author',
-				'name' => 'author',
+				'name' => TESTIMONIAL_AUTHOR_FIELD,
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -20,7 +20,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_598c86fc37f5d',
 				'label' => 'Company',
-				'name' => 'company',
+				'name' => TESTIMONIAL_COMPANY_FIELD,
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -32,7 +32,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_598c870537f5e',
 				'label' => 'Company URL',
-				'name' => 'companyUrl',
+				'name' => TESTIMONIAL_COMPANY_URL_FIELD,
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -72,11 +72,11 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_598c889ec1498',
 				'label' => 'Project',
-				'name' => 'project',
+				'name' => TESTIMONIAL_PROJECT_FIELD,
 				'type' => 'relationship',
 				'return_format' => 'object',
 				'post_type' => array (
-					0 => 'project',
+					0 => PROJECT_TYPE,
 				),
 				'taxonomy' => array (
 					0 => 'all',

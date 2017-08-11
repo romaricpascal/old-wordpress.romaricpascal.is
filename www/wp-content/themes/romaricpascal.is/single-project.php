@@ -9,7 +9,10 @@
     <?php the_post_thumbnail('full'); ?>
   </header>
   <div>
-    <?php the_content(); ?>
+    <?php 
+      the_content(); 
+      get_template_part('single-project', 'testimonial');
+    ?>
   </div>
   <aside>
     <?php 

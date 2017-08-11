@@ -8,6 +8,10 @@ Author URI: http://romaricpascal.is
 */
 
 define('TESTIMONIAL_TYPE', 'testimonial');
+define('TESTIMONIAL_PROJECT_FIELD', 'project');
+define('TESTIMONIAL_AUTHOR_FIELD', 'author');
+define('TESTIMONIAL_COMPANY_FIELD', 'company');
+define('TESTIMONIAL_COMPANY_URL_FIELD', 'companyUrl');
 
 // 1. Register new post type
 function testimonials_register_post_type() {
@@ -67,22 +71,36 @@ function a_testimonial($craft) {
   }
 }
 
-function the_testimonial_author() {
-  global $post;
-  if (!empty($post->meta['author'])) {
-    echo $post->meta['author'][0];
+function the_testimonial_author($testimonial) {
+  $author = get_field(TESTIMONIAL_AUTHOR_FIELD, $testimonial->ID);
+  if (!empty($author)) {
+    echo $author;
   }
 }
 
-function the_testimonial_link($prefix = '') {
-  global $post;
-  if (!empty($post->meta['company'])) {
-    $company = $post->meta['company'][0];
-    if (!empty($post->meta['companyUrl'])) {
-      $url = $post->meta['companyUrl'][0];
-      echo $prefix.'<a href="'.$url.'">'.$company.'</a>';
+function the_testimonial_link($testimonial, $prefix = '') {
+  $company = get_field(TESTIMONIAL_COMPANY_FIELD, $testimonial->ID);
+  $companyUrl = get_field(TESTIMONIAL_COMPANY_URL_FIELD, $testimonial->ID);
+  if (!empty($company)) {
+    if (!empty($companyUrl)) {
+      echo $prefix.'<a href="'.$companyUrl.'">'.$company.'</a>';
     } else {
       echo $prefix.$company;
     }
   }
 }
+
+// Queries
+function rp_get_testimonial_for_project($project) {
+
+  $posts = get_posts([
+    'post_type' => TESTIMONIAL_TYPE,
+    'meta_query' => [[
+      'key' => TESTIMONIAL_PROJECT_FIELD,
+      'value' => '"'.$project->ID.'"',
+      'compare' => 'LIKE'
+    ]]
+  ]);
+  return empty($posts) ? null : $posts[0];
+}
+
