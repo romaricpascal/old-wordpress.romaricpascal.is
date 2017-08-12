@@ -1,15 +1,7 @@
 <?php
 
 // 0. Clean up unnecessary Wordpress code in headers;
-remove_action ('wp_head', 'rsd_link');
-remove_action( 'wp_head', 'wlwmanifest_link');
-remove_action( 'wp_head', 'wp_shortlink_wp_head');
-remove_action('wp_head', 'wp_generator');
-remove_action('wp_head', 'feed_links');
-remove_action('wp_head', 'feed_links_extra');
-remove_action('wp_head', 'wp_oembed_add_discovery_links');
-remove_action('wp_head', 'wp_oembed_add_host_js');
-remove_action('wp_head', 'rest_output_link_wp_head');
+require_once 'functions/cleanup.php';
 
 
 // 1. Load necessary taxonomies & content types
@@ -22,60 +14,15 @@ require_once('content-types/artworks.php');
 require_once('content-types/old_posts.php');
 
 define('MENU_MAIN_1', 'menu_main_1');
-define('MENU_MAIN_2', 'menu_main_2');
+define('MENU_HOME_CONTENT', 'menu_home');
 define('WIDGETS_ANNOUNCEMENT', 'rp_announcements');
-define('WIDGETS_ARTWORKS_ARCHIVE_CONTENT', 'rp_artworks_archive_content');
-define('IMAGE_SIZES', [
-  'artwork-grid-s' => [
-    'width' => 167,
-    'height' => 167,
-    'crop' =>  true
-  ],
-  'artwork-grid-m' => [
-    'width' => 280,
-    'height' => 280,
-    'crop' =>  true
-  ],
-  'artwork-grid-l' => [
-    'width' => 384,
-    'height' => 384,
-    'crop' =>  true
-  ],
-  'artwork-grid-xl' => [
-    'width' => 840,
-    'height' => 840,
-    'crop' =>  true
-  ],
-  'artwork-grid-l-3x' => [
-    'width' => 1152,
-    'height' => 1152,
-    'crop' =>  true
-  ],
-  'artwork-full' => [
-    'width' => 560,
-    'height' => 0,
-    'crop' =>  false
-  ],
-  'artwork-full-2x' => [
-    'width' => 1120,
-    'height' => 0,
-    'crop' =>  false
-  ],
-  'artwork-full-3x' => [
-    'width' => 1680,
-    'height' => 0,
-    'crop' =>  false
-  ]
-]);
+
 // 2. Setup theme
 function rp_setup() {
   register_nav_menu(MENU_MAIN_1, __('Main menu (Part 1)'));
-  register_nav_menu(MENU_MAIN_2, __('Main menu (Part 2)'));
+  register_nav_menu(MENU_HOME_CONTENT, __('Home content'));
+
   add_theme_support('post-thumbnails');
-  
-  foreach(IMAGE_SIZES as $image_size_name => $image_size) {
-    add_image_size($image_size_name, $image_size['width'], $image_size['height'], $image_size['crop']);
-  }
 }
 add_action('after_setup_theme', 'rp_setup');
 
@@ -85,27 +32,7 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return preg_replace('/^\w+: /', '', $title);
 });
 
-// 5. Set up RSS feed templates
-add_filter('request', function ($qv) {
-  if (isset($qv['feed']) && !isset($qv['post_type'])) {
-    $qv['post_type'] = ['post', ARTWORK_TYPE];
-  }
-  return $qv;
-});
 
-add_filter('the_content', function ($content) {
-  if (is_feed() && is_artwork()) {
-    $content =  get_the_post_thumbnail() . $content;
-  }
-
-  return $content;
-});
-
-// Use custom theme for the RSS feed
-remove_all_actions( 'do_feed_rss2' );
-add_action( 'do_feed_rss2', function($for_comments) {
-  get_template_part('feed','rss2');
-}, 10, 1 );
 
 // Fix pagination in titles and limits risks of duplicate content
 add_filter('wp_title', function($title) {
@@ -146,9 +73,6 @@ function the_social_card_image() {
   }
 }
 
-
-// 6. Register widget areas
-
 add_action( 'widgets_init', function () {
 
   register_sidebar([
@@ -173,48 +97,6 @@ function rp_has_more_pages() {
   return $wp_query->max_num_pages > get_query_var('paged');
 }
 
-function rp_the_menu($menuId) {
-  global $menu_items;
-
-  $locations = get_nav_menu_locations();
-  $menu = wp_get_nav_menu_object($locations[$menuId]);
-   $menu_items = wp_get_nav_menu_items($menu->term_id);
-
-  get_template_part('menu', $menuId);
-}
-
-function rp_append_srcset_entry($srcset, $attachment_id, $size, $with_comma = true) {
-    $src = wp_get_attachment_image_src($attachment_id, $size);
-    if ($src) {
-      $entry = "$src[0] $src[1]w".($with_comma ? ',' : '');
-      return $srcset.$entry."\n";
-    }
-}
-
-function rp_get_attachment_srcset($sizes, $attachment_id) {
-  $srcset = "";
-  foreach($sizes as $size) {
-    $srcset = rp_append_srcset_entry($srcset, $attachment_id, $size);
-  }
-  return rp_append_srcset_entry($srcset, $attachment_id, 'full', false);
-}
-
-function rp_get_the_thumbnail_srcset($sizes) {
-  global $post;
-  $post_thumbnail_id = get_post_thumbnail_id($post);
-  if ( ! $post_thumbnail_id ) {
-    return false;
-  }
-
-  return rp_get_attachment_srcset($sizes, $post_thumbnail_id);
-}
-
-function rp_the_thumbnail_srcset($sizes) {
-  $srcset = rp_get_the_thumbnail_srcset($sizes);
-  if ($srcset) {
-    echo $srcset;
-  }
-}
-
+require_once('functions/thumbnail-sizes.php');
 require_once('functions/share-buttons.php');
 require_once('functions/breadcrumb-nav.php');
