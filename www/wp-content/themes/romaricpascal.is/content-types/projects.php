@@ -75,9 +75,13 @@ function project_craft_archive_url($craft) {
 
 // 5. Queries
 function rp_get_projects_with_craft($craft, $number, $excludedProject) {
-  return get_posts([
+
+  if (is_string($craft)) {
+    $craft = rp_get_craft_object($craft);
+  }
+
+  $query = [
     'post_type' => PROJECT_TYPE,
-    'post__not_in' => [$excludedProject->ID],
     'tax_query' => [
       [
         'taxonomy' => CRAFT_TAX_NAME,
@@ -86,7 +90,14 @@ function rp_get_projects_with_craft($craft, $number, $excludedProject) {
       ]
     ],
     'posts_per_page' => $number
-  ]);
+  ];
+
+  if ($excludedProject) {
+    $query['post__not_in'] = [$excludedProject->ID];
+  }
+
+
+  return get_posts($query);
 }
 
 function rp_get_related_projects($project, $number) {

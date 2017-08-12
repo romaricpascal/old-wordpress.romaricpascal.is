@@ -216,6 +216,5 @@ function rp_the_thumbnail_srcset($sizes) {
   }
 }
 
-
 require_once('functions/share-buttons.php');
 require_once('functions/breadcrumb-nav.php');
