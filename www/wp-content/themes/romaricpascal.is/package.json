@@ -10,7 +10,8 @@
     "dev:css": "chokidar 'scss/**/*.scss' -c 'npm run build:css' --initial",
     "dev:js": "chokidar 'js/**/*.js' -c 'npm run build:js -- --source-map-inline -b ' --initial",
     "dev:up": "browser-sync start -p localhost:8080 -f **/*.php main.js style.css",
-    "dev": "run-p dev:js dev:css"
+    "dev": "run-p dev:js dev:css",
+    "php": "(cd ../../.. && php -S 0.0.0.0:8080 routing.php)"
   },
   "keywords": [
     "Wordpress",
