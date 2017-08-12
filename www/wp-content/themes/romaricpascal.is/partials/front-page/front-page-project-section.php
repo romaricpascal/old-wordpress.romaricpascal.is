@@ -1,4 +1,4 @@
-<section>
+<section class="rp-HomeSection">
 	<header>
 		<h2><?php echo $craft->name; ?></h2>
 		<p><?php echo $craft->description; ?></p>

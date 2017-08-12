@@ -34,8 +34,8 @@ function testimonials_register_post_type() {
     'labels' => $labels,
     'public' => true,
     'exclude_from_search' => true,
-    'has_archive' => false,
-    'hierarchical' => true,
+    'has_archive' => true,
+    'hierarchical' => false,
     'supports' => ['title', 'editor', 'custom-fields']
   ]);
 
