@@ -3,6 +3,7 @@
 	the_post();
 ?>
 <?php get_header(); ?>
+<div class="rp-Content">
 <section>
 <?php the_content(); ?>
 </section>
@@ -11,14 +12,6 @@
 	foreach ($craftList as $craft) {
 		rp_home_project_with_craft_section($craft);
 	} ?>
-<section>
-</section>
-<section>
-T-shirt & merch
-</section>
-<section>
-Prints & Illustrations
-</section>
 <section>
 Testimonials
 </section>
@@ -31,4 +24,5 @@ Web
 <section>
 Cheers
 </section>
+</div>
 <?php get_footer(); ?>
