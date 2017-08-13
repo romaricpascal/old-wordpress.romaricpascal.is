@@ -102,6 +102,7 @@ function rp_get_the_post() {
   return $post;
 }
 
+require_once('functions/components.php');
 require_once('functions/acf-featured.php');
 require_once('functions/thumbnail-sizes.php');
 require_once('functions/share-buttons.php');
