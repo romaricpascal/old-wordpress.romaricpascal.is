@@ -113,7 +113,7 @@ function rp_get_postListFormat($postType) {
       return 'link';
   }
 }
-
+require_once('functions/archive-size.php');
 require_once('functions/components.php');
 require_once('functions/acf-featured.php');
 require_once('functions/thumbnail-sizes.php');
