@@ -48,6 +48,11 @@ add_action('after_setup_theme', function () {
   }
 });
 
+function get_thumbnail_url($post, $size = 'full') {
+  $thumbnailId = get_post_thumbnail_id($post->ID);
+  return wp_get_attachment_image_src($thumbnailId, $size);
+}
+
 function rp_append_srcset_entry($srcset, $attachment_id, $size, $with_comma = true) {
     $src = wp_get_attachment_image_src($attachment_id, $size);
     if ($src) {

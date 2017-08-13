@@ -2,23 +2,24 @@
 
 	define('COMPONENTS_ROOT', 'components');
 
-	function rp_locate_component($template, $modifiers) {
+	function rp_locate_component($component, $modifiers) {
 		if (empty($modifiers)) {
-			return locate_template("{COMPONENTS_ROOT}/{$template}.php");
+			$path = COMPONENTS_ROOT."/{$component}.php";
+			return locate_template($path);
 		}
 
-		$filename = COMPONENTS_ROOT.'/'.$template."-".join('-',$modifiers).'.php';
-		$template = locate_template( $filename );
-		if (template) {
+		$path = COMPONENTS_ROOT.'/'.$component."-".join('-',$modifiers).'.php';
+		$template = locate_template( $path );
+		if (!empty($template)) {
 			return $template;
 		}
-
-		return rp_locate_component($template, array_pop($modifiers));
+		array_pop($modifiers);
+		return rp_locate_component($component, $modifiers);
 	}
 
-	function rp_render($component, $data, $modifiers) {
+	function rp_render($component, $data, $modifiers = []) {
 		$template = rp_locate_component($component, $modifiers);
-		if ($template) {
+		if (!empty($template)) {
 			extract($data);
 			require($template);
 		}

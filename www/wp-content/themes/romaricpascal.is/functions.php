@@ -102,6 +102,18 @@ function rp_get_the_post() {
   return $post;
 }
 
+function rp_get_postListFormat($postType) {
+  switch ($postType) {
+    case TESTIMONIAL_TYPE:
+      return 'full';
+    case ARTWORK_TYPE:
+    case PROJECT_TYPE:
+      return 'thumbnail';
+    default:
+      return 'link';
+  }
+}
+
 require_once('functions/components.php');
 require_once('functions/acf-featured.php');
 require_once('functions/thumbnail-sizes.php');
