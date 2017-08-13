@@ -36,3 +36,22 @@ if(function_exists("register_field_group"))
 		));
 	}
 });
+
+function rp_query_featured_posts($postTypeName, $number) {
+	$query = [
+		'post_type' => $postTypeName,
+		'posts_per_page' => $number,
+		'featured_clause' => [
+			'relation' => 'OR',
+			['key' => 'featured_on_home',
+			'compare' => 'EXISTS'],
+			['key' => 'featured_on_home']
+		],
+		'order_by' => [
+			'featured_on_home' => 'DESC',
+			'post_date' => 'DESC'
+		]
+	];
+
+	return new WP_Query($query);
+}

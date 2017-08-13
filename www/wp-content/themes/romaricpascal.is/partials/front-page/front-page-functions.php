@@ -6,3 +6,11 @@
       include locate_template('partials/front-page/front-page-project-section.php');
     }
   }
+
+  function rp_home_featured_archive_section($postTypeName) {
+  	$postType = get_post_type_object( $postTypeName );
+  	$query = rp_query_featured_posts($postTypeName, 3);
+  	if ($query->have_posts()) {
+  		include locate_template('partials/front-page/front-page-featured-archive.php');
+  	}
+  }

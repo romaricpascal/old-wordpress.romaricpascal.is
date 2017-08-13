@@ -97,6 +97,11 @@ function rp_has_more_pages() {
   return $wp_query->max_num_pages > get_query_var('paged');
 }
 
+function rp_get_the_post() {
+  global $post;
+  return $post;
+}
+
 require_once('functions/acf-featured.php');
 require_once('functions/thumbnail-sizes.php');
 require_once('functions/share-buttons.php');

@@ -9,5 +9,5 @@
 	    	<?php get_template_part('partials/post-thumbnailLink', 'project'); ?>
 	    </li>
 	  <?php endwhile; ?>
-	  </ul>
+	 </ul>
 </section>
