@@ -1,25 +1,16 @@
-@mixin artwork-grid-size($size) {
-	grid-template-columns: repeat(3, $size);
-	grid-auto-rows: $size;
+@mixin artwork-grid-size() {
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: auto;
 }
 
 .rp-ArchiveList-artwork {
 	display: grid;
-	// Shame I can't find a way to specify the height in function of the width to make a square grid :(
-	@include artwork-grid-size(calc((100vw - 2em) / 3));
-
-	@include mq($and: '(min-width: 31em)') {
-		@include artwork-grid-size(10em);
-	}
+	@include artwork-grid-size();
 }
 $archiveGridItemSize-l: '(100vh - 4.6em) / 6';
 $archiveMainWidth-artwork: #{'3 * (#{$archiveGridItemSize-l})'};
 @include mq($from: archiveOnTwoColumns, $and: '(min-height: 43em)') {
 	
-	.rp-ArchiveList-artwork {
-		@include artwork-grid-size(calc(#{$archiveGridItemSize-l}));
-	}
-
 	.rp-Archive-artwork {
 		max-width: none;
 
