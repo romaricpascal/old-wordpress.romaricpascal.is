@@ -1,6 +1,6 @@
 <ul class="rp-ArchiveList <?php echo $classes; ?>">
-<?php while($query->have_posts()): $query->the_post(); ?>
-	<?php $post = rp_get_the_post(); ?>
+<?php while(rp_has_more_posts($query)): ?>
+	<?php $post = rp_next_post($query); ?>
 	<li class="rp-ArchiveListItem rp-ArchiveListItem-<?php echo $format; ?> rp-ArchiveListItem-<?php echo $post->post_type;?>">
 		<?php rp_render('post', ['post' => $post], [$format, $post->post_type]); ?>
 	</li>

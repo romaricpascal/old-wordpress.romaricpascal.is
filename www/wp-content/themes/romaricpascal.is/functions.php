@@ -102,6 +102,23 @@ function rp_get_the_post() {
   return $post;
 }
 
+function rp_has_more_posts($query) {
+  if(!empty($query)) {
+    return $query->have_posts();
+  }
+
+  return have_posts();
+}
+
+function rp_next_post($query) {
+  if(!empty($query)) {
+    $query->the_post();
+  } else {
+    the_post();
+  }
+  return rp_get_the_post();
+}
+
 function rp_get_postListFormat($postType) {
   switch ($postType) {
     case TESTIMONIAL_TYPE:

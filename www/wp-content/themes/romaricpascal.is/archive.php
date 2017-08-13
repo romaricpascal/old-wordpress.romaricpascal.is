@@ -11,6 +11,7 @@
   </header>
 
 <div class="rp-Archive__main">
+  <?php rp_render('postList', ['classes' => "rp-ArchiveList-{$post_type}"]); ?>
   <ul class="rp-ArchiveList rp-ArchiveList-<?php echo $post_type ?>">
   <?php while(have_posts()): the_post(); ?>
     <li class="rp-ArchiveListItem rp-ArchiveListItem-<?php echo $post_type ?> <?php if ($showThumbnailLink) {echo 'rp-ArchiveListItem-thumbnail';} ?>">
