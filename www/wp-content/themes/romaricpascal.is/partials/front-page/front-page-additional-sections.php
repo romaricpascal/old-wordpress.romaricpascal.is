@@ -14,11 +14,12 @@
 		?>
 	<?php elseif ($menu_item->type === 'post_type_archive'): ?>
 		<?php rp_render('featuredArchive', ['postTypeName' => $menu_item->object]); ?>
-	<?php else: ?>
-	<details>
-		<summary>Non craft section - <?php echo $menu_item->type; ?></summary>
-		<pre><?php var_dump($menu_item); ?>
-		</pre>
-	</details>
+	<?php elseif ($menu_item->type === 'post_type') : ?>
+		<?php $post = get_post($menu_item->object_id); ?>
+		<?php if (rp_is_posts_archive_page($post->ID)): ?>
+			<?php rp_render('featuredArchive', ['postTypeName' => 'post', 'craftSlug' => CRAFT_TERM_LETTERING]); ?>
+		<?php endif; ?>
+	<?php elseif ($menu_item->type === 'custom'): ?>
+		<?php rp_render('homeSection', [], [substr($menu_item->url, 1)]); ?>
 	<?php endif; ?>
 <?php endforeach; ?>

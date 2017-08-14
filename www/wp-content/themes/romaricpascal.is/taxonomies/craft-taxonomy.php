@@ -74,6 +74,11 @@ function rp_get_craft_object($id) {
   return get_term( $id, CRAFT_TAX_NAME);
 }
 
+function rp_get_craft_term_id($slug) {
+  $craft = get_term_by('slug',$slug, CRAFT_TAX_NAME);
+  return $craft->term_id;
+}
+
 function get_craft($post) {
   $crafts = wp_get_post_terms($post->ID, 'craft');
   if (empty($crafts)) {
