@@ -30,7 +30,9 @@
     "wpackagist-plugin/force-regenerate-thumbnails": "2.0.6",
     "wpackagist-plugin/ewww-image-optimizer": "3.5.1",
     "wpackagist-plugin/redirection": "2.6.5",
-    "wpackagist-plugin/advanced-custom-fields": "4.4.11"
+    "wpackagist-plugin/advanced-custom-fields": "4.4.11",
+    "wpackagist-plugin/link-manager": "0.1-beta",
+    "wpackagist-plugin/contact-form-7": "4.8.1"
   },
   "extra": {
     "webroot-dir": "wordpress",
