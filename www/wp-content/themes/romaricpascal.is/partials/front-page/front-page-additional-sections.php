@@ -18,8 +18,14 @@
 		<?php $post = get_post($menu_item->object_id); ?>
 		<?php if (rp_is_posts_archive_page($post->ID)): ?>
 			<?php rp_render('featuredArchive', ['postTypeName' => 'post', 'craftSlug' => CRAFT_TERM_LETTERING]); ?>
+		<?php elseif ($post->post_type === 'page'): ?>
+			<?php $template = $post->page_template;
+				if ($template) {
+					$component = pathinfo($template, PATHINFO_FILENAME);
+					rp_render($component, ['post' => $post]);
+				}
+			?>
 		<?php endif; ?>
 	<?php elseif ($menu_item->type === 'custom'): ?>
-		<?php rp_render('homeSection', [], [substr($menu_item->url, 1)]); ?>
 	<?php endif; ?>
 <?php endforeach; ?>

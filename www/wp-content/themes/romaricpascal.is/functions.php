@@ -102,6 +102,10 @@ function rp_get_the_post() {
   return $post;
 }
 
+function rp_get_content($post) {
+  return apply_filters('the_content', $post->post_content );
+}
+
 function rp_has_more_posts($query) {
   if(!empty($query)) {
     return $query->have_posts();
