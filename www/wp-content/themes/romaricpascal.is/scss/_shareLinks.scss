@@ -38,7 +38,7 @@ $shareLink-size: $circleButtonSize;
 .rp-ShareLink-facebook {
 	background-color: #3B5998;
 	background-image: svg-load('node_modules/simple-icons/icons/facebook.svg', fill=#fff);
-	background-size: 40%;
+	background-size: 42%;
 }
 
 .rp-ShareLink-twitter {
@@ -50,4 +50,33 @@ $shareLink-size: $circleButtonSize;
 .rp-ShareLink-pinterest {
 	background-color: #BD081C;
 	background-image: svg-load('node_modules/simple-icons/icons/pinterest.svg', fill=#fff);	
+}
+
+.rp-ShareLink-dribbble {
+	background-color: #EA4C89;
+	background-image: svg-load('node_modules/simple-icons/icons/dribbble.svg', fill=#fff);
+	background-size: 47%;
+}
+
+.rp-ShareLink-instagram {
+	background-color: #E4405F;
+	background-image: svg-load('node_modules/simple-icons/icons/instagram.svg', fill=#fff);
+	background-size: 48%;
+}
+
+.rp-ShareLink-github {
+	background-color: #181717;
+	background-image: svg-load('node_modules/simple-icons/icons/github.svg', fill=#fff);
+	background-size: 53%;
+}
+
+.rp-ShareLink-linkedin {
+	background-color: #0077B5;
+	background-image: svg-load('node_modules/simple-icons/icons/linkedin.svg', fill=#fff);
+	background-size: 45%;
+}
+
+.rp-ShareLink-behance {
+	background-color: #1769FF;
+	background-image: svg-load('node_modules/simple-icons/icons/behance.svg', fill=#fff);
 }
