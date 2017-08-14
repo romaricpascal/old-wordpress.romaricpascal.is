@@ -37,7 +37,7 @@ if(function_exists("register_field_group"))
 	}
 });
 
-function rp_query_featured_posts($postTypeName, $number) {
+function rp_query_featured_posts($postTypeName, $number, $craftId = null) {
 	$query = [
 		'post_type' => $postTypeName,
 		'posts_per_page' => $number,
@@ -52,6 +52,14 @@ function rp_query_featured_posts($postTypeName, $number) {
 			'post_date' => 'DESC'
 		]
 	];
+
+	if (!empty($craftId)) {
+		$query['tax_query'] = [[
+			'taxonomy' => CRAFT_TAX_NAME,
+			'fields' => 'term_id',
+			'terms' => $craftId
+		]];
+	}
 
 	return new WP_Query($query);
 }

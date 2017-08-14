@@ -1,5 +1,4 @@
 <?php
-	$craft = rp_get_craft_object($craftId);
     $query = rp_query_projects_with_craft($craft,rp_get_archive_size(PROJECT_TYPE));?>
     
 <?php if ($query->have_posts()): ?>

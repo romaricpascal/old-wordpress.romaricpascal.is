@@ -8,7 +8,10 @@
 
 <?php foreach($menu_items as $menu_item):  ?>
 	<?php if ($menu_item->type === 'taxonomy' && $menu_item->object === 'craft'): ?>
-		<?php rp_render('projectArchive', ['craftId' => $menu_item->object_id], [$menu_item->object_id]); ?>
+		<?php 
+			$craft = rp_get_craft_object($menu_item->object_id);
+			rp_render('projectArchive', ['craft' => $craft], [$craft->slug]); 
+		?>
 	<?php elseif ($menu_item->type === 'post_type_archive'): ?>
 		<?php rp_render('featuredArchive', ['postTypeName' => $menu_item->object]); ?>
 	<?php else: ?>
