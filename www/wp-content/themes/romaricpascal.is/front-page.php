@@ -3,7 +3,6 @@
 	the_post();
 ?>
 <?php get_header(); ?>
-<div class="rp-Content">
 <section class="rp-HomeSection">
 <?php the_content(); ?>
 </section>

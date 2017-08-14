@@ -21,10 +21,11 @@
 		<?php elseif ($post->post_type === 'page'): ?>
 			<?php $template = $post->page_template;
 				if ($template) {
-					$component = pathinfo($template, PATHINFO_FILENAME);
-					rp_render($component, ['post' => $post]);
-				}
-			?>
+					$component = pathinfo($template, PATHINFO_FILENAME);?>
+					<section class="rp-HomeSection">
+					 <?php rp_render($component, ['post' => $post]); ?>
+					 </section>
+			<?php } ?>
 		<?php endif; ?>
 	<?php elseif ($menu_item->type === 'custom'): ?>
 	<?php endif; ?>

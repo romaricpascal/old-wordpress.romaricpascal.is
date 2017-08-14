@@ -1,0 +1,25 @@
+@include mq($from: archiveOnTwoColumns) {
+
+	.l-sideBySide {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.l-sideBySide__header {
+		max-width: 20em;
+		margin-left: 3em;
+		margin-right: 3em;
+		flex: none;
+		order: 2;
+	}
+
+	.l-sideBySide__main {
+		max-width: 30em;
+		margin-left: 3em;
+		margin-right: 3em;
+		flex: none;
+		order: 1;
+	}
+}

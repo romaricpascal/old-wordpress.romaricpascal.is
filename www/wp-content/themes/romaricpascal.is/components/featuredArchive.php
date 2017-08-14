@@ -7,10 +7,15 @@
 	$postListFormat = rp_get_postListFormat($postTypeName); ?>
 
 <?php if ($query->have_posts()): ?>
-<section class="rp-HomeSection">
-	<header>
+<section class="l-sideBySide rp-HomeSection">
+	<div class="l-sideBySide">
+	<header class="l-sideBySide__header">
 		<h2><?php echo $postType->label; ?></h2>
 	</header>
-	<?php rp_render('postList', ['query' => $query, 'classes' => "rp-ArchiveList-${postTypeName}", 'format' => $postListFormat]); ?>
+	<?php rp_render('postList', [
+	  'query' => $query, 
+	  'classes' => "l-sideBySide__main rp-ArchiveList-${postTypeName}", 
+	  'format' => $postListFormat]); ?>
+	 </div>
 </section>
 <?php endif; ?>
