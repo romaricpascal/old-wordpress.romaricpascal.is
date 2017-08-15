@@ -6,7 +6,9 @@
 <?php get_header(); ?>
 <article class="rp-Archive rp-Archive-<?php echo $post_type; ?>">
    <header class="rp-ArchiveHeader rp-Archive__header">
-    <h1 class="rp-ArchiveHeading rp-ArchiveHeading-<?php echo $post_type ?>"><?php the_archive_title(); ?></h1>
+    <h1 class="rp-LetteringHeading rp-ArchiveHeading rp-ArchiveHeading-<?php echo $post_type ?>">
+    	<?php the_archive_title(); ?>		
+    </h1>
     <?php get_template_part('partials/archive-description', $post_type); ?>
   </header>
 

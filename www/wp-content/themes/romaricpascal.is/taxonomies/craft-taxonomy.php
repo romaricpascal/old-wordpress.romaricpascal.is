@@ -70,8 +70,12 @@ function add_craft_taxonomy(){
 }
 add_action('init','add_craft_taxonomy');
 
-function rp_get_craft_object($id) {
-  return get_term( $id, CRAFT_TAX_NAME);
+function rp_get_craft_object($idOrSlug) {
+  if (is_integer($idOrSlug)) {
+    return get_term( $idOrSlug, CRAFT_TAX_NAME);
+  } elseif (is_string($idOrSlug)) {
+    return get_term_by('slug', $idOrSlug, CRAFT_TAX_NAME);
+  }
 }
 
 function rp_get_craft_term_id($slug) {

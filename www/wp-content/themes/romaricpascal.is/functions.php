@@ -87,6 +87,17 @@ add_action( 'widgets_init', function () {
 	]);
 });
 
+function rp_get($objectOrArray, $key) {
+
+  if (!$objectOrArray) return;
+
+  if (is_object($objectOrArray)) {
+    return $objectOrArray->{$key};
+  } elseif (is_array($objectOrArray)) {
+    return $objectOrArray[$key];
+  }
+}
+
 function rp_has_pages() {
   global $wp_query;
   return $wp_query->max_num_pages > 1;

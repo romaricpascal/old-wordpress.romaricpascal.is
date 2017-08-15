@@ -4,29 +4,30 @@
 	$menuLocations = get_nav_menu_locations();
 	$menu = $menuLocations[MENU_HOME_CONTENT];	
 	$menu_items = wp_get_nav_menu_items($menu);
-?>
-
-<?php foreach($menu_items as $menu_item):  ?>
-	<?php if ($menu_item->type === 'taxonomy' && $menu_item->object === 'craft'): ?>
-		<?php 
-			$craft = rp_get_craft_object($menu_item->object_id);
-			rp_render('projectArchive', ['craft' => $craft], [$craft->slug]); 
-		?>
-	<?php elseif ($menu_item->type === 'post_type_archive'): ?>
-		<?php rp_render('featuredArchive', ['postTypeName' => $menu_item->object]); ?>
-	<?php elseif ($menu_item->type === 'post_type') : ?>
-		<?php $post = get_post($menu_item->object_id); ?>
-		<?php if (rp_is_posts_archive_page($post->ID)): ?>
-			<?php rp_render('featuredArchive', ['postTypeName' => 'post', 'craftSlug' => CRAFT_TERM_LETTERING]); ?>
-		<?php elseif ($post->post_type === 'page'): ?>
-			<?php $template = $post->page_template;
+	foreach($menu_items as $menu_item) {
+  		if ($menu_item->type === 'taxonomy' && $menu_item->object === 'craft') {
+			$craft = get_term($menu_item->object_id, CRAFT_TAX_NAME);
+			rp_render('archive', ['postTypeName'=> 'project', 'craft' => $craft, 'classes' => 'rp-HomeSection'], ['project', rp_get($craft, 'slug')]); 
+  		} elseif ($menu_item->type === 'post_type_archive') {
+			if ($menu_item->object !== ARTWORK_TYPE) {
+				$craft = get_term_by('slug', CRAFT_TERM_LETTERING, CRAFT_TAX_NAME);
+			} else { 
+				$craft = null;
+			}
+			rp_render('archive', ['postTypeName' => $menu_item->object, 'craft' => $craft, 'classes' => 'rp-HomeSection'], [$menu_item->object, rp_get($craft, 'slug')]);
+		} elseif ($menu_item->type === 'post_type') {
+			$post = get_post($menu_item->object_id);
+			if (rp_is_posts_archive_page($post->ID)) {
+				$craft = get_term_by('slug', CRAFT_TERM_LETTERING, CRAFT_TAX_NAME);
+				rp_render('archive', ['postTypeName' => 'post', 'craft' => $craft, 'classes' => 'rp-HomeSection'], ['post', rp_get($craft, 'slug')]);
+			}  elseif ($post->post_type === 'page') {
+				$template = $post->page_template;
 				if ($template) {
 					$component = pathinfo($template, PATHINFO_FILENAME);?>
 					<section class="rp-HomeSection">
 					 <?php rp_render($component, ['post' => $post]); ?>
 					 </section>
-			<?php } ?>
-		<?php endif; ?>
-	<?php elseif ($menu_item->type === 'custom'): ?>
-	<?php endif; ?>
-<?php endforeach; ?>
+			<?php } 
+		}
+	} 
+}

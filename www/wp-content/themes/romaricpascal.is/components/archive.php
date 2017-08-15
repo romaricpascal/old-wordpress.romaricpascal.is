@@ -1,16 +1,17 @@
 <?php 
 	$postType = get_post_type_object( $postTypeName );
-	if ($craftSlug) {
-		$craftId = rp_get_craft_term_id($craftSlug);
+	if ($craft) {
+		$craftId = $craft->term_id;
 	}
   	$query = rp_query_featured_posts($postTypeName, rp_get_archive_size($postTypeName), $craftId);
 	$postListFormat = rp_get_postListFormat($postTypeName); ?>
 
 <?php if ($query->have_posts()): ?>
-<section class="l-sideBySide rp-HomeSection">
+<section class="<?php echo $classes; ?>">
 	<div class="l-sideBySide">
 	<header class="l-sideBySide__header">
-		<h2><?php echo $postType->label; ?></h2>
+		<?php rp_render('archiveHeading', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
+		<?php rp_render('archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
 	</header>
 	<?php rp_render('postList', [
 	  'query' => $query, 

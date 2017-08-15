@@ -17,7 +17,7 @@
 		return rp_locate_component($component, $modifiers);
 	}
 
-	function rp_render($component, $data, $modifiers = []) {
+	function rp_render($component, $data = [], $modifiers = []) {
 		$template = rp_locate_component($component, $modifiers);
 		if (!empty($template)) {
 			extract($data);

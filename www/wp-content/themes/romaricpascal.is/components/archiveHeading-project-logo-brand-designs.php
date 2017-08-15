@@ -1,12 +1,4 @@
-<?php
-    $query = rp_query_projects_with_craft($craft,rp_get_archive_size(PROJECT_TYPE));?>
-    
-<?php if ($query->have_posts()): ?>
-
-<section class="rp-HomeSection">
-	<div class="l-sideBySide">
-	<header class="l-sideBySide__header">
-		<h2 class="rp-LetteringHeading">
+<h2 class="rp-LetteringHeading">
 			<div role="presentation">
 			<svg class="rp-LetteringHeading__lettering" class="rp-LetteringHeading__lettering" version="1.1" x="0px" y="0px" width="454px" height="367.172px" viewBox="0 0 454 367.172">
 				<image id="logos" style="overflow:visible;" width="454" height="257" xlink:href="/wp-content/themes/romaricpascal.is/assets/images/logos.png" transform="matrix(1 0 0 1 0 45.209)">
@@ -22,10 +14,3 @@
 			</div>
 			<span class="rp-LetteringHeading__textFallback"><?php echo $craft->name; ?></span>
 		</h2>
-		<p><?php echo $craft->description; ?></p>
-	</header>
-	<?php rp_render('postList', ['query' => $query, 'format' => 'thumbnail', 'classes'=>'l-sideBySide__main rp-ArchiveList-project']); ?>
-	</div>
-</section>
-
-<?php endif; ?>
