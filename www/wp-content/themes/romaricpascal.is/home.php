@@ -6,7 +6,7 @@
 <article class="rp-Archive rp-Archive-<?php echo $post_type; ?>">
    <header class="rp-ArchiveHeader rp-Archive__header">
     <h1 class="rp-ArchiveHeading rp-ArchiveHeading-<?php echo $post_type ?>">Blog</h1>
-    <?php get_template_part('partials/archive-description', $post_type); ?>
+    <?php rp_render('archiveDescription/archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
   </header>
 
 <div class="rp-Archive__main">

@@ -7,16 +7,16 @@
 	$postListFormat = rp_get_postListFormat($postTypeName); ?>
 
 <?php if ($query->have_posts()): ?>
-<section class="<?php echo $classes; ?>">
+<article class="<?php echo "{$classes}"; ?>">
 	<div class="l-sideBySide">
-	<header class="l-sideBySide__header">
-		<?php rp_render('archiveHeading', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
-		<?php rp_render('archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
-	</header>
-	<?php rp_render('postList', [
-	  'query' => $query, 
-	  'classes' => "l-sideBySide__main rp-ArchiveList-${postTypeName}", 
-	  'format' => $postListFormat]); ?>
+		<header class="l-sideBySide__header">
+			<?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
+			<?php rp_render('archiveDescription/archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
+		</header>
+		<?php rp_render('postList', [
+		  'query' => $query, 
+		  'classes' => "l-sideBySide__main rp-ArchiveList-${postTypeName}", 
+		  'format' => $postListFormat]); ?>
 	 </div>
-</section>
+</article>
 <?php endif; ?>
