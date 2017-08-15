@@ -7,25 +7,25 @@
 	foreach($menu_items as $menu_item) {
   		if ($menu_item->type === 'taxonomy' && $menu_item->object === 'craft') {
 			$craft = get_term($menu_item->object_id, CRAFT_TAX_NAME);
-			rp_render('archive', ['postTypeName'=> 'project', 'craft' => $craft, 'classes' => 'rp-HomeSection'], ['project', rp_get($craft, 'slug')]); 
+			rp_render('archive', ['postTypeName'=> 'project', 'craft' => $craft, 'classes' => 'rp-HomeSection', 'headingLevel' => 2], ['project', rp_get($craft, 'slug')]); 
   		} elseif ($menu_item->type === 'post_type_archive') {
 			if ($menu_item->object !== ARTWORK_TYPE) {
 				$craft = get_term_by('slug', CRAFT_TERM_LETTERING, CRAFT_TAX_NAME);
 			} else { 
 				$craft = null;
 			}
-			rp_render('archive', ['postTypeName' => $menu_item->object, 'craft' => $craft, 'classes' => 'rp-HomeSection'], [$menu_item->object, rp_get($craft, 'slug')]);
+			rp_render('archive', ['postTypeName' => $menu_item->object, 'craft' => $craft, 'classes' => 'rp-HomeSection', 'headingLevel' => 2], [$menu_item->object, rp_get($craft, 'slug')]);
 		} elseif ($menu_item->type === 'post_type') {
 			$post = get_post($menu_item->object_id);
 			if (rp_is_posts_archive_page($post->ID)) {
 				$craft = get_term_by('slug', CRAFT_TERM_LETTERING, CRAFT_TAX_NAME);
-				rp_render('archive', ['postTypeName' => 'post', 'craft' => $craft, 'classes' => 'rp-HomeSection'], ['post', rp_get($craft, 'slug')]);
+				rp_render('archive', ['postTypeName' => 'post', 'craft' => $craft, 'classes' => 'rp-HomeSection', 'headingLevel' => 2], ['post', rp_get($craft, 'slug')]);
 			}  elseif ($post->post_type === 'page') {
 				$template = $post->page_template;
 				if ($template) {
 					$component = pathinfo($template, PATHINFO_FILENAME);?>
 					<section class="rp-HomeSection">
-					 <?php rp_render($component, ['post' => $post]); ?>
+					 <?php rp_render($component, ['post' => $post, 'headingLevel' => 2]); ?>
 					 </section>
 			<?php } 
 		}

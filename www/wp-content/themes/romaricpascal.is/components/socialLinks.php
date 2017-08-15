@@ -1,7 +1,10 @@
 <?php
 	$links = get_bookmarks(['category_name' => 'social', 'order_by' => 'link_rating', 'order' => 'DESC']);
+	if (empty($headingLevel)) {
+		$headingLevel = 1;
+	}
 ?>
-<h2>Follow me</h2>
+<h<?php echo $headingLevel; ?>>Follow me</h<?php echo $headingLevel;?>>
 <ul class="rp-List-reset rp-ShareLinkList">
 	<?php foreach($links as $link):?>
 		<li>

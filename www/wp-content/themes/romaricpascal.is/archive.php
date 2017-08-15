@@ -10,7 +10,7 @@
   </header>
 
 <div class="rp-Archive__main">
-  <?php rp_render('postList', ['classes' => "rp-ArchiveList-{$postType}", 'format' => rp_get_postListFormat($postType)]); ?>
+  <?php rp_render('postList', ['classes' => "rp-ArchiveList-{$postType}", 'format' => rp_get_postListFormat($postType), 'headingLevel' => 2]); ?>
   <?php get_template_part('partials/prev-next-archive'); ?>
 </div>
 </div>

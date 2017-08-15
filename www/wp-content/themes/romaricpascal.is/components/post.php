@@ -1,5 +1,10 @@
+<?php
+  if (empty($headingLevel)) {
+    $headingLevel = 1;
+  }
+?>
 <a class="rp-Note" href="<?php echo get_permalink($post); ?>">
-  <h2 class="rp-NoteTitle"><?php echo $post->post_title?></h2>
+  <h<?php echo $headingLevel;?> class="rp-NoteTitle"><?php echo $post->post_title?></h<?php echo $headingLevel; ?>>
   <time class="rp-Note__time rp-NoteTime">
   	<span class="rp-NoteDay rp-NoteTime__part"><?php echo get_the_date('d'); ?></span>
   	<span class="rp-NoteMonth rp-NoteTime__part"><?php echo get_the_date('M'); ?></span>

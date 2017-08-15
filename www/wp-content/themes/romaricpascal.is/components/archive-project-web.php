@@ -9,16 +9,16 @@
 <section class="rp-HomeSection">
 	<div class="l-sideBySide">
 	<header class="l-sideBySide__header">
-		<h2><?php echo $craft->name; ?></h2>
-		<p><?php echo $craft->description; ?></p>
+		<?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], [$postTypeName, rp_get($craft, 'slug')]); ?>
+			<?php rp_render('archiveDescription/archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
 	</header>
 	<div class="l-sideBySide__main">
 		<h3>I'm proud of these</h3>
-		<?php rp_render('postList', ['query' => $projectsQuery, 'format' => 'thumbnail', 'classes'=>'rp-ArchiveList-project']); ?>
+		<?php rp_render('postList', ['query' => $projectsQuery, 'format' => 'thumbnail', 'classes'=>'rp-ArchiveList-project', 'headingLevel' => $headingLevel + 1 ]); ?>
 		<h3>Clients sound happy</h3>
-		<?php rp_render('postList', ['query' => $testimonialQuery, 'format' => 'full', 'classes' => 'rp-ArchiveList-testimonial']) ?>
+		<?php rp_render('postList', ['query' => $testimonialQuery, 'format' => 'full', 'classes' => 'rp-ArchiveList-testimonial', 'headingLevel' => $headingLevel + 1]) ?>
 		<h3>And I write about it too</h3>
-		<?php rp_render('postList', ['query' => $postsQuery, 'format' => 'link', 'classes' => 'rp-ArchiveList-post']); ?>
+		<?php rp_render('postList', ['query' => $postsQuery, 'format' => 'link', 'classes' => 'rp-ArchiveList-post', 'headingLevel' => $headingLevel + 1]); ?>
 	</div>
 	</div>
 </section>

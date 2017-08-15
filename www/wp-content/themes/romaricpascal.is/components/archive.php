@@ -10,13 +10,14 @@
 <article class="<?php echo "{$classes}"; ?>">
 	<div class="l-sideBySide">
 		<header class="l-sideBySide__header">
-			<?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
+			<?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], [$postTypeName, rp_get($craft, 'slug')]); ?>
 			<?php rp_render('archiveDescription/archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
 		</header>
 		<?php rp_render('postList', [
 		  'query' => $query, 
 		  'classes' => "l-sideBySide__main rp-ArchiveList-${postTypeName}", 
-		  'format' => $postListFormat]); ?>
+		  'format' => $postListFormat,
+		  'headingLevel' => $headingLevel + 1 ]); ?>
 	 </div>
 </article>
 <?php endif; ?>
