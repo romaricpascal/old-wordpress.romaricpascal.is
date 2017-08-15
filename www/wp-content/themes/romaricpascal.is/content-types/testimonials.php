@@ -60,17 +60,6 @@ function get_testimonial_for_craft($craft) {
   ]);
 }
 
-function a_testimonial($craft) {
-  $testimonial = get_testimonial_for_craft($craft);
-
-  if (have_posts()) {
-    the_post();
-    global $post;
-    $post->meta = get_post_meta(get_the_ID());
-    get_template_part('testimonial', 'block');
-  }
-}
-
 function the_testimonial_author($testimonial) {
   $author = get_field(TESTIMONIAL_AUTHOR_FIELD, $testimonial->ID);
   if (!empty($author)) {

@@ -52,11 +52,3 @@ function get_usps_for_craft($craft) {
   ]);
   return $usps;
 }
-
-function the_usps($craft) {
-  $usps = get_usps_for_craft($craft);
-  while(have_posts()) {
-    the_post();
-    get_template_part('usp','block');
-  }
-}
