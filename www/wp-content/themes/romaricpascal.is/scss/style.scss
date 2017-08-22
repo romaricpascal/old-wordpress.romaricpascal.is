@@ -257,7 +257,6 @@ $prevNextLinkSize: $circleButtonSize;
 // Headings
 .rp-LetteredHeading {
     position: relative;
-    color: transparent;
 }
 
 .rp-LetteredHeading::before {
@@ -267,6 +266,7 @@ $prevNextLinkSize: $circleButtonSize;
 
 .rp-LetteredHeading__part {
     position: absolute;
+    color: transparent;
 }
 
 @import 'headings/_greeting';

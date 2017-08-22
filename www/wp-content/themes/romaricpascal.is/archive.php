@@ -1,12 +1,13 @@
 <?php
   $postType = get_post_type();
+  $craft = rp_get_craft_object($craft);
 ?>
 
 <?php get_header(); ?>
 <article class="rp-Archive rp-Archive-<?php echo $postType; ?>">
   <header class="rp-ArchiveHeader rp-Archive__header">
-    <?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
-    <?php rp_render('archiveDescription/archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
+    <?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft, 'headingLevel' => 1], [$postType, rp_get($craft, 'slug')]); ?>
+    <?php rp_render('archiveDescription/archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postType, rp_get($craft, 'slug')]); ?>
   </header>
 
 <div class="rp-Archive__main">

@@ -1,4 +1,12 @@
-.rp-LetteredHeading-works .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-works {
+    margin-bottom: -0.9em;
+}
+
+.rp-LetteredHeading-works::before {
+        padding-top: 60.868554913294794%;
+}
+
+.rp-LetteredHeading-works .rp-LetteredHeading__picture {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -6,8 +14,6 @@
     width: 28.378574181117532%;
     top: 53.377295527365895%;
     left: 71.62143352601156%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-works .rp-LetteredHeading__works {
@@ -18,8 +24,6 @@
     width: 67.4373795761079%;
     top: 1.0762633907741437%;
     left: 9.595452793834298%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-works .rp-LetteredHeading__some {
@@ -30,8 +34,7 @@
     width: 28.208092485549134%;
     top: 0%;
     left: 21.309610789980734%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-works .rp-LetteredHeading__of {
@@ -42,6 +45,13 @@
     width: 21.65703275529865%;
     top: 57.105269322251615%;
     left: 26.66628901734104%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+}
+
+.rp-ProjectCraft {
+    text-align: center;
+    padding-right: 28.378574181117532%;
+    padding-left: 9.595452793834298%;
+    font-size: 0.8em;
+    line-height: 1.1;
+    margin-bottom: 0;
 }
