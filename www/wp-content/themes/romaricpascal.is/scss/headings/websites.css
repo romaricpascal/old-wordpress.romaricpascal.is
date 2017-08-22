@@ -2,7 +2,7 @@
     padding-top: 58.2878612716763%;
 }
 
-.rp-LetteredHeading-websites .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-websites .rp-LetteredHeading__picture {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -10,8 +10,6 @@
     width: 28.378574181117532%;
     top: 51.31309625339654%;
     left: 71.62143352601156%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-websites .rp-LetteredHeading__website {
@@ -22,8 +20,6 @@
     width: 71.67630057803468%;
     top: 10.31861004779944%;
     left: 5.35645472061657%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-websites .rp-LetteredHeading__make {
@@ -34,8 +30,7 @@
     width: 22.54335260115607%;
     top: 9.029413514746425%;
     left: 45.512104046242776%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-websites .rp-LetteredHeading__iAlso {
@@ -46,6 +41,5 @@
     width: 29.826589595375726%;
     top: 0%;
     left: 10.056146435452794%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
