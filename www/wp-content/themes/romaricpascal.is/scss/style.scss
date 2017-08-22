@@ -269,8 +269,21 @@ $prevNextLinkSize: $circleButtonSize;
     position: absolute;
 }
 
-@import 'headings/logos';
 @import 'headings/_greeting';
+@import 'headings/contact';
+@import 'headings/logos';
+@import 'headings/look';
+@import 'headings/looking';
+@import 'headings/prints';
+@import 'headings/read';
+@import 'headings/t-shirts';
+@import 'headings/thanks';
+@import 'headings/thing';
+@import 'headings/websites';
+@import 'headings/words';
+@import 'headings/works';
+
+
 @import '_shareLinks';
 @import '_home';
 @import '_header';

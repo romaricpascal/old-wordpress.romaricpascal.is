@@ -2,7 +2,7 @@
     padding-top: 66.01125240847784%;
 }
 
-.rp-LetteredHeading-tShirts .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-tShirts .rp-LetteredHeading__me {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -36,6 +36,7 @@
     left: 38.03528323699422%;
     transform: rotate(0rad);
     transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-tShirts .rp-LetteredHeading__ {

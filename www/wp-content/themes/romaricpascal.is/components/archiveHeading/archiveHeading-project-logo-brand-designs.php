@@ -1,5 +1,5 @@
 <h<?php echo $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeading-logos">
-  <span class="rp-LetteredHeading__fbd4E3Fe rp-LetteredHeading__part" role="presentation"></span>
+  <span class="rp-LetteredHeading__me rp-LetteredHeading__part" role="presentation"></span>
   <span class="rp-LetteredHeading__for rp-LetteredHeading__part">For
   </span>
   <span class="rp-LetteredHeading__logos rp-LetteredHeading__part">Logos
