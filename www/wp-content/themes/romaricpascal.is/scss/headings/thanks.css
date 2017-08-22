@@ -1,0 +1,27 @@
+.rp-LetteredHeading-thanks::before {
+    padding-top: 98.12883817427385%;
+}
+
+.rp-LetteredHeading-thanks .rp-LetteredHeading__fbd4E3Fe {
+    background-image: url(assets/images/headings/me.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 38.924607965224816%;
+    width: 38.196265560165976%;
+    top: -0.000051617427549943865%;
+    left: 30.32034232365145%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-thanks .rp-LetteredHeading__thanks {
+    background-image: url(assets/images/headings/Thanks@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 69.34739450421898%;
+    width: 100%;
+    top: 30.652594924531858%;
+    left: 0%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}

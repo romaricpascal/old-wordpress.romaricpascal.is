@@ -1,0 +1,63 @@
+.rp-LetteredHeading-contact::before {
+    padding-top: 63.27583815028902%;
+}
+
+.rp-LetteredHeading-contact .rp-LetteredHeading__fbd4E3Fe {
+    background-image: url(assets/images/headings/me.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 44.84898977349684%;
+    width: 28.378574181117532%;
+    top: 55.151010226503146%;
+    left: 71.62143352601156%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-contact .rp-LetteredHeading__contact {
+    background-image: url(assets/images/headings/contact/contact@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 77.52702788293358%;
+    width: 71.79190751445087%;
+    top: 5.359943435111156%;
+    left: 4.855452793834297%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-contact .rp-LetteredHeading__whyNot {
+    background-image: url(assets/images/headings/contact/why-not@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 34.40908935888254%;
+    width: 30.01926782273603%;
+    top: 0.42624640074835196%;
+    left: 31.209055876685937%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-contact .rp-LetteredHeading__qm {
+    background-image: url(assets/images/headings/contact/qm@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 26.552854797296966%;
+    width: 14.682080924855493%;
+    top: 59.62562910777536%;
+    left: 40.61694797687861%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-contact .rp-LetteredHeading__me {
+    background-image: url(assets/images/headings/contact/ME@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 26.918261055975368%;
+    width: 15.684007707129094%;
+    top: 53.41313197012438%;
+    left: 14.217472061657032%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}

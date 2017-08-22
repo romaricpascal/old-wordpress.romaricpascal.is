@@ -1,0 +1,64 @@
+.rp-LetteredHeading-logos::before {
+    padding-top: 65.0480154142582%;
+}
+
+.rp-LetteredHeading-logos .rp-LetteredHeading__fbd4E3Fe {
+    background-image: url(assets/images/headings/me.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 43.62711759980474%;
+    width: 28.378574181117532%;
+    top: 56.37290017274922%;
+    left: 71.62143352601156%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-logos .rp-LetteredHeading__logos {
+    background-image: url(assets/images/headings/logos/Logos@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 65.63996597148333%;
+    width: 68.2466281310212%;
+    top: 10.545279728151014%;
+    left: 9.249761078998073%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-logos .rp-LetteredHeading__and {
+    background-image: url(assets/images/headings/logos/and@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 25.829445093471787%;
+    width: 21.078998073217726%;
+    top: 54.44580437394401%;
+    left: 6.5113217726396915%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-logos .rp-LetteredHeading__brands {
+    background-image: url(assets/images/headings/logos/Brands@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 39.57355349183292%;
+    width: 36.95568400770713%;
+    top: 57.82004222758821%;
+    left: 25.743317919075142%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-logos .rp-LetteredHeading__for {
+    background-image: url(assets/images/headings/logos/For@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 28.08063526216887%;
+    width: 20.655105973025048%;
+    top: 0%;
+    left: 37.76673988439306%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+    z-index: 1;
+}

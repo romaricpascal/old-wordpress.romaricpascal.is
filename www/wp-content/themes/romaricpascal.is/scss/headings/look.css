@@ -1,0 +1,63 @@
+.rp-LetteredHeading-look::before {
+    padding-top: 66.08847784200385%;
+}
+
+.rp-LetteredHeading-look .rp-LetteredHeading__fbd4E3Fe {
+    background-image: url(assets/images/headings/me.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 42.940275079358784%;
+    width: 28.378574181117532%;
+    top: 57.05974241339339%;
+    left: 71.62143352601156%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-look .rp-LetteredHeading__look {
+    background-image: url(assets/images/headings/look/Look@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 65.5395114624174%;
+    width: 68.70905587668594%;
+    top: 12.99042096891188%;
+    left: 8.401899807321774%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-look .rp-LetteredHeading__etc {
+    background-image: url(assets/images/headings/look/etc@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 25.889273211132853%;
+    width: 13.988439306358384%;
+    top: 60.93308672440052%;
+    left: 25.202612716763007%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-look .rp-LetteredHeading__a {
+    background-image: url(assets/images/headings/look/a@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 19.41695490834964%;
+    width: 15.067437379576107%;
+    top: 12.99042096891188%;
+    left: 50%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}
+
+.rp-LetteredHeading-look .rp-LetteredHeading__have {
+    background-image: url(assets/images/headings/look/HAVE@1x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 33.35284747019818%;
+    width: 26.74373795761079%;
+    top: 0%;
+    left: 24.27835838150289%;
+    transform: rotate(0rad);
+    transform-origin: top left;
+}

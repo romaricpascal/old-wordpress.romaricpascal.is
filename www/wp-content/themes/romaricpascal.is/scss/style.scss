@@ -223,30 +223,6 @@ h1 {
   }
 }
 
-.rp-LetteringHeading {
-  text-align: right;
-}
-
-.rp-LetteringHeading__lettering {
-  width: 80%;
-  display:block;
-  margin-bottom: -7em;
-  z-index: 25;
-  position: relative;
-  transform: rotate(30deg);
-}
-
-.rp-LetteringHeading__portrait {
-  display:inline-block;
-  width: 5em;
-  position: relative;
-  left: 1em;
-}
-
-.rp-LetteringHeading__textFallback {
-  display: none;
-}
-
 $prevNextLinkSize: $circleButtonSize;
 .rp-PrevNextLink {
   height: $prevNextLinkSize;
@@ -278,7 +254,23 @@ $prevNextLinkSize: $circleButtonSize;
     content: '>';
   }
 }
+// Headings
+.rp-LetteredHeading {
+    position: relative;
+    color: transparent;
+}
 
+.rp-LetteredHeading::before {
+    display: block;
+    content: '';
+}
+
+.rp-LetteredHeading__part {
+    position: absolute;
+}
+
+@import 'headings/logos';
+@import 'headings/_greeting';
 @import '_shareLinks';
 @import '_home';
 @import '_header';
