@@ -28,6 +28,7 @@
   background-color: fade-out($rp-light, 0.1);
   @include typo-display;
   text-transform: uppercase;
+  z-index: 25;
 
   @include overlay;
   width: 80%;
