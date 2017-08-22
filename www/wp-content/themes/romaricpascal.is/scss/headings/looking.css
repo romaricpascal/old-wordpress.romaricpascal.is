@@ -2,7 +2,7 @@
     padding-top: 56.80154142581888%;
 }
 
-.rp-LetteredHeading-looking .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-looking .rp-LetteredHeading__picture {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -10,8 +10,6 @@
     width: 28.378574181117532%;
     top: 50.03909090909091%;
     left: 71.62143352601156%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-looking .rp-LetteredHeading__looking {
@@ -22,8 +20,6 @@
     width: 73.5645472061657%;
     top: 7.192374491180462%;
     left: 3.546408477842004%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-looking .rp-LetteredHeading__you {
@@ -34,8 +30,7 @@
     width: 17.6878612716763%;
     top: 0%;
     left: 25.202763005780348%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-looking .rp-LetteredHeading__were {
@@ -46,8 +41,7 @@
     width: 19.4990366088632%;
     top: 6.376146540027136%;
     left: 46.74644701348748%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-looking .rp-LetteredHeading__for {
@@ -58,6 +52,4 @@
     width: 23.352601156069362%;
     top: 44.640434192673%;
     left: 14.758851637764932%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
