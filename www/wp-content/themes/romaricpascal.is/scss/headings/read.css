@@ -2,7 +2,7 @@
     padding-top: 66.39676300578034%;
 }
 
-.rp-LetteredHeading-read .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-read .rp-LetteredHeading__picture {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -10,8 +10,6 @@
     width: 28.378574181117532%;
     top: 57.25911725854268%;
     left: 71.62143352601156%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-read .rp-LetteredHeading__read {
@@ -22,8 +20,6 @@
     width: 69.94219653179191%;
     top: 12.594341484251851%;
     left: 8.32509055876686%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-read .rp-LetteredHeading__or {
@@ -34,8 +30,7 @@
     width: 21.734104046242773%;
     top: 0%;
     left: 19.0366859344894%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-read .rp-LetteredHeading__haveA {
@@ -46,8 +41,7 @@
     width: 26.628131021194605%;
     top: 4.81481094558548%;
     left: 42.73603082851638%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-read .rp-LetteredHeading__about {

@@ -1,8 +1,13 @@
+.rp-LetteredHeading-thanks {
+    width: 80vw;
+    max-width: 30em;
+}
+
 .rp-LetteredHeading-thanks::before {
     padding-top: 98.12883817427385%;
 }
 
-.rp-LetteredHeading-thanks .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-thanks .rp-LetteredHeading__picture {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -10,18 +15,14 @@
     width: 38.196265560165976%;
     top: -0.000051617427549943865%;
     left: 30.32034232365145%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-thanks .rp-LetteredHeading__thanks {
-    background-image: url(assets/images/headings/Thanks@1x.png);
+    background-image: url(assets/images/headings/Thanks@3x.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 69.34739450421898%;
     width: 100%;
     top: 30.652594924531858%;
     left: 0%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }

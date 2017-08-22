@@ -20,14 +20,12 @@
 			if (rp_is_posts_archive_page($post->ID)) {
 				$craft = get_term_by('slug', CRAFT_TERM_LETTERING, CRAFT_TAX_NAME);
 				rp_render('archive', ['postTypeName' => 'post', 'craft' => $craft, 'classes' => 'rp-HomeSection', 'headingLevel' => 2], ['post', rp_get($craft, 'slug')]);
-			}  elseif ($post->post_type === 'page') {
-				$template = $post->page_template;
-				if ($template) {
-					$component = pathinfo($template, PATHINFO_FILENAME);?>
-					<section class="rp-HomeSection">
-					 <?php rp_render($component, ['post' => $post, 'headingLevel' => 2]); ?>
-					 </section>
-			<?php } 
+			}  elseif ($post->post_type === 'page') { ?>
+				<section class="rp-HomeSection">
+				 <?php rp_render('page', ['post' => $post, 'headingLevel' => 2], [$post->post_name]); ?>
+				 </section>
+			<?php 
+			}
 		}
 	} 
-}
+

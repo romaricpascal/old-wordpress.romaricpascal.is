@@ -13,5 +13,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 10em;
+	&:not(:last-of-type) {
+		margin-bottom: 10em;
+	}
 }
