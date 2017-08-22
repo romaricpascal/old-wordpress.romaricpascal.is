@@ -1,4 +1,4 @@
-<?php if (is_home()): ?>
+<?php if (is_front_page()): ?>
 <h<?php echo $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeading-tShirts">
   <span class="rp-LetteredHeading__me rp-LetteredHeading__part"></span>
   <span class="rp-LetteredHeading__for rp-LetteredHeading__part">For

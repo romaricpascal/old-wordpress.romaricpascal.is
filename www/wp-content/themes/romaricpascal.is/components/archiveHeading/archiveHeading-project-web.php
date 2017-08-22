@@ -1,4 +1,4 @@
-<?php if (is_home()): ?>
+<?php if (is_front_page()): ?>
 	<h<?php echo $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeading-websites">
   		<span class="rp-LetteredHeading__picture rp-LetteredHeading__part"></span>
   		<span class="rp-LetteredHeading__iAlso rp-LetteredHeading__part">I also</span>
