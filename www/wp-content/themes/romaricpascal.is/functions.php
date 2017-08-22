@@ -15,12 +15,14 @@ require_once('content-types/old_posts.php');
 
 define('MENU_MAIN_1', 'menu_main_1');
 define('MENU_HOME_CONTENT', 'menu_home');
+define('MENU_NOT_FOUND', 'menu_not_found');
 define('WIDGETS_ANNOUNCEMENT', 'rp_announcements');
 
 // 2. Setup theme
 function rp_setup() {
   register_nav_menu(MENU_MAIN_1, __('Main menu (Part 1)'));
   register_nav_menu(MENU_HOME_CONTENT, __('Home content'));
+  register_nav_menu(MENU_NOT_FOUND, __('404 menu'));
 
   add_theme_support('post-thumbnails');
 }

@@ -1,8 +1,13 @@
+.rp-LetteredHeading-notFound {
+    width:  100%;
+    max-width: 25em;
+}
+
 .rp-LetteredHeading-notFound::before {
     padding-top: 61.502581888246624%;
 }
 
-.rp-LetteredHeading-notFound .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-notFound .rp-LetteredHeading__picture {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -15,49 +20,43 @@
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__found {
-    background-image: url(assets/images/headings/not-found/Found@1x.png);
+    background-image: url(assets/images/headings/not-found/Found@2x.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 66.29105910305316%;
     width: 69.86512524084777%;
     top: 9.335761081509181%;
     left: 7.245830443159923%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__page {
-    background-image: url(assets/images/headings/not-found/Page@1x.png);
+    background-image: url(assets/images/headings/not-found/Page@2x.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 27.945002230587622%;
     width: 21.001926782273603%;
     top: 0%;
     left: 19.036647398843932%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__ohNo {
-    background-image: url(assets/images/headings/not-found/Oh-no!@1x.png);
+    background-image: url('assets/images/headings/not-found/Oh-no!@2x.png');
     background-repeat: no-repeat;
     background-size: 100%;
     height: 32.33098912776505%;
     width: 29.633911368015415%;
     top: 52.443871899107265%;
     left: 23.738859344894028%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__not {
-    background-image: url(assets/images/headings/not-found/Not@1x.png);
+    background-image: url(assets/images/headings/not-found/Not@2x.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 29.260798299740852%;
     width: 18.80539499036609%;
     top: 3.13052321064266%;
     left: 45.70583429672447%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
