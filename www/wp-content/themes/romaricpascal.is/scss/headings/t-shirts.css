@@ -22,8 +22,6 @@
     width: 72.10019267822736%;
     top: 6.330981113747175%;
     left: 4.8951560693641625%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-tShirts .rp-LetteredHeading__for {
@@ -34,8 +32,6 @@
     width: 18.80539499036609%;
     top: 0%;
     left: 38.03528323699422%;
-    transform: rotate(0rad);
-    transform-origin: top left;
     z-index: 1;
 }
 
@@ -47,8 +43,6 @@
     width: 16.223506743737957%;
     top: 45.73731809605649%;
     left: 4.62540655105973%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-tShirts .rp-LetteredHeading__merch {
@@ -59,6 +53,4 @@
     width: 43.12138728323699%;
     top: 55.28350395098167%;
     left: 21.58015028901734%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }

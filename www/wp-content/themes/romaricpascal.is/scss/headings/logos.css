@@ -10,8 +10,6 @@
     width: 28.378574181117532%;
     top: 56.37290017274922%;
     left: 71.62143352601156%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-logos .rp-LetteredHeading__logos {
@@ -22,8 +20,6 @@
     width: 68.2466281310212%;
     top: 10.545279728151014%;
     left: 9.249761078998073%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-logos .rp-LetteredHeading__and {
@@ -34,8 +30,6 @@
     width: 21.078998073217726%;
     top: 54.44580437394401%;
     left: 6.5113217726396915%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-logos .rp-LetteredHeading__brands {
@@ -46,8 +40,6 @@
     width: 36.95568400770713%;
     top: 57.82004222758821%;
     left: 25.743317919075142%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-logos .rp-LetteredHeading__for {
@@ -58,7 +50,5 @@
     width: 20.655105973025048%;
     top: 0%;
     left: 37.76673988439306%;
-    transform: rotate(0rad);
-    transform-origin: top left;
     z-index: 1;
 }
