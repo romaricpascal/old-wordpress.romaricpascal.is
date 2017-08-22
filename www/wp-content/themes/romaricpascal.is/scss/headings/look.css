@@ -2,7 +2,7 @@
     padding-top: 66.08847784200385%;
 }
 
-.rp-LetteredHeading-look .rp-LetteredHeading__fbd4E3Fe {
+.rp-LetteredHeading-look .rp-LetteredHeading__picture {
     background-image: url(assets/images/headings/me.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -10,8 +10,6 @@
     width: 28.378574181117532%;
     top: 57.05974241339339%;
     left: 71.62143352601156%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-look .rp-LetteredHeading__look {
@@ -22,8 +20,6 @@
     width: 68.70905587668594%;
     top: 12.99042096891188%;
     left: 8.401899807321774%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-look .rp-LetteredHeading__etc {
@@ -34,8 +30,6 @@
     width: 13.988439306358384%;
     top: 60.93308672440052%;
     left: 25.202612716763007%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-look .rp-LetteredHeading__a {
@@ -46,8 +40,7 @@
     width: 15.067437379576107%;
     top: 12.99042096891188%;
     left: 50%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
 
 .rp-LetteredHeading-look .rp-LetteredHeading__have {
@@ -58,6 +51,5 @@
     width: 26.74373795761079%;
     top: 0%;
     left: 24.27835838150289%;
-    transform: rotate(0rad);
-    transform-origin: top left;
+    z-index: 1;
 }
