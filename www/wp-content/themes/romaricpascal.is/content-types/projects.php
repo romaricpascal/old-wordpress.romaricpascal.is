@@ -51,22 +51,58 @@ if (!is_admin()) {
 
 // 4. Routing
 // Try to resolve /proud-of/(.*) as a craft if resolving it as a project didn't work
-add_filter('request', function ($request) {
-  $query = new WP_Query();
-  $query->parse_query($request);
-  if (!($query->is_single() && $query->get('post_type') === PROJECT_TYPE)) {
+
+function rp_resolve($request) {
+  $query = new WP_Query($request);
+  $query->query($request);
+  if ($query->have_posts()) {
     return $request;
   }
-  // Doubles the query :( For lack of a better solution for now :/
-  $posts = $query->get_posts($request);
-  if (!empty($posts)) {
-    return $request;
-  }
-  
-  return [
+
+  return false;
+}
+
+function rp_resolve_name_as_single($request) {
+  $pathParts = explode('/', $request['name']);
+  $name = array_pop($pathParts);
+  $singleRequest = [
     'post_type' => $request['post_type'],
-    'craft' => $request['name']
+    "{$request['post_type']}" => $name,
+    'name' => $name,
   ];
+
+  return rp_resolve($singleRequest);
+}
+
+function rp_resolve_name_as_archive($request) {
+  $pathParts = explode('/', $request['name']);
+  $craft = array_pop($pathParts);
+  var_dump($craft);
+  $archiveRequest = [
+    'post_type' => $request['post_type'],
+    'craft' => $craft
+  ];
+  return rp_resolve($archiveRequest);
+}
+
+
+add_filter('request', function ($request) {
+
+  if (!($request['post_type'] === PROJECT_TYPE && !empty($request['name']))) {
+    return $request;
+  }
+
+  $single = rp_resolve_name_as_single($request);
+  if ($single) {
+    return $single;
+  }
+
+  $archive = rp_resolve_name_as_archive($request);
+  if ($archive) {
+    return $archive;
+  }
+
+  return $request;
 });
 
 function project_craft_archive_url($craft) {
