@@ -16,7 +16,7 @@
 <?php while(rp_has_more_posts($query)): ?>
 	<?php $post = rp_next_post($query); ?>
 	<li class="<?php echo $itemLayoutClass; ?>">
-		<?php rp_render('post', ['post' => $post, 'headingLevel' => $headingLevel], [$format, $post->post_type]); ?>
+		<?php rp_render('post', ['post' => $post, 'craft'=> $craft, 'headingLevel' => $headingLevel], [$format, $post->post_type]); ?>
 	</li>
 <?php endwhile; wp_reset_postdata(); ?>
 </ul>

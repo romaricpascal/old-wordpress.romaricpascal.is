@@ -17,7 +17,7 @@
 
 		<div class="l-sideBySide__main">
 			<?php rp_render('postList', 
-			                ['postType' => $postType, 'format' => rp_get_postListFormat($postType), 'headingLevel' => 2]); ?>
+			                ['postType' => $postType, 'craft' => $craft, 'format' => rp_get_postListFormat($postType), 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
 		</div>
 	 	<?php rp_render('archiveDescription/archiveDescription', 

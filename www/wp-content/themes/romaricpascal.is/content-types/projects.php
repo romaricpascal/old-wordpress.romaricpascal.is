@@ -71,13 +71,14 @@ function rp_resolve_name_as_single($request) {
     'name' => $name,
   ];
 
+  // TODO: Validate chain of crafts to ensure the project is in the rightful category
+
   return rp_resolve($singleRequest);
 }
 
 function rp_resolve_name_as_archive($request) {
   $pathParts = explode('/', $request['name']);
   $craft = array_pop($pathParts);
-  var_dump($craft);
   $archiveRequest = [
     'post_type' => $request['post_type'],
     'craft' => $craft
@@ -85,6 +86,20 @@ function rp_resolve_name_as_archive($request) {
   return rp_resolve($archiveRequest);
 }
 
+function rp_get_permalink($post, $through = null) {
+  $permalink = get_permalink($post);
+
+  if ($post->post_type === PROJECT_TYPE && $through) {
+    $slug = $through->slug;
+    $path = parse_url($permalink, PHP_URL_PATH);
+    $pathParts = explode('/',$path);
+    array_splice($pathParts,2,0,$slug);
+    $newPath = implode('/',$pathParts);
+    return str_replace($path, $newPath, $permalink);
+  }
+
+  return $permalink;
+}
 
 add_filter('request', function ($request) {
 

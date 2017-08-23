@@ -3,7 +3,7 @@
     $headingLevel = 1;
   }
 ?>
-<a class="rp-Note u-mb-2" href="<?php echo get_permalink($post); ?>">
+<a class="rp-Note u-mb-2" href="<?php echo rp_get_permalink($post); ?>">
   <h<?php echo $headingLevel;?> class="rp-NoteTitle"><?php echo $post->post_title?></h<?php echo $headingLevel; ?>>
   <time class="rp-Note__time rp-NoteTime">
   	<span class="rp-NoteDay rp-NoteTime__part"><?php echo get_the_date('d'); ?></span>

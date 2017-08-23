@@ -20,7 +20,8 @@
 		<?php rp_render('postList', [
 		  'query' => $query, 
 		  'classes' => "l-sideBySide__main",
-		  'postType' => $postTypeName, 
+		  'postType' => $postTypeName,
+		  'craft' => $craft,
 		  'format' => $postListFormat,
 		  'headingLevel' => $headingLevel + 1 ]); ?>
 	 </div>
