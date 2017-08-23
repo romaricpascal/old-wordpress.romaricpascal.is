@@ -11,7 +11,7 @@
 		                ['postType' => $postType, 'craft' => $craft, 'headingLevel' => 1], 
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		<?php rp_render('archiveDescription/archiveDescription', 
-		                ['postType' => $postType, 'craft' => $craft], 
+		                ['postType' => $postType, 'craft' => $craft, classes => 'u-show-xl'], 
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		</header>
 
@@ -20,6 +20,9 @@
 			                ['postType' => $postType, 'format' => rp_get_postListFormat($postType), 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
 		</div>
+	 	<?php rp_render('archiveDescription/archiveDescription', 
+	 	                ['postType' => $postType, 'craft' => $craft, classes => 'u-hide-xl'], 
+	 	                [$postType, rp_get($craft, 'slug')]); ?>
 	</article>
 </div>
 

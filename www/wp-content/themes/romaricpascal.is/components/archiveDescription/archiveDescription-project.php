@@ -1,1 +1,1 @@
-<p><?php echo $craft->description; ?></p>
+<p class="<?php echo $classes; ?>"><?php echo $craft->description; ?></p>
