@@ -4,6 +4,10 @@
 	margin-bottom: 2em;
     // Force 100% width as content will be empty
     width: 100%;
+
+    @include mq($from: archiveOnTwoColumns) {
+    	margin-bottom: 3vw;
+    }
 }
 
 .rp-LetteredHeading::before {

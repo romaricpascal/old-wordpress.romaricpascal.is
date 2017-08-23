@@ -5,20 +5,25 @@
 		flex-wrap: nowrap;
 		align-items: center;
 		justify-content: center;
+
+		// Controls the gap
+		&::before {
+			flex: none;
+			content: '';
+			width: 4vw;
+			order: 2;
+		}
 	}
 
 	.l-sideBySide__header {
-		width: 22em;
-		margin-left: 3em;
-		margin-right: 3em;
+		width: 33vw;
+		max-width: 25em;
 		flex: none;
-		order: 2;
+		order: 3;
 	}
 
 	.l-sideBySide__main {
-		max-width: 30em;
-		margin-left: 3em;
-		margin-right: 3em;
+		width: 34.5em;
 		flex: none;
 		order: 1;
 	}
