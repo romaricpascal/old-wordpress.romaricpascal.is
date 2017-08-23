@@ -5,7 +5,7 @@
 	}
 ?>
 <h<?php echo $headingLevel; ?>>Follow me</h<?php echo $headingLevel;?>>
-<ul class="rp-List-reset rp-ShareLinkList">
+<ul class="u-list-flat rp-ShareLinkList">
 	<?php foreach($links as $link):?>
 		<li>
 			<a class="rp-ShareLink rp-ShareLink-<?php echo strtolower($link->link_name); ?>" 

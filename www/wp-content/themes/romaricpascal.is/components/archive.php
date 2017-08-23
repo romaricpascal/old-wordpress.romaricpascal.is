@@ -15,7 +15,8 @@
 		</header>
 		<?php rp_render('postList', [
 		  'query' => $query, 
-		  'classes' => "l-sideBySide__main rp-ArchiveList-${postTypeName}", 
+		  'classes' => "l-sideBySide__main",
+		  'postType' => $postTypeName, 
 		  'format' => $postListFormat,
 		  'headingLevel' => $headingLevel + 1 ]); ?>
 	 </div>

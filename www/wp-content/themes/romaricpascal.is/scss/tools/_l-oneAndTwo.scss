@@ -1,0 +1,12 @@
+.l-oneAndTwo {
+	@include inuit-clearfix;
+
+	&__item {
+		
+		&:nth-child(3n+2),
+		&:nth-child(3n+3) {
+			width: 50%;
+			float: left;
+		}
+	}
+}

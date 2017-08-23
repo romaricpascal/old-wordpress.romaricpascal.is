@@ -1,7 +1,21 @@
-<ul class="rp-ArchiveList <?php echo $classes; ?>">
+<?php
+	if ($postType) {
+		if ($postType === ARTWORK_TYPE) {
+			$layoutClass = 'l-snakeGrid';
+			$itemLayoutClass = 'l-snakeGrid__item';
+		} elseif ($postType === PROJECT_TYPE) {
+			$layoutClass = 'l-oneAndTwo';
+			$itemLayoutClass = 'l-oneAndTwo__item';
+		} else {
+			$itemLayoutClass = 'u-mb-2';
+		}
+	}
+?>
+
+<ul class="u-list-flat <?php echo "{$classes} {$layoutClass}"; ?>">
 <?php while(rp_has_more_posts($query)): ?>
 	<?php $post = rp_next_post($query); ?>
-	<li class="rp-ArchiveListItem rp-ArchiveListItem-<?php echo $format; ?> rp-ArchiveListItem-<?php echo $post->post_type;?>">
+	<li class="<?php echo $itemLayoutClass; ?>">
 		<?php rp_render('post', ['post' => $post, 'headingLevel' => $headingLevel], [$format, $post->post_type]); ?>
 	</li>
 <?php endwhile; wp_reset_postdata(); ?>

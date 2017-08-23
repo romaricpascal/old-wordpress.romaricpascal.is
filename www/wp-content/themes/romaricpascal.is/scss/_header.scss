@@ -8,6 +8,17 @@
   padding: 0 1em;
 
   z-index: $above-1;
+
+  .home &,
+  .blog &,
+  .archive & {
+    @include mq($from: archiveOnTwoColumns) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
 }
 
 .rp-BreadcrumbLink {
@@ -28,7 +39,7 @@
   background-color: fade-out($rp-light, 0.1);
   @include typo-display;
   text-transform: uppercase;
-  z-index: 25;
+  z-index: $above-1;
 
   @include overlay;
   width: 80%;

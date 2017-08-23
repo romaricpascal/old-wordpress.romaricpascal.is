@@ -17,7 +17,7 @@
 
 		<div class="l-sideBySide__main">
 			<?php rp_render('postList', 
-			                ['classes' => "rp-ArchiveList-{$postType}", 'format' => rp_get_postListFormat($postType), 'headingLevel' => 2]); ?>
+			                ['postType' => $postType, 'format' => rp_get_postListFormat($postType), 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
 		</div>
 	</article>

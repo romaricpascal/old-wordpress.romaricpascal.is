@@ -3,7 +3,7 @@
   $query = query_related_artworks($post, 4);
 ?>
 <h2 class="rp-AsideHeading">More artworks</h2>
-<ul class="rp-List-reset l-grid">
+<ul class="u-list-flat l-grid">
 <?php while ($query->have_posts()): $query->the_post(); ?>
 	<li class="l-grid__col l-col-1-2">
 		<a href="<?php the_permalink(); ?>">

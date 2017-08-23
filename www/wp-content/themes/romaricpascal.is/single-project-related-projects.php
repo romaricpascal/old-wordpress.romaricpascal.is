@@ -5,7 +5,7 @@
 ?>
 <section class="rp-AsideSection">
 <h2 id="#similar-projects" class="rp-AsideHeading">Similar projects</h2>
-<ul class="rp-List-reset l-grid">
+<ul class="u-list-flat l-grid">
 	<?php foreach($posts as $post): ?>
 	<li class="l-grid__col l-col-1-2">
 		<a href="<?php the_permalink(); ?>">
