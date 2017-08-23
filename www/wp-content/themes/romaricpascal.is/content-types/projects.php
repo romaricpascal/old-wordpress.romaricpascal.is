@@ -62,18 +62,47 @@ function rp_resolve($request) {
   return false;
 }
 
+function rp_resolve_terms($termSlugs) {
+  $terms = get_terms([
+    'taxonomy' => CRAFT_TAX_NAME,
+    'slug' => $termSlugs
+  ]);
+  if (count($terms) === count($termSlugs)) {
+    return $terms;
+  }
+  return false;
+}
+
 function rp_resolve_name_as_single($request) {
+  global $rp_url_terms;
   $pathParts = explode('/', $request['name']);
   $name = array_pop($pathParts);
+
+  // Before anything, let's check if the terms are actually OK
+  if (!empty($pathParts)) {
+    $terms = rp_resolve_terms($pathParts);
+    if (!$terms) {
+      return;
+    }
+  }
+
+  // Looks all good, now all we need to check is that the post exists
   $singleRequest = [
     'post_type' => $request['post_type'],
     "{$request['post_type']}" => $name,
     'name' => $name,
   ];
 
-  // TODO: Validate chain of crafts to ensure the project is in the rightful category
+  $result = rp_resolve($singleRequest);
+  if ($result) {
+    $rp_url_terms = $terms;
+    return $singleRequest;
+  }
+}
 
-  return rp_resolve($singleRequest);
+function rp_get_url_terms($terms) {
+  global $rp_url_terms;
+  return $rp_url_terms;
 }
 
 function rp_resolve_name_as_archive($request) {
@@ -83,6 +112,7 @@ function rp_resolve_name_as_archive($request) {
     'post_type' => $request['post_type'],
     'craft' => $craft
   ];
+
   return rp_resolve($archiveRequest);
 }
 

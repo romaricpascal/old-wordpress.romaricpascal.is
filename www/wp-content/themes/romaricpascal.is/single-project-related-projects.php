@@ -1,6 +1,10 @@
 <?php
   global $post;
   $posts = rp_get_related_projects($post,2);
+  $urlTerms = rp_get_url_terms();
+  if (!empty($urlTerms)) {
+  	$craft = $urlTerms[0];
+  }
   // TODO: Check results, display them, update algorithm for matching related projects
 ?>
 <section class="rp-AsideSection">
@@ -8,13 +12,7 @@
 <ul class="u-list-flat l-grid">
 	<?php foreach($posts as $post): ?>
 	<li class="l-grid__col l-col-1-2">
-		<a href="<?php the_permalink(); ?>">
-			<img class="u-d-b" src="<?php the_post_thumbnail_url('artwork-grid-xl'); ?>" title="<?php  the_title();?>"
-		  		alt="<?php the_title();?>"
-		  		srcset="<?php rp_the_thumbnail_srcset(['artwork-grid-s','artwork-grid-m','artwork-grid-l', 'artwork-grid-xl', 'artwork-grid-l-3x']); ?>"
-		  		sizes=""
-		  	>
-	  	</a>
+		<?php rp_render('post', ['post' => $post, 'craft' => $craft], ['thumbnail'] ); ?>
 	</li>
 	<?php endforeach; ?>
 </ul>
