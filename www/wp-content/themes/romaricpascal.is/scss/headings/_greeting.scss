@@ -1,5 +1,7 @@
 .rp-LetteredHeading-greeting {
-	width: 80vw;
+    // Ensure it fits in the viewport
+	max-width: 50vh;
+    width: 90%;
 }
 
 .rp-LetteredHeading-greeting::before {
@@ -105,11 +107,11 @@
     transform-origin: top left;
 }
 
-@include mq($from: archiveOnTwoColumns) {
-
-	.rp-LetteredHeading {
-		max-width: 41em;
-	}
+@include mq($and: '(orientation: landscape)') {
+    
+    .rp-LetteredHeading-greeting {
+        max-width: 62vh;
+    }
 
 	.rp-LetteredHeading-greeting::before {
     	padding-top: 106.27766599597585%;

@@ -6,7 +6,7 @@
 
 
 <?php if($projectsQuery->have_posts() || $postsQuery->have_posts()): ?>
-<section class="rp-HomeSection">
+<article class="<?php echo "{$classes}"; ?>">
 	<div class="l-sideBySide">
 	<header class="l-sideBySide__header">
 		<?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], [$postTypeName, rp_get($craft, 'slug')]); ?>
@@ -21,6 +21,6 @@
 		<?php rp_render('postList', ['query' => $postsQuery, 'format' => 'link', 'classes' => 'rp-ArchiveList-post', 'headingLevel' => $headingLevel + 1]); ?>
 	</div>
 	</div>
-</section>
+</article>
 
 <?php endif; ?>
