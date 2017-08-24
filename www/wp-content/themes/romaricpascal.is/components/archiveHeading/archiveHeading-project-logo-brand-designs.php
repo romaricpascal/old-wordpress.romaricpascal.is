@@ -1,13 +1,13 @@
 <?php if (is_front_page()): ?>
-<h<?php echo $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeading-logos">
+<h<?php echo $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-logos">
   <span class="rp-LetteredHeading__me rp-LetteredHeading__part" role="presentation"></span>
-  <span class="rp-LetteredHeading__for rp-LetteredHeading__part">For
+  <span class="rp-LetteredHeading__for rp-LetteredHeadingEntrance__II rp-LetteredHeading__part">For
   </span>
-  <span class="rp-LetteredHeading__logos rp-LetteredHeading__part">Logos
+  <span class="rp-LetteredHeading__logos rp-LetteredHeadingEntrance__I rp-LetteredHeading__part">Logos
   </span>
-  <span class="rp-LetteredHeading__and rp-LetteredHeading__part">and
+  <span class="rp-LetteredHeading__and rp-LetteredHeadingEntrance__III rp-LetteredHeading__part">and
   </span>
-  <span class="rp-LetteredHeading__brands rp-LetteredHeading__part">Brands
+  <span class="rp-LetteredHeading__brands rp-LetteredHeadingEntrance__IV rp-LetteredHeading__part">Brands
   </span>  
 </h<?php echo $headingLevel;?>>
 <?php else :

@@ -32,6 +32,7 @@
     top: 0.028760045924225028%;
     left: 35.763036608863196%;
     z-index: 1;
+    
 }
 
 .rp-LetteredHeading-prints .rp-LetteredHeading__ {
@@ -42,6 +43,8 @@
     width: 19.344894026974952%;
     top: 46.35638920780711%;
     left: 0.9442350674373795%;
+    animation-duration: $a-duration;
+    animation-delay: $a-delay-m;
 }
 
 .rp-LetteredHeading-prints .rp-LetteredHeading__illustration {
@@ -52,4 +55,6 @@
     width: 53.333333333333336%;
     top: 57.69662456946038%;
     left: 12.255275529865125%;
+    animation-duration: $a-duration-quick;
+    animation-delay: $a-delay-l;
 }

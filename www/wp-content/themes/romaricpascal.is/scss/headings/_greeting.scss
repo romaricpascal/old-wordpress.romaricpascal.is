@@ -16,8 +16,6 @@
     width: 38.697852349698636%;
     top: 39.28724725482772%;
     left: 61.302095101970046%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-greeting .rp-LetteredHeading__romaric {
@@ -28,8 +26,6 @@
     width: 92.59015979947557%;
     top: 5.4365051117001135%;
     left: 0.39405993662671235%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-greeting .rp-LetteredHeading__romaricArrow {
@@ -40,8 +36,6 @@
     width: 16.86801435620412%;
     top: 31.219235138205224%;
     left: 63.783054214113434%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-greeting .rp-LetteredHeading__hi {
@@ -52,8 +46,6 @@
     width: 25.95887567590291%;
     top: 0%;
     left: 9.196420407669954%;
-    transform: rotate(0rad);
-    transform-origin: top left;
     z-index: 1;
 }
 
@@ -65,8 +57,6 @@
     width: 36.153251953484215%;
     top: 1.344187807648618%;
     left: 40.46267754767447%;
-    transform: rotate(0rad);
-    transform-origin: top left;
     z-index: 1;
 }
 
@@ -78,8 +68,6 @@
     width: 92.905449787442%;
     top: 65.95986368799697%;
     left: 0.525945738593071%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 .rp-LetteredHeading-greeting .rp-LetteredHeading__draw {
@@ -90,8 +78,6 @@
     width: 47.871529839569945%;
     top: 54.846648996592194%;
     left: 2.0498473470974927%;
-    transform: rotate(0rad);
-    transform-origin: top left;
     z-index: 1;
 }
 
@@ -103,8 +89,6 @@
     width: 17.70878765744794%;
     top: 62.343809163195765%;
     left: 59.380076825660396%;
-    transform: rotate(0rad);
-    transform-origin: top left;
 }
 
 @include mq($and: '(orientation: landscape)') {

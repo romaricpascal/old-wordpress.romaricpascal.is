@@ -1,0 +1,17 @@
+// Combinations of the zoomInUp and zoomInRight animations from animate.css
+// https://github.com/daneden/animate.css (MIT licensed)
+// Keyframes
+@import '../../node_modules/animate.css/source/zooming_entrances/zoomIn';
+@import '../../node_modules/animate.css/source/zooming_entrances/zoomInDown';
+@import '../../node_modules/animate.css/source/zooming_entrances/zoomInRight';
+
+$a-duration-slow: 0.6s;
+$a-duration: 0.5s;
+$a-duration-quick: 0.4s;
+$a-duration-quickest: 0.3s;
+
+$a-delay-s: 0.2s;
+$a-delay-m: 0.4s;
+$a-delay-l: 0.6s;
+$a-delay-xl: 0.8s;
+$a-delay-xxl: 1s;
