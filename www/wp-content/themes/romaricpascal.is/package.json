@@ -28,17 +28,17 @@
     "npm-run-all": "^4.0.1",
     "postcss-banner": "^3.0.0",
     "postcss-cli": "^2.6.0",
-    "postcss-inline-svg": "^3.0.0"
+    "postcss-inline-svg": "^3.0.0",
+    "browser-sync": "^2.18.7",
+    "uglify-js": "^2.7.5"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
-    "browser-sync": "^2.18.7",
     "inuitcss": "^6.0.0-beta.4",
     "normalize.css": "^5.0.0",
     "sass-mq": "^3.3.2",
     "simple-icons": "git://github.com/simple-icons/simple-icons.git#develop",
     "spinkit": "^1.2.5",
-    "uglify-js": "^2.7.5",
     "waypoints": "^4.0.1"
   }
 }
