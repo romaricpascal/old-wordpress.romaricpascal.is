@@ -14,6 +14,6 @@
 	<li class="l-grid__col l-col-1-2">
 		<?php rp_render('post', ['post' => $post, 'craft' => $craft], ['thumbnail'] ); ?>
 	</li>
-	<?php endforeach; ?>
+	<?php endforeach; wp_reset_postdata(); ?>
 </ul>
 </section>
