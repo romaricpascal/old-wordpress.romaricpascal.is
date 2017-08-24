@@ -4,6 +4,7 @@ $rp-yellow: #ffc543;
 $rp-light: #fff7e7;
 $rp-blue: #4ab0aa;
 $rp-orange: #ff742e;
+$rp-orange-dark-8: darken($rp-orange, 8%);
 $rp-navy: #022950;
 $rp-orange-on-yellow-50: mix($rp-orange,$rp-yellow, 50%);
 $rp-light-on-yellow-50: mix($rp-light, $rp-yellow, 50%);
@@ -117,7 +118,9 @@ body {
 }
 
 a {
-	color: $rp-orange;
+  // Use a slighlty darker shade of orange
+  // to compensate for the thin letters on light background
+	color: $rp-orange-dark-8;
 	text-decoration: none;
 
 	&:hover {
@@ -355,6 +358,31 @@ $prevNextLinkSize: $circleButtonSize;
 }
 
 // wpcf-7
+.wpcf7-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.wpcf7-response-output.wpcf7-response-output {
+  order: -1;
+  margin: 0;
+  margin-bottom: 2em;
+  padding: 1em;
+}
+
+.wpcf7-validation-errors.wpcf7-validation-errors,
+.wpcf7-mail-sent-ng.wpcf7-mail-sent-ng {
+  color: $rp-orange-dark-8;
+  border-color: $rp-orange;
+}
+
+// Need to bump specificity to override default styling :(
+.wpcf7-not-valid-tip.wpcf7-not-valid-tip {
+  color: $rp-orange-dark-8;
+  @include typo-copy;
+  text-transform: none;
+}
+
 .wpcf7-form label {
   @extend .rp-Label;
 }
