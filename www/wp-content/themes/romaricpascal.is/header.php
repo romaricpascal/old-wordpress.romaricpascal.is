@@ -46,7 +46,7 @@
         <a href="#main-nav">Menu</a>
         <div class="rp-MenuContainer" id="main-nav">
         <?php wp_nav_menu(['theme_location' => MENU_MAIN_1,'menu_class' => 'rp-Menu rp-Header__menuI']); ?>
-        <a class="rp-MenuToggle" href="#header">Close menu</a>
+        <a class="rp-MenuToggle" href="#">Close menu</a>
         <small class="rp-Legal l-Container">© Romaric Pascal (trading name of <a href="https://beta.companieshouse.gov.uk/company/08544032">Rhumaric Ltd</a>)</small>
         </div>
       </nav>
