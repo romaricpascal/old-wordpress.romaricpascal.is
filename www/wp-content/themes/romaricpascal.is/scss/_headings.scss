@@ -25,6 +25,14 @@
 .rp-LetteredHeadingEntrance .rp-LetteredHeading__part {
     animation-name: zoomInRight;
     animation-fill-mode: backwards;
+
+    .with-js & {
+        animation-play-state: paused;
+    }
+
+    .with-js .is-inView & {
+        animation-play-state: running;
+    }
 }
 
 .rp-LetteredHeadingEntrance__I {

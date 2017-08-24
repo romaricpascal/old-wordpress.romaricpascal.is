@@ -1,5 +1,5 @@
 <?php get_header();?>
-<div class="rp-HomeSection">
+<div class="rp-HomeSection" data-inview>
 	<article class="l-sideBySide">
 		<header class="l-sideBySide__header">
 			<h1 class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-looking">

@@ -1,1 +1,6 @@
-js/app.js
+node_modules/intersection-observer/intersection-observer.js
+js/element-matches.js
+js/element-closest.js
+js/with-js.js
+js/inview.js
+js/menu.js

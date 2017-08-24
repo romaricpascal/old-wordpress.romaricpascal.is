@@ -6,7 +6,7 @@
 
 
 <?php if($projectsQuery->have_posts() || $postsQuery->have_posts()): ?>
-<article class="<?php echo "{$classes}"; ?>">
+<article class="<?php echo "{$classes}"; ?>" data-inview>
 	<div class="l-sideBySide">
 	<header class="l-sideBySide__header">
 		<?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], [$postTypeName, rp_get($craft, 'slug')]); ?>

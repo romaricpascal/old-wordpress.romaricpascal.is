@@ -1,10 +1,11 @@
 // Combinations of the zoomInUp and zoomInRight animations from animate.css
 // https://github.com/daneden/animate.css (MIT licensed)
 // Keyframes
-@import '../../node_modules/animate.css/source/zooming_entrances/zoomIn';
+@import '../../node_modules/animate.css/source/fading_entrances/fadeIn';
 @import '../../node_modules/animate.css/source/zooming_entrances/zoomInDown';
 @import '../../node_modules/animate.css/source/zooming_entrances/zoomInRight';
 
+$a-duration-slowest: 0.8s;
 $a-duration-slow: 0.6s;
 $a-duration: 0.5s;
 $a-duration-quick: 0.4s;
@@ -15,3 +16,38 @@ $a-delay-m: 0.4s;
 $a-delay-l: 0.6s;
 $a-delay-xl: 0.8s;
 $a-delay-xxl: 1s;
+
+.with-js {
+	.u-anim-inView {
+		animation-play-state: paused;
+	}
+
+	.is-inView .u-anim-inView {
+		animation-play-state: running;
+	}
+}
+
+.a-entrance {
+	animation-fill-mode: backwards;
+}
+
+.a-exit {
+	animation-fill-mode: forwards;
+}
+
+.a-timing-description {
+	animation-duration: $a-duration-slowest;
+	animation-timing-function: cubic-bezier(.65,-0.01,.95,.61);
+	animation-delay: $a-delay-m;
+}
+
+.a-timing-main {
+	animation-duration: $a-duration-slowest;
+	animation-timing-function: cubic-bezier(.65,-0.01,.95,.61);
+	animation-delay: $a-delay-s;
+}
+
+.a-timing-projectCraft {
+	animation-duration: $a-duration-slowest;
+	animation-delay: $a-delay-l;
+}

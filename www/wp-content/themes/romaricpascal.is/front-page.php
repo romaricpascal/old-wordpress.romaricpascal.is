@@ -3,7 +3,7 @@
 	the_post();
 ?>
 <?php get_header(); ?>
-<section class="rp-HomeSection u-flai-c">
+<section class="rp-HomeSection u-flai-c" data-inview>
 <div class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-greeting">
   <span class="rp-LetteredHeading__me rp-LetteredHeading__part">
   </span>

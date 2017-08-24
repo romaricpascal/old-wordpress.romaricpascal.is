@@ -61,9 +61,10 @@
   transform: translate3d(100%, 0 ,0);
   transition: transform 0.3s;
 
-  // &:target {
-  //   transform: translate3d(0, 0 ,0);
-  // }
+  &:target,
+  &.is-visible {
+    transform: translate3d(0, 0 ,0);
+  }
 }
 
 .rp-Menu,

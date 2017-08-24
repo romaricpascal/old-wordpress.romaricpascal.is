@@ -21,7 +21,7 @@
 				$craft = get_term_by('slug', CRAFT_TERM_LETTERING, CRAFT_TAX_NAME);
 				rp_render('archive', ['postTypeName' => 'post', 'craft' => $craft, 'classes' => 'rp-HomeSection u-mw-30em', 'headingLevel' => 2], ['post', rp_get($craft, 'slug')]);
 			}  elseif ($post->post_type === 'page') { ?>
-				<section class="rp-HomeSection u-mw-30em">
+				<section class="rp-HomeSection u-mw-30em" data-inview>
 				 <?php rp_render('page', ['post' => $post, 'headingLevel' => 2], [$post->post_name]); ?>
 				 </section>
 			<?php 

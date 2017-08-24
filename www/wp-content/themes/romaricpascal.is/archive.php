@@ -5,19 +5,24 @@
 
 <?php get_header(); ?>
 <div class="u-mw-30em">
-	<article class="l-sideBySide">
+	<article class="l-sideBySide" data-inview>
 		<header class="l-sideBySide__header u-flas-start l-vertCentered u-mh-100vh-xl">
 		<?php rp_render('archiveHeading/archiveHeading', 
 		                ['postType' => $postType, 'craft' => $craft, 'headingLevel' => 1], 
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		<?php rp_render('archiveDescription/archiveDescription', 
-		                ['postType' => $postType, 'craft' => $craft, classes => 'u-show-xl'], 
+		                ['postType' => $postType, 
+		                 'craft' => $craft, 
+		                 'classes' => 'u-show-xl fadeIn a-entrance a-timing-description u-anim-inView'], 
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		</header>
 
-		<div class="l-sideBySide__main">
+		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
 			<?php rp_render('postList', 
-			                ['postType' => $postType, 'craft' => $craft, 'format' => rp_get_postListFormat($postType), 'headingLevel' => 2]); ?>
+			                ['postType' => $postType, 
+			                 'craft' => $craft, 
+			                 'format' => rp_get_postListFormat($postType), 
+			                 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
 		</div>
 	 	<?php rp_render('archiveDescription/archiveDescription', 
