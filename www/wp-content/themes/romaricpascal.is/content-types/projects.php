@@ -42,7 +42,7 @@ add_action('init', function () {
 // 3. Custom pagination
 if (!is_admin()) {
   add_filter('pre_get_posts', function ($query) {
-    if (!is_admin() && is_main_query() && is_post_type_archive(PROJECT_TYPE)) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive(PROJECT_TYPE)) {
       $query->query_vars['posts_per_page'] = rp_get_archive_size(PROJECT_TYPE);
     }
     return $query;
@@ -130,9 +130,13 @@ function rp_is_object_in_craft($post, $term) {
 }
 
 function rp_get_permalink($post, $through = null) {
+
+  if (!empty($through) && is_array($through)) {
+    $through = $through[0];
+  }
   $permalink = get_permalink($post);
 
-  if ($post->post_type === PROJECT_TYPE && $through) {
+  if ($post->post_type === PROJECT_TYPE && !empty($through)) {
     if (rp_is_object_in_craft($post, $through)) {
       return rp_inject_term_into_permalink($permalink, $through);
     }
@@ -143,6 +147,10 @@ function rp_get_permalink($post, $through = null) {
 
   return $permalink;
 }
+
+// Ensures post don't get excluded from prev/next navigation because they share an unrelated craft
+add_filter('get_previous_post_excluded_terms', function () { return [];});
+add_filter('get_next_post_excluded_terms', function() {return [];});
 
 add_filter('request', function ($request) {
 

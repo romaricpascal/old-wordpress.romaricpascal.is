@@ -5,13 +5,13 @@ require_once 'functions/cleanup.php';
 
 
 // 1. Load necessary taxonomies & content types
+require_once('taxonomies/craft-taxonomy.php');
 require_once('content-types/posts.php');
 require_once('content-types/usps.php');
 require_once('content-types/testimonials.php');
 require_once('content-types/projects.php');
 require_once('content-types/artworks.php');
 require_once('content-types/old_posts.php');
-require_once('taxonomies/craft-taxonomy.php');
 
 define('MENU_MAIN_1', 'menu_main_1');
 define('MENU_HOME_CONTENT', 'menu_home');
@@ -88,6 +88,12 @@ add_action( 'widgets_init', function () {
     'after_content' => '</div>'
 	]);
 });
+
+function array_pluck($subject, $key) {
+  return array_map(function ($item) use ($key) {
+    return $item->{$key};
+  }, $subject);
+}
 
 function rp_get($objectOrArray, $key) {
 
