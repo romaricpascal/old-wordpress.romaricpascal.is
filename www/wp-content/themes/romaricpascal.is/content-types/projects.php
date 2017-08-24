@@ -100,7 +100,7 @@ function rp_resolve_name_as_single($request) {
   }
 }
 
-function rp_get_url_terms($terms) {
+function rp_get_url_terms() {
   global $rp_url_terms;
   return $rp_url_terms;
 }
@@ -116,16 +116,29 @@ function rp_resolve_name_as_archive($request) {
   return rp_resolve($archiveRequest);
 }
 
+function rp_inject_term_into_permalink($permalink, $term) {
+  $slug = $term->slug;
+  $path = parse_url($permalink, PHP_URL_PATH);
+  $pathParts = explode('/',$path);
+  array_splice($pathParts,2,0,$slug);
+  $newPath = implode('/',$pathParts);
+  return str_replace($path, $newPath, $permalink);
+}
+
+function rp_is_object_in_craft($post, $term) {
+  return is_object_in_term($post->ID, CRAFT_TAX_NAME, $term->term_id);
+}
+
 function rp_get_permalink($post, $through = null) {
   $permalink = get_permalink($post);
 
   if ($post->post_type === PROJECT_TYPE && $through) {
-    $slug = $through->slug;
-    $path = parse_url($permalink, PHP_URL_PATH);
-    $pathParts = explode('/',$path);
-    array_splice($pathParts,2,0,$slug);
-    $newPath = implode('/',$pathParts);
-    return str_replace($path, $newPath, $permalink);
+    if (rp_is_object_in_craft($post, $through)) {
+      return rp_inject_term_into_permalink($permalink, $through);
+    }
+
+    // IMPROVE: Find a common term with current object if possible
+    // (eg. If projects are both lettering projects, but not in same sub-craft, prefix with 'lettering')
   }
 
   return $permalink;
