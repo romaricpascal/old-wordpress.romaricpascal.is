@@ -93,6 +93,8 @@ function rp_resolve_name_as_single($request) {
     'name' => $name,
   ];
 
+  // IMPROVE: Check if it's actually within those terms and if it is not, redirect to appropriate term
+
   $result = rp_resolve($singleRequest);
   if ($result) {
     $rp_url_terms = $terms;

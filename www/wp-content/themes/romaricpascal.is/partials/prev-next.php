@@ -17,7 +17,8 @@ if(!empty($previous_post) || !empty($next_post)):
 <nav class="rp-PrevNextNav">
 	<?php if(!empty($previous_post)): ?>
 	<a class="rp-PrevNextLink rp-PrevNextLink-previous rp-PrevNextNav__previous" 
-	   href="<?= rp_get_permalink($previous_post, $terms) ?>" 
+	   href="<?= rp_get_permalink($previous_post, $terms) ?>"
+	   rel="prev"
 	   title="<?=$previous_post->post_title; ?>">
 	   	<?php echo $previous_post->post_title; ?>
 	</a>
@@ -26,7 +27,8 @@ if(!empty($previous_post) || !empty($next_post)):
 	<?php endif; ?>
 	<?php if(!empty($next_post)): ?>
 	<a class="rp-PrevNextLink rp-PrevNextLink-next rp-PrevNextNav__next" 
-	   href="<?= rp_get_permalink($next_post, $terms) ?>" 
+	   href="<?= rp_get_permalink($next_post, $terms) ?>"
+	   rel="next"
 	   title="<?=$next_post->post_title; ?>">
 	    <?php echo $next_post->post_title; ?>
 	</a>
