@@ -16,6 +16,7 @@
 		window.history.pushState({},newTitle,newURL);
 	}
 
+	var currentRequest;
 
 	if (!!window.history.pushState) {
 		document.body.addEventListener('click', function (event) {
@@ -31,7 +32,10 @@
 				// Load results
 				var href = event.target.getAttribute('href');
 				console.log(href);
-				qwest.get(href, null, {
+				if (currentRequest) {
+					currentRequest.abort();
+				}
+				currentRequest = qwest.get(href, null, {
 					// Delegates the parsing to the browsers
 					responseType: 'document'
 				})
