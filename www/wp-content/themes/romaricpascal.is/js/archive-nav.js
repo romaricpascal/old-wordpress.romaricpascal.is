@@ -1,13 +1,11 @@
 (function () {
 
 	function replaceContent(target, newDocument) {
-		var newContent = newDocument.querySelector('.l-sideBySide__main');
-		var current = document.querySelector('.l-sideBySide__main');
+		console.log(newDocument);
+		var newContent = newDocument.querySelector(target);
+		var current = document.querySelector(target);
+		console.log('Swapping', newContent, 'for', current);
 		current.parentNode.replaceChild(newContent, current);
-	}
-
-	function updateTitle(newTitle) {
-		document.title = newTitle;
 	}
 
 	function updateHistory(newTitle, newURL) {
@@ -42,19 +40,26 @@
 
 		function animateExit(element, direction) {
 			return new Promise(function (resolve, reject) {
+				console.log('Starting animation');
 				element.classList.add('is-exiting', 'is-exiting-' + direction);
 				setTimeout(function () {
+					console.log('Resolving promise');
 					resolve(element);
-					// TODO: Make sure animations have completed
+					// TODO: Make sure animations have completed by listening to DOM events for example
 				}, 500);
 			});
 		}
 
 		function loadContent(href) {
-			return qwest.get(href, null, {
+			if (currentRequest) {
+				currentRequest.abort();
+			}
+			currentRequest = qwest.get(href, null, {
 				// Delegates the parsing to the browsers
 				responseType: 'document'
 			}, monitorProgress);
+
+			return currentRequest;
 		}
 
 		function markEntrance(element) {
@@ -62,6 +67,66 @@
 				element.classList.add('is-entering');
 				resolve(element);
 			});
+		}
+
+		function OuterHTMLReplacement (selector) {
+			this.selector = selector;
+		}
+
+		OuterHTMLReplacement.prototype.exit = function (options) {
+			var element = document.querySelector(this.selector);
+			return animateExit(element, options.direction);
+		}
+
+		OuterHTMLReplacement.prototype.entrance = function (html, options) {
+			replaceContent(this.selector, html);
+		}
+
+		function getReplacements(targetDescriptions) {
+			var targets = targetDescriptions.split(',');
+			return targets.map(function (target) {
+
+				// Could do more mapping, eg. have an "AttributeReplacement" 
+				// that would need to take an attribute (or list of attribute)
+				// and just update that attribute onto the document
+				// eg .the-target:href
+				return new OuterHTMLReplacement(target);
+			});
+		}
+
+		function runExits(replacements, options) {
+			return Promise.all(replacements.map(function (replacement) {
+				return replacement.exit(options);
+			}));
+		}
+
+		function runEntrances(replacements, html, options) {
+			return Promise.all(replacements.map(function (replacement) {
+				replacement.entrance(html, options);
+			}));
+		}
+
+		function ajax(href, targetDescriptions, options) {
+			
+			var replacements = getReplacements(targetDescriptions);
+			
+			Promise.all([
+				loadContent(href),
+				runExits(replacements, options)
+			]).then(function(promisesResults) {
+
+					var response = promisesResults[0].response;
+					runEntrances(replacements, response, options);
+					replaceContent('title', response);
+				})
+				.then(function () {
+					updateHistory(document.title, href);
+				})
+				.catch(function () {
+					console.log(arguments);
+					// In case of error, just navigate out like it would have happened without JS
+					// window.location = href;
+				});
 		}
 
 		document.body.addEventListener('click', function (event) {
@@ -75,30 +140,10 @@
 				event.preventDefault();
 				// Load results
 				var href = event.target.getAttribute('href');
-				var target = event.target.getAttribute('data-ajax');
 				var direction = event.target.getAttribute('rel') === 'prev' ? 'left' : 'right';
-				if (currentRequest) {
-					currentRequest.abort();
-				}
-				currentRequest = loadContent(href);
-				Promise.all([
-					currentRequest, 
-					animateExit(document.querySelector(target), direction)
-				]).then(function(promisesResults) {
-						var response = promisesResults[0].response;
-						replaceContent(target, response);
-						var title = response.title;
-						updateTitle(title);
-						updateHistory(title, href);
-					})
-					.catch(function () {
-						console.log(arguments);
-						// In case of error, just navigate out like it would have happened without JS
-						// window.location = href;
-					});
-				// Replace navigation links
-				// Animate current ones exit
-				// Animate new ones entrance
+				var targetDescriptions = event.target.getAttribute('data-ajax');
+
+				ajax(href, targetDescriptions, {direction:direction});
 			}
 		});
 	}

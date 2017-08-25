@@ -54,13 +54,16 @@ $a-delay-xxl: 1s;
 	animation-delay: $a-delay-l;
 }
 
-.is-exiting .l-oneAndTwo__item {
+.rp-PostListItem {
+	animation-duration: $a-duration;	
+}
+
+.is-exiting .rp-PostListItem  {
   animation-name: fadeInRight;
   animation-direction: reverse;
-  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 
-.is-exiting-left .l-oneAndTwo__item {
+.is-exiting-left .rp-PostListItem  {
 	animation-name: fadeInLeft;
 }
