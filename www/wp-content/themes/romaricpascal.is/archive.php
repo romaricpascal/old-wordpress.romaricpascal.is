@@ -2,7 +2,7 @@
   $postType = get_post_type();
   $craft = rp_get_craft_object($craft);
 ?>
-
+<?php if(!rp_is_ajax()): ?>
 <?php get_header(); ?>
 <div class="u-mw-30em">
 	<article class="l-sideBySide" data-inview>
@@ -16,7 +16,7 @@
 		                 'classes' => 'u-show-xl fadeIn a-entrance a-timing-description u-anim-inView'], 
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		</header>
-
+<?php endif;?>	
 		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
 			<?php rp_render('postList', 
 			                ['postType' => $postType, 
@@ -25,6 +25,7 @@
 			                 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
 		</div>
+<?php if(!rp_is_ajax()): ?>
 	 	<?php rp_render('archiveDescription/archiveDescription', 
 	 	                ['postType' => $postType, 'craft' => $craft, classes => 'u-hide-xl'], 
 	 	                [$postType, rp_get($craft, 'slug')]); ?>
@@ -32,3 +33,5 @@
 </div>
 
 <?php get_footer();?>
+
+<?php endif; ?>

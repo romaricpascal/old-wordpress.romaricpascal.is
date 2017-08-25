@@ -153,6 +153,12 @@ function rp_get_postListFormat($postType) {
       return 'link';
   }
 }
+
+function rp_is_ajax() {
+  $headers = getallheaders();
+  return !empty($headers['x-requested-with']);
+}
+
 require_once('functions/archive-size.php');
 require_once('functions/components.php');
 require_once('functions/acf-featured.php');

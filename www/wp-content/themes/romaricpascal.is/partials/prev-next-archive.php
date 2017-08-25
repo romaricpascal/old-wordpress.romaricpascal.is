@@ -22,7 +22,8 @@ if(!empty($previous_post) || !empty($next_post)):
 	<?php if(!empty($previous_post)): ?>
 	<a
 	  class="rp-PrevNextLink rp-PrevNextLink-previous rp-PrevNextNav__previous" 
-	  href="<?= $previous_post ?>" 
+	  href="<?= $previous_post ?>"
+	  rel="prev"
 	  title="Older <?php echo $label; ?>">
 	    Older <?php echo $label; ?>
     </a>
@@ -36,7 +37,8 @@ if(!empty($previous_post) || !empty($next_post)):
 	<?php if(!empty($next_post)): ?>
 	<a 
 	  class="rp-PrevNextLink rp-PrevNextLink-next rp-PrevNextNav__next" 
-	  href="<?= $next_post ?>" 
+	  href="<?= $next_post ?>"
+	  rel="next"
 	  title="Newer <?php echo $label; ?>">
 	    <?php echo $label; ?>
     </a>
