@@ -166,6 +166,8 @@ function rp_title() {
   return $title;
 }
 
+
+require_once('functions/content-length.php');
 require_once('functions/archive-size.php');
 require_once('functions/components.php');
 require_once('functions/acf-featured.php');
