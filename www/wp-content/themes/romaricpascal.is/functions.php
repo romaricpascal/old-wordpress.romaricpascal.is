@@ -159,6 +159,13 @@ function rp_is_ajax() {
   return !empty($headers['x-requested-with']);
 }
 
+function rp_title() {
+  $title = wp_title(' ', false);
+  if ($title) { $title.= '|'; }
+  $title.= get_bloginfo('name');
+  return $title;
+}
+
 require_once('functions/archive-size.php');
 require_once('functions/components.php');
 require_once('functions/acf-featured.php');

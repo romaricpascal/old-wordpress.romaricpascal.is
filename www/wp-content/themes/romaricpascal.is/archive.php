@@ -2,6 +2,11 @@
   $postType = get_post_type();
   $craft = rp_get_craft_object($craft);
 ?>
+
+<?php if (rp_is_ajax()): ?>
+	<title><?php echo rp_title(); ?></title>
+<?php endif; ?>
+
 <?php if(!rp_is_ajax()): ?>
 <?php get_header(); ?>
 <div class="u-mw-30em">

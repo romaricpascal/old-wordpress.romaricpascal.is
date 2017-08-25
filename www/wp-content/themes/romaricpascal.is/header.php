@@ -1,6 +1,4 @@
-<?php $title = wp_title(' ', false);
- if ($title) { $title.= '|'; }
- $title.= get_bloginfo('name'); ?>
+<?php $title = rp_title(); ?>
 
 <!doctype html>
 <html>
