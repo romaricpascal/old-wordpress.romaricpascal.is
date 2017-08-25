@@ -13,7 +13,7 @@
 			} else {
 
 				if (!event.target.closest('.rp-MenuContainer')) {
-					document.querySelector('.rp-MenuContainer').classList.toggle('is-visible');
+					document.querySelector('.rp-MenuContainer').classList.remove('is-visible');
 				}
 			}
 		});
