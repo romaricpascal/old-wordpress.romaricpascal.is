@@ -18,7 +18,30 @@
 
 	var currentRequest;
 
-	if (!!window.history.pushState) {
+	if (!!window.history.pushState && document.body.classList) {
+
+		var progressBar = document.createElement('div');
+		progressBar.classList.add('rp-ProgressBar');
+		document.body.appendChild(progressBar);
+
+		function updateProgress(ratio) {
+			progressBar.style.width = (100 * ratio) + '%';
+		}
+
+		function clearProgress() {
+			updateProgress(0);
+		}
+
+		function monitorProgress(xhr) {
+			xhr.addEventListener('progress', function (e) {
+				if (e.lengthComputable) {
+					updateProgress(e.loaded / e.total);
+				}
+			});
+			xhr.addEventListener('abort', clearProgress);
+			xhr.addEventListener('load', clearProgress);
+		}
+
 		document.body.addEventListener('click', function (event) {
 
 			// Keep behavior if Ctrl-Clicked or middle/right-clicked
@@ -31,15 +54,15 @@
 
 				// Load results
 				var href = event.target.getAttribute('href');
-				console.log(href);
 				if (currentRequest) {
 					currentRequest.abort();
 				}
 				currentRequest = qwest.get(href, null, {
 					// Delegates the parsing to the browsers
 					responseType: 'document'
-				})
+				}, monitorProgress)
 					.then(function(xhr, response) {
+						updateProgress(0);
 						replaceContent(target, response);
 						var title = response.title;
 						updateTitle(title);
