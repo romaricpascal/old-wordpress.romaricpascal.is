@@ -67,3 +67,12 @@ $a-delay-xxl: 1s;
 .is-exiting-left .rp-PostListItem  {
 	animation-name: fadeInLeft;
 }
+
+.is-entering .rp-PostListItem {
+	animation-name: fadeInLeft;
+	animation-fill-mode: backwards;
+}
+
+.is-entering-left .rp-PostListItem {
+	animation-name: fadeInRight;
+}

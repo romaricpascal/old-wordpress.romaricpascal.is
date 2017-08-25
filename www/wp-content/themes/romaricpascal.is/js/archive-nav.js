@@ -1,10 +1,12 @@
 (function () {
 
+	function swap(oldElement, newElement) {
+		return oldElement.parentNode.replaceChild(newElement, oldElement);
+	}
+
 	function replaceContent(target, newDocument) {
-		console.log(newDocument);
 		var newContent = newDocument.querySelector(target);
 		var current = document.querySelector(target);
-		console.log('Swapping', newContent, 'for', current);
 		current.parentNode.replaceChild(newContent, current);
 	}
 
@@ -40,15 +42,26 @@
 
 		function animateExit(element, direction) {
 			return new Promise(function (resolve, reject) {
-				console.log('Starting animation');
 				element.classList.add('is-exiting', 'is-exiting-' + direction);
 				setTimeout(function () {
-					console.log('Resolving promise');
+					element.classList.remove('is-exiting', 'is-exiting-' + direction);
 					resolve(element);
 					// TODO: Make sure animations have completed by listening to DOM events for example
 				}, 500);
 			});
 		}
+
+		function animateEntrance(element, direction) {
+			return new Promise(function (resolve, reject) {
+				element.classList.add('is-entering', 'is-entering-' + direction);
+				setTimeout(function () {
+					element.classList.remove('is-entering', 'is-entering-' + direction);
+					resolve(element);
+					// TODO: Make sure animations have completed by listening to DOM events for example
+				}, 500);
+			});
+		}
+
 
 		function loadContent(href) {
 			if (currentRequest) {
@@ -62,13 +75,6 @@
 			return currentRequest;
 		}
 
-		function markEntrance(element) {
-			return new Promise(function (resolve, reject) {
-				element.classList.add('is-entering');
-				resolve(element);
-			});
-		}
-
 		function OuterHTMLReplacement (selector) {
 			this.selector = selector;
 		}
@@ -79,7 +85,10 @@
 		}
 
 		OuterHTMLReplacement.prototype.entrance = function (html, options) {
-			replaceContent(this.selector, html);
+			var oldElement = document.querySelector(this.selector);
+			var newElement = html.querySelector(this.selector);
+			animateEntrance(newElement, options.direction);
+			swap(oldElement, newElement);
 		}
 
 		function getReplacements(targetDescriptions) {
