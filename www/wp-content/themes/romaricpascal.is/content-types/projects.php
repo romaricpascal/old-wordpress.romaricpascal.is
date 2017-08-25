@@ -109,13 +109,23 @@ function rp_get_url_terms() {
 
 function rp_resolve_name_as_archive($request) {
   $pathParts = explode('/', $request['name']);
+
+  $terms = rp_resolve_terms($pathParts);
+  if (!$terms) {
+    return $request;
+  }
+
   $craft = array_pop($pathParts);
   $archiveRequest = [
     'post_type' => $request['post_type'],
     'craft' => $craft
   ];
 
-  return rp_resolve($archiveRequest);
+  if ($request['paged']) {
+    $archiveRequest['paged'] = $request['paged'];
+  }
+
+  return $archiveRequest;
 }
 
 function rp_inject_term_into_permalink($permalink, $term) {
@@ -155,7 +165,6 @@ add_filter('get_previous_post_excluded_terms', function () { return [];});
 add_filter('get_next_post_excluded_terms', function() {return [];});
 
 add_filter('request', function ($request) {
-
   if (!($request['post_type'] === PROJECT_TYPE && !empty($request['name']))) {
     return $request;
   }
