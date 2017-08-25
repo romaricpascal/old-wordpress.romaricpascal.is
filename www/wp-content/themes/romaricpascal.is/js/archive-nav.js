@@ -75,6 +75,7 @@
 			return currentRequest;
 		}
 
+		// OuterHTMLReplacement
 		function OuterHTMLReplacement (selector) {
 			this.selector = selector;
 		}
@@ -91,15 +92,45 @@
 			swap(oldElement, newElement);
 		}
 
+		// AttributeReplacement
+		function AttributeReplacement (selector, attribute) {
+			this.selector = selector;
+			this.attribute = attribute;
+		}
+		AttributeReplacement.prototype.exit = function () {}
+		AttributeReplacement.prototype.entrance = function (html, options) {
+			var oldElement = document.querySelector(this.selector);
+			var newElement = html.querySelector(this.selector);
+			return oldElement.setAttribute(this.attribute, newElement.getAttribute(this.attribute));
+		}
+
+		function HrefReplacement (selector) {
+			this.selector = selector;
+			this.attribute = 'href';
+		}
+		HrefReplacement.prototype.exit = function () {}
+		HrefReplacement.prototype.entrance = function (html, options) {
+			var oldElement = document.querySelector(this.selector);
+			var newElement = html.querySelector(this.selector);
+			if (!oldElement.getAttribute('href') || !newElement.getAttribute('href')) {
+				swap(oldElement, newElement);
+			}
+			return oldElement.setAttribute(this.attribute, newElement.getAttribute(this.attribute));
+		}
+
 		function getReplacements(targetDescriptions) {
 			var targets = targetDescriptions.split(',');
 			return targets.map(function (target) {
 
-				// Could do more mapping, eg. have an "AttributeReplacement" 
-				// that would need to take an attribute (or list of attribute)
-				// and just update that attribute onto the document
-				// eg .the-target:href
-				return new OuterHTMLReplacement(target);
+				var tokens = target.split(':');
+				if (tokens.length > 1) {
+					if (tokens[1] === 'href') {
+						return new HrefReplacement(tokens[0], tokens[1]);
+					}
+					return new AttributeReplacement(tokens[0],tokens[1]);
+				} else {
+					return new OuterHTMLReplacement(target);
+				}
 			});
 		}
 
