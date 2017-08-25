@@ -1,7 +1,5 @@
 (function () {
 
-	var target = '.l-sideBySide__main';
-
 	function replaceContent(target, newDocument) {
 		var newContent = newDocument.querySelector('.l-sideBySide__main');
 		var current = document.querySelector('.l-sideBySide__main');
@@ -42,27 +40,52 @@
 			xhr.addEventListener('load', clearProgress);
 		}
 
+		function animateExit(element, direction) {
+			return new Promise(function (resolve, reject) {
+				element.classList.add('is-exiting', 'is-exiting-' + direction);
+				setTimeout(function () {
+					resolve(element);
+					// TODO: Make sure animations have completed
+				}, 500);
+			});
+		}
+
+		function loadContent(href) {
+			return qwest.get(href, null, {
+				// Delegates the parsing to the browsers
+				responseType: 'document'
+			}, monitorProgress);
+		}
+
+		function markEntrance(element) {
+			return new Promise(function (resolve, reject) {
+				element.classList.add('is-entering');
+				resolve(element);
+			});
+		}
+
 		document.body.addEventListener('click', function (event) {
 
 			// Keep behavior if Ctrl-Clicked or middle/right-clicked
 			if (event.ctrlKey || event.which === 2 || event.which === 3) {
 			      return;
 			}
-			
-			if (event.target.matches('.rp-PrevNextNav-project a.rp-PrevNextLink')) {
-				event.preventDefault();
 
+			if (event.target.matches('[data-ajax]')) {
+				event.preventDefault();
 				// Load results
 				var href = event.target.getAttribute('href');
+				var target = event.target.getAttribute('data-ajax');
+				var direction = event.target.getAttribute('rel') === 'prev' ? 'left' : 'right';
 				if (currentRequest) {
 					currentRequest.abort();
 				}
-				currentRequest = qwest.get(href, null, {
-					// Delegates the parsing to the browsers
-					responseType: 'document'
-				}, monitorProgress)
-					.then(function(xhr, response) {
-						updateProgress(0);
+				currentRequest = loadContent(href);
+				Promise.all([
+					currentRequest, 
+					animateExit(document.querySelector(target), direction)
+				]).then(function(promisesResults) {
+						var response = promisesResults[0].response;
 						replaceContent(target, response);
 						var title = response.title;
 						updateTitle(title);

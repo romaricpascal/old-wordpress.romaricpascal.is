@@ -22,6 +22,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	<?php if(!empty($previous_post)): ?>
 	<a
 	  class="rp-PrevNextLink rp-PrevNextLink-previous rp-PrevNextNav__previous" 
+	  data-ajax=".l-sideBySide__main"
 	  href="<?= $previous_post ?>"
 	  rel="prev"
 	  title="Older <?php echo $label; ?>">
@@ -36,7 +37,8 @@ if(!empty($previous_post) || !empty($next_post)):
 	<?php endif; ?>
 	<?php if(!empty($next_post)): ?>
 	<a 
-	  class="rp-PrevNextLink rp-PrevNextLink-next rp-PrevNextNav__next" 
+	  class="rp-PrevNextLink rp-PrevNextLink-next rp-PrevNextNav__next"
+	  data-ajax=".l-sideBySide__main"
 	  href="<?= $next_post ?>"
 	  rel="next"
 	  title="Newer <?php echo $label; ?>">

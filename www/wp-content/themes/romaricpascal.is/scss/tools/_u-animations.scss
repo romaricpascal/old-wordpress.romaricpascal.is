@@ -2,6 +2,8 @@
 // https://github.com/daneden/animate.css (MIT licensed)
 // Keyframes
 @import '../../node_modules/animate.css/source/fading_entrances/fadeIn';
+@import '../../node_modules/animate.css/source/fading_entrances/fadeInLeft';
+@import '../../node_modules/animate.css/source/fading_entrances/fadeInRight';
 @import '../../node_modules/animate.css/source/zooming_entrances/zoomInDown';
 @import '../../node_modules/animate.css/source/zooming_entrances/zoomInRight';
 
@@ -50,4 +52,15 @@ $a-delay-xxl: 1s;
 .a-timing-projectCraft {
 	animation-duration: $a-duration-slowest;
 	animation-delay: $a-delay-l;
+}
+
+.is-exiting .l-oneAndTwo__item {
+  animation-name: fadeInRight;
+  animation-direction: reverse;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.is-exiting-left .l-oneAndTwo__item {
+	animation-name: fadeInLeft;
 }
