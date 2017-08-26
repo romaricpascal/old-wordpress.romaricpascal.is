@@ -153,6 +153,8 @@ h1 {
   font-size: 2em;
 }
 
+@import '_loading';
+
 .u-d-b {
   display: block;
 }
@@ -234,6 +236,10 @@ h1 {
 .u-list-flat {
   padding: 0;
   list-style-type: none;
+}
+
+.u-ofx-h {
+  overflow-x: hidden;
 }
 
 .rp-List-reset {

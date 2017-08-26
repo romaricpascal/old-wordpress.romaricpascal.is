@@ -42,10 +42,15 @@
 
 		function animateExit(element, direction) {
 			return new Promise(function (resolve, reject) {
+				document.body.classList.add('u-ofx-h');
 				element.classList.add('is-exiting', 'is-exiting-' + direction);
 				setTimeout(function () {
 					element.classList.remove('is-exiting', 'is-exiting-' + direction);
-					resolve(element);
+					element.classList.add('has-exited', 'has-exited-' + direction);
+					setTimeout(function () {
+						document.body.classList.remove('u-ofx-h');
+						resolve(element);
+					}, 500);
 					// TODO: Make sure animations have completed by listening to DOM events for example
 				}, 500);
 			});
@@ -153,7 +158,15 @@
 			Promise.all([
 				loadContent(href),
 				runExits(replacements, options)
-			]).then(function(promisesResults) {
+			])
+			// .then(function(promisesResults) {
+			// 	return new Promise(function (resolve) {
+			// 		setTimeout(function () {
+			// 			resolve(promisesResults);
+			// 		}, 2000);
+			// 	});
+			// })
+				.then(function(promisesResults) {
 
 					var response = promisesResults[0].response;
 					runEntrances(replacements, response, options);

@@ -1,0 +1,26 @@
+.u-loadable {
+  position: relative;
+}
+
+.u-loadable::before,
+.u-loadable::after {
+  content: '';
+  color: fade-out($rp-light, 0.5);
+  display: block;
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.u-loadable::before {
+  border: solid 1px currentColor;
+  margin: 1px;
+}
+
+.u-loadable::after {
+  background: currentColor;
+  margin: 1em;
+  z-index: -1;
+}

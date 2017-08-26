@@ -55,24 +55,59 @@ $a-delay-xxl: 1s;
 }
 
 .rp-PostListItem {
-	animation-duration: $a-duration;	
+	animation-name: fadeIn;
+	animation-duration: $a-duration;
+	animation-fill-mode: backwards;
+}
+
+@keyframes postExit {
+	from {
+    	transform: none;
+	}
+
+	50% {
+		transform: translate3d(100%, 0, 0);
+	}
+	51% {
+		transform: translate3d(-100%, 0, 0);
+	}
+
+	to {
+		transform: none;
+	}
 }
 
 .is-exiting .rp-PostListItem  {
   animation-name: fadeInRight;
-  animation-direction: reverse;
+  animation-direction:reverse;
   animation-fill-mode: forwards;
 }
-
 .is-exiting-left .rp-PostListItem  {
 	animation-name: fadeInLeft;
+	animation-direction: reverse;
 }
 
-.is-entering .rp-PostListItem {
+.is-exiting .rp-PostListItem .u-loadable__content{
+	animation-name: fadeIn;
+	animation-direction: reverse;
+	animation-fill-mode: forwards;
+}
+
+.has-exited .rp-PostListItem {
 	animation-name: fadeInLeft;
-	animation-fill-mode: backwards;
+  	animation-fill-mode: forwards;
 }
 
-.is-entering-left .rp-PostListItem {
+.has-exited-left .rp-PostListItem {
 	animation-name: fadeInRight;
+}
+
+.has-exited .rp-PostListItem .u-loadable__content {
+	opacity: 0;
+}
+
+.is-entering .rp-PostListItem .u-loadable__content {
+	animation-name: fadeIn;
+	animation-direction: initial;
+	animation-fill-mode: backwards;
 }
