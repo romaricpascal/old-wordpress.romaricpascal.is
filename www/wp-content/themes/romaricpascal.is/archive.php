@@ -25,7 +25,8 @@
 		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
 			<?php rp_render('postList', 
 			                ['postType' => $postType, 
-			                 'craft' => $craft, 
+			                 'craft' => $craft,
+			                 'withAccessKeys' => true,
 			                 'format' => rp_get_postListFormat($postType), 
 			                 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
