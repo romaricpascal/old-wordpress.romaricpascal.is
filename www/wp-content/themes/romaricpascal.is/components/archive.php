@@ -9,7 +9,7 @@
 <?php if ($query->have_posts()): ?>
 <article class="<?php echo "{$classes}"; ?>" data-inview>
 	<div class="l-sideBySide">
-		<header class="l-sideBySide__header u-flas-start l-vertCentered u-mh-100vh-xl">
+		<header class="l-sideBySide__header l-vertCentered">
 			<?php rp_render('archiveHeading/archiveHeading', 
 			                ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], 
 			                [$postTypeName, rp_get($craft, 'slug')]); ?>

@@ -11,7 +11,7 @@
 <?php get_header(); ?>
 <div class="u-mw-30em">
 	<article class="l-sideBySide" data-inview>
-		<header class="l-sideBySide__header u-flas-start l-vertCentered u-mh-100vh-xl">
+		<header class="l-sideBySide__header l-vertCentered">
 		<?php rp_render('archiveHeading/archiveHeading', 
 		                ['postType' => $postType, 'craft' => $craft, 'headingLevel' => 1], 
 		                [$postType, rp_get($craft, 'slug')]); ?>

@@ -200,9 +200,11 @@ h1 {
 
 .u-mw-30em {
   // Constrains the content so that text doesn't span too wide
-  max-width: 30em;
-  margin-left: auto;
-  margin-right: auto;
+  @include mq($until: archiveOnTwoColumns) {
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .u-mb-0 {
