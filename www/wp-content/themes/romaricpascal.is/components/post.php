@@ -17,4 +17,7 @@
   		<span class="rp-NoteYear rp-NoteTime__part"><?php echo get_the_date('Y'); ?></span>
   	<?php endif; ?>
   </time>
+  <?php if($accesskey !== null): ?>
+    <kbd class="rp-AccessKeyHint"><?php echo $accesskey; ?></kbd>
+  <?php endif;?>
 </a>

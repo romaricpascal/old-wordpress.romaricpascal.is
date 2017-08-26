@@ -280,6 +280,20 @@ h1 {
   border-bottom: $rp-navy-on-yellow-20 solid 2px;
 }
 
+.rp-AccessKeyHint {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  background: #ff5905;
+  color: white;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  opacity: 0;
+}
+
 .rp-Content {
   max-width: 41em;
   margin: auto;
