@@ -118,6 +118,7 @@
 			var oldElement = document.querySelector(this.selector);
 			var newElement = html.querySelector(this.selector);
 			if (!oldElement.getAttribute('href') || !newElement.getAttribute('href')) {
+				console.log('Changing links', oldElement, newElement);
 				swap(oldElement, newElement);
 			}
 			return oldElement.setAttribute(this.attribute, newElement.getAttribute(this.attribute));
@@ -176,9 +177,8 @@
 					updateHistory(document.title, href);
 				})
 				.catch(function () {
-					console.log(arguments);
-					// In case of error, just navigate out like it would have happened without JS
-					// window.location = href;
+					
+					window.location = href;
 				});
 		}
 

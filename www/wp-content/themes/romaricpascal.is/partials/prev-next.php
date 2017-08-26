@@ -19,6 +19,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	<a class="rp-PrevNextLink rp-PrevNextLink-previous rp-PrevNextNav__previous" 
 	   href="<?= rp_get_permalink($previous_post, $terms) ?>"
 	   rel="prev"
+	   accesskey="j"
 	   title="<?=$previous_post->post_title; ?>">
 	   	<?php echo $previous_post->post_title; ?>
 	</a>
@@ -29,6 +30,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	<a class="rp-PrevNextLink rp-PrevNextLink-next rp-PrevNextNav__next" 
 	   href="<?= rp_get_permalink($next_post, $terms) ?>"
 	   rel="next"
+	   accesskey="k"
 	   title="<?=$next_post->post_title; ?>">
 	    <?php echo $next_post->post_title; ?>
 	</a>

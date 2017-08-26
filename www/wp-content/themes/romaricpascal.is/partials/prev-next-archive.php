@@ -11,8 +11,8 @@ if (rp_has_pages()) {
 		$previous_post = get_next_posts_page_link();
 	}
 	// get_previous_posts_page_link() generates the archive URL if on the first page
-	// So need to avoir that
-	if (is_archive() && is_paged()) {
+	// So need to avoid that
+	if (is_paged()) {
 		$next_post = get_previous_posts_page_link();
 	}
 }
@@ -25,6 +25,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	  data-ajax=".rp-PostList, .rp-PrevNextLink-next:href, .rp-PrevNextLink-previous:href"
 	  href="<?= $previous_post ?>"
 	  rel="prev"
+	  accesskey="j"
 	  title="Older <?php echo $label; ?>">
 	    Older <?php echo $label; ?>
     </a>
@@ -41,6 +42,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	  data-ajax=".rp-PostList, .rp-PrevNextLink-next:href, .rp-PrevNextLink-previous:href"
 	  href="<?= $next_post ?>"
 	  rel="next"
+	  accesskey="k"
 	  title="Newer <?php echo $label; ?>">
 	    <?php echo $label; ?>
     </a>
