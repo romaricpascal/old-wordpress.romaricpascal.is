@@ -20,6 +20,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	   href="<?= rp_get_permalink($previous_post, $terms) ?>"
 	   rel="prev"
 	   accesskey="j"
+	   data-key="left"
 	   title="<?=$previous_post->post_title; ?>">
 	   	<?php echo $previous_post->post_title; ?>
 	</a>
@@ -31,6 +32,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	   href="<?= rp_get_permalink($next_post, $terms) ?>"
 	   rel="next"
 	   accesskey="k"
+	   data-key="right"
 	   title="<?=$next_post->post_title; ?>">
 	    <?php echo $next_post->post_title; ?>
 	</a>

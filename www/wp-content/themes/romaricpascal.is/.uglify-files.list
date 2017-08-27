@@ -2,8 +2,11 @@ node_modules/intersection-observer/intersection-observer.js
 js/element-matches.js
 js/element-closest.js
 node_modules/es6-promise/dist/es6-promise.auto.js
+node_modules/mousetrap/mousetrap.js
+node_modules/mousetrap/plugins/global-bind/mousetrap-global-bind.js
 node_modules/qwest/qwest.min.js
 js/with-js.js
 js/inview.js
 js/menu.js
+js/keyboard.js
 js/archive-nav.js

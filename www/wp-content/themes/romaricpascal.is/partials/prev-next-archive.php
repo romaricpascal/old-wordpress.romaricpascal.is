@@ -26,6 +26,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	  href="<?= $previous_post ?>"
 	  rel="prev"
 	  accesskey="j"
+	  data-key="left"
 	  title="Older <?php echo $label; ?>">
 	    Older <?php echo $label; ?>
     </a>
@@ -43,6 +44,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	  href="<?= $next_post ?>"
 	  rel="next"
 	  accesskey="k"
+	  data-key="right"
 	  title="Newer <?php echo $label; ?>">
 	    <?php echo $label; ?>
     </a>

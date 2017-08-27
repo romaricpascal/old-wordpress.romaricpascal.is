@@ -37,6 +37,7 @@
     "es6-promise": "^4.1.1",
     "intersection-observer": "^0.4.0",
     "inuitcss": "^6.0.0-beta.4",
+    "mousetrap": "^1.6.1",
     "normalize.css": "^5.0.0",
     "qwest": "^4.5.0",
     "sass-mq": "^3.3.2",
