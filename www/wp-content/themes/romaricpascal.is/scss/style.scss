@@ -258,7 +258,7 @@ h1 {
 @import 'node_modules/inuitcss/objects/_objects.ratio';
 
 // 5. Components
-.rp-Main {
+.rp-Viewport {
   padding: 0 1em;
 }
 
@@ -294,10 +294,10 @@ h1 {
   
   transition: opacity 0.5s;
   opacity: 0;
-}
 
-.is-showingAccessKeys .rp-AccessKeyHint {
-  opacity: 1;
+  a:hover & {
+    opacity: 1;
+  }
 }
 
 .rp-Content {
@@ -320,7 +320,6 @@ h1 {
 
 .rp-PrevNextNav {
   @include inuit-clearfix;
-  margin-bottom: 1em;
 
   &__previous {
     float: left;
