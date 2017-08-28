@@ -7,7 +7,9 @@
 	$postListFormat = rp_get_postListFormat($postTypeName); ?>
 
 <?php if ($query->have_posts()): ?>
-<article class="<?php echo "{$classes}"; ?>" data-inview>
+<article class="<?php echo "{$classes}"; ?>"
+	<?php if ($id) {echo "id='{$id}'";} ?>
+	data-inview >
 	<div class="l-sideBySide">
 		<header class="l-sideBySide__header l-vertCentered">
 			<?php rp_render('archiveHeading/archiveHeading', 

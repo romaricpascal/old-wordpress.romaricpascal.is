@@ -1,0 +1,31 @@
+.rp-HomeMenu {
+  position: fixed;
+  top: 50%;
+  left: 1em;
+  transform: translateY(-50%);
+
+  @include mq($until: showHomeMenu) {
+  	display: none;
+  }
+}
+
+.rp-HomeMenuItem {
+  display:block;
+  max-height: 2em;
+  overflow: hidden;
+}
+
+.rp-HomeMenuItem::before {
+  content: '';
+  display:block;
+  height: 0.5em;
+  width: 0.5em;
+  border-radius: 9999px;
+  background-color: $rp-orange;
+  margin: 0.75em;
+  transition: transform 0.5s;
+}
+
+.rp-HomeMenuItem-active::before {
+  transform: scale(2);  
+}

@@ -111,3 +111,17 @@ $a-delay-xxl: 1s;
 	animation-direction: initial;
 	animation-fill-mode: backwards;
 }
+
+.rp-Viewport {
+	animationName: fadeIn;
+	&.is-entering {
+		animation-duration: $a-duration;
+		animation-fill-mode: forwards;
+	}
+
+	&.is-exiting {
+		animation-duration: $a-duration;
+		animation-direction: reverse;
+		animation-fill-mode: backwards;
+	}
+}

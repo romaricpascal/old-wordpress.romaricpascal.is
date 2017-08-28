@@ -30,6 +30,7 @@ $rp-lineHeight: 1.5;
 
 // 1.3 Breakpoints
 $mq-breakpoints: (
+  showHomeMenu: 34em,
   archiveOnTwoColumns: 58em
 );
 
@@ -99,6 +100,13 @@ $above-1: 25;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &>* {
+    // Aim is just to positiong things in the middle, not to shrink things
+    flex: none;
+    // Due to some children having no intrinsic width (headings positionned absolutely, aspect ratio with images...)
+    width: 100%;
+  }
 }
 
 @import 'tools/_viewportScalingFontSize';
@@ -438,6 +446,7 @@ $prevNextLinkSize: $circleButtonSize;
 // Headings
 @import '_headings';
 @import '_shareLinks';
+@import '_homeMenu';
 @import '_home';
 @import '_header';
 @import '_blog';
