@@ -42,6 +42,7 @@
     "qwest": "^4.5.0",
     "sass-mq": "^3.3.2",
     "simple-icons": "git://github.com/simple-icons/simple-icons.git#develop",
+    "smoothscroll-polyfill": "^0.3.6",
     "spinkit": "^1.2.5"
   }
 }
