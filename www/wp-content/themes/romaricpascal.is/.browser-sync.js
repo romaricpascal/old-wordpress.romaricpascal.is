@@ -5,7 +5,6 @@ module.exports = {
 			proxyReq.setHeader('Host', req.headers.host);
 		}],
 		proxyRes: [function (proxyRes, req, res) {
-			console.log(proxyRes.headers);
 			Object.keys(proxyRes.headers).forEach(function (headerName) {
 				res.setHeader(headerName, proxyRes.headers[headerName]);
 			})
