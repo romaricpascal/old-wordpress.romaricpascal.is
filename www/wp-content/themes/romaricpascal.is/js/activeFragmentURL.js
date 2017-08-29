@@ -12,7 +12,11 @@ function highest(property) {
 
 function updateMostVisible(entries) {
 	var mostVisible = entries.reduce(highest('intersectionRatio'));
-	history.pushState({}, document.title, `#${mostVisible.target.id}`);
+	// Avoid unnecessary states in history
+	var hash = `#${mostVisible.target.id}`;
+	if (hash !== window.location.hash) {
+		history.replaceState({}, `${document.title} - ${hash}`, hash);
+	}
 }
 
 var observer = new ScrollIntersectionObserver(updateMostVisible);

@@ -11,5 +11,6 @@ module.exports = {
 		}]
 	},
 	files: ['style.css', 'main.js', '**/*.php'],
-	open: false
+	open: false,
+	ghostmode: false
 }
