@@ -1,21 +1,17 @@
 (function () {
-	if(!!document.body.classList) {
+	if(!!document.body.classList && ScrollIntersectionObserver) {
 
-		var observer = new IntersectionObserver(function (entries, observer) {
+		var observer = new ScrollIntersectionObserver(function (entries, observer) {
+			console.log('InView', entries);
 			entries.forEach(function (entry) {
-				if (entry.isIntersecting) {
+				if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
 					entry.target.classList.add('is-inView');
 				} else {
 					entry.target.classList.remove('is-inView');
 				}
 			});
-		}, {
-			threshold: 0.25
 		});
 
-		var targets = document.querySelectorAll('[data-inview]');
-		Array.prototype.forEach.call(targets, function (target) {
-			observer.observe(target);
-		});
+		observer.observe('[data-inview]');
 	}
 })();

@@ -20,6 +20,7 @@
 				if (targetElement) {
 					event.preventDefault();
 					targetElement.scrollIntoView({behavior: 'smooth'});
+					targetElement.focus();
 					history.pushState({}, document.title, event.target.href );
 				}
 			}
