@@ -12,7 +12,6 @@ function highest(property) {
 
 function updateMostVisible(entries) {
 	var mostVisible = entries.reduce(highest('intersectionRatio'));
-	console.log(entries, mostVisible);
 	history.pushState({}, document.title, `#${mostVisible.target.id}`);
 }
 
