@@ -1,4 +1,5 @@
 import autobind from 'autobind-decorator';
+import throttle from 'lodash.throttle';
 
 var viewport = {
 	x:0, 
@@ -35,7 +36,7 @@ function computeIntersectionRatio(intersectionRect, elementRect) {
 		return 0;
 	}
 
-	if (elementRect.width !== 0 || intersectionRect.height === 0) {
+	if (elementRect.width === 0 || elementRect.height === 0) {
 		return 1;
 	}
 
@@ -65,7 +66,7 @@ export default class ScrollIntersectionObserver {
 		this.observed.push(element);
 		if (this.observed.length && !this.listening) {
 			this.listening = true;
-			window.addEventListener('scroll', this.onScroll);
+			window.addEventListener('scroll', throttle(this.onScroll, 100));
 		}
 	}
 	takeRecords() {
