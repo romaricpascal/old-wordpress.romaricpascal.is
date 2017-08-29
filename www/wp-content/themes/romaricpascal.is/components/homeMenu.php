@@ -1,5 +1,11 @@
 <nav class="rp-HomeMenu">
-	<?php foreach($items as $item): ?>
-	<a class="rp-HomeMenuItem" href="#<?php echo $item[0]; ?>"><?php echo $item[1]; ?></a>
+	<a class="rp-HomeMenuItem rp-HomeMenuItem-prev rp-HomeMenu__prevNext" accesskey="j" data-key="up">Previous section</a>
+	<?php foreach($items as $index => $item): ?>
+	<a class="rp-HomeMenuItem rp-HomeMenuItem-fragment" 
+	   href="#<?php echo $item[0]; ?>" 
+	   accesskey="<?php echo rp_get_accessKey($index); ?>">
+		<?php echo $item[1]; ?>   	
+	</a>
 	<?php endforeach; ?>
+	<a class="rp-HomeMenuItem rp-HomeMenuItem-next rp-HomeMenu__prevNext" accesskey="k" data-key="down">Next section</a>
 </nav>

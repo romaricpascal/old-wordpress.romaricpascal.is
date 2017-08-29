@@ -11,7 +11,6 @@
 		}
 	}
 
-	$ACCESS_KEYS = [1,2,3,4,5,6,7,8,9,0,'-','='];
 	$postIndex = 0;
 ?>
 
@@ -19,8 +18,8 @@
 <?php while(rp_has_more_posts($query)): ?>
 	<?php 
 		$post = rp_next_post($query); 
-		if ($withAccessKeys && count($ACCESS_KEYS) > $postIndex) {
-			$accesskey = $ACCESS_KEYS[$postIndex];
+		if ($withAccessKeys) {
+			$accesskey = rp_get_accessKey($postIndex);
 		}
 	?>
 	<li class="rp-PostListItem <?php echo $itemLayoutClass; ?> u-loadable">

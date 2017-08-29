@@ -9,7 +9,7 @@ function markInactiveLinks(activeActiveLink) {
 			if (ActiveLink !== activeActiveLink) {
 				ActiveLink.classList.remove(ACTIVE_CLASSNAME);
 			}
-		};
+		}
 	}
 }
 

@@ -38,4 +38,4 @@ require('./archive-nav');
 require('./smoothscroll');
 require('./activeFragmentURL');
 require('./activeFragmentLink');
-require('./homeMenu');
+require('./prevNext');
