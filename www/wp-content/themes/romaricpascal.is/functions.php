@@ -166,7 +166,7 @@ function rp_title() {
   return $title;
 }
 
-define(ACCESS_KEYS,[1,2,3,4,5,6,7,8,9,0,'-','=']);
+define('ACCESS_KEYS',[1,2,3,4,5,6,7,8,9,0,'-','=']);
 function rp_has_accessKey($index) {
   return count(ACCESS_KEYS) > $index;
 }
