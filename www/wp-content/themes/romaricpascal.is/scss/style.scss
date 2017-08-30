@@ -263,6 +263,11 @@ h1 {
   display: block;
 }
 
+// Translate everything down to make space for the admin bar
+.admin-bar>*:not(#wpadminbar) {
+  transform: translateY(32px);
+}
+
 @import 'node_modules/inuitcss/objects/_objects.ratio';
 
 // 5. Components
