@@ -24,7 +24,8 @@
 <?php endif;?>	
 		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
 			<?php rp_render('postList', 
-			                ['postType' => $postType, 
+			                ['postType' => $postType,
+			                 'classes' => 'u-mb-1', 
 			                 'craft' => $craft,
 			                 'withAccessKeys' => true,
 			                 'format' => rp_get_postListFormat($postType), 

@@ -23,7 +23,7 @@
 		</header>
 		<?php rp_render('postList', [
 		  'query' => $query, 
-		  'classes' => "l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView",
+		  'classes' => "l-sideBySide__main u-mb-1 fadeIn a-entrance a-timing-main u-anim-inView",
 		  'postType' => $postTypeName,
 		  'craft' => $craft,
 		  'format' => $postListFormat,

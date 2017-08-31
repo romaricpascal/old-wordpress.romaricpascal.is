@@ -22,10 +22,9 @@
 			$accesskey = rp_get_accessKey($postIndex);
 		}
 	?>
-	<li class="rp-PostListItem <?php echo $itemLayoutClass; ?> u-loadable">
+	<li class="rp-PostListItem <?php echo $itemLayoutClass; ?>">
 		<?php rp_render('post', [
 			'post' => $post, 
-			'classes' => 'u-loadable__content', 
 			'craft'=> $craft, 'headingLevel' => $headingLevel,
 			'accesskey' => $accesskey
 			], [$format, $post->post_type]); ?>
