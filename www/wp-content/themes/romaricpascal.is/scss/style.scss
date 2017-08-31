@@ -402,6 +402,19 @@ $prevNextLinkSize: $circleButtonSize;
   }
 }
 
+.rp-PostLink:hover {
+  text-decoration:none;
+}
+
+.rp-PostListItem {
+  transition: transform 0.3s;
+}
+
+.rp-PostListItem:hover{
+  transform: scale(1.05);
+  z-index:25;
+}
+
 // Forms
 .rp-Label {
   @include typo-display;

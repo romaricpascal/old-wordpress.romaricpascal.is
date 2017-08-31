@@ -3,7 +3,7 @@
     $headingLevel = 1;
   }
 ?>
-<a class="rp-Note u-mb-2 <?php echo $classes; ?>" 
+<a class="rp-PostLink rp-Note<?php echo $classes; ?>" 
    <?php if ($accesskey !== null) { echo "accesskey='{$accesskey}'";} ?>
    href="<?php echo rp_get_permalink($post); ?>">
   <h<?php echo $headingLevel;?> class="rp-NoteTitle"><?php echo $post->post_title?></h<?php echo $headingLevel; ?>>
