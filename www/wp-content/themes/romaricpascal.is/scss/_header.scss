@@ -82,12 +82,16 @@
   text-indent: 1em;
   padding-right: 0.5em;
 
+  a {
+    display:block;
+  }
+
   .sub-menu & {
     text-indent: 2em;
   }
 }
 
-.current-menu-item:not(.current-menu-parent) {
+.current-menu-item:not(.current-menu-parent)>a {
   border-left: solid 6px $rp-orange;
 }
 
