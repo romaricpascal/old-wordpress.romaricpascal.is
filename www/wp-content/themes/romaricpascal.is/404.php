@@ -1,6 +1,5 @@
 <?php get_header();?>
-<div class="u-mw-30em">
-<section class="rp-HomeSection" data-inView>
+<article class="l-vertCentered u-mw-30em" data-inview>
 <h1 class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-notFound">
   <span class="rp-LetteredHeading__picture rp-LetteredHeading__part"></span>
   <span class="rp-LetteredHeading__page a-timing-2-1-1__I rp-LetteredHeading__part">Page</span>
@@ -19,6 +18,5 @@
 	</p>
 <?php endif;?>
 </div>
-</section>
-</div>
+</article>
 <?php get_footer();?>

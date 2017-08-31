@@ -9,7 +9,7 @@
 
 <?php if(!rp_is_ajax()): ?>
 <?php get_header(); ?>
-<div class="u-mw-30em">
+<div class="u-mw-30em-xl-down">
 	<article class="l-sideBySide" data-inview>
 		<header class="l-sideBySide__header l-vertCentered u-vgap-1em u-vgap-firstBig">
 		<?php rp_render('archiveHeading/archiveHeading', 
