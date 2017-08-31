@@ -13,7 +13,7 @@
 			rp_render('archive', [
 				'postTypeName'=> 'project', 
 				'craft' => $craft, 
-				'classes' => 'rp-HomeSection u-mw-30em-xl-down',
+				'classes' => 'rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL',
 				'id' => $menu_id,
 				'headingLevel' => 2
 				], ['project', rp_get($craft, 'slug')]); 
@@ -26,7 +26,7 @@
 			rp_render('archive', [
 				'postTypeName' => $menu_item->object, 
 				'craft' => $craft, 
-				'classes' => 'rp-HomeSection u-mw-30em-xl-down',
+				'classes' => 'rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL',
 				'id' => $menu_id,
 				'headingLevel' => 2
 			], [$menu_item->object, rp_get($craft, 'slug')]);
@@ -37,12 +37,13 @@
 				rp_render('archive', [
 					'postTypeName' => 'post', 
 					'craft' => $craft, 
-					'classes' => 'rp-HomeSection u-mw-30em-xl-down', 
+					'classes' => 'rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL', 
 					'id' => $menu_id,
 					'headingLevel' => 2
 				],['post', rp_get($craft, 'slug')]);
 			}  elseif ($post->post_type === 'page') { ?>
-				<section id="<?php echo $menu_id; ?>" class="rp-HomeSection u-mw-30em-xl-down" data-inview>
+				<section id="<?php echo $menu_id; ?>" 
+						 class="rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL" data-inview>
 				 <?php rp_render('page', [
 				   'post' => $post, 
 				   'headingLevel' => 2

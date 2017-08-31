@@ -70,7 +70,7 @@ export default class ScrollIntersectionObserver {
 		}
 	}
 	takeRecords() {
-		return this.observed.length && this.observed.map(function (element) {
+		return this.observed.map(function (element) {
 			return {
 				target: element,
 				boundingClientRect: element.getBoundingClientRect()

@@ -13,12 +13,14 @@ function highest(property) {
 function updateMostVisible(entries) {
 	var mostVisible = entries.reduce(highest('intersectionRatio'));
 	// Avoid unnecessary states in history
-	var hash = `#${mostVisible.target.id}`;
-	if (hash !== window.location.hash) {
-		history.replaceState({}, `${document.title} - ${hash}`, hash);
+	if (mostVisible.target.id) {
+		var hash = `#${mostVisible.target.id}`;
+		if (hash !== window.location.hash) {
+			history.replaceState({}, `${document.title} - ${hash}`, hash);
+		}
 	}
 }
 
 var observer = new ScrollIntersectionObserver(updateMostVisible);
-observer.observe('[data-inview]');
+observer.observe('.js-archiveFragmentURL');
 updateMostVisible(observer.takeRecords());
