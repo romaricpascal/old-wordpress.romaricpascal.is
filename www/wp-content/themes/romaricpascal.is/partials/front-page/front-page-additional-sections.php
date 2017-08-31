@@ -51,7 +51,7 @@
 			<?php 
 			}
 		}
-	}
-
-	rp_render('homeMenu', ['items' => $menu_ids]);
+	}?>
+</div>
+<?php rp_render('homeMenu', ['items' => $menu_ids]); ?>
 
