@@ -7,7 +7,7 @@
 			$layoutClass = 'l-oneAndTwo';
 			$itemLayoutClass = 'l-oneAndTwo__item';
 		} else {
-			$itemLayoutClass = 'u-mb-2';
+			$layoutClass = 'u-vgap-2em';
 		}
 	}
 
