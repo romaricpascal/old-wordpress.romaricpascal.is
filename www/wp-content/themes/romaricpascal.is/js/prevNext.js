@@ -1,24 +1,21 @@
 import click from './dom/click';
 
+function trigger(position, activeLink) {
+	if (activeLink) {
+		var target = activeLink[`${position}ElementSibling`];
+		if (target.matches('.rp-HomeMenuItem-fragment')) {
+			click(target);
+		}
+	}
+}
+
 document.body.addEventListener('click', function (event) {
 	if (event.target.matches('.rp-HomeMenuItem-prev')) {
-		var activeLink = document.querySelector('.rp-HomeMenuItem-active');
-		if (activeLink) {
-			var target = activeLink.previousElementSibling;
-			if (target.matches('.rp-HomeMenuItem-fragment')) {
-				click(target);
-			}
-		}
+		trigger('previous', document.querySelector('.rp-HomeMenuItem-active'));
 	}
 
 	if (event.target.matches('.rp-HomeMenuItem-next')) {
-		var activeLink = document.querySelector('.rp-HomeMenuItem-active');
-		if (activeLink) {
-			var target = activeLink.nextElementSibling;
-			if (target.matches('.rp-HomeMenuItem-fragment')) {
-				click(target);
-			}
-		}
+		trigger('next', document.querySelector('.rp-HomeMenuItem-active'));
 	}
 
 	
