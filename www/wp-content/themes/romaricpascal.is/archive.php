@@ -22,7 +22,7 @@
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		</header>
 <?php endif;?>	
-		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
+		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView u-vgap-1em">
 			<?php rp_render('postList', 
 			                ['postType' => $postType,
 			                 'classes' => 'u-mb-1', 
@@ -31,11 +31,12 @@
 			                 'format' => rp_get_postListFormat($postType), 
 			                 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
-		</div>
-<?php if(!rp_is_ajax()): ?>
-	 	<?php rp_render('archiveDescription/archiveDescription', 
+			<?php rp_render('archiveDescription/archiveDescription', 
 	 	                ['postType' => $postType, 'craft' => $craft, classes => 'u-hide-xl'], 
 	 	                [$postType, rp_get($craft, 'slug')]); ?>
+		</div>
+<?php if(!rp_is_ajax()): ?>
+	 	
 	</article>
 </div>
 
