@@ -4,7 +4,7 @@
 		$headingLevel = 1;
 	}
 ?>
-<h<?php echo $headingLevel; ?>>Follow me</h<?php echo $headingLevel;?>>
+<h<?php echo $headingLevel; ?>>… or follow me</h<?php echo $headingLevel;?>>
 <ul class="u-list-flat rp-ShareLinkList">
 	<?php foreach($links as $link):?>
 		<li>

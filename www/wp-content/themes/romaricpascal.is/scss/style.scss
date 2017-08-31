@@ -246,6 +246,7 @@ h1 {
 .u-list-flat {
   padding: 0;
   list-style-type: none;
+  margin-bottom: 0;
 }
 
 .u-ofx-h {
@@ -284,8 +285,9 @@ h1 {
 }
 
 .rp-AsideSection {
-  padding: 1em 0;
+  padding-bottom: 1em;
   border-bottom: $rp-navy-on-yellow-20 solid 2px;
+  margin-bottom: 1em;
 }
 
 .rp-AccessKeyHint {
@@ -404,44 +406,7 @@ $prevNextLinkSize: $circleButtonSize;
 }
 
 // wpcf-7
-.wpcf7-form {
-  display: flex;
-  flex-direction: column;
-}
 
-.wpcf7-response-output.wpcf7-response-output {
-  order: -1;
-  margin: 0;
-  margin-bottom: 2em;
-  padding: 1em;
-}
-
-.wpcf7-validation-errors.wpcf7-validation-errors,
-.wpcf7-mail-sent-ng.wpcf7-mail-sent-ng {
-  color: $rp-orange-dark-8;
-  border-color: $rp-orange;
-}
-
-// Need to bump specificity to override default styling :(
-.wpcf7-not-valid-tip.wpcf7-not-valid-tip {
-  color: $rp-orange-dark-8;
-  @include typo-copy;
-  text-transform: none;
-}
-
-.wpcf7-form label {
-  @extend .rp-Label;
-}
-
-.wpcf7-form-control {
-  @extend .rp-Input;
-  // Ensures the form take all available space
-  display: block;
-  width: 100%;
-}
-.wpcf7-submit {
-  @extend .rp-Button;
-}
 
 // Headings
 @import '_headings';
@@ -449,6 +414,7 @@ $prevNextLinkSize: $circleButtonSize;
 @import '_homeMenu';
 @import '_home';
 @import '_header';
+@import '_contact';
 @import '_blog';
 @import '_artworks';
 @import '_single-project';
