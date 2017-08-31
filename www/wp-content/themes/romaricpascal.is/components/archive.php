@@ -11,7 +11,7 @@
 	<?php if ($id) {echo "id='{$id}'";} ?>
 	data-inview >
 	<div class="l-sideBySide">
-		<header class="l-sideBySide__header l-vertCentered">
+		<header class="l-sideBySide__header l-vertCentered u-vgap-firstLarge">
 			<?php rp_render('archiveHeading/archiveHeading', 
 			                ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], 
 			                [$postTypeName, rp_get($craft, 'slug')]); ?>

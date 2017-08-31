@@ -260,6 +260,22 @@ h1 {
   list-style-type: none;
 }
 
+.u-vgap-1em {
+  &>*:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}
+
+.u-vgap-firstLarge {
+  >*:first-child:not(:last-child) {
+    margin-bottom: 2em;
+
+    @include mq($from: archiveOnTwoColumns) {
+        margin-bottom: 3vw;
+    }
+  }
+}
+
 // 4.5 Wordpress style adjustments
 .gallery-item img {
   width: 100%;
@@ -271,6 +287,11 @@ h1 {
 // 5. Components
 .rp-Viewport {
   padding: 0 1em 1em;
+
+  .home &{
+    // Elements have enough space they don't need more at the bottom
+    padding-bottom: 0;
+  }
 }
 
 .rp-ProgressBar {
