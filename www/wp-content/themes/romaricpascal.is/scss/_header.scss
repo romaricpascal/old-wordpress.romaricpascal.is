@@ -11,7 +11,8 @@
 
   .home &,
   .blog &,
-  .archive & {
+  .archive &,
+  .single-artwork & {
     @include mq($from: archiveOnTwoColumns) {
       position: fixed;
       top: 0;

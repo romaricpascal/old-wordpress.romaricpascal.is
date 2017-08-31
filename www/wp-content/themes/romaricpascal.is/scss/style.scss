@@ -148,7 +148,7 @@ img {
 
 p, ul, ol, dl {
   margin-top:0;
-  margin-bottom: 0;
+  margin-bottom: 0;1
   &:not(:last-child) {
     margin-bottom: 1em;
   }
@@ -170,12 +170,38 @@ h1 {
   display: block;
 }
 
+.u-d-flx {
+
+  &-l {
+    @include mq($from: showHomeMenu) {
+      display: flex;
+    }
+  }
+}
+
 .u-ta-c {
   text-align: center;
 }
 
 .u-c-orange {
   color: $rp-orange;
+}
+
+.u-ord-first {
+  &-l {
+    @include mq($from: showHomeMenu) {
+      order: -9999;
+    }
+  }
+}
+
+.u-ord-last {
+
+  &-l {
+    @include mq($from: showHomeMenu) {
+      order: 9999;    
+    }
+  }
 }
 
 .u-fl-auto {
@@ -241,15 +267,33 @@ h1 {
   margin-bottom: 10em;
 }
 
-.u-show-xl {
-  @include mq($until: archiveOnTwoColumns) {
-    display: none;
+.u-show {
+  
+  &-l {
+    @include mq($until: showHomeMenu) {
+      display: none;
+    }
+  }
+
+  &-xl {
+    @include mq($until: archiveOnTwoColumns) {
+      display: none;
+    }
   }
 }
 
-.u-hide-xl {
-  @include mq($from: archiveOnTwoColumns) {
-    display: none;
+.u-hide {
+
+  &-l {
+    @include mq($from: showHomeMenu) {
+      display: none;
+    }
+  }
+
+  &-xl {
+    @include mq($from: archiveOnTwoColumns) {
+      display: none;
+    }
   }
 }
 
@@ -261,6 +305,14 @@ h1 {
 
 .u-ofx-h {
   overflow-x: hidden;
+}
+
+.u-clearfix {
+  @include inuit-clearfix;
+}
+
+.u-flt-right {
+  float: right;
 }
 
 .rp-List-reset {
@@ -400,7 +452,7 @@ $prevNextLinkSize: $circleButtonSize;
     color: $rp-light-on-yellow-50;
   }
 
-  &-previous::before {
+  &-prev::before {
     content: '<';
   }
 

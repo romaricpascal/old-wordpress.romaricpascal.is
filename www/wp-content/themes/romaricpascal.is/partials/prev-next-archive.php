@@ -21,8 +21,8 @@ if(!empty($previous_post) || !empty($next_post)):
 <nav class="rp-PrevNextNav rp-PrevNextNav-<?php echo $post_type; ?>">
 	<?php if(!empty($previous_post)): ?>
 	<a
-	  class="rp-PrevNextLink rp-PrevNextLink-previous rp-PrevNextNav__previous" 
-	  data-ajax=".rp-PostList, .rp-PrevNextLink-next:href, .rp-PrevNextLink-previous:href"
+	  class="rp-PrevNextLink rp-PrevNextLink-prev rp-PrevNextNav__previous" 
+	  data-ajax=".rp-PostList, .rp-PrevNextLink-next:href, .rp-PrevNextLink-prev:href"
 	  href="<?= $previous_post ?>"
 	  rel="prev"
 	  accesskey="j"
@@ -32,7 +32,7 @@ if(!empty($previous_post) || !empty($next_post)):
     </a>
 	<?php else: ?>
 	<span 
-	  class="rp-PrevNextLink rp-PrevNextLink-disabled rp-PrevNextLink-previous rp-PrevNextNav__previous" 
+	  class="rp-PrevNextLink rp-PrevNextLink-disabled rp-PrevNextLink-prev rp-PrevNextNav__previous" 
 	  title="No older <?php echo $label; ?>">
 		No older <?php echo $label; ?>		
 	</span>
@@ -40,7 +40,7 @@ if(!empty($previous_post) || !empty($next_post)):
 	<?php if(!empty($next_post)): ?>
 	<a 
 	  class="rp-PrevNextLink rp-PrevNextLink-next rp-PrevNextNav__next"
-	  data-ajax=".rp-PostList, .rp-PrevNextLink-next:href, .rp-PrevNextLink-previous:href"
+	  data-ajax=".rp-PostList, .rp-PrevNextLink-next:href, .rp-PrevNextLink-prev:href"
 	  href="<?= $next_post ?>"
 	  rel="next"
 	  accesskey="k"

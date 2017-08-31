@@ -143,6 +143,10 @@ function rp_is_object_in_craft($post, $term) {
 
 function rp_get_permalink($post, $through = null) {
 
+  if (empty($post)) {
+    return null;
+  }
+
   if (!empty($through) && is_array($through)) {
     $through = $through[0];
   }
@@ -158,6 +162,31 @@ function rp_get_permalink($post, $through = null) {
   }
 
   return $permalink;
+}
+
+function rp_get_terms_to_exclude($post, $terms) {
+  $post = rp_get_the_post();
+  $postTermIds = array_pluck(wp_get_post_terms($post->ID, CRAFT_TAX_NAME), 'term_id');
+  $termIds = array_pluck($terms, 'term_id');
+  $excludedIds = array_diff($postTermIds,$termIds);
+}
+
+function rp_get_next_post($post, $terms) {
+  if ($post->post_type === PROJECT_TYPE && $terms) {
+      $excludedIds = rp_get_terms_to_exclude($post, $terms);
+      return get_next_post(true, $excludedIds, CRAFT_TAX_NAME);
+  } else {
+    return get_next_post();
+  }
+}
+
+function rp_get_previous_post($post, $terms) {
+  if ($post->post_type === PROJECT_TYPE && $terms) {
+      $excludedIds = rp_get_terms_to_exclude($post, $terms);
+     return get_previous_post(true, $excludedIds, CRAFT_TAX_NAME);
+  } else {
+    return get_previous_post();
+  }
 }
 
 // Ensures post don't get excluded from prev/next navigation because they share an unrelated craft

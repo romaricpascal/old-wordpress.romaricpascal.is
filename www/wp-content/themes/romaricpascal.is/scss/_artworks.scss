@@ -1,10 +1,111 @@
+.rp-Artwork {
+	margin-left: auto;
+	margin-right: auto;
+
+	@include mq($until: showHomeMenu) {
+		max-width: 30em;
+	}
+
+	@include mq($from: showHomeMenu) {
+		display: flex;
+		flex-wrap: nowarp;
+		justify-content: center;
+		align-items: start;	
+
+		&::before,
+		&::after {
+			content: '';
+			width: 2vw;
+		}
+	}
+
+	@include mq($from: archiveOnTwoColumns) {
+		align-items: center;
+	}
+}
+
+.rp-ArtworkNav-prev {
+	order: -999;
+	flex: none;
+
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		margin-top: 15em;
+		transform: translateY(-50%);
+	}
+}
+
+.rp-ArtworkNav-next {
+	float: right;
+	order: 999;
+	flex: none;
+
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		margin-top: 15em;
+		transform: translateY(-50%);
+	}
+}
+
+.rp-ArtworkContent {
+	
+	@include mq($until: showHomeMenu) {
+		margin-bottom: 1em;
+	}
+
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		max-width: 30em;
+	}
+
+	@include mq($from: archiveOnTwoColumns) {
+		display: flex;
+		flex-wrap: nowarp;
+		justify-content: center;
+		align-items: center;
+
+		&::before {
+			content: '';
+			width: 2vw;
+			flex: none;
+		}
+	}
+}
+
+.rp-ArtworkImage {
+	
+	order: -999;
+	max-width: 35em;
+	flex: none;
+
+	@include mq($until: showHomeMenu) {
+		margin-bottom: 1em;
+	}
+
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		margin-bottom: 2em;
+	}
+}
+
+.rp-ArtworkInfo {
+	order: 999;
+	@include mq($from: archiveOnTwoColumns) {
+		max-width: 15em;
+		flex: none;
+	}
+}
+
 .rp-ArtworkSingle {
 	max-width: 30em;
-	max-width: calc(100vh - #{$headerHeight} - 2em);
 
 	margin-left: auto;
 	margin-right: auto;
 	
+	// Ensures the image fits the height
+	// But when the aspect ratio gets too large
+	// The image is too tiny 
+	@include mq($and: '(max-aspect-ratio: 4/3)') {
+		max-width: calc(100vh - #{$headerHeight} - 2em);
+	}
+	// Important that this is after the previous one
+	// So it overides it
 	@include mq($and: '(min-height: 35em)') {
 		max-width: 30em;
 	}
