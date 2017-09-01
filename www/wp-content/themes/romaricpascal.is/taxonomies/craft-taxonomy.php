@@ -96,3 +96,7 @@ function rp_get_crafts($post) {
   $crafts = wp_get_post_terms($post->ID,CRAFT_TAX_NAME);
   return array_reverse($crafts);
 }
+
+function rp_get_query_craft() {
+  return rp_get_craft_object(get_query_var( CRAFT_TAX_NAME ));
+}
