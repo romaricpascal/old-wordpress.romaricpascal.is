@@ -15,15 +15,17 @@ function getFragment(a) {
 if (history.pushState) {
 	document.body.addEventListener('click', function (event) {
 
-		if (isFragmentLink(event.target)) {
-			console.log('Smooth scrolling!!!!');
-			var targetSelector = getFragment(event.target);
-			var targetElement = document.querySelector(targetSelector);
-			if (targetElement) {
-				event.preventDefault();
-				targetElement.scrollIntoView({behavior: 'smooth'});
-				targetElement.focus();
-				history.pushState({}, document.title, event.target.href );
+		if (!event.defaultPrevented) {
+			if (isFragmentLink(event.target)) {
+				console.log('Smooth scrolling!!!!');
+				var targetSelector = getFragment(event.target);
+				var targetElement = document.querySelector(targetSelector);
+				if (targetElement) {
+					event.preventDefault();
+					targetElement.scrollIntoView({behavior: 'smooth'});
+					targetElement.focus();
+					history.pushState({}, document.title, event.target.href );
+				}
 			}
 		}
 	});
