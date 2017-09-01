@@ -8,6 +8,13 @@
   @include mq($until: showHomeMenu) {
   	display: none;
   }
+
+  // TODO: A JS solution to adjust according to the actual
+  // size would be more robust for hiding the menu
+  // when the screen is not tall enough
+  @include mq($and: '(max-height: 34em)') {
+    display: none;
+  }
 }
 
 .rp-HomeMenuItem {

@@ -11,9 +11,11 @@
 <?php get_header(); ?>
 <div class="u-mw-30em-xl-down">
 	<article class="l-sideBySide" data-inview>
-		<header class="l-sideBySide__header l-vertCentered u-vgap-1em u-vgap-firstBig">
+		<header class="l-sideBySide__header l-vertCentered u-vgap-firstBig">
 		<?php rp_render('archiveHeading/archiveHeading', 
-		                ['postType' => $postType, 'craft' => $craft, 'headingLevel' => 1], 
+		                ['postType' => $postType, 
+		                 'craft' => $craft, 
+		                 'headingLevel' => 1], 
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		<?php rp_render('archiveDescription/archiveDescription', 
 		                ['postType' => $postType, 
@@ -22,7 +24,7 @@
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		</header>
 <?php endif;?>	
-		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView u-vgap-1em">
+		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
 			<?php rp_render('postList', 
 			                ['postType' => $postType,
 			                 'classes' => 'u-mb-1', 

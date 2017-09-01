@@ -12,13 +12,6 @@
 		order: 2;
 	}
 
-	&::after {
-		flex: none;
-		content: '';
-		width: 4vw;
-		order: 1
-	}
-
 	&__header {
 		width: 33vw;
 		max-width: 25em;
