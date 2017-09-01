@@ -7,7 +7,14 @@
   line-height: 3em;
   padding: 0 1em;
 
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: $above-1;
+
+  .home & {
+    position: absolute;
+  }
 
   .home &,
   .blog &,
@@ -15,9 +22,6 @@
   .single-artwork & {
     @include mq($from: archiveOnTwoColumns) {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
     }
   }
 }
