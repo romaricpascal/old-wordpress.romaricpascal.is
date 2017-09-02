@@ -10,10 +10,6 @@ function isFragmentLink(element) {
 	return element.matches('a[href^="#"], .js-smoothScroll');
 }
 
-function getFragment(a) {
-	return a.hash;
-}
-
 function getTarget(a) {
 	var hash = a.hash;
 	if (hash) {
