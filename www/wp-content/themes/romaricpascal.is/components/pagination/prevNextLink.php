@@ -9,7 +9,7 @@
 		accesskey="k"
 	   	data-key="right"
 		<?php endif; ?>
-	   title="<?= $title ?>">
+	   title="<?= htmlspecialchars($title) ?>">
 	   	<?= title ?>
 	</a>
 <?php else: ?>

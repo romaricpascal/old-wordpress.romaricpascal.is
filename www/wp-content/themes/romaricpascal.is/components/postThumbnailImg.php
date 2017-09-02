@@ -8,6 +8,6 @@
 	     src="<?php echo $thumbnailUrl;?>"
 	     width="<?php echo $thumbnailWidth; ?>"
 	     height="<?php echo $thumbnailHeight; ?>" 
-		 title="<?php  echo $post->post_title;?>"
-		 alt="<?php echo $post->post_title;?>" >
+		 title='<?php  echo htmlspecialchars($post->post_title);?>'
+		 alt="<?php echo htmlspecialchars($post->post_title);?>" >
 </div>
