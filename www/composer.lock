@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9e5d4a373bd54d436b31140bb3bc557",
+    "content-hash": "e3678e8241cf94f9e1d8a9787c5a927b",
     "packages": [
         {
             "name": "composer/installers",
@@ -238,6 +238,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/contact-form-7/"
+        },
+        {
+            "name": "wpackagist-plugin/contact-form-7-honeypot",
+            "version": "1.10",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/contact-form-7-honeypot/",
+                "reference": "tags/1.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/contact-form-7-honeypot.1.10.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/contact-form-7-honeypot/"
         },
         {
             "name": "wpackagist-plugin/ewww-image-optimizer",
