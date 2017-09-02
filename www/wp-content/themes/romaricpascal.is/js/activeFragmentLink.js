@@ -19,9 +19,16 @@ function markActiveLink(activeActiveLink) {
 	}	
 }
 
+function getActiveLink(hash) {
+	if (hash) {
+		return document.querySelector(`[href="${hash}"]`);
+	} else {
+		return document.querySelector('.js-activeFragmentLink-default');
+	}
+}
+
 function updateActiveLinks() {
-	var hash = location.hash || '#greeting-you';
-	var newActiveActiveLink = document.querySelector(`[href="${hash}"]`);
+	var newActiveActiveLink = getActiveLink(location.hash);
 	markInactiveLinks(newActiveActiveLink);
 	markActiveLink(newActiveActiveLink);
 }

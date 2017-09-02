@@ -1,8 +1,10 @@
 <nav class="rp-HomeMenu">
 	<a class="rp-HomeMenuItem rp-HomeMenuItem-prev rp-HomeMenu__prevNext" accesskey="j" data-key="up">Previous section</a>
-	<?php foreach($items as $index => $item): ?>
-	<a class="rp-HomeMenuItem rp-HomeMenuItem-fragment" 
-	   href="#<?php echo $item[0]; ?>" 
+	<?php foreach($items as $index => $item): 
+			$marker = empty($item[0]) ? 'js-activeFragmentLink-default js-smoothScroll' : '';
+			$href = !empty($item[0]) ? '#'.$item[0] : ''; ?>
+	<a class="rp-HomeMenuItem rp-HomeMenuItem-fragment <?= $marker ?>" 
+	   href="<?= $href ?>"
 	   accesskey="<?php echo rp_get_accessKey($index); ?>">
 		<?php echo $item[1]; ?>   	
 	</a>

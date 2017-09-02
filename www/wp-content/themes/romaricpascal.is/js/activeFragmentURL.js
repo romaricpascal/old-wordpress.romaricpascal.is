@@ -16,8 +16,10 @@ function updateMostVisible(entries) {
 	if (mostVisible.target.id) {
 		var hash = `#${mostVisible.target.id}`;
 		if (hash !== window.location.hash) {
-			history.replaceState({}, `${document.title} - ${hash}`, hash);
+			history.replaceState({}, document.title, hash);
 		}
+	} else {
+		history.replaceState({}, document.title, location.origin);
 	}
 }
 
