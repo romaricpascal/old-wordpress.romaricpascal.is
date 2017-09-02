@@ -26,6 +26,12 @@
   }
 }
 
+.rp-BreadcrumbNav {
+  overflow:hidden;
+  text-overflow: ellipsis;
+  padding-right: 0.5em;
+}
+
 .rp-BreadcrumbLink {
   white-space: nowrap;
   overflow: hidden;
