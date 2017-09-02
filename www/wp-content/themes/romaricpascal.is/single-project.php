@@ -2,7 +2,7 @@
 <?php get_header(); ?>
 
 <article class="rp-Single rp-Content">
-  <header class="rp-Single__header rp-HeaderWithSubhead">
+  <header class="rp-Single__header rp-HeaderWithSubhead u-mb-1">
     <h1 class="rp-HeaderWithSubhead__heading">
         <?php the_title(); ?>
     </h1>
@@ -16,7 +16,7 @@
     ?>
   </div>
   <aside class="rp-Single__aside">
-    <div class="rp-HeaderDuplicate rp-HeaderWithSubhead" role="presentation">
+    <div class="rp-HeaderDuplicate rp-HeaderWithSubhead u-mb-1" role="presentation">
       <h1 class="rp-HeaderWithSubhead__heading">
         <?php the_title(); ?>
       </h1>

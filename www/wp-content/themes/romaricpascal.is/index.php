@@ -3,7 +3,7 @@
 
 <?php while (have_posts()): the_post(); ?>
 <article class="rp-Content">
-  <header class="rp-HeaderWithSubhead">
+  <header class="rp-HeaderWithSubhead u-mb-2">
     <h1 class="rp-HeaderWithSubhead__heading">
         <?php the_title(); ?>
     </h1>

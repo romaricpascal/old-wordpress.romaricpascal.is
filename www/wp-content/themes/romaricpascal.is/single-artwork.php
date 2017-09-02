@@ -12,8 +12,8 @@
         <?php rp_render('pagination/prevPostLink', ['classes' => 'rp-ArtworkNav-prev']); ?>
         <?php rp_render('pagination/nextPostLink', ['classes' => 'rp-ArtworkNav-next']); ?>
         </div>
-        <aside class="rp-ArtworkInfo">
-          <section class="rp-AsideSection">
+        <aside class="rp-ArtworkInfo u-vgap-1em">
+          <section>
             <?php the_content(); ?>
             <time class="rp-ArtworkTime" datetime="<?php the_time('c'); ?>"><?php the_time('d M Y'); ?></time>
           </section>
@@ -21,7 +21,9 @@
           <section class="rp-AsideSection">
             <?php get_template_part('partials/artwork-related'); ?>
           </section>
-          <?php the_share_buttons(); ?>
+          <section class="rp-AsideSection">
+            <?php the_share_buttons(); ?>
+          </section>
         </aside>
       </div>
       <?php rp_render('pagination/prevPostLink', ['classes' => 'rp-ArtworkNav-prev u-show-l']); ?>
