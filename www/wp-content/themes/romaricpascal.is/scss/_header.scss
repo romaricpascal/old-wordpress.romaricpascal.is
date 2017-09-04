@@ -27,23 +27,57 @@
 }
 
 .rp-BreadcrumbNav {
-  // Ensures the element has a size
-  // Even when its children do not
+
   width: 100%;
   // Horizontal layout for the children
   display: flex;
   flex-wrap: nowrap;
-  overflow-y: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   color: $rp-orange-dark-8;
+}
+
+.rp-BreadcrumbNavItems {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: visible;
 }
 
 .rp-BreadcrumbLink {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
 
   padding: 0 0.5em;
 }
+
+.rp-CollapsedItems {
+  position: fixed;
+  background-color: $rp-light-fade-10;
+  border-radius: 5px;
+
+  &::before {
+    content: '';
+    display: block;
+    
+    border: solid 0.5em transparent;
+    border-bottom-color: $rp-light-fade-10;
+
+    position: absolute;
+    top: -1em;
+    left: 0.4em;
+  }
+
+  &:not(.is-visible) {
+    display:none;
+  }
+}
+
+// .rp-CollapsedItems:not(.is-visible) {
+//   display:none;
+// }
 
 .rp-MenuToggle {
   display: block;
@@ -51,7 +85,7 @@
 }
 
 .rp-MenuContainer {
-  background-color: fade-out($rp-light, 0.1);
+  background-color: $rp-light-fade-10;
   @include typo-display;
   text-transform: uppercase;
   z-index: $above-1;

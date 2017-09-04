@@ -37,8 +37,14 @@
   <body <?php body_class(); ?>>
     <header id="#header" class="rp-Header">
         <?php if (is_single()): ?>
-          <nav class="rp-Header__breadcrumbs rp-BreadcrumbNav js-collapsible">
-            <?php rp_the_breadcrumb_nav(); ?>
+          <nav class="rp-BreadcrumbNav">
+            <div class="rp-CollapsedItemsMenu">
+                <a class="rp-BreadcrumbLink" data-toggles=".rp-CollapsedItems">...</a>
+                <div class="rp-CollapsedItems"></div>
+            </div>
+            <div class="rp-BreadcrumbNavItems js-collapsible">
+                <?php rp_the_breadcrumb_nav(); ?>
+            </div>
           </nav>
         <?php endif; ?>
       <nav class="rp-MainNav">

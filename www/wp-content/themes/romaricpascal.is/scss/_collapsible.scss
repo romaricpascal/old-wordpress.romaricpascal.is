@@ -11,19 +11,3 @@
   display: inline-block;
   padding: 0;
 }
-
-.rp-CollapsedItemsMenu {
-  position: relative;
-  overflow: visible;
-}
-
-.rp-CollapsedItems {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  transform: translateY(100%);
-}
-
-.rp-CollapsedItems:not(.is-visible) {
-	display:none;
-}

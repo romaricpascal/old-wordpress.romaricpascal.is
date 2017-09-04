@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle';
+import {add, remove} from './collapsibleAccess';
 
 var menu = document.querySelector('.js-collapsible');
 var COLLAPSED_CLASS = 'is-collapsed';
@@ -23,11 +24,13 @@ function getTotalSize(measures) {
 }
 
 function collapseItem (el) {
+  add(el);
   el.classList.add(COLLAPSED_CLASS);
 }
 
 function restoreItem(el) {
 	el.classList.remove(COLLAPSED_CLASS);
+	remove(el);
 }
 
 function collapseContent() {

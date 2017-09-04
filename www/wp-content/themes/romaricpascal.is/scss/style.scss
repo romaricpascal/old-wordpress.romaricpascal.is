@@ -2,6 +2,7 @@
 // 1.1 Colors
 $rp-yellow: #ffc543;
 $rp-light: #fff7e7;
+$rp-light-fade-10: fade-out($rp-light, 0.1);
 $rp-blue: #4ab0aa;
 $rp-orange: #ff742e;
 $rp-orange-dark-8: darken($rp-orange, 8%);
