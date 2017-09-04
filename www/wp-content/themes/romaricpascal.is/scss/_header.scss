@@ -53,6 +53,11 @@
   padding: 0 0.5em;
 }
 
+.rp-CollapsedItemsMenu:not(.has-items) {
+  width: 0;
+  overflow:hidden;
+}
+
 .rp-CollapsedItems {
   position: fixed;
   background-color: $rp-light-fade-10;
