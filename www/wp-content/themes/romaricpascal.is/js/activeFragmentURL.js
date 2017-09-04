@@ -11,15 +11,17 @@ function highest(property) {
 }
 
 function updateMostVisible(entries) {
-	var mostVisible = entries.reduce(highest('intersectionRatio'));
+	var mostVisible = entries.reduce(highest('intersectionRatio'), null);
 	// Avoid unnecessary states in history
-	if (mostVisible.target.id) {
-		var hash = `#${mostVisible.target.id}`;
-		if (hash !== window.location.hash) {
-			history.replaceState({}, document.title, hash);
+	if (mostVisible) {
+		if (mostVisible.target.id) {
+			var hash = `#${mostVisible.target.id}`;
+			if (hash !== window.location.hash) {
+				history.replaceState({}, document.title, hash);
+			}
+		} else {
+			history.replaceState({}, document.title, location.origin);
 		}
-	} else {
-		history.replaceState({}, document.title, location.origin);
 	}
 }
 
