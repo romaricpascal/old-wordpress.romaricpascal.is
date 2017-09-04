@@ -42,6 +42,29 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-y: visible;
+  padding-right: 0.5em;
+
+  .rp-BreadcrumbLink {
+    padding-left:0.5em;
+  }
+
+  
+}
+.rp-BreadcrumbNavItems .rp-BreadcrumbLink:hover,
+.rp-CollapsedItemsMenuToggle:hover {
+    text-decoration: none;
+
+    .rp-BreadcrumbLink__title {
+      text-decoration: underline;    
+    }
+  }
+
+.rp-BreadcrumbNavItems .rp-BreadcrumbLinkSeparator::before,
+.rp-CollapsedItemsMenuToggle .rp-BreadcrumbLinkSeparator::before {
+  content: '>';
+  padding-right: 0.5em;
+  font-style: normal;
+  color: $rp-navy;
 }
 
 .rp-BreadcrumbLink {
@@ -54,8 +77,7 @@
 }
 
 .rp-CollapsedItemsMenu:not(.has-items) {
-  width: 0;
-  overflow:hidden;
+  display: none;
 }
 
 .rp-CollapsedItems {
@@ -72,7 +94,7 @@
 
     position: absolute;
     top: -1em;
-    left: 0.4em;
+    left: 1.6em;
   }
 
   &:not(.is-visible) {
@@ -80,14 +102,16 @@
   }
 }
 
-// .rp-CollapsedItems:not(.is-visible) {
-//   display:none;
-// }
+.rp-CollapsedItemsMenuToggle {
+  cursor: pointer;
+}
 
 .rp-MenuToggle {
   display: block;
   padding: 0 0.5em;
 }
+
+
 
 .rp-MenuContainer {
   background-color: $rp-light-fade-10;

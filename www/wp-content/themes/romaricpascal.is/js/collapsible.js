@@ -1,8 +1,8 @@
 import throttle from 'lodash.throttle';
 import {add, remove} from './collapsibleAccess';
-
 var menu = document.querySelector('.js-collapsible');
-var COLLAPSED_CLASS = 'is-collapsed';
+const COLLAPSED_CLASS = 'is-collapsed';
+const COLLAPSED_ITEMS_MENU_SIZE = 30;
 
 function getCollapsibleItems() {
 	return Array.prototype.slice.call(menu.children);
@@ -20,7 +20,7 @@ function measureChildren() {
 function getTotalSize(measures) {
   return measures.reduce(function(sum, measure) {
     return sum + measure.size
-  }, 0);
+  }, COLLAPSED_ITEMS_MENU_SIZE); // Account for the apparition of the collapsed items menu, which will reduce the space available
 }
 
 function collapseItem (el) {
@@ -47,5 +47,7 @@ function collapseContent() {
   }, getTotalSize(measures));
 }
 
-window.addEventListener('resize', throttle(collapseContent, 200));
-collapseContent();
+if (menu) {
+	window.addEventListener('resize', throttle(collapseContent, 200));
+	collapseContent();
+}

@@ -1,9 +1,10 @@
 if(document.body.classList) {
 
 	document.body.addEventListener('click', function(event) {
-		if (event.target.matches('[data-toggles]')) {
+		var toggle = event.target.matches('[data-toggles]')? event.target : event.target.closest('[data-toggles]');
+		if (toggle) {
 			event.preventDefault();
-			var targetSelector = event.target.getAttribute('data-toggles');
+			var targetSelector = toggle.getAttribute('data-toggles');
 			var target = document.querySelector(targetSelector);
 			if (target) {
 				target.classList.toggle('is-visible');
