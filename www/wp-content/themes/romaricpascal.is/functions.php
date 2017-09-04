@@ -34,6 +34,11 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return preg_replace('/^\w+: /', '', $title);
 });
 
+// 5. URL routing
+add_action('init', function() {
+  add_rewrite_rule('^also-making-websites/?$', 'index.php?craft=web', 'top');
+});
+
 
 
 // Fix pagination in titles and limits risks of duplicate content
