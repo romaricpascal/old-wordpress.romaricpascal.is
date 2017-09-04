@@ -35,6 +35,9 @@
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
         <a href="#main-nav" class="js-toggle" data-toggle-group="overlays" data-toggle-target=".rp-MenuContainer">Menu</a>
         <div class="rp-MenuContainer js-outsideToggle" id="main-nav">
+        <a class="rp-NavLogo" href="<?php bloginfo('url');?>" title="Home">
+            <img src="<?= get_theme_file_uri('assets/images/rp-knockout_shade_144.png')?>" alt="Home">
+        </a>
         <?php wp_nav_menu(['theme_location' => MENU_MAIN_1,'menu_class' => 'rp-Menu rp-Header__menuI']); ?>
         <a class="rp-MenuToggle js-toggle" href="#" data-toggle-group="overlays" data-toggle-target=".rp-MenuContainer">Close menu</a>
         <small class="rp-Legal l-Container">© Romaric Pascal (trading name of <a href="https://beta.companieshouse.gov.uk/company/08544032">Rhumaric Ltd</a>)</small>

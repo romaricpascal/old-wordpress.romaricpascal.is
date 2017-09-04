@@ -114,6 +114,8 @@
 
 
 .rp-MenuContainer {
+  padding-top: 1em;
+
   background-color: $rp-light-fade-10;
   @include typo-display;
   text-transform: uppercase;

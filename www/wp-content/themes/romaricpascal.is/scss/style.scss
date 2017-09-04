@@ -364,6 +364,43 @@ h1 {
   }
 }
 
+.rp-NavLogo {
+    display: block;
+  
+  &>img {
+    display:block;
+    margin:auto;
+    width:3em;
+    transition: opacity 0.5s;
+  }
+
+  &::after {
+    content:'';
+    position:absolute;
+    top: 1em;
+    left: 50%;
+    height: 3em;
+    background: red;
+    width: 3em;
+    transform:translateX(-50%);
+    background:url(http://ubuntu.vm:8080/wp-content/themes/romaricpascal.is/assets/images/rp_144.png);
+    background-size:100%;
+    opacity:0;
+    transition: opacity 0.5s;
+  }
+  
+  &:hover {
+    &>img {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+}
+
 
 .rp-Viewport {
   padding: 1em;
