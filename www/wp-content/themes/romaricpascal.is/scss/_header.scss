@@ -27,27 +27,22 @@
 }
 
 .rp-BreadcrumbNav {
-  overflow:hidden;
-  text-overflow: ellipsis;
-  padding-right: 0.5em;
+  // Ensures the element has a size
+  // Even when its children do not
+  width: 100%;
+  // Horizontal layout for the children
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  color: $rp-orange-dark-8;
 }
 
 .rp-BreadcrumbLink {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  
-  &::before {
-    content: '- ';
-  }
 
-  &:first-child::before {
-    content: '< ';
-  }
-  
-  &::after {
-    content: ' ';
-  }
+  padding: 0 0.5em;
 }
 
 .rp-MenuToggle {

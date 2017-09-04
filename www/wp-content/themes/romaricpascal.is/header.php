@@ -36,9 +36,11 @@
   </head>
   <body <?php body_class(); ?>>
     <header id="#header" class="rp-Header">
-      <nav class="rp-Header__breadcrumbs rp-BreadcrumbNav">
-        <?php rp_the_breadcrumb_nav(); ?>
-      </nav>
+        <?php if (is_single()): ?>
+          <nav class="rp-Header__breadcrumbs rp-BreadcrumbNav js-collapsible">
+            <?php rp_the_breadcrumb_nav(); ?>
+          </nav>
+        <?php endif; ?>
       <nav class="rp-MainNav">
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
         <a href="#main-nav" data-toggles=".rp-MenuContainer">Menu</a>

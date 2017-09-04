@@ -39,3 +39,4 @@ require('./smoothscroll');
 require('./activeFragmentURL');
 require('./activeFragmentLink');
 require('./prevNext');
+require('./collapsible');
