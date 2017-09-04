@@ -42,10 +42,10 @@
         } ?>
       <nav class="rp-MainNav">
         <a class="t-hidden-visually" tabindex="1" href="#content">Skip to content</a>
-        <a href="#main-nav" class="js-toggle" data-toggles=".rp-MenuContainer">Menu</a>
-        <div class="rp-MenuContainer" id="main-nav">
+        <a href="#main-nav" class="js-toggle" data-toggle-group="overlays" data-toggle-target=".rp-MenuContainer">Menu</a>
+        <div class="rp-MenuContainer js-outsideToggle" id="main-nav">
         <?php wp_nav_menu(['theme_location' => MENU_MAIN_1,'menu_class' => 'rp-Menu rp-Header__menuI']); ?>
-        <a class="rp-MenuToggle js-toggle" href="#" data-toggles=".rp-MenuContainer">Close menu</a>
+        <a class="rp-MenuToggle js-toggle" href="#" data-toggle-group="overlays" data-toggle-target=".rp-MenuContainer">Close menu</a>
         <small class="rp-Legal l-Container">© Romaric Pascal (trading name of <a href="https://beta.companieshouse.gov.uk/company/08544032">Rhumaric Ltd</a>)</small>
         </div>
       </nav>

@@ -1,10 +1,10 @@
 <nav class="rp-BreadcrumbNav">
     <div class="rp-CollapsedItemsMenu">
-        <a class="rp-BreadcrumbLink rp-CollapsedItemsMenuToggle js-toggle" data-toggles=".rp-CollapsedItems">
+        <a class="rp-BreadcrumbLink rp-CollapsedItemsMenuToggle js-toggle" data-toggle-group="overlays" data-toggle-target=".rp-CollapsedItems">
             <span class="rp-BreadcrumbLinkSeparator"></span>
             <span class="rp-BreadcrumbLink__title">...</span>
         </a>
-        <div class="rp-CollapsedItems"></div>
+        <div class="rp-CollapsedItems js-outsideToggle"></div>
     </div>
     <div class="rp-BreadcrumbNavItems js-collapsible">
 		<?php foreach($breadcrumbs as $breadcrumb): ?>
