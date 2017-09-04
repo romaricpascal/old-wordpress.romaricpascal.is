@@ -28,7 +28,6 @@
   </head>
   <body <?php body_class(); ?>>
     <header id="#header" class="rp-Header">
-        <a href="<?php bloginfo('url');?>">Home</a>
         <?php if (is_single()) {
             rp_render('breadcrumbNav', ['breadcrumbs' => rp_get_breadcrumbs()]);
         } ?>

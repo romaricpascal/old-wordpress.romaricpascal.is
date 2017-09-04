@@ -352,6 +352,19 @@ h1 {
 @import 'node_modules/inuitcss/objects/_objects.ratio';
 
 // 5. Components
+.rp-Logo {
+  flex: none;
+  width: 2em;
+  align-self: center;
+  position: relative;
+  top: -0.1em;
+
+  &>img {
+    display: block;
+  }
+}
+
+
 .rp-Viewport {
   padding: 1em;
 

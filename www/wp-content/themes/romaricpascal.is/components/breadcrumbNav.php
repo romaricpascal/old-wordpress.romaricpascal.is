@@ -1,3 +1,6 @@
+<a class="rp-Logo" href="<?php bloginfo('url');?>" title="Home">
+    <img src="<?= get_theme_file_uri('assets/images/rp-letters_144.png')?>" alt="R-P monogram">
+</a>
 <nav class="rp-BreadcrumbNav">
     <div class="rp-CollapsedItemsMenu">
         <a class="rp-BreadcrumbLink rp-CollapsedItemsMenuToggle js-toggle" data-toggle-group="overlays" data-toggle-target=".rp-CollapsedItems">
