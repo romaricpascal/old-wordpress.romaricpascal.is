@@ -11,15 +11,7 @@
 
     <title><?php echo $title; ?></title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_theme_file_uri('assets/images/favicons/apple-touch-icon.png') ?>">
-    <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri('assets/images/favicons/favicon-32x32.png') ?>" sizes="32x32">
-    <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri('assets/images/favicons/android-chrome-192x192.png') ?>" sizes="192x192">
-    <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri('assets/images/favicons/favicon-16x16.png') ?>" sizes="16x16">
-    <link rel="manifest" href="<?php echo get_theme_file_uri('assets/images/favicons/manifest.json') ?>">
-    <link rel="mask-icon" href="<?php echo get_theme_file_uri('assets/images/favicons/safari-pinned-tab.svg') ?>" color="#ffc543">
-    <meta name="msapplication-TileColor" content="#ffc543">
-    <meta name="msapplication-TileImage" content="<?php echo get_theme_file_uri('assets/images/favicons/mstile-144x144.png') ?>">
-    <meta name="theme-color" content="#ffc543">
+    <?php rp_render('favicons'); ?>
 
     <!-- FB OpenGraph info -->
     <meta prefix="og:http://ogp.me/ns#" name="og:description" content="<?php  bloginfo('description')?>">
