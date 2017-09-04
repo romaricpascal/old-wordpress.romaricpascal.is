@@ -27,7 +27,7 @@ function artworks_register_post_type() {
     'exclude_from_search' => true,
     'has_archive' => true,
     'show_in_rest' => true,
-    'rewrite' => ['slug' => 'drawing-letters'],
+    'rewrite' => ['slug' => 'drawing-letters', 'with_front' => false],
     'hierarchical' => true,
     'supports' => ['title', 'editor', 'custom-fields', 'thumbnail', 'page-attributes']
   ]);

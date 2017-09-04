@@ -25,7 +25,7 @@ function projects_register_post_type() {
     'public' => true,
     'exclude_from_search' => true,
     'has_archive' => true,
-    'rewrite' => ['slug' => PROJECT_SLUG],
+    'rewrite' => ['slug' => PROJECT_SLUG, 'with_front' => false],
     'hierarchical' => true,
     'supports' => ['title', 'editor', 'custom-fields', 'thumbnail', 'page-attributes']
   ]);
