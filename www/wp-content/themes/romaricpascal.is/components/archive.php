@@ -26,6 +26,7 @@
 		  'classes' => "l-sideBySide__main u-mb-1 fadeIn a-entrance a-timing-main u-anim-inView",
 		  'postType' => $postTypeName,
 		  'craft' => $craft,
+		  'size' => 800,
 		  'format' => $postListFormat,
 		  'headingLevel' => $headingLevel + 1 ]); ?>
 	 </div>
