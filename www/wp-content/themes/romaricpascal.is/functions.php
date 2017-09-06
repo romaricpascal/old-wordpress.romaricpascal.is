@@ -196,8 +196,10 @@ add_action('template_redirect', function () {
     return;
   }
   $query = new WP_Query([
-    'name' => $request
+    'name' => $request,
+    'post_type' => ['post', 'artwork', 'project']
   ]);
+  echo $query->request;
 
   if ($query->have_posts()) {
     $query->the_post();
