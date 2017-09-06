@@ -4,9 +4,12 @@
       <div class="rp-ArtworkContent">
         <main class="rp-ArtworkImage">
           <a class="u-d-b" href="<?php the_post_thumbnail_url(); ?>">
-          <img class="u-d-b" src="<?php the_post_thumbnail_url(); ?>" title="<?php  the_title();?>" alt="<?php the_title();?>"
-               srcset="<?php rp_the_thumbnail_srcset(['artwork-full','artwork-full-2x','artwork-full-3x']); ?>" >
-          </a>
+          <?php rp_render('postThumbnailImg', [
+            'post' => rp_get_the_post(),
+            'classes' => 'u-d-b',
+            'size' => '800',
+            'srcset' => ['200','400','800','1200','1600']
+          ]);?>
         </main>
         <div class="u-hide-l">
         <?php rp_render('pagination/prevPostLink', ['classes' => 'rp-ArtworkNav-prev']); ?>

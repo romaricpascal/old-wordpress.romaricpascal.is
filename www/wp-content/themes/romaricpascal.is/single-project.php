@@ -6,7 +6,12 @@
     <h1 class="rp-HeaderWithSubhead__heading">
         <?php the_title(); ?>
     </h1>
-    <?php the_post_thumbnail('full'); ?>
+    <?php rp_render('postThumbnailImg', [
+      'post' => rp_get_the_post(),
+      'size' => '800',
+      'srcset' => ['200','400','800','1200','1600']
+    ]);?>
+    
   </header>
   <div class="rp-Single__main">
     <?php 

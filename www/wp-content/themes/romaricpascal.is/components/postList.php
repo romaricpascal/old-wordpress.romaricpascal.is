@@ -26,7 +26,8 @@
 		<?php rp_render('post', [
 			'post' => $post, 
 			'craft'=> $craft, 'headingLevel' => $headingLevel,
-			'accesskey' => $accesskey
+			'accesskey' => $accesskey,
+			'size' => $size
 			], [$format, $post->post_type]); ?>
 	</li>
 <?php $postIndex++; endwhile; wp_reset_postdata(); ?>

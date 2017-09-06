@@ -30,7 +30,8 @@
 			                 'classes' => 'u-mb-1', 
 			                 'craft' => $craft,
 			                 'withAccessKeys' => true,
-			                 'format' => rp_get_postListFormat($postType), 
+			                 'format' => rp_get_postListFormat($postType),
+			                 'size' => '800',
 			                 'headingLevel' => 2]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
 			<?php rp_render('archiveDescription/archiveDescription', 

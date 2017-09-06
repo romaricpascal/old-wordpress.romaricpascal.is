@@ -1,46 +1,19 @@
 <?php
-define('IMAGE_SIZES', [
-  'artwork-grid-s' => [
-    'width' => 167,
-    'height' => 167,
-    'crop' =>  true
-  ],
-  'artwork-grid-m' => [
-    'width' => 280,
-    'height' => 280,
-    'crop' =>  true
-  ],
-  'artwork-grid-l' => [
-    'width' => 384,
-    'height' => 384,
-    'crop' =>  true
-  ],
-  'artwork-grid-xl' => [
-    'width' => 840,
-    'height' => 840,
-    'crop' =>  true
-  ],
-  'artwork-grid-l-3x' => [
-    'width' => 1152,
-    'height' => 1152,
-    'crop' =>  true
-  ],
-  'artwork-full' => [
-    'width' => 560,
-    'height' => 0,
-    'crop' =>  false
-  ],
-  'artwork-full-2x' => [
-    'width' => 1120,
-    'height' => 0,
-    'crop' =>  false
-  ],
-  'artwork-full-3x' => [
-    'width' => 1680,
-    'height' => 0,
-    'crop' =>  false
-  ]
-]);
+$sizes = [200, 400, 800, 1200, 1600];
+$configs = [];
+foreach ($sizes as $size) {
+  $configs["{$size}"] = [
+    'width' => $size,
+    'height' => $size,
+    'crop' => true
+  ];
+  $configs["{$size}w"] = [
+    'width' => $size,
+    height => 0,
+    'crop' => false
+  ];
+}
+define('IMAGE_SIZES', $configs);
 
 add_action('after_setup_theme', function () {
   foreach(IMAGE_SIZES as $image_size_name => $image_size) {
@@ -69,8 +42,10 @@ function rp_get_attachment_srcset($sizes, $attachment_id) {
   return rp_append_srcset_entry($srcset, $attachment_id, 'full', false);
 }
 
-function rp_get_the_thumbnail_srcset($sizes) {
-  global $post;
+function rp_get_the_thumbnail_srcset($post, $sizes) {
+  if (empty($post)) {
+    $post = rp_get_the_post();
+  }
   $post_thumbnail_id = get_post_thumbnail_id($post);
   if ( ! $post_thumbnail_id ) {
     return false;
