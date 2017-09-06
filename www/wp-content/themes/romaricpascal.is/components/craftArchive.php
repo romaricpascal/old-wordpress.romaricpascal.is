@@ -15,7 +15,7 @@
 	<div class="l-sideBySide">
 	<header class="l-sideBySide__header">
 		<?php rp_render('archiveHeading/archiveHeading', ['craft' => $craft, 'headingLevel' => $headingLevel], [rp_get($craft, 'slug')]); ?>
-		<?php rp_render('archiveDescription/archiveDescription', ['craft' => $craft], [rp_get($craft, 'slug')]); ?>
+		<?php rp_render('archiveDescription/archiveDescription', ['craft' => $craft], ['craft', rp_get($craft, 'slug')]); ?>
 		<section class="u-show-xl">
 			<h3 >And I write about it too</h3>
 			<?php rp_render('postList', ['postType'=> 'post', 'query' => $postsQuery, 'format' => 'link', 'headingLevel' => $headingLevel + 1]); ?>

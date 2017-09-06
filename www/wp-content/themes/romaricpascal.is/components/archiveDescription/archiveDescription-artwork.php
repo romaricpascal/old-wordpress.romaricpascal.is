@@ -1,4 +1,5 @@
 <div class="<?php echo $classes; ?>">
-	<p>If you’re keen on seing behind the scene shots, works in progress, this is the place. I post regular pictures of what I’m working on, from sketches to finished artworks.</p>
-	<p>Add the page to your RSS reader or follow me on Twitter/Instagram to make sure you don’t miss anything.</p>
+	<p>It's not all about polished commercial works in the <a href="/proud-of/lettering">portfolio</a>. Discover personal works, work in progress and other sketches in here. Plus it's updated more often!</p>
+        <p>To make sure you don't miss anything, add the site to your RSS reader or follow me on <a href="http://twitter.com/romaricpascal">Twitter</a>/<a href="http://instagram.com/romaricpascal">Instagram</a>. </p>
+        
 </div>
