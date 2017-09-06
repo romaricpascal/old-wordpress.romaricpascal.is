@@ -182,24 +182,29 @@ function rp_get_accessKey($index) {
   }
 }
 
-add_filter('pre_handle_404', function ($preempt) {
+add_action('template_redirect', function () {
+
+  // If Wordpress found the content, it can continue nicely
+  if (!is_404()) {
+    return;
+  }
+
   global $wp;
   $request = $wp->request;
   // Only attempt a redirect if the path looks like a unique slug
   if (strpos($request, '/') !== false) {
-    return false;
+    return;
   }
-
   $query = new WP_Query([
-    'slug' => $request
+    'name' => $request
   ]);
 
   if ($query->have_posts()) {
     $query->the_post();
+    echo 'Found a post';
     wp_redirect(get_the_permalink(), 301);
-    return true;
+    exit();
   }
-  return false;
 });
 
 
