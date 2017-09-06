@@ -182,6 +182,26 @@ function rp_get_accessKey($index) {
   }
 }
 
+add_filter('pre_handle_404', function ($preempt) {
+  global $wp;
+  $request = $wp->request;
+  // Only attempt a redirect if the path looks like a unique slug
+  if (strpos($request, '/') !== false) {
+    return false;
+  }
+
+  $query = new WP_Query([
+    'slug' => $request
+  ]);
+
+  if ($query->have_posts()) {
+    $query->the_post();
+    wp_redirect(get_the_permalink(), 301);
+    return true;
+  }
+  return false;
+});
+
 
 // require_once('functions/content-length.php');
 require_once('functions/archive-size.php');
