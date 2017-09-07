@@ -21,6 +21,7 @@
 		$template = rp_locate_component($component, $modifiers);
 		if (!empty($template)) {
 			extract($data);
+			$props = $data;
 			require($template);
 		}
 	}

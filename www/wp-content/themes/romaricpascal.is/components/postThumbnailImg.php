@@ -14,11 +14,13 @@
 <div class="u-loadable <?php echo $classes; ?>">
 	<img class="u-loadable__content"
 	     src="<?php echo $thumbnailUrl;?>"
-	     width="<?php echo $thumbnailWidth; ?>"
-	     height="<?php echo $thumbnailHeight; ?>" 
 		 title="<?php  echo htmlspecialchars($post->post_title);?>"
 		 alt="<?php echo htmlspecialchars($post->post_title);?>"
 		 <?php if ($srcset): ?>
 		 	srcset="<?= $srcset ?>"
-		 <?php endif; ?> >
+		 <?php endif; ?> 
+		<?php if ($sizes): ?>
+			sizes="<?= $sizes ?>"
+		<?php endif;?>
+		 >
 </div>

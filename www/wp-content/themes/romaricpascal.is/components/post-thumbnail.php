@@ -5,7 +5,8 @@
 		'post' => $post, 
 		'classes' => 'o-ratio__content u-d-b', 
 		'srcset' => ['200','400','800','1200','1600'],
-		'size' => $size
+		'size' => $size,
+		'sizes' => $sizes
 	]); ?>
 	<?php if($accesskey !== null): ?>
 		<kbd class="rp-AccessKeyHint"><?php echo $accesskey; ?></kbd>

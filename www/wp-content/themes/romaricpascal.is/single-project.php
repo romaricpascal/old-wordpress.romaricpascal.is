@@ -8,8 +8,9 @@
     </h1>
     <?php rp_render('postThumbnailImg', [
       'post' => rp_get_the_post(),
-      'size' => '800',
-      'srcset' => ['200','400','800','1200','1600']
+      'size' => '400',
+      'srcset' => ['200','400','800','1200','1600'],
+      'sizes' => '(min-width: 58em) 20em, (min-width: 43em) 41em , 100vw'
     ]);?>
     
   </header>
@@ -25,7 +26,12 @@
       <h1 class="rp-HeaderWithSubhead__heading">
         <?php the_title(); ?>
       </h1>
-      <?php the_post_thumbnail('full'); ?>
+      <?php rp_render('postThumbnailImg', [
+        'post' => rp_get_the_post(),
+        'size' => '400',
+        'srcset' => ['200','400','800','1200','1600'],
+        'sizes' => '(min-width: 58em) 20em, (min-width: 43em) 41em , 100vw'
+      ]);?>
     </div>
     <?php 
       get_template_part('single-project','live-url');

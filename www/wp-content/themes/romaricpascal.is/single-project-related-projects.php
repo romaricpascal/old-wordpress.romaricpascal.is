@@ -12,7 +12,13 @@
 <ul class="u-list-flat l-grid">
 	<?php foreach($posts as $post): ?>
 	<li class="l-grid__col l-col-1-2">
-		<?php rp_render('post', ['post' => $post, 'craft' => $craft, size=> '400'], ['thumbnail'] ); ?>
+		<?php rp_render('post', [
+      'post' => $post, 
+      'craft' => $craft, 
+      'size' => '400',
+      'srcset' => ['200','400','800','1200','1600'],
+      'sizes' => '(min-width: 58em) 12.5em, 50vw'
+      ], ['thumbnail'] ); ?>
 	</li>
 	<?php endforeach; wp_reset_postdata(); ?>
 </ul>

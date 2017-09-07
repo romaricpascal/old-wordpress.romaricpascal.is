@@ -21,13 +21,25 @@
 		if ($withAccessKeys) {
 			$accesskey = rp_get_accessKey($postIndex);
 		}
+		if (is_callable($size)) {
+			$postSize = call_user_func($size, $postIndex);
+		} else {
+			$postSize = $size;
+		}
+
+		if (is_callable($sizes)) {
+			$postSizes = call_user_func($sizes, $postIndex);
+		} else {
+			$postSizez = $sizes;
+		}
 	?>
 	<li class="rp-PostListItem <?php echo $itemLayoutClass; ?>">
 		<?php rp_render('post', [
 			'post' => $post, 
 			'craft'=> $craft, 'headingLevel' => $headingLevel,
 			'accesskey' => $accesskey,
-			'size' => $size
+			'size' => $postSize,
+			'sizes' => $postSizes
 			], [$format, $post->post_type]); ?>
 	</li>
 <?php $postIndex++; endwhile; wp_reset_postdata(); ?>

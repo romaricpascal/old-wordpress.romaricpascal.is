@@ -9,7 +9,9 @@
 		<?php rp_render('post', [
 		'post' => rp_get_the_post(), 
 		'craft' => $craft,
-		'size' => '400'
+		'size' => '400',
+		'srcset' => ['200','400','800','1200','1600'],
+      	'sizes' => '(min-width: 58em) 12.5em, 50vw'
 	  ], ['thumbnail'] ); ?>
 	</li>
 <?php endwhile; wp_reset_postdata();?>

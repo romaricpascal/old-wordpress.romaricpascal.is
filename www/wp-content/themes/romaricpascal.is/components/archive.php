@@ -28,7 +28,7 @@
 		  'craft' => $craft,
 		  'size' => 800,
 		  'format' => $postListFormat,
-		  'headingLevel' => $headingLevel + 1 ]); ?>
+		  'headingLevel' => $headingLevel + 1 ], [$postTypeName, rp_get($craft, 'slug')]); ?>
 	 </div>
 	 <?php rp_render('archiveDescription/archiveDescription', 
 			                ['postType' => $postType, 'craft' => $craft, classes => 'u-hide-xl'], 

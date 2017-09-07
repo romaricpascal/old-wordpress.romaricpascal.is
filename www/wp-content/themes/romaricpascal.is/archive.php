@@ -32,7 +32,8 @@
 			                 'withAccessKeys' => true,
 			                 'format' => rp_get_postListFormat($postType),
 			                 'size' => '800',
-			                 'headingLevel' => 2]); ?>
+			                 'headingLevel' => 2], 
+			                 [$postType, rp_get($craft, 'slug')]); ?>
 			<?php get_template_part('partials/prev-next-archive'); ?>
 			<?php rp_render('archiveDescription/archiveDescription', 
 	 	                ['postType' => $postType, 'craft' => $craft, classes => 'u-hide-xl'], 
