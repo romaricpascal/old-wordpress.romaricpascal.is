@@ -53,8 +53,6 @@ $above-1: 25;
 // 2.1 Color combinations
 @mixin navy-on-yellow {
 	background-color: $rp-yellow;
-	background: url(assets/images/background@2x.jpg);
-	background-size: 577px 819px;
 	color: $rp-navy;
 }
 
@@ -125,6 +123,7 @@ body {
 	@include navy-on-yellow;
 	@include typo-copy;
   line-height: $rp-lineHeight;
+  background: url(assets/images/background-s.jpg);
 }
 
 a {
