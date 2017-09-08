@@ -41,6 +41,7 @@
     "postcss-banner": "^3.0.0",
     "postcss-cli": "^2.6.0",
     "postcss-inline-svg": "^3.0.0",
+    "postcss-resize": "https://github.com/rhumaric/postcss-resize.git#master",
     "uglify-js": "^2.7.5",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.5"

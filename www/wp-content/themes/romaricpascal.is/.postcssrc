@@ -1,5 +1,6 @@
 module.exports = {
   use: [
+    'postcss-resize',
     'autoprefixer',
     'cssnano',
     'postcss-banner',
@@ -20,5 +21,10 @@ module.exports = {
       var METADATA_FILE = 'metadata.md';
       return fs.readFileSync(path.join(__dirname, METADATA_FILE), 'utf8');
     })()
+  },
+  'postcss-resize': {
+    filter: function (image) {
+      return image.url.indexOf('@0') !== -1;
+    }
   }
 }

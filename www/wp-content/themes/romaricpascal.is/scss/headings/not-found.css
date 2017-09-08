@@ -20,7 +20,7 @@
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__found {
-    background-image: url(assets/images/headings/not-found/Found@2x.png);
+    background-image: url(assets/images/headings/not-found/Found@0.2x.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 66.29105910305316%;
@@ -30,7 +30,7 @@
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__page {
-    background-image: url(assets/images/headings/not-found/Page@2x.png);
+    background-image: url(assets/images/headings/not-found/Page@0.2x.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 27.945002230587622%;
@@ -41,7 +41,7 @@
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__ohNo {
-    background-image: url('assets/images/headings/not-found/Oh-no!@2x.png');
+    background-image: url('assets/images/headings/not-found/Oh-no!@0.2x.png');
     background-repeat: no-repeat;
     background-size: 100%;
     height: 32.33098912776505%;
@@ -51,7 +51,7 @@
 }
 
 .rp-LetteredHeading-notFound .rp-LetteredHeading__not {
-    background-image: url(assets/images/headings/not-found/Not@2x.png);
+    background-image: url(assets/images/headings/not-found/Not@0.2x.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 29.260798299740852%;
