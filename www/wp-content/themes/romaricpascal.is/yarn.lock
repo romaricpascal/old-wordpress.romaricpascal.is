@@ -4019,9 +4019,9 @@ postcss-reduce-transforms@^1.0.3:
     postcss "^5.0.8"
     postcss-value-parser "^3.0.1"
 
-"postcss-resize@https://github.com/rhumaric/postcss-resize.git#master":
+"postcss-resize@git://github.com/rhumaric/postcss-resize.git#aba5e84":
   version "0.0.0"
-  resolved "https://github.com/rhumaric/postcss-resize.git#8ef05cd4165f0eed4a6146eab08763a6a84746a5"
+  resolved "git://github.com/rhumaric/postcss-resize.git#aba5e84b0f08a9685290223713f12bd7add14d6c"
   dependencies:
     calipers "^2.0.0"
     calipers-gif "^2.0.0"
@@ -4606,9 +4606,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-"simple-icons@git://github.com/simple-icons/simple-icons.git#develop":
+"simple-icons@git://github.com/simple-icons/simple-icons.git#f191ca1":
   version "1.0.0"
-  resolved "git://github.com/simple-icons/simple-icons.git#7453b07f3cab3482fdea80ffc5c27de6f3e1f8f4"
+  resolved "git://github.com/simple-icons/simple-icons.git#f191ca1c63e1e74f5d7905df889518bb7d2a37ab"
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

@@ -41,7 +41,7 @@
     "postcss-banner": "^3.0.0",
     "postcss-cli": "^2.6.0",
     "postcss-inline-svg": "^3.0.0",
-    "postcss-resize": "https://github.com/rhumaric/postcss-resize.git#master",
+    "postcss-resize": "git://github.com/rhumaric/postcss-resize.git#aba5e84",
     "uglify-js": "^2.7.5",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.5"
@@ -52,7 +52,7 @@
     "lodash.throttle": "^4.1.1",
     "qwest": "^4.5.0",
     "sass-mq": "^3.3.2",
-    "simple-icons": "git://github.com/simple-icons/simple-icons.git#develop",
+    "simple-icons": "git://github.com/simple-icons/simple-icons.git#f191ca1",
     "smoothscroll-polyfill": "^0.3.6",
     "spinkit": "^1.2.5"
   }
