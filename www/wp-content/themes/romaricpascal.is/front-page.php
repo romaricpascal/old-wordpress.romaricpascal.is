@@ -5,7 +5,7 @@
 <?php get_header(); ?>
 <div>
 <section class="rp-HomeSection u-flai-c js-archiveFragmentURL" data-inview>
-<div class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-greeting">
+<h1 class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-greeting">
   <span class="rp-LetteredHeading__me rp-LetteredHeading__part">
   </span>
   <span class="rp-LetteredHeading__hi a-timing-greeting__I rp-LetteredHeading__part">Hi!
@@ -20,7 +20,7 @@
   <span class="rp-LetteredHeading__lettersArrow a-timing-greeting__IV rp-LetteredHeading__part"></span>
   <span class="rp-LetteredHeading__letters a-timing-greeting__IV rp-LetteredHeading__part">letters
   </span>
-</div>
+</h1>
 </section>
 <?php get_template_part('partials/front-page/front-page','additional-sections'); ?>
 <?php get_footer(); ?>
