@@ -108,6 +108,7 @@ function rp_get_url_terms() {
 }
 
 function rp_resolve_name_as_archive($request) {
+  global $rp_url_terms;
   $pathParts = explode('/', $request['name']);
 
   $terms = rp_resolve_terms($pathParts);
@@ -125,6 +126,7 @@ function rp_resolve_name_as_archive($request) {
     $archiveRequest['paged'] = $request['paged'];
   }
 
+  $rp_url_terms = $terms;
   return $archiveRequest;
 }
 

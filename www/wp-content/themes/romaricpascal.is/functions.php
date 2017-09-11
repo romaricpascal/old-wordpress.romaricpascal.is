@@ -41,6 +41,14 @@ add_action('init', function() {
 
 // Fix pagination in titles and limits risks of duplicate content
 add_filter('wp_title', function($title) {
+
+  if (is_archive()) {
+    $terms = rp_get_url_terms();
+    if (!empty($terms)) {
+      $title.= " - {$terms[0]->name}";
+    }
+  }
+
   if (is_paged()) {
     $page = get_query_var('paged');
     return $title." (Page $page)"; 
