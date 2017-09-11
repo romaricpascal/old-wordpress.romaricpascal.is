@@ -15,8 +15,12 @@
     <?php rp_render('favicons'); ?>
 
     <!-- FB OpenGraph info -->
-    <meta prefix="og:http://ogp.me/ns#" name="og:description" content="<?php  bloginfo('description')?>">
-    <meta prefix="og:http://ogp.me/ns#" name="og:image" content="<?php the_social_card_image(); ?>">
+    <?php if (is_single()): ?>
+    <meta prefix="og:http://ogp.me/ns#" property="og:url" content="<?php bloginfo('url'); the_permalink(); ?>">
+    <?php endif; ?>
+    <meta prefix="og:http://ogp.me/ns#" property="og:title" content="<?= $title; ?>">
+    <meta prefix="og:http://ogp.me/ns#" property="og:description" content="<?php  bloginfo('description')?>">
+    <meta prefix="og:http://ogp.me/ns#" property="og:image" content="<?php the_social_card_image(); ?>">
 
     <!-- Twitter cards -->
     <meta name="twitter:card" content="<?php the_twitter_card_type(); ?>" />
