@@ -82,8 +82,16 @@ function the_social_card_image() {
   if (has_post_thumbnail()) {
     echo the_post_thumbnail_url();
   } else {
-    echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png');
+    echo get_theme_file_uri('assets/images/rp_with-padding_yellowbg_480.png');
   }
+}
+
+function the_twitter_card_type() {
+  if (is_singular(PROJECT_TYPE) || is_singular(ARTWORK_TYPE)) {
+    return 'summary_large_image';
+  }
+
+  return 'summary';
 }
 
 add_action( 'widgets_init', function () {

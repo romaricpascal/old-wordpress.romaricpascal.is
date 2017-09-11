@@ -19,7 +19,7 @@
     <meta prefix="og:http://ogp.me/ns#" name="og:image" content="<?php the_social_card_image(); ?>">
 
     <!-- Twitter cards -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="<?php the_twitter_card_type(); ?>" />
     <meta name="twitter:site" content="@romaricpascal" />
     <meta name="twitter:title" content="<?= $title; ?>" />
     <meta name="twitter:description" content="<?php  bloginfo('description')?>" />
