@@ -7,7 +7,6 @@ add_action('init', function () {
 
 add_action('shutdown', function () {
 	$length = ob_get_length();
-	var_dump($length);
 	header("Content-Length: {$length}");
 	ob_end_flush();
 // Wordpress will clean all buffers automatically at shutdown
