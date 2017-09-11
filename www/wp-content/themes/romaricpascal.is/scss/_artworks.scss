@@ -1,216 +1,200 @@
-.rp-ArtworkList {
-  display: flex;
-  flex-wrap: wrap;
+.rp-Artwork {
+	margin-left: auto;
+	margin-right: auto;
+
+	@include mq($until: showHomeMenu) {
+		max-width: 30em;
+	}
+
+	@include mq($from: showHomeMenu) {
+		display: flex;
+		flex-wrap: nowarp;
+		justify-content: center;
+		align-items: start;	
+
+		&::before,
+		&::after {
+			content: '';
+			width: 2vw;
+		}
+	}
+
+	@include mq($from: archiveOnTwoColumns) {
+		align-items: center;
+	}
 }
 
-.rp-ArtworkList__item {
+.rp-ArtworkNav-prev {
+	order: -999;
+	flex: none;
 
-  flex: 1 1 50%;
-
-  @include mq($from: artworkGrid4Cols) {
-    flex-basis: 25%;
-  }
-
-  @include mq($from: artworkGrid5Cols) {
-    flex-basis: 20%;
-  }
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		margin-top: 15em;
+		transform: translateY(-50%);
+	}
 }
 
-$grid-columns: 6;
-$grid-rows: 6;
+.rp-ArtworkNav-next {
+	float: right;
+	order: 999;
+	flex: none;
 
-.rp-ArtworkListItem {
-  transition: transform 0.5s;
-  transform-origin: 50% 50%;
-
-  &:hover {
-    transform: scale(1.2);
-    z-index: 1;
-  }
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		margin-top: 15em;
+		transform: translateY(-50%);
+	}
 }
 
-@supports (display: grid) {
+.rp-ArtworkContent {
+	
+	@include mq($until: showHomeMenu) {
+		margin-bottom: 1em;
+	}
 
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		max-width: 30em;
+	}
 
-  @include mq($from: artworkGrid5Cols) {
-    .rp-ArtworkList-grid {
-      display: grid;
-      grid-template-columns: repeat($grid-columns, 128px);
-      grid-auto-rows: 128px;
-    }
+	@include mq($from: archiveOnTwoColumns) {
+		display: flex;
+		flex-wrap: nowarp;
+		justify-content: center;
+		align-items: center;
 
-    .rp-ArtworkList__item {
-
-      &:nth-child(20n+1) {
-        grid-column-start: 1;
-        grid-column: span 3;
-        grid-row-start: 1;
-        grid-row-end: span 3;
-      }
-
-      &:nth-child(20n+2) {
-        grid-column-start: span 2;
-        grid-column-end: -1;
-        grid-row-start: 2;
-        grid-row-end: span 2;
-      }
-
-      &:nth-child(20n+15) {
-        grid-column-start: span 3;
-        grid-column-end: -1;
-        grid-row-start: 5;
-        grid-row-end: span 3;
-      }
-
-      &:nth-child(20n+16) {
-        grid-column-start: 1;
-        grid-column-end: span 2;
-        grid-row-start: 6;
-        grid-row-end: span 2;
-      }
-    }
-  }
-}
-
-.rp-ArtworkFull {
-
-  margin-top: 1.5em;
-
-  @include mq($from: horizontalArtwork) {
-    display: flex;
-    flex-wrap: nowrap;
-
-    &__main {
-      flex: 1 1 66%;
-      margin-right: 2em;
-    }
-
-    &__aside {
-      flex: 1 1 20em;
-    }
-  }
-}
-
-.rp-ArtworkCaption {
-  position:relative;
-  padding-top: 2em;
-}
-
-.rp-ArtworkCaption::before {
-  content: '';
-  display:block;
-  height: 5px;
-  background-image: linear-gradient(135deg, $rp-red calc(100% - 1em) , transparent calc(100% - 1em + 1px));
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 1em;
-
-  @include mq($from: horizontalArtwork) {
-    left: -3em;
-  }
+		&::before {
+			content: '';
+			width: 2vw;
+			flex: none;
+		}
+	}
 }
 
 .rp-ArtworkImage {
-  background: linear-gradient(90deg, $rp-cream-on-purple-35 5px, transparent 0%),
-              linear-gradient(0deg, $rp-cream-on-purple-35 5px, transparent 0%),
-              linear-gradient(-90deg, $rp-cream-on-purple-35 5px, transparent 0%),
-              linear-gradient(180deg, $rp-cream-on-purple-35 5px, transparent 0%),
-              url(assets/images/r-p-monogram.svg) no-repeat center;
-  background-color: $rp-purple;
+	
+	order: -999;
+	max-width: 35em;
+	flex: none;
+
+	@include mq($until: showHomeMenu) {
+		margin-bottom: 1em;
+	}
+
+	@include mq($from: showHomeMenu, $until: archiveOnTwoColumns) {
+		margin-bottom: 2em;
+	}
 }
 
-.rp-ArtworkMedia {
-  border: .6em solid currentColor;
+.rp-ArtworkInfo {
+	order: 999;
+	@include mq($from: archiveOnTwoColumns) {
+		max-width: 15em;
+		flex: none;
+	}
+}
 
-  img {
-    display:block;
-  }
+.rp-ArtworkSingle {
+	max-width: 30em;
+
+	margin-left: auto;
+	margin-right: auto;
+	
+	// Ensures the image fits the height
+	// But when the aspect ratio gets too large
+	// The image is too tiny 
+	@include mq($and: '(max-aspect-ratio: 4/3)') {
+		max-width: calc(100vh - #{$headerHeight} - 2em);
+	}
+	// Important that this is after the previous one
+	// So it overides it
+	@include mq($and: '(min-height: 35em)') {
+		max-width: 30em;
+	}
+	
+	@include mq($and: '(min-height: 35em) and (min-width: 64em)') {
+		height: calc(100vh - 3em);
+		max-width: 50em;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+
+		&__aside {
+			width: 25em;
+			margin-left: 2em;
+		}	
+	}
+	.rp-PrevNextNav {
+		@include mq($and: '(min-aspect-ratio: 1.25/1)') {
+			position: fixed;
+			width: calc(100vh - 5em + 2 * #{$circleButtonSize} + 2em);
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			right: 0;
+			margin: auto;
+			margin-top: 1em;
+		}
+
+		@include mq($and: '(min-height: 35em) and (min-width: 43.5em)') {
+			position: fixed;
+			width: calc(100vh - 5em + 2 * #{$circleButtonSize} + 2em);
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			right: 0;
+			margin: auto;
+			margin-top: 1em;
+			width: 30em + 2 * $circleButtonSize + 2em;
+		}
+
+		@include mq($and: '(min-height: 35em) and (min-width: 64em)') {
+			width: 50em + 2 * $circleButtonSize + 4em;
+		}
+	}
 }
 
 .rp-ArtworkTime {
-  color: $rp-cream-on-purple-50;
+	&::before {
+		content: '';
+		display: block;
+		width: 1em;
+		height: 0.25em;
+		color: $rp-orange;
+		border-top: solid 2px;
+	}
 }
 
-$rp-artworkLinkPadding: 1.5em;
-$rp-artworkLinkArrowSize: 2em;
-
-.rp-PreviousArtworkLink {
-  display: block;
-  position:relative;
-  padding-left: $rp-artworkLinkPadding;
-
-  @include mq($from: artworkLinkAlignShift) {
-    transform:translateX(-$rp-artworkLinkPadding);
-  }
-
-  &::before {
-    content: '<';
-    font-size: $rp-artworkLinkArrowSize;
-    color: $rp-cream-on-purple-50;
-    display:inline-block;
-    line-height: 1;
-    position: absolute;
-    top: #{"calc(1rem + 7px)"};
-    left: $rp-artworkLinkPadding/$rp-artworkLinkArrowSize*1em;
-    padding-right: 5px;
-    transform: translateX(-100%);
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    height: 5px;
-    width: #{"calc(2.3em + 15px)"};
-    background-image: linear-gradient(135deg, transparent 1em, $rp-red 0);
-    position: absolute;
-    left: 0;
-    top: 1em;
-    transform:translateX(-1em);
-  }
+.rp-ArtworkSingleImage,
+.rp-ArtworkImage {
+	display:block;
+	cursor: zoom-in;
 }
 
-.rp-NextArtworkLink {
-  display: block;
-  position: relative;
-  padding-right: $rp-artworkLinkPadding;
-
-  @include mq($from: artworkLinkAlignShift) {
-    transform: translateX($rp-artworkLinkPadding);
-  }
-
-  &::before {
-    content: '>';
-    font-size: $rp-artworkLinkArrowSize;
-    color: $rp-cream-on-purple-50;
-    display:inline-block;
-    line-height: 1;
-    position: absolute;
-    top: #{"calc(1rem + 7px)"};
-    right: $rp-artworkLinkPadding/$rp-artworkLinkArrowSize*1em;
-    padding-left: 5px;
-    transform: translateX(100%);
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    height: 5px;
-    width: #{"calc(2.3em + 15px)"};
-    background-image: linear-gradient(45deg,#c54d58 calc(100% - 1em),transparent 0);
-    position: absolute;
-    right: 0;
-    top: 1em;
-    transform:translateX(1em);
-  }
+.rp-ArtworkSingleLink {
+	display: block;
 }
 
-.rp-ArtworkLinkImage {
-  border: solid 5px $rp-purple;
-  box-sizing: content-box;
+.rp-RelatedArtworkList {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	@include inuit-clearfix;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
 
-  @include mq($until: artworkLinkEnlarge) {
-    width: 100px;
-    height: auto;
-  }
+$relatedArtwork-gutterSize: 0.25em;
+.rp-RelatedArtwork {
+	float: left;
+	width: calc(50% - #{$relatedArtwork-gutterSize});
+	flex: auto;
+
+	&:nth-child(1),
+	&:nth-child(2) {
+		margin-bottom: $relatedArtwork-gutterSize;
+	}
+	
+	&:nth-child(2n+1) {
+		margin-right: $relatedArtwork-gutterSize * 2;
+	}
 }

@@ -1,0 +1,31 @@
+.rp-LetteredHeading-thanks {
+    width: 80vw;
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rp-LetteredHeading-thanks::before {
+    padding-top: 98.12883817427385%;
+}
+
+.rp-LetteredHeading-thanks .rp-LetteredHeading__picture {
+    background-image: url(assets/images/headings/me.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 38.924607965224816%;
+    width: 38.196265560165976%;
+    top: -0.000051617427549943865%;
+    left: 30.32034232365145%;
+}
+
+.rp-LetteredHeading-thanks .rp-LetteredHeading__thanks {
+    background-image: url(assets/images/headings/Thanks@0.25x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 69.34739450421898%;
+    width: 100%;
+    top: 30.652594924531858%;
+    left: 0%;
+    animation-name: zoomInDown;
+}

@@ -1,26 +1,49 @@
+<?php
+  $postType = get_post_type();
+  $craft = rp_get_craft_object($craft);
+?>
 
+<?php if (rp_is_ajax()): ?>
+	<title><?= rp_title(); ?></title>
+<?php endif; ?>
+
+<?php if(!rp_is_ajax()): ?>
 <?php get_header(); ?>
+<div class="u-mw-30em-xl-down">
+	<article class="l-sideBySide" data-inview>
+		<header class="l-sideBySide__header l-vertCentered u-vgap-firstBig">
+		<?php rp_render('archiveHeading/archiveHeading', 
+		                ['postType' => $postType, 
+		                 'craft' => $craft, 
+		                 'headingLevel' => 1], 
+		                [$postType, rp_get($craft, 'slug')]); ?>
+		<?php rp_render('archiveDescription/archiveDescription', 
+		                ['postType' => $postType, 
+		                 'craft' => $craft, 
+		                 'classes' => 'u-show-xl fadeIn a-entrance a-timing-description u-anim-inView'], 
+		                [$postType, rp_get($craft, 'slug')]); ?>
+		</header>
+<?php endif;?>	
+		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
+			<?php rp_render('postList', 
+			                ['postType' => $postType,
+			                 'classes' => 'u-mb-1', 
+			                 'craft' => $craft,
+			                 'withAccessKeys' => true,
+			                 'format' => rp_get_postListFormat($postType),
+			                 'size' => '800',
+			                 'headingLevel' => 2], 
+			                 [$postType, rp_get($craft, 'slug')]); ?>
+			<?php get_template_part('partials/prev-next-archive'); ?>
+			<?php rp_render('archiveDescription/archiveDescription', 
+	 	                ['postType' => $postType, 'craft' => $craft, classes => 'u-hide-xl'], 
+	 	                [$postType, rp_get($craft, 'slug')]); ?>
+		</div>
+<?php if(!rp_is_ajax()): ?>
+	 	
+	</article>
+</div>
 
-  <section class="rp-LandingSection">
-    <div class="rp-Hero l-Container">
-      <h1 class="rp-HeroHeading rp-Underlined rp-Underlined-hero">
-        Notes about <?php the_archive_title(); ?>
-      </h1>
-    </div>
-  </section>
+<?php get_footer();?>
 
-  <section class="rp-LandingSection t-light-on-dark">
-    <div class="l-Container">
-      <div>
-        <?php while(have_posts()): the_post(); ?>
-          <?php get_template_part('partials/post-link'); ?>
-        <?php endwhile; ?>
-      </div>
-      <footer class="rp-ProjectFullFooter rp-PreviousNextLinks">
-        <span class="rp-PreviousNextLinks__previous"><?php previous_posts_link('More recent notes'); ?></span>
-        <span class="rp-PreviousNextLinks__next"><?php next_posts_link('Older notes'); ?></span>
-      </footer>
-    </div>
-  </section>
-
-<?php get_footer(); ?>
+<?php endif; ?>

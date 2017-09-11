@@ -1,0 +1,26 @@
+.l-snakeGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: auto;
+
+	&__item {
+		width: 50%;
+		overflow: hidden;
+
+		&:nth-child(12n+1) {
+			grid-column-end: span 2;
+			grid-row-end: span 2;
+		}
+
+		&:nth-child(12n+8) {
+			grid-column-end: span 2;
+			grid-row-end: span 2;
+		} 
+	}
+}
+
+@supports(display: grid) {
+	.l-snakeGrid__item {
+		width: 100%;
+	}
+}

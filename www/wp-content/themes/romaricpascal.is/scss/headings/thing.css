@@ -1,0 +1,62 @@
+.rp-LetteredHeading-thing {
+    width:  80vw;
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rp-LetteredHeading-thing::before {
+    padding-top: 64.35421965317919%;
+}
+
+.rp-LetteredHeading-thing .rp-LetteredHeading__picture {
+    background-image: url(assets/images/headings/me.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 44.097456754283854%;
+    width: 28.378574181117532%;
+    top: 55.9025671979267%;
+    left: 71.62143352601156%;
+}
+
+.rp-LetteredHeading-thing .rp-LetteredHeading__thing {
+    background-image: url(assets/images/headings/thing/Thing@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 70.00033533094769%;
+    width: 71.48362235067437%;
+    top: 9.401476174736166%;
+    left: 6.783664739884393%;
+}
+
+.rp-LetteredHeading-thing .rp-LetteredHeading__oneLast {
+    background-image: url(assets/images/headings/thing/One-last@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 29.401338449525504%;
+    width: 25.549132947976876%;
+    top: 8.321405132479677%;
+    left: 42.525441233140654%;
+    z-index:  1;
+}
+
+.rp-LetteredHeading-thing .rp-LetteredHeading__oh {
+    background-image: url(assets/images/headings/thing/Oh@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 29.700741081394405%;
+    width: 15.375722543352602%;
+    top: 0%;
+    left: 24.046543352601155%;
+    z-index: 1;
+}
+
+.rp-LetteredHeading-thing .rp-LetteredHeading__etc {
+    background-image: url(assets/images/headings/thing/etc@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 27.006117394574346%;
+    width: 13.52601156069364%;
+    top: 56.766739002342526%;
+    left: 20.230986512524083%;
+}

@@ -1,92 +1,30 @@
 <?php
 
 // 0. Clean up unnecessary Wordpress code in headers;
-remove_action ('wp_head', 'rsd_link');
-remove_action( 'wp_head', 'wlwmanifest_link');
-remove_action( 'wp_head', 'wp_shortlink_wp_head');
-remove_action('wp_head', 'wp_generator');
-remove_action('wp_head', 'feed_links');
-remove_action('wp_head', 'feed_links_extra');
-remove_action('wp_head', 'wp_oembed_add_discovery_links');
-remove_action('wp_head', 'wp_oembed_add_host_js');
-remove_action('wp_head', 'rest_output_link_wp_head');
+require_once 'functions/cleanup.php';
 
 
 // 1. Load necessary taxonomies & content types
 require_once('taxonomies/craft-taxonomy.php');
 require_once('content-types/posts.php');
-require_once('content-types/usps.php');
 require_once('content-types/testimonials.php');
 require_once('content-types/projects.php');
 require_once('content-types/artworks.php');
-require_once('content-types/old_posts.php');
 
 define('MENU_MAIN_1', 'menu_main_1');
-define('MENU_MAIN_2', 'menu_main_2');
+define('MENU_HOME_CONTENT', 'menu_home');
+define('MENU_NOT_FOUND', 'menu_not_found');
 define('WIDGETS_ANNOUNCEMENT', 'rp_announcements');
-define('IMAGE_SIZES', [
-  'artwork-grid-s' => [
-    'width' => 167,
-    'height' => 167,
-    'crop' =>  true
-  ],
-  'artwork-grid-m' => [
-    'width' => 280,
-    'height' => 280,
-    'crop' =>  true
-  ],
-  'artwork-grid-l' => [
-    'width' => 384,
-    'height' => 384,
-    'crop' =>  true
-  ],
-  'artwork-grid-xl' => [
-    'width' => 840,
-    'height' => 840,
-    'crop' =>  true
-  ],
-  'artwork-grid-l-3x' => [
-    'width' => 1152,
-    'height' => 1152,
-    'crop' =>  true
-  ],
-  'artwork-full' => [
-    'width' => 560,
-    'height' => 0,
-    'crop' =>  false
-  ],
-  'artwork-full-2x' => [
-    'width' => 1120,
-    'height' => 0,
-    'crop' =>  false
-  ],
-  'artwork-full-3x' => [
-    'width' => 1680,
-    'height' => 0,
-    'crop' =>  false
-  ]
-]);
+
 // 2. Setup theme
 function rp_setup() {
   register_nav_menu(MENU_MAIN_1, __('Main menu (Part 1)'));
-  register_nav_menu(MENU_MAIN_2, __('Main menu (Part 2)'));
+  register_nav_menu(MENU_HOME_CONTENT, __('Home content'));
+  register_nav_menu(MENU_NOT_FOUND, __('404 menu'));
+
   add_theme_support('post-thumbnails');
-  
-  foreach(IMAGE_SIZES as $image_size_name => $image_size) {
-    add_image_size($image_size_name, $image_size['width'], $image_size['height'], $image_size['crop']);
-  }
 }
 add_action('after_setup_theme', 'rp_setup');
-
-// 3. Support for /sharing/XYZ archive pages
-function rp_pre_get_posts($query) {
-
-  if (!is_admin() && is_main_query() && is_post_type_archive('artwork')) {
-
-    $query->set('posts_per_page', 20);
-  }
-}
-add_action('pre_get_posts', 'rp_pre_get_posts');
 
 // 4. Drop the 'Category:' prefix in archive title
 add_filter( 'get_the_archive_title', function ( $title ) {
@@ -94,30 +32,23 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return preg_replace('/^\w+: /', '', $title);
 });
 
-// 5. Set up RSS feed templates
-add_filter('request', function ($qv) {
-  if (isset($qv['feed']) && !isset($qv['post_type'])) {
-    $qv['post_type'] = ['post', ARTWORK_TYPE];
-  }
-  return $qv;
+// 5. URL routing
+add_action('init', function() {
+  add_rewrite_rule('^also-making-websites/?$', 'index.php?craft=web', 'top');
 });
 
-add_filter('the_content', function ($content) {
-  if (is_feed() && is_artwork()) {
-    $content =  get_the_post_thumbnail() . $content;
-  }
 
-  return $content;
-});
-
-// Use custom theme for the RSS feed
-remove_all_actions( 'do_feed_rss2' );
-add_action( 'do_feed_rss2', function($for_comments) {
-  get_template_part('feed','rss2');
-}, 10, 1 );
 
 // Fix pagination in titles and limits risks of duplicate content
 add_filter('wp_title', function($title) {
+
+  if (is_archive()) {
+    $terms = rp_get_url_terms();
+    if (!empty($terms)) {
+      $title.= " - {$terms[0]->name}";
+    }
+  }
+
   if (is_paged()) {
     $page = get_query_var('paged');
     return $title." (Page $page)"; 
@@ -151,12 +82,18 @@ function the_social_card_image() {
   if (has_post_thumbnail()) {
     echo the_post_thumbnail_url();
   } else {
-    echo get_theme_file_uri('assets/images/r-p-monogram-social-media.png');
+    echo get_theme_file_uri('assets/images/rp_with-padding_yellowbg_480.png');
   }
 }
 
+function the_twitter_card_type() {
+  if (is_front_page() || is_singular(PROJECT_TYPE) || is_singular(ARTWORK_TYPE)) {
+    echo 'summary_large_image';
+    return;
+  }
 
-// 6. Register widget areas
+  echo 'summary';
+}
 
 add_action( 'widgets_init', function () {
 
@@ -172,46 +109,131 @@ add_action( 'widgets_init', function () {
 	]);
 });
 
-
-function rp_the_menu($menuId) {
-  global $menu_items;
-
-  $locations = get_nav_menu_locations();
-  $menu = wp_get_nav_menu_object($locations[$menuId]);
-   $menu_items = wp_get_nav_menu_items($menu->term_id);
-
-  get_template_part('menu', $menuId);
+function array_pluck($subject, $key) {
+  return array_map(function ($item) use ($key) {
+    return $item->{$key};
+  }, $subject);
 }
 
-function rp_append_srcset_entry($srcset, $attachment_id, $size, $with_comma = true) {
-    $src = wp_get_attachment_image_src($attachment_id, $size);
-    if ($src) {
-      $entry = "$src[0] $src[1]w".($with_comma ? ',' : '');
-      return $srcset.$entry."\n";
-    }
-}
+function rp_get($objectOrArray, $key) {
 
-function rp_get_attachment_srcset($sizes, $attachment_id) {
-  $srcset = "";
-  foreach($sizes as $size) {
-    $srcset = rp_append_srcset_entry($srcset, $attachment_id, $size);
+  if (!$objectOrArray) return;
+
+  if (is_object($objectOrArray)) {
+    return $objectOrArray->{$key};
+  } elseif (is_array($objectOrArray)) {
+    return $objectOrArray[$key];
   }
-  return rp_append_srcset_entry($srcset, $attachment_id, 'full', false);
 }
 
-function rp_get_the_thumbnail_srcset($sizes) {
+function rp_has_pages() {
+  global $wp_query;
+  return $wp_query->max_num_pages > 1;
+}
+
+function rp_has_more_pages() {
+  global $wp_query;
+  return $wp_query->max_num_pages > get_query_var('paged');
+}
+
+function rp_get_the_post() {
   global $post;
-  $post_thumbnail_id = get_post_thumbnail_id($post);
-  if ( ! $post_thumbnail_id ) {
-    return false;
-  }
-
-  return rp_get_attachment_srcset($sizes, $post_thumbnail_id);
+  return $post;
 }
 
-function rp_the_thumbnail_srcset($sizes) {
-  $srcset = rp_get_the_thumbnail_srcset($sizes);
-  if ($srcset) {
-    echo $srcset;
+function rp_get_content($post) {
+  return apply_filters('the_content', $post->post_content );
+}
+
+function rp_has_more_posts($query) {
+  if(!empty($query)) {
+    return $query->have_posts();
+  }
+
+  return have_posts();
+}
+
+function rp_next_post($query) {
+  if(!empty($query)) {
+    $query->the_post();
+  } else {
+    the_post();
+  }
+  return rp_get_the_post();
+}
+
+function rp_get_postListFormat($postType) {
+  switch ($postType) {
+    case TESTIMONIAL_TYPE:
+      return 'full';
+    case ARTWORK_TYPE:
+    case PROJECT_TYPE:
+      return 'thumbnail';
+    default:
+      return 'link';
   }
 }
+
+function rp_is_ajax() {
+  $headers = getallheaders();
+  return !empty($headers['x-requested-with']);
+}
+
+function rp_title() {
+  $siteName = get_bloginfo('name');
+  $siteDescription = get_bloginfo('description');
+  $title = wp_title(' ', false);
+  if ($title) { 
+    $title.= " | {$siteName}"; 
+  } else {
+    $title = "{$siteName} | {$siteDescription}";
+  }
+  return $title;
+}
+
+define('ACCESS_KEYS',[1,2,3,4,5,6,7,8,9,0,'-','=']);
+function rp_has_accessKey($index) {
+  return count(ACCESS_KEYS) > $index;
+}
+
+function rp_get_accessKey($index) {
+  if (rp_has_accessKey($index)) {
+    return ACCESS_KEYS[$index];
+  } else {
+    return null;
+  }
+}
+
+add_action('template_redirect', function () {
+
+  // If Wordpress found the content, it can continue nicely
+  if (!is_404()) {
+    return;
+  }
+
+  global $wp;
+  $request = $wp->request;
+  // Only attempt a redirect if the path looks like a unique slug
+  if (strpos($request, '/') !== false) {
+    return;
+  }
+  $query = new WP_Query([
+    'name' => $request,
+    'post_type' => ['post', 'artwork', 'project']
+  ]);
+
+  if ($query->have_posts()) {
+    $query->the_post();
+    wp_redirect(get_the_permalink(), 301);
+    exit();
+  }
+});
+
+require_once('functions/relativeLinks.php');
+// require_once('functions/content-length.php');
+require_once('functions/archive-size.php');
+require_once('functions/components.php');
+require_once('functions/acf-featured.php');
+require_once('functions/thumbnail-sizes.php');
+require_once('functions/share-buttons.php');
+require_once('functions/breadcrumb-nav.php');

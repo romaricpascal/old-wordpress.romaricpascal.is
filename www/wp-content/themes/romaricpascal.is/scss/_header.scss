@@ -1,65 +1,148 @@
-.rp-MenuLink {
-  color: $rp-cream;
-}
-
-.rp-Logo {
-
-  height: $rp-logo-size;
-  width: $rp-logo-size;
-  border-radius: 9999px;
-
-  @include light-on-dark;
-}
-
 .rp-Header {
-  @include light-on-dark;
-  font-family: $rp-header-font-family;
-  min-height: $rp-logo-size/2;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  @include typo-display;
+  text-transform: uppercase;
+  line-height: 3em;
+  padding: 0 1em;
 
-  font-size: 16px;
-  line-height: $rp-logo-size/2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $above-1;
 
-  position: relative;
-
-  &__logo {
+  .home & {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
   }
 
-  &__menuI {
-    @include mq($from: horizontalMenu) {
-      position: absolute;
-      right: 50%;
-      transform: translateX(-$rp-logo-size/2);
-
-      margin-right: 2*$rp-header-spacing;
-    }
-  }
-
-  &__menuII {
-    @include mq($from: horizontalMenu) {
-      position: absolute;
-      left: 50%;
-      transform: translateX($rp-logo-size/2);
-      margin-left: 2*$rp-header-spacing;
+  .home &,
+  .blog &,
+  .archive &,
+  .single-artwork &,
+  .error404 & {
+    @include mq($from: archiveOnTwoColumns) {
+      position: fixed;
     }
   }
 }
 
-.rp-MainNav:not(:target) {
-  @include mq($until: horizontalMenu) {
-    display: none;
-  }
+.rp-BreadcrumbNav {
+
+  width: 100%;
+  // Horizontal layout for the children
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: visible;
+  color: $rp-orange-dark-8;
 }
 
-.rp-MenuControl {
-  padding-left: $rp-header-spacing;
-  padding-right: $rp-header-spacing;
-  @include mq($from: horizontalMenu) {
+.rp-BreadcrumbNavItems {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: visible;
+  padding-right: 0.5em;
+
+  .rp-BreadcrumbLink {
+    padding-left:0.5em;
+  }
+
+  
+}
+.rp-BreadcrumbNavItems .rp-BreadcrumbLink:hover,
+.rp-CollapsedItemsMenuToggle:hover {
+    text-decoration: none;
+
+    .rp-BreadcrumbLink__title {
+      text-decoration: underline;    
+    }
+  }
+
+.rp-BreadcrumbNavItems .rp-BreadcrumbLinkSeparator::before,
+.rp-CollapsedItemsMenuToggle .rp-BreadcrumbLinkSeparator::before {
+  content: '>';
+  padding-right: 0.5em;
+  font-style: normal;
+  color: $rp-navy;
+}
+
+.rp-BreadcrumbLink {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+
+  padding: 0 0.5em;
+}
+
+.rp-CollapsedItemsMenu:not(.has-items) {
+  display: none;
+}
+
+.rp-CollapsedItems {
+  position: fixed;
+  background-color: $rp-light-fade-10;
+  border-radius: 5px;
+
+  &::before {
+    content: '';
+    display: block;
+    
+    border: solid 0.5em transparent;
+    border-bottom-color: $rp-light-fade-10;
+
+    position: absolute;
+    top: -1em;
+    left: 1.6em;
+  }
+
+  &:not(.is-visible) {
     display:none;
   }
+}
+
+.rp-CollapsedItemsMenuToggle {
+  cursor: pointer;
+}
+
+.rp-MenuToggle {
+  display: block;
+  padding: 0 0.5em;
+}
+
+
+
+.rp-MenuContainer {
+  padding-top: 1em;
+
+  background-color: $rp-light-fade-10;
+  @include typo-display;
+  text-transform: uppercase;
+  z-index: $above-1;
+
+  @include overlay;
+  width: 80%;
+  @include overlay-rightPanel(15em);
+
+  overflow: auto;
+
+  .admin-bar & {
+    height: calc(100vh - 32px);
+  }
+
+  transform: translate3d(100%, 0 ,0);
+  transition: transform 0.3s;
+
+  &:target,
+  &.is-visible {
+    transform: translate3d(0, 0 ,0);
+  }
+}
+
+.rp-MainNav {
+  margin-left: auto;
 }
 
 .rp-Menu,
@@ -69,41 +152,27 @@
   margin-bottom: 0;
 }
 
-.menu-item, .page_item {
-
+.menu-item,
+.page_item {
   list-style-type: none;
+  text-indent: 1em;
+  padding-right: 0.5em;
 
-  @include mq($from: horizontalMenu) {
-    display: inline-block;
-
-    &:not(:first-child) {
-      margin-left: $rp-header-spacing;
-    }
-  }
-
-  @include mq($until: horizontalMenu) {
-    padding-left: 20px;
-    border-left: solid 5px transparent;
-  }
   a {
-    color: $rp-cream;
-    text-decoration: none;
+    display:block;
+  }
 
-    &:hover {
-      text-decoration: none;
-    }
+  .sub-menu & {
+    text-indent: 2em;
   }
 }
 
-.current-menu-item,
-.current_page_item,
-.current-menu-item-parent {
+.current-menu-item:not(.current-menu-parent)>a {
+  border-left: solid 6px $rp-orange;
+}
 
-  @include mq($until: horizontalMenu) {
-    border-left-color: $rp-red;
-  }
-
-  @include mq($from: horizontalMenu) {
-    border-bottom: solid 5px $rp-red;
-  }
+.rp-Legal {
+  text-align: center;
+  display: block;
+  line-height: 1.3;
 }

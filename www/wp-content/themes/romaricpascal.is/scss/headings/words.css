@@ -1,0 +1,55 @@
+.rp-LetteredHeading-words::before {
+    padding-top: 64.31568400770713%;
+}
+
+.rp-LetteredHeading-words .rp-LetteredHeading__picture {
+    background-image: url(assets/images/headings/me.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 44.12387836490528%;
+    width: 28.378574181117532%;
+    top: 55.87614560165657%;
+    left: 71.62143352601156%;
+}
+
+.rp-LetteredHeading-words .rp-LetteredHeading__words {
+    background-image: url(assets/images/headings/words/Words@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 69.68277858731497%;
+    width: 71.02119460500963%;
+    top: 8.255360121558402%;
+    left: 6.011637764932563%;
+}
+
+.rp-LetteredHeading-words .rp-LetteredHeading__their {
+    background-image: url(assets/images/headings/words/Their@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 27.74129534473503%;
+    width: 29.865125240847785%;
+    top: 0%;
+    left: 21.27118689788054%;
+    z-index: 1;
+}
+
+.rp-LetteredHeading-words .rp-LetteredHeading__about {
+    background-image: url(assets/images/headings/words/ABOUT@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 26.84254927525117%;
+    width: 33.25626204238921%;
+    top: 55.87625944282537%;
+    left: 7.919075144508671%;
+
+}
+
+.rp-LetteredHeading-words .rp-LetteredHeading__me {
+    background-image: url(assets/images/headings/words/me@0.2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 33.85276861722525%;
+    width: 16.300578034682083%;
+    top: 56.740835186747454%;
+    left: 42.98606165703276%;
+}

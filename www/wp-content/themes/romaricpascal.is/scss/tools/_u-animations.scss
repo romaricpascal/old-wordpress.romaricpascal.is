@@ -1,0 +1,127 @@
+// Combinations of the zoomInUp and zoomInRight animations from animate.css
+// https://github.com/daneden/animate.css (MIT licensed)
+// Keyframes
+@import '../../node_modules/animate.css/source/fading_entrances/fadeIn';
+@import '../../node_modules/animate.css/source/fading_entrances/fadeInLeft';
+@import '../../node_modules/animate.css/source/fading_entrances/fadeInRight';
+@import '../../node_modules/animate.css/source/zooming_entrances/zoomInDown';
+@import '../../node_modules/animate.css/source/zooming_entrances/zoomInRight';
+
+$a-duration-slowest: 0.8s;
+$a-duration-slow: 0.6s;
+$a-duration: 0.5s;
+$a-duration-quick: 0.4s;
+$a-duration-quickest: 0.3s;
+
+$a-delay-s: 0.2s;
+$a-delay-m: 0.4s;
+$a-delay-l: 0.6s;
+$a-delay-xl: 0.8s;
+$a-delay-xxl: 1s;
+
+.with-js {
+	.u-anim-inView {
+		animation-play-state: paused;
+	}
+
+	.is-inView .u-anim-inView {
+		animation-play-state: running;
+	}
+}
+
+.a-entrance {
+	animation-fill-mode: backwards;
+}
+
+.a-exit {
+	animation-fill-mode: forwards;
+}
+
+.a-timing-description {
+	animation-duration: $a-duration-slowest;
+	animation-timing-function: cubic-bezier(.65,-0.01,.95,.61);
+	animation-delay: $a-delay-m;
+}
+
+.a-timing-main {
+	animation-duration: $a-duration-slowest;
+	animation-timing-function: cubic-bezier(.65,-0.01,.95,.61);
+	animation-delay: $a-delay-s;
+}
+
+.a-timing-projectCraft {
+	animation-duration: $a-duration-slowest;
+	animation-delay: $a-delay-l;
+}
+
+.rp-PostListItem {
+	animation-name: fadeIn;
+	animation-duration: $a-duration;
+	animation-fill-mode: backwards;
+}
+
+@keyframes postExit {
+	from {
+    	transform: none;
+	}
+
+	50% {
+		transform: translate3d(100%, 0, 0);
+	}
+	51% {
+		transform: translate3d(-100%, 0, 0);
+	}
+
+	to {
+		transform: none;
+	}
+}
+
+.is-exiting .rp-PostListItem  {
+  animation-name: fadeInRight;
+  animation-direction:reverse;
+  animation-fill-mode: forwards;
+}
+.is-exiting-left .rp-PostListItem  {
+	animation-name: fadeInLeft;
+	animation-direction: reverse;
+}
+
+.is-exiting .rp-PostListItem .u-loadable__content{
+	animation-name: fadeIn;
+	animation-direction: reverse;
+	animation-fill-mode: forwards;
+}
+
+.has-exited .rp-PostListItem {
+	animation-name: fadeInLeft;
+  	animation-fill-mode: forwards;
+}
+
+.has-exited-left .rp-PostListItem {
+	animation-name: fadeInRight;
+}
+
+.has-exited .rp-PostListItem .u-loadable__content {
+	opacity: 0;
+}
+
+.is-entering .rp-PostListItem .u-loadable__content {
+	animation-name: fadeIn;
+	animation-direction: initial;
+	animation-fill-mode: backwards;
+}
+
+.rp-Viewport {
+	animationName: fadeIn;
+	&.is-entering {
+		animation-duration: $a-duration;
+		animation-fill-mode: forwards;
+	}
+
+	&.is-exiting {
+		animation-duration: $a-duration;
+		animation-direction: reverse;
+		animation-fill-mode: backwards;
+	}
+}

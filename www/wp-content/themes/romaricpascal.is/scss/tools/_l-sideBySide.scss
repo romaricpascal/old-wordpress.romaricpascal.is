@@ -1,0 +1,40 @@
+@mixin l-sideBySide {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+
+	// Controls the gap
+	&::before {
+		flex: none;
+		content: '';
+		width: 4vw;
+		order: 2;
+	}
+
+	&__header {
+		width: 33vw;
+		max-width: 25em;
+		flex: none;
+		order: 3;
+	}
+
+	&__main {
+		width: 46.2vw;
+		max-width: 35em;
+		flex: none;
+		order: 1;
+	}
+}
+
+.l-sideBySide {
+	@include mq($from: archiveOnTwoColumns) {
+		@include l-sideBySide;
+	}
+
+	&-l {
+		@include mq($from: showHomeMenu) {
+			@include l-sideBySide;
+		}
+	}
+}

@@ -1,109 +1,65 @@
 // 1. Settings
-$rp-purple: #260b23;
-$rp-red: #c54d58;
-$rp-cream: #f8efe0;
-$rp-cream-on-purple-35: mix($rp-cream, $rp-purple, 35%);
-$rp-cream-on-purple-50: mix($rp-cream, $rp-purple, 50%);
-$rp-cream-on-purple-65: mix($rp-cream, $rp-purple, 65%);
-$rp-cream-on-red-35: mix($rp-cream, $rp-red, 35%);
-$rp-cream-on-red-65: mix($rp-cream, $rp-red, 65%);
+// 1.1 Colors
+$rp-yellow: #ffc543;
+$rp-light: #fff7e7;
+$rp-light-fade-10: fade-out($rp-light, 0.1);
+$rp-blue: #4ab0aa;
+$rp-orange: #ff742e;
+$rp-orange-dark-8: darken($rp-orange, 8%);
+$rp-navy: #022950;
+$rp-orange-on-yellow-50: mix($rp-orange,$rp-yellow, 50%);
+$rp-light-on-yellow-50: mix($rp-light, $rp-yellow, 50%);
+$rp-navy-on-yellow-20: mix($rp-navy, $rp-yellow, 20%);
+$rp-navy-on-yellow-80: mix($rp-navy, $rp-yellow, 80%);
+// 1.2 Typo
+@font-face {
+  font-family: Open Sans;
+  src:
+    url("assets/fonts/OpenSans-Semibold.woff2") format("woff2"),
+    url("assets/fonts/OpenSans-Semibold.woff") format("woff");
+}
+$rp-ff-copy: 'Open Sans', sans-serif;
+@font-face {
+  font-family: Montserrat;
+  src:
+    url("assets/fonts/Montserrat-Bold.woff2") format("woff2"),
+    url("assets/fonts/Montserrat-Bold.woff") format("woff");
+}
+$rp-ff-display: 'Montserrat', sans-serif;
 
-$rp-logo-size: 4.25rem;
-$rp-header-spacing: 0.5em;
+$rp-lineHeight: 1.5;
 
-$rp-artwork-grid-min-item-size: 140px;
-
-// SASS-MQ breakpoints
+// 1.3 Breakpoints
 $mq-breakpoints: (
-  horizontalMenu: 670px,
-  heroFontJump: 450px,
-  cardUsp: 400px,
-  horizontalUsp: 680px,
-  horizontalProjectHeader: 33.25em,
-  horizontalArtwork: 600px,
-  artworkGrid4Cols: 4 * $rp-artwork-grid-min-item-size,
-  artworkGrid5Cols: 5 * $rp-artwork-grid-min-item-size,
-  artworkLinkAlignShift: 870px,
-  artworkLinkEnlarge: 400px
+  showHomeMenu: 34em,
+  archiveOnTwoColumns: 58em
 );
 
-$rp-copy-font-family: questasans_regular;
-$rp-display-font-family: filsonsoft-black;
-$rp-header-font-family: filsonsoft-bold;
+// 1.4 Layout variables
+$headerHeight: 3em;
+$circleButtonSize: 2.6em;
 
-$rp-font-size-huge: 6.25vw;
+// 1.5 Z-indices
+$above-1: 25;
 
 // 2. Tools
 @import "../node_modules/sass-mq/_mq.scss";
 @import "../node_modules/inuitcss/tools/_tools.hidden.scss";
+.t-hidden-visually {
+  @include inuit-hidden-visually;
+}
+
 @import "../node_modules/inuitcss/tools/_tools.clearfix.scss";
-@import "../node_modules/animate.css/source/fading_entrances/fadeInLeft";
-@import "../node_modules/animate.css/source/fading_entrances/fadeInRight";
-
-@mixin light-on-dark {
-  background: $rp-purple;
-  color: $rp-cream;
+// 2.1 Color combinations
+@mixin navy-on-yellow {
+	background-color: $rp-yellow;
+	color: $rp-navy;
 }
 
-.t-light-on-dark {
-  @include light-on-dark;
-}
-
-@mixin dark-on-light {
-  background-color: $rp-cream;
-  color: $rp-purple;
-}
-
-.t-dark-on-light {
-  @include dark-on-light;
-}
-
-@mixin light-on-red {
-  background-color: $rp-red;
-  color: $rp-cream;
-
-  a {
-    color: $rp-purple;
-  }
-}
-
-.t-light-on-red {
-  @include light-on-red;
-}
-
-@mixin dark-on-red {
-  background-color: $rp-red;
-  color: $rp-purple;
-
-  a {
-    color: $rp-cream;
-  }
-}
-
-.t-dark-on-red {
-  @include dark-on-red;
-}
-
-@mixin font-face($font-family) {
-
-  @font-face {
-    font-family: $font-family;
-    src: url('assets/fonts/#{$font-family}.eot');
-    src: url('assets/fonts/#{$font-family}.eot?#iefix') format('embedded-opentype'),
-         url('assets/fonts/#{$font-family}.woff2') format('woff2'),
-         url('assets/fonts/#{$font-family}.woff') format('woff'),
-         url('assets/fonts/#{$font-family}.ttf') format('truetype'),
-         url('assets/fonts/#{$font-family}.svg##{$font-family}') format('svg');
-  }
-
-}
-
-@include font-face($rp-copy-font-family);
-@include font-face($rp-display-font-family);
-@include font-face($rp-header-font-family);
-
+// 2.2 Typo
 @mixin typo-copy {
-  font-family: $rp-copy-font-family, sans-serif;
+	font-family: $rp-ff-copy;
+	font-weight: normal;
 }
 
 .t-typo-copy {
@@ -111,80 +67,78 @@ $rp-font-size-huge: 6.25vw;
 }
 
 @mixin typo-display {
-  font-family: $rp-display-font-family, sans-serif;
+	font-family: $rp-ff-display;
+  font-weight: normal;
 }
 
 .t-typo-display {
   @include typo-display;
 }
 
-@mixin typo-header {
-  font-family: $rp-header-font-family, sans-serif;
+
+@mixin overlay {
+  position: fixed;
 }
 
-.t-typo-header {
-  @include typo-header;
+@mixin overlay-rightPanel($max-width: 40%) {
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+
+  max-width: $max-width;
 }
 
-@mixin typo-font-size-huge {
-  font-size: 10vw;
+// 2.3 - Layouts
+@import 'tools/_f-strip-units.scss';
+@import 'tools/_l-grid';
+@import 'tools/_l-snakeGrid';
+@import 'tools/_l-oneAndTwo';
+@import 'tools/_l-sideBySide';
 
-  @include mq($from: heroFontJump) {
-    font-size: 2.8em;
+.l-vertCentered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &>* {
+    // Aim is just to positiong things in the middle, not to shrink things
+    flex: none;
+    // Due to some children having no intrinsic width (headings positionned absolutely, aspect ratio with images...)
+    width: 100%;
   }
 }
 
-@mixin typo-font-size-xlarge {
-
-  font-size: 8.25vw;
-
-  @include mq($from: heroFontJump) {
-    font-size: 2.3em;
-  }
-}
-
-@mixin typo-font-size-large {
-
-  font-size: 5.35vw;
-
-  @include mq($from: heroFontJump) {
-    font-size: 1.5em;
-  }
-}
-
-@mixin typo-font-size-regular {
-
-  font-size: 1em;
-}
-
-@mixin typo-font-size-small {
-  font-size: 0.8em;
-}
-
-.t-hidden-visually {
-  @include inuit-hidden-visually;
-}
+@import 'tools/_viewportScalingFontSize';
+@import 'tools/_u-animations';
 
 // 3. Generic
-@import '../node_modules/normalize.css/normalize';
-
+// @import '../node_modules/normalize.css/normalize';
 // 4. Base
 * {
   box-sizing: border-box;
 }
 
 body {
-  @include dark-on-light;
-  @include typo-copy;
+  margin: 0;
+	@include navy-on-yellow;
+	@include typo-copy;
+  line-height: $rp-lineHeight;
+  background-image: url(assets/images/background-s.jpg);
 }
 
 a {
-  color: $rp-red;
-  text-decoration: none;
+  // Use a slighlty darker shade of orange
+  // to compensate for the thin letters on light background
+	color: $rp-orange-dark-8;
+	text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+iframe {
+  max-width: 100%;
 }
 
 img {
@@ -192,14 +146,200 @@ img {
   height: auto;
 }
 
-p {
+p, ul, ol, dl {
   margin-top:0;
-  margin-bottom: 1em;
+  margin-bottom: 0;
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   @include typo-display;
   font-weight: normal;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+@import '_loading';
+
+.u-d-b {
+  display: block;
+}
+
+.u-d-flx {
+
+  &-l {
+    @include mq($from: showHomeMenu) {
+      display: flex;
+    }
+  }
+}
+
+.u-ta-c {
+  text-align: center;
+}
+
+.u-c-orange {
+  color: $rp-orange;
+}
+
+.u-ord-first {
+  &-l {
+    @include mq($from: showHomeMenu) {
+      order: -9999;
+    }
+  }
+}
+
+.u-ord-last {
+
+  &-l {
+    @include mq($from: showHomeMenu) {
+      order: 9999;    
+    }
+  }
+}
+
+.u-fl-auto {
+  flex: auto;
+}
+
+.u-fl-none {
+  flex: none;
+}
+
+.u-flai-c {
+  align-items: center;
+}
+
+.u-flas-start {
+  align-self: start;
+}
+
+.u-h-100vh {
+  height: 100vh;
+}
+
+.u-mh-100vh {
+  
+  min-height: 100vh;
+
+  &-xl {
+    @include mq($from: archiveOnTwoColumns) {
+      min-height: 100vh;
+    }
+  }
+}
+
+.u-mw-30em {
+
+  max-width: 30em;
+  margin-left: auto;
+  margin-right: auto;
+
+  // Constrains the content so that text doesn't span too wide
+  &-xl-down {
+    @include mq($until: archiveOnTwoColumns) {
+      max-width: 30em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.u-mb-0 {
+  margin-bottom: 0;
+}
+
+.u-mb-1:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.u-mb-2:not(:last-child) {
+  margin-bottom: 2em;
+}
+
+.u-mb-10:not(:last-child) {
+  margin-bottom: 10em;
+}
+
+.u-show {
+  
+  &-l {
+    @include mq($until: showHomeMenu) {
+      display: none;
+    }
+  }
+
+  &-xl {
+    @include mq($until: archiveOnTwoColumns) {
+      display: none;
+    }
+  }
+}
+
+.u-hide {
+
+  &-l {
+    @include mq($from: showHomeMenu) {
+      display: none;
+    }
+  }
+
+  &-xl {
+    @include mq($from: archiveOnTwoColumns) {
+      display: none;
+    }
+  }
+}
+
+.u-list-flat {
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.u-ofx-h {
+  overflow-x: hidden;
+}
+
+.u-clearfix {
+  @include inuit-clearfix;
+}
+
+.u-flt-right {
+  float: right;
+}
+
+.rp-List-reset {
+  padding: 0;
+  list-style-type: none;
+}
+
+.u-vgap-1em {
+  &>*:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}
+
+.u-vgap-2em {
+  &>*:not(:last-child) {
+    margin-bottom: 2em;
+  }
+}
+
+.u-vgap-firstLarge {
+  >*:first-child:not(:last-child) {
+    margin-bottom: 2em;
+
+    @include mq($from: archiveOnTwoColumns) {
+        margin-bottom: 3vw;
+    }
+  }
 }
 
 // 4.5 Wordpress style adjustments
@@ -208,74 +348,126 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
-.rp-Input {
-  font-size: inherit;
-  line-height: 2;
-  border: none;
-  border-radius: 0;
-  padding: 0 0.5em;
+@import 'node_modules/inuitcss/objects/_objects.ratio';
 
-  &-softLeft {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+// 5. Components
+.rp-Logo {
+  flex: none;
+  width: 2em;
+  align-self: center;
+  position: relative;
+  top: -0.1em;
+
+  &>img {
+    display: block;
   }
 }
 
-.rp-Button {
-  vertical-align: top;
-  @include light-on-red;
-  @include typo-display;
-  border: none;
-  font-size: 1.3em;
-  line-height: 2;
-  white-space: nowrap;
-  padding: 0 1em;
-
-  &-softRight {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+.rp-NavLogo {
+    display: block;
+  
+  &>img {
+    display:block;
+    margin:auto;
+    width:3em;
+    transition: opacity 0.5s;
   }
 
   &::after {
-    content: '»';
-    margin-left: 0.2em;
-    color: $rp-cream-on-red-65;
+    content:'';
+    position:absolute;
+    top: 1em;
+    left: 50%;
+    height: 3em;
+    background: red;
+    width: 3em;
+    transform:translateX(-50%);
+    background:url(assets/images/rp_144.png);
+    background-size:100%;
+    opacity:0;
+    transition: opacity 0.5s;
   }
-}
-
-
-// 5. Components
-@import "../node_modules/inuitcss/objects/_objects.ratio";
-
-.rp-LandingSection {
-  padding: 2rem 1rem;
   
-  &-withSpaceAfter {
-    margin-bottom: 2rem;
+  &:hover {
+    &>img {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+}
+
+
+.rp-Viewport {
+  padding: 1em;
+
+  .home &{
+    // Elements have enough space they don't need more at the bottom
+    padding-bottom: 0;
   }
 }
 
-.rp-SectionTitle {
-  @include typo-display;
-  @include typo-font-size-xlarge;
-  display: inline-block;
-  margin: 0;
-  margin-bottom: 0.5em;
+.rp-ProgressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-color: $rp-orange;
 }
 
-.l-Container {
-  max-width: 768px;
-  margin-left: auto;
-  margin-right: auto;
+.rp-AsideHeading {
+  margin: 0 0 0.25em;
+  font-size: 1.25em;
 }
 
-.rp-PreviousNextLinks {
-  @include inuit-clearfix();
+.rp-AsideSection {
+  padding-top: 1em;
+  border-top: $rp-navy-on-yellow-20 solid 2px;
+}
 
-  @include typo-display;
-  @include typo-font-size-large;
-  line-height: 1.5;
-  margin-top: 1em;
+.rp-AccessKeyHint {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  background: #ff5905;
+  color: white;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  
+  transition: opacity 0.5s;
+  opacity: 0;
+
+  a:hover & {
+    opacity: 1;
+  }
+}
+
+.rp-Content {
+  max-width: 41em;
+  margin: auto;
+}
+
+.rp-Announcement {
+  display: block;
+  border: solid 3px $rp-orange;
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.rp-PrevNextNav {
+  @include inuit-clearfix;
 
   &__previous {
     float: left;
@@ -286,191 +478,104 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.rp-Underlined {
-
+$prevNextLinkSize: $circleButtonSize;
+.rp-PrevNextLink {
+  height: $prevNextLinkSize;
+  width: $prevNextLinkSize;
   overflow: hidden;
+  background: $rp-orange;
+  color: $rp-light;
+  display: inline-block;
+  border-radius: 9999px;
   position: relative;
-  padding-bottom: 0.1em;
-
-  &-hero {
-    display: inline-block;
-  }
-
-  &::after {
-    content: '';
-    display: block;
-    background: $rp-red;
-    height: 0.1em;
-    transform: skewX(-39deg) translateX(-5px);
-    position: absolute;
-    left: 0;
-    right: 0;
-  }
-
-  &-landing::after {
-    width: 7.61em;
-  }
-}
-
-.rp-LegacyWarning {
-
-  border: solid 2px $rp-red;
-  padding: 1em;
-  color: $rp-cream-on-red-35;
-  margin-bottom: 2em;
-
   &::before {
-    content: 'Please note: ';
-    display: inline;
-    font-weight: bold;
-  }
-}
-
-.rp-Legal {
-  display: block;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  text-align: center;
-}
-
-@import "../node_modules/spinkit/css/spinners/6-chasing-dots";
-
-.has-loadMore-loading {
-
-  .rp-loadMoreLink {
-    display: none;
-  }
-}
-
-.sk-chasing-dots .sk-child {
-  background-color: $rp-red;
-}
-
-.rp-ArchiveLink {
-  text-align: right;
-  margin-top: 1.5em;
-
-  &__detail {
+    content: '';
+    height: 100%;
     display: block;
-    position: relative;
-    font-size: .75em;
-    line-height: 1;
-  }
-  a {
-    position: relative;
-    padding-right: 1.1em;
-    display: inline-block;
-
-    @include typo-display;
-    font-size: 1.5em;
-    line-height: 1.5em;
-
-    &::after {
-      content: '»';
-      color: $rp-cream-on-purple-35;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-
-  &-withDetail {
-    a::after {
-      top: 55%;
-    }
-  }
-}
-
-.rp-LoadMoreLink {
-
-  text-align: center;
-
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-
-  &[data-loadMore-type="next"] {
-    margin-bottom:0;
-  }
-
-  &[data-loadMore-type="previous"] {
-    margin-top: 0;
-  }
-
-  a {
     text-align: center;
-    @include typo-display;
-    font-size: 1.5em;
-    line-height: 1.5em;
-
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-
-    border-radius: 3px;
+    line-height: $prevNextLinkSize;
   }
 
-  .sk-chasing-dots {
-    margin-top: 0;
-    margin-bottom: 0;
+  &-disabled {
+    background-color: $rp-orange-on-yellow-50;
+    color: $rp-light-on-yellow-50;
   }
 
-  &.is-loading a {
-    display:none;
+  &-prev::before {
+    content: '<';
   }
 
-  &:not(.is-loading) {
-    .sk-chasing-dots {
-      display: none;
-    }
+  &-next::before {
+    content: '>';
   }
 }
 
-.rp-LoadMoreLink a::before,
-.rp-LoadMoreLink a::after {
-    content: '»';
-    display: inline-block;
-    color: $rp-cream-on-purple-35;
+.rp-PostLink:hover {
+  text-decoration:none;
 }
 
-.rp-LoadMoreLink[data-loadMore-type=next] a::before {
-   transform: translateX(-0.2em) rotate(90deg);
+.rp-PostListItem {
+  transition: transform 0.3s;
 }
 
-.rp-LoadMoreLink[data-loadMore-type=next] a::after {
-   transform: translateX(0.2em) rotate(90deg);
+.rp-PostListItem:hover{
+  transform: scale(1.05);
+  z-index:25;
 }
 
-.rp-LoadMoreLink[data-loadMore-type=previous] a::before {
-   transform: translateX(-0.2em) rotate(-90deg);
+// Forms
+.rp-Label {
+  @include typo-display;
+  text-transform: uppercase;
 }
 
-.rp-LoadMoreLink[data-loadMore-type=previous] a::after {
-   transform: translateX(0.2em) rotate(-90deg);
+.rp-Input {
+  border: none;
+  border-bottom: solid 2px #FF742E;
+  @include typo-copy;
+  font-size: inherit;
+  color: $rp-navy;
+  background-color: fade-out($rp-light, 0.5);
+  padding: 0 0.5em;
+  line-height: 2;
 }
 
-.rp-NewsletterSignup {
+.rp-Button {
+  background-color: $rp-orange;
+  color: $rp-light;
+  text-transform: uppercase;
+  border: none;
+  @include typo-display;
+  font-size: inherit;
+  line-height: 2;
+  padding: 0 0.5em;
+}
+
+.rp-Form-oneLine {
   display: flex;
   flex-wrap: nowrap;
+}
 
-  margin-bottom: 1em;
+// wpcf-7
 
-  &_field {
-    flex: 1 1 0;
-  }
 
-  &button {
-    flex: 0 0 auto;
-  }
+// Headings
+@import '_headings';
+@import '_shareLinks';
+@import '_homeMenu';
+@import '_home';
+@import '_header';
+@import '_contact';
+@import '_blog';
+@import '_artworks';
+@import '_single-project';
+@import '_collapsible';
+
+// Bug fixes
+.flexbug3Wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 
-@import "_header";
-@import "_hero";
-@import "_projects";
-@import "_usps";
-@import "_testimonials";
-@import "_artworks";
-@import "_contact";
-@import "_notes";
-@import "_announcements";
+

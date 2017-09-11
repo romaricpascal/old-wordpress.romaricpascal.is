@@ -1,0 +1,50 @@
+.rp-HeaderDuplicate {
+	display: none;
+}
+
+.single-project .rp-HeaderWithSubhead__heading {
+	@include viewportScalingFontSize(58em, 74em, 1.5em, 2em);
+}
+
+@include mq($from: archiveOnTwoColumns) {
+
+	.single-project{
+		.rp-HeaderDuplicate {
+			display: block;
+		}
+		.rp-Single {
+			display: flex;
+			justify-content: center;
+			padding: 2em (2.6em + 3em) 1em;
+			max-width: none;
+
+			&__header {
+				display: none;
+			}
+
+			&__main {
+				max-width: 41em;
+				// IE Needs a bit of help to scale the thing properly...
+				width: 100%;
+			}
+
+			&__aside {
+				width: 100% * 21.5 / 63;
+				max-width: 20em;
+				flex: none;
+				margin-left: 3em;
+			}
+		}
+		.rp-PrevNextNav {
+			position: fixed;
+			width: 100%;
+			max-width: 76em;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			padding: 0 1.5em;
+		}
+	}
+
+	
+}

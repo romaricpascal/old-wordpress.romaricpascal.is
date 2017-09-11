@@ -1,0 +1,2 @@
+<p>	Want to chat about lettering, web development, maybe a project or even something else entirely? I'll be happy to hear from you!</p>
+<p> You can use the form <span class="u-hide-xl">below</span><span class="u-show-xl">on the left</span> to drop me a message. And if you prefer good old email, you can write to me at: <a class="u-d-b rp-ContactEmail" href="mailto:hello@romaricpascal.is">hello@romaricpascal.is</a></p>

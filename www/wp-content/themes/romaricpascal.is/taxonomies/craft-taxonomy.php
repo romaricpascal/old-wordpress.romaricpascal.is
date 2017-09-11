@@ -37,7 +37,7 @@ function create_craft_taxonomy() {
       'labels'            => $labels,
       'hierarchical'      => true,
       'show_ui'           => true,
-      'how_in_nav_menus'  => true,
+      'show_in_nav_menus'  => true,
       'public'            => true,
       'show_admin_column' => true,
       'query_var'         => true,
@@ -70,6 +70,19 @@ function add_craft_taxonomy(){
 }
 add_action('init','add_craft_taxonomy');
 
+function rp_get_craft_object($idOrSlug) {
+  if (is_integer($idOrSlug)) {
+    return get_term( $idOrSlug, CRAFT_TAX_NAME);
+  } elseif (is_string($idOrSlug)) {
+    return get_term_by('slug', $idOrSlug, CRAFT_TAX_NAME);
+  }
+}
+
+function rp_get_craft_term_id($slug) {
+  $craft = get_term_by('slug',$slug, CRAFT_TAX_NAME);
+  return $craft->term_id;
+}
+
 function get_craft($post) {
   $crafts = wp_get_post_terms($post->ID, 'craft');
   if (empty($crafts)) {
@@ -77,4 +90,13 @@ function get_craft($post) {
   }
 
   return $crafts[0];
+}
+
+function rp_get_crafts($post) {
+  $crafts = wp_get_post_terms($post->ID,CRAFT_TAX_NAME);
+  return array_reverse($crafts);
+}
+
+function rp_get_query_craft() {
+  return rp_get_craft_object(get_query_var( CRAFT_TAX_NAME ));
 }

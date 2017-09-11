@@ -1,0 +1,40 @@
+.rp-HomeMenu {
+  position: fixed;
+  top: 50%;
+  left: 1em;
+  transform: translateY(-50%);
+  max-width: 2.5em;
+
+  @include mq($until: showHomeMenu) {
+  	display: none;
+  }
+
+  // TODO: A JS solution to adjust according to the actual
+  // size would be more robust for hiding the menu
+  // when the screen is not tall enough
+  @include mq($and: '(max-height: 34em)') {
+    display: none;
+  }
+}
+
+.rp-HomeMenuItem {
+  display:block;
+  max-height: 2em;
+  max-width: 2em;
+  overflow: hidden;
+}
+
+.rp-HomeMenuItem::before {
+  content: '';
+  display:block;
+  height: 0.5em;
+  width: 0.5em;
+  border-radius: 9999px;
+  background-color: $rp-orange;
+  margin: 0.75em;
+  transition: transform 0.5s;
+}
+
+.rp-HomeMenuItem-active::before {
+  transform: scale(2);  
+}

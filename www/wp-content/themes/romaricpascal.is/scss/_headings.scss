@@ -1,0 +1,122 @@
+.rp-LetteredHeading {
+    position: relative;
+	margin-top: 0;
+	
+    // Force 100% width as content will be empty
+    width: 100%;
+}
+
+.rp-LetteredHeading::before {
+    display: block;
+    content: '';
+}
+
+.rp-LetteredHeading__part {
+    position: absolute;
+    color: transparent;
+    animation-name: zoomInRight;
+    animation-fill-mode: backwards;
+}
+
+.rp-LetteredHeadingEntrance .rp-LetteredHeading__part {
+    animation-name: zoomInRight;
+    animation-fill-mode: backwards;
+
+    .with-js & {
+        animation-play-state: paused;
+    }
+
+    .with-js .is-inView & {
+        animation-play-state: running;
+    }
+}
+
+.rp-LetteredHeadingEntrance__I {
+    animation-duration: $a-duration;
+}
+
+.rp-LetteredHeadingEntrance__II {
+    animation-duration: $a-duration-quickest;
+    animation-delay: $a-delay-s;
+}
+
+.rp-LetteredHeadingEntrance__III {
+    animation-duration: $a-duration;
+    animation-delay: $a-delay-m;
+}
+
+.rp-LetteredHeadingEntrance__IV {
+    animation-duration: $a-duration-quick;
+    animation-delay: $a-delay-l;
+}
+
+.a-timing-2-1-1 {
+    &__I {
+        animation-duration: $a-duration-slow;
+    }
+
+    &__II {
+        animation-duration: $a-duration-quickest;
+        animation-delay: $a-delay-s;
+    }
+
+    &__III {
+        animation-duration: $a-duration;
+        animation-delay: $a-delay-s;
+    }
+
+    &__IV {
+        animation-duration: $a-duration-quick;
+        animation-delay: $a-delay-m;
+    }
+}
+
+.a-timing-oh,
+.a-timing-greeting {
+    &__I {
+        animation-duration: $a-duration-quickest;
+    }
+
+    &__II {
+        animation-duration: $a-duration;
+        animation-delay: $a-delay-s;
+    }
+
+    &__III {
+        animation-duration: $a-duration-quickest;
+        animation-delay: $a-delay-m;
+    }
+
+    &__IV {
+        animation-duration: $a-duration-quick;
+        animation-delay: $a-delay-l;
+    }
+}
+
+.a-timing-greeting {
+    &__IV {
+        animation-duration: $a-duration;
+        animation-delay: $a-delay-xl;
+    }
+
+    &__V {
+        animation-duration: $a-duration-quickest;
+        animation-delay: $a-delay-xxl;
+    }
+
+}
+
+@import 'headings/_greeting';
+@import 'headings/contact';
+@import 'headings/logos';
+@import 'headings/look';
+@import 'headings/looking';
+@import 'headings/not-found';
+@import 'headings/prints';
+@import 'headings/read';
+@import 'headings/t-shirts';
+@import 'headings/thanks';
+@import 'headings/thing';
+@import 'headings/websites';
+@import 'headings/words';
+@import 'headings/works';

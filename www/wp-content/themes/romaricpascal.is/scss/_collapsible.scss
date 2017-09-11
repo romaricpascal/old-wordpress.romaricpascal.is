@@ -1,0 +1,13 @@
+.js-collapsible:not(.is-collapsed) .js-collapsible__collapsedItemsMenu {
+  overflow:hidden;
+  width: 0;
+}
+
+.rp-BreadcrumbLink.is-collapsed,
+.rp-BreadcrumbLink.is-collapsed::before,
+.rp-BreadcrumbLink.is-collapsed::after {
+  width: 0;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0;
+}

@@ -4,13 +4,14 @@
   "description": "Wordpress theme",
   "main": "scss/style.scss",
   "scripts": {
-    "build:js": "uglifyjs `cat .uglify-files.list` -o main.js",
+    "build:js": "webpack -p",
     "build:css": "node-sass scss/style.scss | postcss -c .postcssrc",
     "build": "run-p build:css build:js",
-    "dev:css": "chokidar 'scss/**/*.scss' -c 'npm run build:css' --initial",
-    "dev:js": "chokidar 'js/**/*.js' -c 'npm run build:js -- --source-map-inline -b ' --initial",
-    "dev:up": "browser-sync start -p localhost:8080 -f **/*.php main.js style.css",
-    "dev": "run-p dev:js dev:css"
+    "dev:css": "chokidar 'scss/**/*' -c 'npm run build:css' --initial",
+    "dev:js": "webpack -d --watch",
+    "dev:up": "browser-sync start --config .browser-sync.js",
+    "dev": "run-p dev:js dev:css",
+    "php": "(cd ../../.. && php -S 0.0.0.0:8080 routing.php)"
   },
   "keywords": [
     "Wordpress",
@@ -20,22 +21,39 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
+    "autobind-decorator": "^2.1.0",
     "autoprefixer": "^6.7.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "browser-sync": "^2.18.7",
     "chokidar-cli": "^1.2.0",
     "cssnano": "^3.10.0",
+    "eslint": "^4.5.0",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-loader": "^1.9.0",
     "node-sass": "^4.3.0",
     "npm-run-all": "^4.0.1",
     "postcss-banner": "^3.0.0",
-    "postcss-cli": "^2.6.0"
+    "postcss-cli": "^2.6.0",
+    "postcss-inline-svg": "^3.0.0",
+    "postcss-resize": "git://github.com/rhumaric/postcss-resize.git#aba5e84",
+    "uglify-js": "^2.7.5",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.5.5"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
-    "browser-sync": "^2.18.7",
     "inuitcss": "^6.0.0-beta.4",
-    "normalize.css": "^5.0.0",
+    "lodash.throttle": "^4.1.1",
+    "qwest": "^4.5.0",
     "sass-mq": "^3.3.2",
-    "spinkit": "^1.2.5",
-    "uglify-js": "^2.7.5",
-    "waypoints": "^4.0.1"
+    "simple-icons": "git://github.com/simple-icons/simple-icons.git#f191ca1",
+    "smoothscroll-polyfill": "^0.3.6",
+    "spinkit": "^1.2.5"
   }
 }

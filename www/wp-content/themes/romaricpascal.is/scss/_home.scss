@@ -1,0 +1,9 @@
+.rp-HomeSection {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	&:not(:last-child) {
+		margin-bottom: 10em;
+	}
+}
