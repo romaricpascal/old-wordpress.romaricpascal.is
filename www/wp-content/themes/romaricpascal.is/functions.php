@@ -88,10 +88,11 @@ function the_social_card_image() {
 
 function the_twitter_card_type() {
   if (is_front_page() || is_singular(PROJECT_TYPE) || is_singular(ARTWORK_TYPE)) {
-    return 'summary_large_image';
+    echo 'summary_large_image';
+    return;
   }
 
-  return 'summary';
+  echo 'summary';
 }
 
 add_action( 'widgets_init', function () {
