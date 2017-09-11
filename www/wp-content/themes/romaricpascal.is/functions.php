@@ -209,7 +209,7 @@ add_action('template_redirect', function () {
   }
 });
 
-
+require_once('functions/relativeLinks.php');
 // require_once('functions/content-length.php');
 require_once('functions/archive-size.php');
 require_once('functions/components.php');
