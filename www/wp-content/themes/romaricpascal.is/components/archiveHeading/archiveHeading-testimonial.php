@@ -1,4 +1,4 @@
-<h<?php echo $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-words">
+<h<?= $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-words">
   <span class="rp-LetteredHeading__picture rp-LetteredHeading__part"></span>
   <span class="rp-LetteredHeading__their rp-LetteredHeadingEntrance__II rp-LetteredHeading__part">Their
   </span>
@@ -8,4 +8,4 @@
   </span>
   <span class="rp-LetteredHeading__me rp-LetteredHeadingEntrance__IV rp-LetteredHeading__part">me.
   </span>
-</h<?php echo $headingLevel;?>>
+</h<?= $headingLevel;?>>

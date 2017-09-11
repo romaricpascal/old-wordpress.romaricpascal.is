@@ -42,7 +42,7 @@
 					'headingLevel' => 2
 				],['post', rp_get($craft, 'slug')]);
 			}  elseif ($post->post_type === 'page') { ?>
-				<section id="<?php echo $menu_id; ?>" 
+				<section id="<?= $menu_id; ?>" 
 						 class="rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL" data-inview>
 				 <?php rp_render('page', [
 				   'post' => $post, 

@@ -7,4 +7,4 @@
 		$title = get_the_archive_title();
 	}
 ?>
-<h2><?php echo $title; ?></h2>
+<h2><?= $title; ?></h2>

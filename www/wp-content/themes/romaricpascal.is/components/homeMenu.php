@@ -5,8 +5,8 @@
 			$href = !empty($item[0]) ? '#'.$item[0] : ''; ?>
 	<a class="rp-HomeMenuItem rp-HomeMenuItem-fragment <?= $marker ?>" 
 	   href="<?= $href ?>"
-	   accesskey="<?php echo rp_get_accessKey($index); ?>">
-		<?php echo $item[1]; ?>   	
+	   accesskey="<?= rp_get_accessKey($index); ?>">
+		<?= $item[1]; ?>   	
 	</a>
 	<?php endforeach; ?>
 	<a class="rp-HomeMenuItem rp-HomeMenuItem-next rp-HomeMenu__prevNext" accesskey="k" data-key="down">Next section</a>

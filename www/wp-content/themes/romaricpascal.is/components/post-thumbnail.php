@@ -1,6 +1,6 @@
-<a class="rp-PostLink o-ratio <?php echo $classes; ?>"
+<a class="rp-PostLink o-ratio <?= $classes; ?>"
    <?php if ($accesskey !== null) { echo "accesskey='{$accesskey}'";} ?>
-   href="<?php echo rp_get_permalink($post, $craft); ?>">
+   href="<?= rp_get_permalink($post, $craft); ?>">
 	<?php rp_render('postThumbnailImg', [
 		'post' => $post, 
 		'classes' => 'o-ratio__content u-d-b', 
@@ -9,6 +9,6 @@
 		'sizes' => $sizes
 	]); ?>
 	<?php if($accesskey !== null): ?>
-		<kbd class="rp-AccessKeyHint"><?php echo $accesskey; ?></kbd>
+		<kbd class="rp-AccessKeyHint"><?= $accesskey; ?></kbd>
 	<?php endif;?>
 </a>

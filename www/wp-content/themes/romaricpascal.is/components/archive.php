@@ -7,7 +7,7 @@
 	$postListFormat = rp_get_postListFormat($postTypeName); ?>
 
 <?php if ($query->have_posts()): ?>
-<article class="<?php echo "{$classes}"; ?>"
+<article class="<?= "{$classes}"; ?>"
 	<?php if ($id) {echo "id='{$id}'";} ?>
 	data-inview >
 	<div class="l-sideBySide">

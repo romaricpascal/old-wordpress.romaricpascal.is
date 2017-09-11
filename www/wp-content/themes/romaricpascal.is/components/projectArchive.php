@@ -20,9 +20,9 @@
 			</svg>
 			<img class="rp-LetteringHeading__portrait" src="/wp-content/themes/romaricpascal.is/assets/images/photo.png" />
 			</div>
-			<span class="rp-LetteringHeading__textFallback"><?php echo $craft->name; ?></span>
+			<span class="rp-LetteringHeading__textFallback"><?= $craft->name; ?></span>
 		</h2>
-		<p><?php echo $craft->description; ?></p>
+		<p><?= $craft->description; ?></p>
 	</header>
 	<?php rp_render('postList', ['query' => $query, 'format' => 'thumbnail', 'classes'=>'l-sideBySide__main rp-ArchiveList-project']); ?>
 	</div>

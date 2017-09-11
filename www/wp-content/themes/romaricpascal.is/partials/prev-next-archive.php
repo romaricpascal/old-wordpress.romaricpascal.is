@@ -18,7 +18,7 @@ if (rp_has_pages()) {
 }
 if(!empty($previous_post) || !empty($next_post)):
 ?>
-<nav class="rp-PrevNextNav rp-PrevNextNav-<?php echo $post_type; ?>">
+<nav class="rp-PrevNextNav rp-PrevNextNav-<?= $post_type; ?>">
 	<?php if(!empty($previous_post)): ?>
 	<a
 	  class="rp-PrevNextLink rp-PrevNextLink-prev rp-PrevNextNav__previous" 
@@ -27,14 +27,14 @@ if(!empty($previous_post) || !empty($next_post)):
 	  rel="prev"
 	  accesskey="j"
 	  data-key="left"
-	  title="Older <?php echo $label; ?>">
-	    Older <?php echo $label; ?>
+	  title="Older <?= $label; ?>">
+	    Older <?= $label; ?>
     </a>
 	<?php else: ?>
 	<span 
 	  class="rp-PrevNextLink rp-PrevNextLink-disabled rp-PrevNextLink-prev rp-PrevNextNav__previous" 
-	  title="No older <?php echo $label; ?>">
-		No older <?php echo $label; ?>		
+	  title="No older <?= $label; ?>">
+		No older <?= $label; ?>		
 	</span>
 	<?php endif; ?>
 	<?php if(!empty($next_post)): ?>
@@ -45,14 +45,14 @@ if(!empty($previous_post) || !empty($next_post)):
 	  rel="next"
 	  accesskey="k"
 	  data-key="right"
-	  title="Newer <?php echo $label; ?>">
-	    <?php echo $label; ?>
+	  title="Newer <?= $label; ?>">
+	    <?= $label; ?>
     </a>
 	<?php else: ?>
 	<span 
 	  class="rp-PrevNextLink rp-PrevNextLink-disabled rp-PrevNextLink-next rp-PrevNextNav__next" 
-	  title="No newer <?php echo $label; ?>">
-	    No newer <?php echo $label; ?>
+	  title="No newer <?= $label; ?>">
+	    No newer <?= $label; ?>
 	</span>
 	<?php endif; ?>	
 </nav>

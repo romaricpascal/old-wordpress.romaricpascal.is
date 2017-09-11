@@ -1,4 +1,4 @@
-<div class="<?php echo $classes; ?>">
+<div class="<?= $classes; ?>">
 	<p >Lettering is the art of drawing letters. It brings the letters to life and helps them say more than just the words they write: giving them a bespoke tone of voice, stressing key parts of their message and ensuring they fit their support nicely.</p>
 
 	<p>This helps your message make the right impact to your audience:</p>

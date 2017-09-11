@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?>|<?php bloginfo('description');?>" href="<?php bloginfo('url');?>/feed">
 
-    <title><?php echo $title; ?></title>
+    <title><?= $title; ?></title>
 
     <?php rp_render('favicons'); ?>
 
@@ -20,7 +20,7 @@
     <!-- Twitter cards -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@romaricpascal" />
-    <meta name="twitter:title" content="<?php echo $title; ?>" />
+    <meta name="twitter:title" content="<?= $title; ?>" />
     <meta name="twitter:description" content="<?php  bloginfo('description')?>" />
     <meta name="twitter:image" content="<?php the_social_card_image(); ?>" />
 

@@ -14,7 +14,7 @@
 	$postIndex = 0;
 ?>
 
-<ul class="rp-PostList u-list-flat <?php echo "{$classes} {$layoutClass}"; ?>">
+<ul class="rp-PostList u-list-flat <?= "{$classes} {$layoutClass}"; ?>">
 <?php while(rp_has_more_posts($query)): ?>
 	<?php 
 		$post = rp_next_post($query); 
@@ -33,7 +33,7 @@
 			$postSizez = $sizes;
 		}
 	?>
-	<li class="rp-PostListItem <?php echo $itemLayoutClass; ?>">
+	<li class="rp-PostListItem <?= $itemLayoutClass; ?>">
 		<?php rp_render('post', [
 			'post' => $post, 
 			'craft'=> $craft, 'headingLevel' => $headingLevel,

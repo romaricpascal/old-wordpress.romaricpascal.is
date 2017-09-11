@@ -4,15 +4,15 @@
 		$headingLevel = 1;
 	}
 ?>
-<h<?php echo $headingLevel; ?>>… or follow me</h<?php echo $headingLevel;?>>
+<h<?= $headingLevel; ?>>… or follow me</h<?= $headingLevel;?>>
 <ul class="u-list-flat rp-ShareLinkList">
 	<?php foreach($links as $link):?>
 		<li>
-			<a class="rp-ShareLink rp-ShareLink-<?php echo strtolower($link->link_name); ?>" 
-			   href="<?php echo $link->link_url; ?>"
+			<a class="rp-ShareLink rp-ShareLink-<?= strtolower($link->link_name); ?>" 
+			   href="<?= $link->link_url; ?>"
 			   rel="me"
 			   target="_blank">
-				<?php echo $link->link_name; ?>
+				<?= $link->link_name; ?>
 			</a>
 		</li>
 	<?php endforeach; ?>

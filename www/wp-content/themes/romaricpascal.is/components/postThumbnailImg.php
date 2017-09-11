@@ -11,11 +11,11 @@
 		$srcset = rp_get_the_thumbnail_srcset($post, $srcset);
 	}
 ?>
-<div class="u-loadable <?php echo $classes; ?>">
+<div class="u-loadable <?= $classes; ?>">
 	<img class="u-loadable__content"
-	     src="<?php echo $thumbnailUrl;?>"
-		 title="<?php  echo htmlspecialchars($post->post_title);?>"
-		 alt="<?php echo htmlspecialchars($post->post_title);?>"
+	     src="<?= $thumbnailUrl;?>"
+		 title="<?= htmlspecialchars($post->post_title);?>"
+		 alt="<?= htmlspecialchars($post->post_title);?>"
 		 <?php if ($srcset): ?>
 		 	srcset="<?= $srcset ?>"
 		 <?php endif; ?> 

@@ -1,4 +1,4 @@
-<h<?php echo $headingLevel;?> >
+<h<?= $headingLevel;?> >
 	<div class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-works">
 		<span class="rp-LetteredHeading__picture rp-LetteredHeading__part"></span>
 		<span class="rp-LetteredHeading__some rp-LetteredHeadingEntrance__II rp-LetteredHeading__part">Some</span>
@@ -12,4 +12,4 @@
 			echo $craft->name;
 		}?>
 	</p>
-</h<?php echo $headingLevel;?>>
+</h<?= $headingLevel;?>>

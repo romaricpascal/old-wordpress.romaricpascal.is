@@ -6,7 +6,7 @@
 
 
 <?php if($projectsQuery->have_posts() || $postsQuery->have_posts()): ?>
-<article class="<?php echo "{$classes}"; ?>"
+<article class="<?= "{$classes}"; ?>"
 	<?php if ($id) {echo "id='{$id}'";} ?>
 	data-inview>
 	<div class="l-sideBySide">

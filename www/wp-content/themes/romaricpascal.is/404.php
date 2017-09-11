@@ -13,7 +13,7 @@
 	$menu = wp_nav_menu(['theme_location' => MENU_NOT_FOUND, 'fallback_cb' => false, 'echo' => false]);
 	if (!empty($menu)): ?>
 	Maybe you were after:</p>
-	<?php echo $menu; ?>
+	<?= $menu; ?>
 	<?php else: ?>
 	</p>
 <?php endif;?>

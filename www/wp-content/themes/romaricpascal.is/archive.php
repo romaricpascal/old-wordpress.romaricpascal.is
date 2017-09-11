@@ -4,7 +4,7 @@
 ?>
 
 <?php if (rp_is_ajax()): ?>
-	<title><?php echo rp_title(); ?></title>
+	<title><?= rp_title(); ?></title>
 <?php endif; ?>
 
 <?php if(!rp_is_ajax()): ?>
