@@ -87,7 +87,7 @@ function the_social_card_image() {
 }
 
 function the_twitter_card_type() {
-  if (is_singular(PROJECT_TYPE) || is_singular(ARTWORK_TYPE)) {
+  if (is_front_page() || is_singular(PROJECT_TYPE) || is_singular(ARTWORK_TYPE)) {
     return 'summary_large_image';
   }
 
