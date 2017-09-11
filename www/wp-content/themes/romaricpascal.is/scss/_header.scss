@@ -19,7 +19,8 @@
   .home &,
   .blog &,
   .archive &,
-  .single-artwork & {
+  .single-artwork &,
+  .error404 & {
     @include mq($from: archiveOnTwoColumns) {
       position: fixed;
     }
