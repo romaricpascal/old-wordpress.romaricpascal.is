@@ -4,6 +4,7 @@
 ?>
 <?php get_header(); ?>
 <div>
+<div class="flexbug3Wrapper">
 <section class="rp-HomeSection u-flai-c js-archiveFragmentURL" data-inview>
 <h1 class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-greeting">
   <span class="rp-LetteredHeading__me rp-LetteredHeading__part">
@@ -22,5 +23,6 @@
   </span>
 </h1>
 </section>
+</div>
 <?php get_template_part('partials/front-page/front-page','additional-sections'); ?>
 <?php get_footer(); ?>

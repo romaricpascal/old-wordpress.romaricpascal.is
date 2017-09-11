@@ -26,7 +26,7 @@
 
     <?php wp_head();?>
   </head>
-  <body <?php body_class(); ?>>
+  <body <?php body_class('flexbug3Wrapper'); ?>>
     <header id="#header" class="rp-Header">
         <?php if (is_single()) {
             rp_render('breadcrumbNav', ['breadcrumbs' => rp_get_breadcrumbs()]);

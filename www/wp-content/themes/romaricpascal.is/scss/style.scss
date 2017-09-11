@@ -571,5 +571,11 @@ $prevNextLinkSize: $circleButtonSize;
 @import '_single-project';
 @import '_collapsible';
 
+// Bug fixes
+.flexbug3Wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 
 

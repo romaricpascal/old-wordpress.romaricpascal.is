@@ -1,5 +1,5 @@
 
-
+<div class="flexbug3Wrapper">
 <?php
 	$menuLocations = get_nav_menu_locations();
 	$menu = $menuLocations[MENU_HOME_CONTENT];	
@@ -53,6 +53,7 @@
 			}
 		}
 	}?>
+</div>
 </div>
 <?php rp_render('homeMenu', ['items' => $menu_ids]); ?>
 
