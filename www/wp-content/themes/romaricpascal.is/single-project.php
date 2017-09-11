@@ -38,6 +38,9 @@
       get_template_part('single-project', 'links');
       get_template_part('single-project', 'related-projects');
     ?>
+    <section class="rp-AsideSection">
+      <?php the_share_buttons(); ?>
+    </section>
   </aside>
   <?php get_template_part('partials/prev-next'); ?>
 </article>

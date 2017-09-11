@@ -8,7 +8,7 @@ define('SOCIAL_SHARE_PATTERNS', [
 function preparePostInfo($post) {
 	return  [
 	  'title' => get_the_title($post),
-	  'url' => get_permalink($post),
+	  'url' => get_bloginfo('url').get_permalink($post),
 	  'img' => wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full')[0]
 	];
 }
@@ -17,9 +17,14 @@ function replacePlaceholder($placeholder, $value, $pattern) {
 	return str_replace('{'.$placeholder.'}',urlencode($value), $pattern);
 }
 
-function generateShareURL($pattern, $postInfo) {
+function generateShareURL($pattern, $postInfo, $site) {
 	$url = $pattern;
 	foreach ($postInfo as $placeholder => $value) {
+
+		if ($placeholder === 'url') {
+			$value.="?utm_campaign=share&utm_source={$site}";
+		}
+
 		$url = replacePlaceholder($placeholder, $value, $url);
 	}
 	return $url;
@@ -31,7 +36,7 @@ function the_share_buttons() {
 
 	$links = [];
 	foreach(SOCIAL_SHARE_PATTERNS as $site => $pattern) {
-		$links[$site] = generateShareURL($pattern, $postInfo);
+		$links[$site] = generateShareURL($pattern, $postInfo, $site);
 	}
 
 	require(locate_template('partials/share-buttons.php'));
