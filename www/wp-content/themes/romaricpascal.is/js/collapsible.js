@@ -41,8 +41,8 @@ function collapseContent() {
       collapseItem(measure.el);
       return currentWidth - measure.size;
     } else {
-    	restoreItem(measure.el);
-    	return currentWidth;
+      restoreItem(measure.el);
+      return currentWidth;
     }
   }, getTotalSize(measures));
 }
