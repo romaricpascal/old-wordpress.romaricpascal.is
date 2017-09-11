@@ -171,9 +171,14 @@ function rp_is_ajax() {
 }
 
 function rp_title() {
+  $siteName = get_bloginfo('name');
+  $siteDescription = get_bloginfo('description');
   $title = wp_title(' ', false);
-  if ($title) { $title.= '|'; }
-  $title.= get_bloginfo('name');
+  if ($title) { 
+    $title.= " | {$siteName}"; 
+  } else {
+    $title = "{$siteName} | {$siteDescription}";
+  }
   return $title;
 }
 
@@ -210,7 +215,6 @@ add_action('template_redirect', function () {
 
   if ($query->have_posts()) {
     $query->the_post();
-    echo 'Found a post';
     wp_redirect(get_the_permalink(), 301);
     exit();
   }
