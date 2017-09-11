@@ -2,7 +2,7 @@ import {polyfill} from 'smoothscroll-polyfill';
 
 polyfill();
 
-const TARGET_TOP = Symbol();
+const TARGET_TOP = {};
 
 function isFragmentLink(element) {
 	// Naive implementation assuming no frament links

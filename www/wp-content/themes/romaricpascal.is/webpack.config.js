@@ -5,7 +5,7 @@ var BUILD_DIR = path.resolve(__dirname, '.');
 var APP_DIR = path.resolve(__dirname, 'js');
 
 var config = {
-  entry: APP_DIR + '/index.js',
+  entry: [ APP_DIR + '/index.js'],
   output: {
     path: BUILD_DIR,
     filename: 'main.js'

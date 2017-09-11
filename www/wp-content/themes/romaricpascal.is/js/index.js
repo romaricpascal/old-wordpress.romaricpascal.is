@@ -1,4 +1,4 @@
-
+import './polyfills';
 document.body.classList.add('with-js');
 
 // Enhance history.pushState so it triggers an event when used
