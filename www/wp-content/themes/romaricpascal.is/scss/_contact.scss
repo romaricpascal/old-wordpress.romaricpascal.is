@@ -53,4 +53,8 @@
 }
 .wpcf7-submit {
   @extend .rp-Button;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
