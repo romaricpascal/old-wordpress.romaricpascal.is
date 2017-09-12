@@ -13,7 +13,7 @@
 			<span class="rp-LetteredHeading__me rp-LetteredHeadingEntrance__III rp-LetteredHeading__part">me</span>
 			<span class="rp-LetteredHeading__qm rp-LetteredHeadingEntrance__IV rp-LetteredHeading__part">?</span>
   		</h<?= $headingLevel; ?>>
-  		<?php rp_render('archiveDescription/archiveDescription', [],['contact']); ?>
+  		<?php rp_render('archiveDescription/archiveDescription', [],['happy-to-chat']); ?>
 		<div class="u-show-xl">
 			<?php rp_render('socialLinks', ['headingLevel' => $headingLevel + 1]); ?>
 		</div>
