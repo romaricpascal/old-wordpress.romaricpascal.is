@@ -8,5 +8,5 @@
 		<li>give <a href="/proud-of/tshirts-merch-designs">t-shirts and other objects</a> their own personality</li>
 	</ul>
 
-	<p>These are only a few examples. If you're looking to get some custom letters, feel free to <a href="mailto:<?= get_bloginfo('admin_email')?>">get in touch!</a></p>
+	<p>These are only a few examples. If you're looking to get some custom letters, feel free to <a href="/happy-to-chat">get in touch!</a></p>
 </div>
