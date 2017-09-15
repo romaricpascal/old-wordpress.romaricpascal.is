@@ -21,7 +21,7 @@ function markActiveLink(activeActiveLink) {
 
 function getActiveLink(hash) {
 	if (hash) {
-		return document.querySelector(`[href="${hash}"]`);
+		return document.querySelector(`.js-activeFragmentLink[href="${hash}"]`);
 	} else {
 		return document.querySelector('.js-activeFragmentLink-default');
 	}
