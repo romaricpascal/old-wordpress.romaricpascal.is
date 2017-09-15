@@ -38,3 +38,23 @@
 .rp-HomeMenuItem-active::before {
   transform: scale(2);  
 }
+
+.rp-HomeMenuItem-prev,
+.rp-HomeMenuItem-next {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &::before {
+    background: none;
+  }
+}
+
+.rp-HomeMenuItem-prev {
+  background-image: svg-load('assets/images/arrow-up.svg', fill=$rp-orange);
+  margin-bottom: -0.1em;
+}
+
+.rp-HomeMenuItem-next {
+  background-image: svg-load('assets/images/arrow-down.svg', fill=$rp-orange);
+  margin-top: -0.1em;
+}
