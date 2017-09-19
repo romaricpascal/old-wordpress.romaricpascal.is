@@ -11,7 +11,9 @@
     "dev:js": "webpack -d --watch",
     "dev:up": "browser-sync start --config .browser-sync.js",
     "dev": "run-p dev:js dev:css",
-    "php": "(cd ../../.. && php -S 0.0.0.0:8080 routing.php)"
+    "php": "(cd ../../.. && php -S 0.0.0.0:8080 routing.php)",
+    "composer": "(cd ../../.. && composer $COMMAND)",
+    "deploy": "(cd ../../../.. && ./deploy.sh $DEPLOY_HOST $DEPLOY_SITE)"
   },
   "keywords": [
     "Wordpress",

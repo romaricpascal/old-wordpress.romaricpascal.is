@@ -230,6 +230,14 @@ add_action('template_redirect', function () {
   }
 });
 
+function rp_getNextHomeSectionId($menu_items, $index) {
+  if (count($menu_items) > $index + 1) {
+    return sanitize_title($menu_items[$index + 1]->title);
+  }
+
+  return null;
+}
+
 require_once('functions/relativeLinks.php');
 // require_once('functions/content-length.php');
 require_once('functions/archive-size.php');

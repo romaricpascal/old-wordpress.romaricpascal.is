@@ -11,7 +11,12 @@
 	data-inview>
 	<div class="l-sideBySide">
 	<header class="l-sideBySide__header">
-		<?php rp_render('archiveHeading/archiveHeading', ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], [$postTypeName, rp_get($craft, 'slug')]); ?>
+		<?php rp_render('archiveHeading/archiveHeading', [
+			'postType' => $postType, 
+			'craft' => $craft, 
+			'headingLevel' => $headingLevel,
+			'next_id' => $next_id
+		], [$postTypeName, rp_get($craft, 'slug')]); ?>
 		<?php rp_render('archiveDescription/archiveDescription', ['postType' => $postType, 'craft' => $craft], [$postTypeName, rp_get($craft, 'slug')]); ?>
 		<section class="u-show-xl">
 			<h3 >And I write about it too</h3>

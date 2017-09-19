@@ -5,8 +5,9 @@
 	$menu = $menuLocations[MENU_HOME_CONTENT];	
 	$menu_items = wp_get_nav_menu_items($menu);
 	$menu_ids = [['', 'Greetings']];
-	foreach($menu_items as $menu_item) {
+	foreach($menu_items as $index => $menu_item) {
 		$menu_id = sanitize_title($menu_item->title);
+		$next_id = rp_getNextHomeSectionId($menu_items, $index);
 		array_push($menu_ids, [$menu_id, $menu_item->title]);
   		if ($menu_item->type === 'taxonomy' && $menu_item->object === 'craft') {
 			$craft = get_term($menu_item->object_id, CRAFT_TAX_NAME);
@@ -15,6 +16,7 @@
 				'craft' => $craft, 
 				'classes' => 'rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL',
 				'id' => $menu_id,
+				'next_id' => $next_id,
 				'headingLevel' => 2
 				], ['project', rp_get($craft, 'slug')]); 
   		} elseif ($menu_item->type === 'post_type_archive') {
@@ -28,6 +30,7 @@
 				'craft' => $craft, 
 				'classes' => 'rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL',
 				'id' => $menu_id,
+				'next_id' => $next_id,
 				'headingLevel' => 2
 			], [$menu_item->object, rp_get($craft, 'slug')]);
 		} elseif ($menu_item->type === 'post_type') {
@@ -39,13 +42,15 @@
 					'craft' => $craft, 
 					'classes' => 'rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL', 
 					'id' => $menu_id,
+					'next_id' => $next_id,
 					'headingLevel' => 2
 				],['post', rp_get($craft, 'slug')]);
 			}  elseif ($post->post_type === 'page') { ?>
 				<section id="<?= $menu_id; ?>" 
 						 class="rp-HomeSection u-mw-30em-xl-down js-archiveFragmentURL" data-inview>
 				 <?php rp_render('page', [
-				   'post' => $post, 
+				   'post' => $post,
+				   'next_id' => $next_id,
 				   'headingLevel' => 2
 				 ], [$post->post_name]); ?>
 				 </section>

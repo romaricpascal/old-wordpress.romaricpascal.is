@@ -4,10 +4,10 @@ polyfill();
 
 const TARGET_TOP = {};
 
-function isFragmentLink(element) {
+function getNearestFragmentLink(element) {
 	// Naive implementation assuming no frament links
 	// implemented like: //<same-domain>/<same-path>#fragment-id
-	return element.matches('a[href^="#"], .js-smoothScroll');
+	return element.matches('a[href^="#"], .js-smoothScroll')? element : element.closest('a[href^="#"], .js-smoothScroll');
 }
 
 function getTarget(a) {
@@ -33,8 +33,9 @@ if (history.pushState) {
 	document.body.addEventListener('click', function (event) {
 
 		if (!event.defaultPrevented) {
-			if (isFragmentLink(event.target)) {
-				var target = getTarget(event.target);
+			var link = getNearestFragmentLink(event.target);
+			if (link) {
+				var target = getTarget(link);
 				if (target) {
 					event.preventDefault();
 					scrollIntoView(target);

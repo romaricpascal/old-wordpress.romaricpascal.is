@@ -1,4 +1,7 @@
 <h<?= $headingLevel;?> class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-words">
+	<?php if($next_id): ?>
+		<a href="#<?= $next_id ?>">
+	<?php endif; ?>
   <span class="rp-LetteredHeading__picture rp-LetteredHeading__part"></span>
   <span class="rp-LetteredHeading__their rp-LetteredHeadingEntrance__II rp-LetteredHeading__part">Their
   </span>
@@ -8,4 +11,7 @@
   </span>
   <span class="rp-LetteredHeading__me rp-LetteredHeadingEntrance__IV rp-LetteredHeading__part">me.
   </span>
+  		<?php if($next_id): ?>
+  		</a>
+ 		<?php endif; ?>
 </h<?= $headingLevel;?>>

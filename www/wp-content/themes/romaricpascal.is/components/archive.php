@@ -13,7 +13,10 @@
 	<div class="l-sideBySide">
 		<header class="l-sideBySide__header l-vertCentered u-vgap-firstLarge">
 			<?php rp_render('archiveHeading/archiveHeading', 
-			                ['postType' => $postType, 'craft' => $craft, 'headingLevel' => $headingLevel], 
+			                ['postType' => $postType, 
+			                 'next_id' => $next_id,
+			                 'craft' => $craft,
+			                 'headingLevel' => $headingLevel], 
 			                [$postTypeName, rp_get($craft, 'slug')]); ?>
 			<?php rp_render('archiveDescription/archiveDescription', 
 			                ['postType' => $postType, 

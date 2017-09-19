@@ -7,6 +7,7 @@
 <div class="flexbug3Wrapper">
 <section class="rp-HomeSection u-flai-c js-archiveFragmentURL" data-inview>
 <h1 class="rp-LetteredHeading rp-LetteredHeadingEntrance rp-LetteredHeading-greeting">
+<a href="#for-logos-brand" class="js-smoothScroll">
   <span class="rp-LetteredHeading__me rp-LetteredHeading__part">
   </span>
   <span class="rp-LetteredHeading__hi a-timing-greeting__I rp-LetteredHeading__part">Hi!
@@ -21,6 +22,7 @@
   <span class="rp-LetteredHeading__lettersArrow a-timing-greeting__IV rp-LetteredHeading__part"></span>
   <span class="rp-LetteredHeading__letters a-timing-greeting__IV rp-LetteredHeading__part">letters
   </span>
+</a>
 </h1>
 </section>
 </div>
