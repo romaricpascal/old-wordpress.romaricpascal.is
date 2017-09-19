@@ -17,12 +17,20 @@ function replacePlaceholder($placeholder, $value, $pattern) {
 	return str_replace('{'.$placeholder.'}',urlencode($value), $pattern);
 }
 
+function getTrackableUrl($campaign, $source, $url) {
+	$campaign = urlencode($campaign);
+	$source = urlencode($source);
+	$tracker = "utm_campaign={$campaign}&utm_source={$source}";
+	$joiningChar = strpos($url, '?') ? '&' : '?';
+	return $url."{$joiningChar}{$tracker}";
+}
+
 function generateShareURL($pattern, $postInfo, $site) {
 	$url = $pattern;
 	foreach ($postInfo as $placeholder => $value) {
 
 		if ($placeholder === 'url') {
-			$value.="?utm_campaign=share&utm_source={$site}";
+			$value = getTrackableUrl($value, 'share', $site);
 		}
 
 		$url = replacePlaceholder($placeholder, $value, $url);

@@ -10,6 +10,7 @@ require_once('content-types/posts.php');
 require_once('content-types/testimonials.php');
 require_once('content-types/projects.php');
 require_once('content-types/artworks.php');
+require_once('content-types/page-giveaway-acf.php');
 
 define('MENU_MAIN_1', 'menu_main_1');
 define('MENU_HOME_CONTENT', 'menu_home');

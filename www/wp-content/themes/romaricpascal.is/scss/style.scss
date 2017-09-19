@@ -131,6 +131,12 @@ a {
   // to compensate for the thin letters on light background
 	color: $rp-orange-dark-8;
 	text-decoration: none;
+  /* Try this out, maybe enlarging it on hover
+  background-image: linear-gradient(90deg, $rp-orange, $rp-orange);
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  */
 
 	&:hover {
 		text-decoration: underline;
@@ -166,12 +172,15 @@ h1 {
 
 @import '_loading';
 
+.u-c-inh {
+  color:inherit;
+}
+
 .u-d-b {
   display: block;
 }
 
 .u-d-flx {
-
   &-l {
     @include mq($from: showHomeMenu) {
       display: flex;
@@ -188,6 +197,7 @@ h1 {
 }
 
 .u-ord-first {
+  order: -9999;
   &-l {
     @include mq($from: showHomeMenu) {
       order: -9999;
@@ -196,7 +206,7 @@ h1 {
 }
 
 .u-ord-last {
-
+  order: 9999;
   &-l {
     @include mq($from: showHomeMenu) {
       order: 9999;    
@@ -251,8 +261,29 @@ h1 {
   }
 }
 
+.u-mw-15-xl {
+  @include mq($from: archiveOnTwoColumns) {
+    max-width: 15em;
+  }
+}
+
+.u-mw-35-xl {
+  @include mq($from: archiveOnTwoColumns) {
+    max-width: 35em;
+  }
+}
+
+.u-mw-48 {
+  max-width: 48em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .u-mb-0 {
   margin-bottom: 0;
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 
 .u-mb-1:not(:last-child) {
@@ -570,6 +601,39 @@ $prevNextLinkSize: $circleButtonSize;
 @import '_artworks';
 @import '_single-project';
 @import '_collapsible';
+
+.rp-GiveawayCTAs {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em 0;
+  margin-bottom: 0;
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: 'AND';
+    text-align: center;
+    line-height: 2;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, 
+      currentColor calc(50% - 1.5em), 
+      transparent calc(50% - 1.5em), 
+      transparent calc(50% + 1.5em), 
+      currentColor calc(50% + 1.5em));
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.rp-TwitterCTA {
+  background: $rp-orange;
+  color: white;
+  line-height: 3;
+  text-align: center;
+  display: block;
+}
 
 // Bug fixes
 .flexbug3Wrapper {

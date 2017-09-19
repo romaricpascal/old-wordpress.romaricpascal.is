@@ -1,4 +1,4 @@
-@mixin l-sideBySide {
+@mixin l-sideBySide($gapWidth: 4vw) {
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: center;
@@ -8,7 +8,7 @@
 	&::before {
 		flex: none;
 		content: '';
-		width: 4vw;
+		width: $gapWidth;
 		order: 2;
 	}
 
@@ -36,5 +36,10 @@
 		@include mq($from: showHomeMenu) {
 			@include l-sideBySide;
 		}
+	}
+
+	&-tight::before {
+		width: 2.5vw;
+		min-width: 2em;
 	}
 }
