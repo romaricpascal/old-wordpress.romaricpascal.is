@@ -113,7 +113,18 @@ $above-1: 25;
 
 // 3. Generic
 // @import '../node_modules/normalize.css/normalize';
+
 // 4. Base
+
+// 4.1 Reset classes
+.rp-Button-naked {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit
+}
+// 
 * {
   box-sizing: border-box;
 }
@@ -126,11 +137,13 @@ body {
   background-image: url(assets/images/background-s.jpg);
 }
 
-a {
+a,
+.rp-Link {
   // Use a slighlty darker shade of orange
   // to compensate for the thin letters on light background
 	color: $rp-orange-dark-8;
 	text-decoration: none;
+  cursor: pointer;
   /* Try this out, maybe enlarging it on hover
   background-image: linear-gradient(90deg, $rp-orange, $rp-orange);
   background-size: 100% 2px;
@@ -633,6 +646,26 @@ $prevNextLinkSize: $circleButtonSize;
   line-height: 3;
   text-align: center;
   display: block;
+}
+
+// Article demos
+.o-ratio > .rp-OrientableFrame {
+  width: 100%;
+  height:60%;
+  top:20%;
+  bottom:20%;
+  left: 0;
+  right: 0;
+  border: solid 2px currentColor;
+}
+
+.o-ratio > .rp-OrientableFrame-portrait {
+  width: 60%;
+  height:100%;
+  top:0;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
 }
 
 // Bug fixes

@@ -40,3 +40,4 @@ require('./activeFragmentURL');
 require('./activeFragmentLink');
 require('./prevNext');
 require('./collapsible');
+require('./iframe');
