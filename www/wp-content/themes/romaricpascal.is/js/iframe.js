@@ -8,6 +8,16 @@ if (document.body.classList) {
 			if (target) {
 				target.classList.toggle(FRAME_ORIENTATION_PORTRAIT);
 			}
+			return;
+		}
+
+		if (e.target.matches('.js-reloadIframe')) {
+			var targetSelector = e.target.getAttribute('data-target');
+			var target = document.querySelector(targetSelector);
+			if (target) {
+				target.contentWindow.location.reload(true)
+			}
+			return;
 		}
 	});
 }
