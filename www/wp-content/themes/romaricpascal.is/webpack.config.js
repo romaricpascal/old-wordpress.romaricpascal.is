@@ -27,7 +27,12 @@ var config = {
         loader : 'babel-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    })
+  ]
 };
 
 module.exports = config;
