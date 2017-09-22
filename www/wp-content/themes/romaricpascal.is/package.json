@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "animate.css": "^3.5.2",
+    "d3-scale": "^1.0.6",
     "inuitcss": "^6.0.0-beta.4",
     "lodash.throttle": "^4.1.1",
     "qwest": "^4.5.0",
