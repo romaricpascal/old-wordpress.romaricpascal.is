@@ -55,9 +55,9 @@ $a-delay-xxl: 1s;
 }
 
 .rp-PostListItem {
-	animation-name: fadeIn;
-	animation-duration: $a-duration;
-	animation-fill-mode: backwards;
+	// animation-name: fadeIn;
+	// animation-duration: $a-duration;
+	// animation-fill-mode: backwards;
 }
 
 @keyframes postExit {

@@ -20,11 +20,11 @@
 		<?php rp_render('archiveDescription/archiveDescription', 
 		                ['postType' => $postType, 
 		                 'craft' => $craft, 
-		                 'classes' => 'u-show-xl fadeIn a-entrance a-timing-description u-anim-inView'], 
+		                 'classes' => 'u-show-xl'], 
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		</header>
 <?php endif;?>	
-		<div class="l-sideBySide__main fadeIn a-entrance a-timing-main u-anim-inView">
+		<div class="l-sideBySide__main">
 			<?php rp_render('postList', 
 			                ['postType' => $postType,
 			                 'classes' => 'u-mb-1', 

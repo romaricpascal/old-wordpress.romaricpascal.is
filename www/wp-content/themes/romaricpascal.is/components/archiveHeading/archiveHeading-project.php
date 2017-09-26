@@ -1,5 +1,5 @@
-<h<?= $headingLevel;?> >
-	<div class="rp-LetteredHeading js-ScrollAnim rp-LetteredHeading-works">
+<h<?= $headingLevel;?> class="js-ScrollAnim" >
+	<div class="rp-LetteredHeading rp-LetteredHeading-works">
 		<?php if($next_id): ?>
   		<a href="#<?= $next_id ?>">
  		<?php endif; ?>
@@ -11,7 +11,7 @@
   		</a>
  		<?php endif; ?>
 	</div>
-	<p class="rp-ProjectCraft fadeIn a-entrance a-timing-projectCraft u-anim-inView">
+	<p class="rp-ProjectCraft js-ScrollAnim__part">
 		<?php if (empty($craft)) {
 			echo 'all kinds.';
 		} else {

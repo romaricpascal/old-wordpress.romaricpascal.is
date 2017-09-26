@@ -21,12 +21,12 @@
 			<?php rp_render('archiveDescription/archiveDescription', 
 			                ['postType' => $postType, 
 			                 'craft' => $craft, 
-			                 'classes' => 'fadeIn a-entrance a-timing-description u-anim-inView u-show-xl'], 
+			                 'classes' => 'u-show-xl'], 
 			                [$postTypeName, rp_get($craft, 'slug')]); ?>
 		</header>
 		<?php rp_render('postList', [
 		  'query' => $query, 
-		  'classes' => "l-sideBySide__main u-mb-1 fadeIn a-entrance a-timing-main u-anim-inView",
+		  'classes' => "l-sideBySide__main u-mb-1",
 		  'postType' => $postTypeName,
 		  'craft' => $craft,
 		  'size' => 800,
