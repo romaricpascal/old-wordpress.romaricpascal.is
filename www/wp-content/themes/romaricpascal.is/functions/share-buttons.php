@@ -30,7 +30,7 @@ function generateShareURL($pattern, $postInfo, $site) {
 	foreach ($postInfo as $placeholder => $value) {
 
 		if ($placeholder === 'url') {
-			$value = getTrackableUrl($value, 'share', $site);
+			$value = getTrackableUrl('share', $site, $value);
 		}
 
 		$url = replacePlaceholder($placeholder, $value, $url);
