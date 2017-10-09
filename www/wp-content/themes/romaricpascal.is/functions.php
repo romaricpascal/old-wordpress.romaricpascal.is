@@ -238,6 +238,7 @@ function rp_getNextHomeSectionId($menu_items, $index) {
   return null;
 }
 
+require_once('functions/rss.php');
 require_once('functions/relativeLinks.php');
 // require_once('functions/content-length.php');
 require_once('functions/archive-size.php');
