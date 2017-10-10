@@ -5,17 +5,15 @@ import zoomIn from './animation/css/zoomIn';
 import parallel from './animation/compose/parallel';
 import stagger from './animation/compose/stagger';
 import run from './animation/progress/time';
-import linear from 'd3-scale/src/linear';
+import linear from './animation/scale/linear';
+import clamp from './animation/scale/clamp';
 import './animation/posts';
 
-var opacity = linear()
-  .domain([0.15, 0.5])
-  .clamp(true)
-  .range([0, 1]);
+var opacity = linear(0.15, 0.5);
 
 function markElementsInView(entries) {
 	entries.forEach(function (entry) {
-		var progress = opacity(entry.viewportIntersectionRatio);
+		var progress = clamp(opacity(entry.viewportIntersectionRatio));
 		applyStyle(entry.target, fadeIn(progress));
 	});
 }
@@ -25,10 +23,7 @@ var observer = new ScrollIntersectionObserver(markElementsInView);
 observer.observe('[data-inview]');
 markElementsInView(observer.takeRecords());
 
-var bubbleEntranceProgress = linear()
- .domain([0.20, 0.50])
- .clamp(true)
- .range([0, 1]);
+var bubbleEntranceProgress = linear(0.20, 0.5);
 
 function applyStyle(el, style) {
 	for (var property in style) {
@@ -37,12 +32,9 @@ function applyStyle(el, style) {
 }
 
 function shift(animation, position) {
-	var timeScale = linear()
-		.domain([position.start, position.end])
-		.clamp(true)
-		.range([0,1]);
+	var timeScale = linear(position.start, position.end);
 	return function(progress) {
-		var scaledProgress = timeScale(progress);
+		var scaledProgress = clamp(timeScale(progress));
 		return animation(scaledProgress);
 	}
 }
@@ -92,7 +84,7 @@ const ANIMATIONS = {
 
 var targets = document.querySelectorAll('.js-ScrollAnim');
 Array.prototype.forEach.call(targets, function (target) {
-	var handler = bubbleEntrance(getAnimation(target));
+	var handler = clamp(bubbleEntrance(getAnimation(target)));
 	var bubbleObserver = new ScrollIntersectionObserver(handler);
 	bubbleObserver.observe(target);
 	handler(bubbleObserver.takeRecords());

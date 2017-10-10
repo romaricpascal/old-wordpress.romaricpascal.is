@@ -1,15 +1,10 @@
-import linear from 'd3-scale/src/linear';
+import linear from '../scale/linear';
+import clamp from '../scale/clamp';
+
 
 export default function stagger(animations) {
 	// Add time for all animations to run
-	var timeScale = linear()
-		.domain([0, 1])
-		.clamp(true)
-		.range([0, 1 + (animations.length - 1) / animations.length])
-	var clamp = linear()
-		.domain([0,1])
-		.clamp(true)
-		.range([0,1]);
+	var timeScale = linear(0, 1, 0, 1 + (animations.length - 1) / animations.length)
 	return function (progress) {
 		return animations.map( (animation, index) => {
 			return animation(clamp(timeScale(progress) - 1/animations.length * index));
