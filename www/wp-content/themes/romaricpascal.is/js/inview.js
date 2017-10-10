@@ -1,14 +1,12 @@
 import ScrollIntersectionObserver from './ScrollIntersectionObserver';
 import fadeIn from './animation/css/fadeIn';
-import slideInLeft from './animation/css/slideInLeft';
 import fadeInLeft from './animation/css/fadeInLeft';
 import zoomIn from './animation/css/zoomIn';
 import parallel from './animation/compose/parallel';
 import stagger from './animation/compose/stagger';
 import run from './animation/progress/time';
 import linear from 'd3-scale/src/linear';
-
-
+import './animation/posts';
 
 var opacity = linear()
   .domain([0.15, 0.5])
@@ -27,24 +25,6 @@ var observer = new ScrollIntersectionObserver(markElementsInView);
 observer.observe('[data-inview]');
 markElementsInView(observer.takeRecords());
 
-var translateX = linear()
- .domain([0.05, 0.15])
- .clamp(true)
- .range([0, 1]);
-
-function translatePosts(entries) {
-	entries.forEach(function (entry) {
-		var distanceFromBottom = entry.rootBounds.bottom - entry.boundingClientRect.top;
-		var percentDistanceFromBottom = distanceFromBottom / entry.rootBounds.height;
-		var progress = translateX(percentDistanceFromBottom);
-		applyStyle(entry.target, slideInLeft(progress));
-	});
-}
-
-var translateObserver = new ScrollIntersectionObserver(translatePosts);
-translateObserver.observe('.rp-PostListItem');
-translatePosts(translateObserver.takeRecords());
-
 var bubbleEntranceProgress = linear()
  .domain([0.20, 0.50])
  .clamp(true)
@@ -55,12 +35,6 @@ function applyStyle(el, style) {
 		el.style[property] = style[property];
 	}
 }
-
-// function speed(animation, factor) {
-// 	return function (progress) {
-// 		return animation(factor * progress);
-// 	}
-// }
 
 function shift(animation, position) {
 	var timeScale = linear()
@@ -166,7 +140,7 @@ function postsEntrance(targetPosts) {
 	return indexMap(stagger(animations), targetPosts);
 }
 
-run(shift(postsEntrance(targetPosts), {start: 0.70, end: 1}), 2000);
+run(shift(postsEntrance(targetPosts), {start: 0.50, end: 0.80}), 2000);
 
 
 
