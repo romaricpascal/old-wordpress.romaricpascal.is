@@ -29,7 +29,6 @@ function animate(post) {
 }
 
 const posts = document.querySelectorAll(POSTS_SELECTOR);
-console.log('Animating posts', posts);
 
 const viewportHeight = document.documentElement.clientHeight;
 const bottomOfViewport = document.documentElement.clientHeight;

@@ -1,12 +1,10 @@
-import linear from 'd3-scale/src/linear';
+import linear from '../scale/linear';
+import clamp from '../scale/clamp';
 
 export default function shift(animation, position) {
-	var timeScale = linear()
-		.domain([position.start, position.end || position.start + position.duration])
-		.clamp(true)
-		.range([0,1]);
+	var timeScale = linear(position.start, position.end);
 	return function(progress) {
-		var scaledProgress = timeScale(progress);
+		var scaledProgress = clamp(timeScale(progress));
 		return animation(scaledProgress);
 	}
 }
