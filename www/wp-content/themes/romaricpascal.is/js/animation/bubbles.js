@@ -1,4 +1,6 @@
 import scroll from './progress/scroll';
+import time from './progress/time';
+import min from './progress/combine/min';
 import parallel from './compose/parallel';
 import shift from './timing/shift';
 import zoomIn from './css/zoomIn';
@@ -53,9 +55,10 @@ function mapElementsByIndex(els) {
         }
     }
 }
-
+const SELECTOR = '.js-ScrollAnim';
+const PART_SELECTOR = `${SELECTOR}__part`;
 function getAnimation(target) {
-    var parts = target.querySelectorAll('.js-ScrollAnim__part');
+    var parts = target.querySelectorAll(PART_SELECTOR);
     var animationName = target.getAttribute('data-scrollAnim-name') || 'oneOneTwo';
     var mapper = mapElementsByIndex(parts);
     return parallel(ANIMATIONS[animationName].map(mapper));
@@ -63,6 +66,7 @@ function getAnimation(target) {
 const viewportHeight = document.documentElement.clientHeight;
 const bottomOfViewport = document.documentElement.clientHeight;
 const scale = linear(0.20, 0.5);
+const DURATION = 1500;
 function getSource(target) {
     const scrollSource = scroll(function () {
         // OPTIMIZE: 
@@ -73,13 +77,28 @@ function getSource(target) {
         var distanceFromBottom = bottomOfViewport - topOfElement;
         return clamp(scale(distanceFromBottom / viewportHeight));
     });
+
+    if (window.location.hash) {
+        if (target.matches(`${window.location.hash} ${SELECTOR}`)) {
+            const timeSource = (time(DURATION, 0, false));
+            return min(scrollSource, timeSource);
+        }
+    }
+
     return scrollSource;
 }
 
-var targets = Array.prototype.slice.call(document.querySelectorAll('.js-ScrollAnim'));
+var targets = Array.prototype.slice.call(document.querySelectorAll(SELECTOR));
 if (document.body.classList.contains('home')) {
     targets.map(getAnimation)
       .map((animation, index) => {
         getSource(targets[index])(animation);
+        animation(0);
       });
+}
+
+if (document.body.classList.contains('archive') || document.body.classList.contains('blog')) {
+    var animation = getAnimation(document.querySelector(SELECTOR));
+    time(DURATION, 0, false)(animation);
+    animation(0);
 }
