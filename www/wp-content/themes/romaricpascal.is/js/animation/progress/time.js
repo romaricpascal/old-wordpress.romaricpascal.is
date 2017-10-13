@@ -1,15 +1,30 @@
+import clamp from '../scale/clamp';
+
 function now() {
 	return window.performance.now();
 }
 
-export default function run(animation, duration) {
-	var start = now();
-	var ellapsed = 0;
-	requestAnimationFrame(function tick() {
-		if (ellapsed < duration) {
+const COMPLETE = Symbol();
+
+export default function run(duration, d, sendComplete = true) {
+	return function (animation, delay = d) {
+		var start = now();
+		var ellapsed = 0;
+		var total = delay + duration;
+		requestAnimationFrame(function tick() {
 			ellapsed = now() - start;
-			animation(ellapsed/duration);
-			requestAnimationFrame(tick);
-		}
-	});
+			if (ellapsed > delay) {
+				animation(clamp((ellapsed - delay) / duration));
+			}
+			if (ellapsed < total) {
+				requestAnimationFrame(tick);
+			} else {
+				if (sendComplete) {
+					animation(COMPLETE);
+				}
+			}
+		});
+	}
 }
+
+run.COMPLETE = COMPLETE;
