@@ -8,7 +8,8 @@ module.exports = {
   ],
   output: './style.css',
   autoprefixer: {
-    browsers: 'last 2 versions, safari >=6, ios_saf >=6'
+    browsers: 'last 2 versions, safari >=6, ios_saf >=6',
+    grid: false
   },
   cssnano: {
     safe: true
