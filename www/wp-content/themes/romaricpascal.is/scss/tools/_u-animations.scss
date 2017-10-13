@@ -55,26 +55,7 @@ $a-delay-xxl: 1s;
 }
 
 .rp-PostListItem {
-	// animation-name: fadeIn;
-	// animation-duration: $a-duration;
-	// animation-fill-mode: backwards;
-}
-
-@keyframes postExit {
-	from {
-    	transform: none;
-	}
-
-	50% {
-		transform: translate3d(100%, 0, 0);
-	}
-	51% {
-		transform: translate3d(-100%, 0, 0);
-	}
-
-	to {
-		transform: none;
-	}
+	animation-duration: $a-duration;
 }
 
 .is-exiting .rp-PostListItem  {

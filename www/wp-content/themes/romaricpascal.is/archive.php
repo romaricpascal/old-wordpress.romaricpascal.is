@@ -24,7 +24,7 @@
 		                [$postType, rp_get($craft, 'slug')]); ?>
 		</header>
 <?php endif;?>	
-		<div class="l-sideBySide__main">
+		<div class="l-sideBySide__main a-timing-main u-anim-inView">
 			<?php rp_render('postList', 
 			                ['postType' => $postType,
 			                 'classes' => 'u-mb-1', 
