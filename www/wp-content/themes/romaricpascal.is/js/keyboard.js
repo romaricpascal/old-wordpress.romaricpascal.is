@@ -40,7 +40,7 @@ document.body.addEventListener('keydown', function (event) {
 	// Needs a bit of escaping in case '\' is pressed
 	var selectors = '[accesskey="'+escape(key)+'"], [data-key="'+escape(key)+'"]'
 	var element = document.querySelector(selectors);
-	if (element) {
+	if (element && !(event.metaKey || event.altKey || event.shiftKey || event.ctrlKey)) {
 		event.preventDefault();
 		click(element);
 	}
