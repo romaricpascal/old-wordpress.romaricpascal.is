@@ -5,9 +5,10 @@ var activeActiveLinks = document.getElementsByClassName(ACTIVE_CLASSNAME);
 
 function markInactiveLinks(activeActiveLink) {
 	if (activeActiveLinks.length) {
-		for (var ActiveLink of activeActiveLinks) {
-			if (ActiveLink !== activeActiveLink) {
-				ActiveLink.classList.remove(ACTIVE_CLASSNAME);
+		for (var i = 0; i < activeActiveLinks.length; i++) {
+			var activeLink = activeActiveLinks[i];
+			if (activeLink !== activeActiveLink) {
+				activeLink.classList.remove(ACTIVE_CLASSNAME);
 			}
 		}
 	}
