@@ -1,12 +1,13 @@
 
-const ACTIVE_CLASSNAME = '.rp-HomeMenuItem-active';
-var activeActiveLinks = Array.prototype.slice.call(document.querySelectorAll(ACTIVE_CLASSNAME));
+const ACTIVE_CLASSNAME = 'rp-HomeMenuItem-active';
+// Get a live collection of the active elements
+var activeActiveLinks = document.getElementsByClassName(ACTIVE_CLASSNAME);
 
 function markInactiveLinks(activeActiveLink) {
 	if (activeActiveLinks.length) {
-		for (var activeLink of activeActiveLinks) {
-			if (activeLink !== activeActiveLink) {
-				activeLink.classList.remove(ACTIVE_CLASSNAME);
+		for (var ActiveLink of activeActiveLinks) {
+			if (ActiveLink !== activeActiveLink) {
+				ActiveLink.classList.remove(ACTIVE_CLASSNAME);
 			}
 		}
 	}
