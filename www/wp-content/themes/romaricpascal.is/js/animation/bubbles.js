@@ -1,11 +1,9 @@
-import scroll from './progress/scroll';
 import time from './progress/time';
-import min from './progress/combine/min';
+import min from './combine/min';
 import parallel from './compose/parallel';
 import shift from './timing/shift';
 import zoomIn from './css/zoomIn';
-import linear from './scale/linear';
-import clamp from './scale/clamp';
+import distanceFromBottom from './distanceFromBottom';
 
 function applyStyle(el, style) {
     for (var property in style) {
@@ -63,20 +61,10 @@ function getAnimation(target) {
     var mapper = mapElementsByIndex(parts);
     return parallel(ANIMATIONS[animationName].map(mapper));
 }
-const viewportHeight = document.documentElement.clientHeight;
-const bottomOfViewport = document.documentElement.clientHeight;
-const scale = linear(0.20, 0.5);
+
 const DURATION = 1500;
 function getSource(target) {
-    const scrollSource = scroll(function () {
-        // OPTIMIZE: 
-        // Probs some caching doable to speed things up as layout doesn't change unless resized
-        // Also probably some avoidable calculations for element super far out to keep things light
-        // Eg. Use Intersection obeserver to check the element is about to get into viewport
-        var topOfElement = target.getBoundingClientRect().top;
-        var distanceFromBottom = bottomOfViewport - topOfElement;
-        return clamp(scale(distanceFromBottom / viewportHeight));
-    });
+    const scrollSource = distanceFromBottom(target, 0.2, 0.5);
 
     if (window.location.hash) {
         if (target.matches(`${window.location.hash} ${SELECTOR}`)) {
@@ -92,13 +80,14 @@ var targets = Array.prototype.slice.call(document.querySelectorAll(SELECTOR));
 if (document.body.classList.contains('home')) {
     targets.map(getAnimation)
       .map((animation, index) => {
-        getSource(targets[index])(animation);
         animation(0);
+        getSource(targets[index])(animation);
+        
       });
 }
 
 if (document.body.classList.contains('archive') || document.body.classList.contains('blog')) {
     var animation = getAnimation(document.querySelector(SELECTOR));
-    time(DURATION, 0, false)(animation);
     animation(0);
+    time(DURATION, 0, false)(animation); 
 }

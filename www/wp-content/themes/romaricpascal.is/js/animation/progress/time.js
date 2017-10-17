@@ -4,7 +4,7 @@ function now() {
 	return window.performance.now();
 }
 
-const COMPLETE = Symbol();
+const COMPLETE = {};
 
 export default function run(duration, d, sendComplete = true) {
 	return function (animation, delay = d) {
