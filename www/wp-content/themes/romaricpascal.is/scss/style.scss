@@ -559,7 +559,8 @@ $prevNextLinkSize: $circleButtonSize;
 }
 
 .rp-PostListItem {
-  transition: transform 0.3s;
+  // transition: transform 0.3s;
+  will-change: true;
 }
 
 .rp-PostListItem:hover{

@@ -83,6 +83,7 @@ export default class ScrollIntersectionObserver {
 		}).map(function (entry) {
 			return Object.assign({
 				intersectionRatio: computeIntersectionRatio(entry.intersectionRect, entry.boundingClientRect),
+				viewportIntersectionRatio: computeIntersectionRatio(entry.intersectionRect, viewport),
 				isIntersecting: entry.intersectionRect.width >=0 && entry.intersectionRect.height >= 0
 			}, entry);
 		});

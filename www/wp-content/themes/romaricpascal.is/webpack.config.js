@@ -23,7 +23,7 @@ var config = {
         loader: "eslint-loader"
       }, {
         test : /\.jsx?/,
-        include : APP_DIR,
+        // include : APP_DIR,
         loader : 'babel-loader'
       }
     ]

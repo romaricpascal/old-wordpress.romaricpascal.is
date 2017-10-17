@@ -19,15 +19,15 @@ $a-delay-l: 0.6s;
 $a-delay-xl: 0.8s;
 $a-delay-xxl: 1s;
 
-.with-js {
-	.u-anim-inView {
-		animation-play-state: paused;
-	}
+// .with-js {
+// 	.u-anim-inView {
+// 		animation-play-state: paused;
+// 	}
 
-	.is-inView .u-anim-inView {
-		animation-play-state: running;
-	}
-}
+// 	.is-inView .u-anim-inView {
+// 		animation-play-state: running;
+// 	}
+// }
 
 .a-entrance {
 	animation-fill-mode: backwards;
@@ -55,26 +55,7 @@ $a-delay-xxl: 1s;
 }
 
 .rp-PostListItem {
-	animation-name: fadeIn;
 	animation-duration: $a-duration;
-	animation-fill-mode: backwards;
-}
-
-@keyframes postExit {
-	from {
-    	transform: none;
-	}
-
-	50% {
-		transform: translate3d(100%, 0, 0);
-	}
-	51% {
-		transform: translate3d(-100%, 0, 0);
-	}
-
-	to {
-		transform: none;
-	}
 }
 
 .is-exiting .rp-PostListItem  {

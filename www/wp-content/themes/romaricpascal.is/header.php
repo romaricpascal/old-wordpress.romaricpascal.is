@@ -5,6 +5,26 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .u-troisCoups body>* {
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        (function (window) {
+            if (document.documentElement.classList) {
+                window.troisCoups = {
+                    reveal: function () {
+                        document.documentElement.classList.remove('u-troisCoups');
+                    }
+                };
+
+
+                document.documentElement.classList.add('u-troisCoups');
+                setTimeout(window.troisCoups.reveal, 1500);
+            }
+        })(window);
+    </script>
 
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> | <?php bloginfo('description');?>" href="<?php bloginfo('url');?>/feed">

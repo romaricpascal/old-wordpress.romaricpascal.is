@@ -49,6 +49,7 @@
     "webpack": "^3.5.5"
   },
   "dependencies": {
+    "@tweenjs/tween.js": "^17.1.1",
     "animate.css": "^3.5.2",
     "inuitcss": "^6.0.0-beta.4",
     "lodash.throttle": "^4.1.1",
@@ -56,6 +57,7 @@
     "sass-mq": "^3.3.2",
     "simple-icons": "git://github.com/simple-icons/simple-icons.git#f191ca1",
     "smoothscroll-polyfill": "^0.3.6",
-    "spinkit": "^1.2.5"
+    "spinkit": "^1.2.5",
+    "tinymation": "^0.0.1"
   }
 }
